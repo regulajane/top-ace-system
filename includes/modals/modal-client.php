@@ -48,7 +48,7 @@
                             </div>
                             <div class="controls col-md-6">
                                 <label>Cellphone No.:</label>
-                                <input type="number" class="form-control" placeholder="09123456789"
+                                <input type="number" class="form-control" placeholder=""
                                     id="clientcp" name="clientcp" required/>
                             </div>
                         </div>

@@ -21,26 +21,48 @@
                                 id="joForm">
                                 <h4 class="modal-title" id="emptyformlabel">Pre-Inspection</h4>
                                 <hr>
-                                <div class="form-group">
-                                    <label class="control-label col-xs-3">Date:</label>
-                                    <div class="col-xs-3">
-                                        <input type="date" class="form-control" id="dateOfPrerepairRequest" 
-                                            name="dateOfPrerepairRequest" required>
-                                    </div>
-                                </div>
                                 <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Vehicle:</label>
-                                    <div class="controls col-xs-5">
-                                        <select class="form-control" id="description" name="description" required>
-                                            <option value="" disabled selected>Select vehicle</option>
+                                    <label class="control-label col-xs-3">Client Name:</label>
+                                    <div class="controls col-xs-4">
+                                        <select class="form-control" id="clientid" name="clientid" required>
+                                            <option value="" disabled selected>Select client</option>
                                             <?php
-                                                $sql = "SELECT * from vehicle"; 
+                                                $sql = "SELECT * from client"; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
                                                     while($resultRow = $result->fetch_assoc()){
-                                                        $option = '<option value="' . $resultRow['vehicleNo'] . '">' . 
-                                                            $resultRow['brand'] . " " . $resultRow['name'] . '</option>';
+                                                        $option = '<option value="' . $resultRow['clientid'] . '">' . 
+                                                            $resultRow['lastname'] . ", " . $resultRow['firstname'] . '</option>';
+                                                        echo ($option);
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Date Brought:</label>
+                                    <div class="col-xs-4">
+                                        <input type="date" class="form-control" id="dateBrought" 
+                                            name="dateBrought" required>
+                                    </div>
+                                </div>
+
+                                <div class="control-group form-group">
+                                    <label class="control-label col-xs-3">Engine Model:</label>
+                                    <div class="controls col-xs-4">
+                                        <select class="form-control" id="modelid" name="modelid">
+                                            <option value="" disabled selected>Select model</option>
+                                            <?php
+                                                $sql = "SELECT * from model"; 
+                                                $result = $conn->query($sql);
+                                                if ($result->num_rows > 0) {
+                                                    // output data of each row
+                                                    while($resultRow = $result->fetch_assoc()){
+                                                        $option = '<option value="' . $resultRow['modelid'] . '">' . 
+                                                            $resultRow['modelDesc'] . " " . '</option>';
                                                         echo ($option);
                                                     }
                                                 }
@@ -48,37 +70,119 @@
                                         </select>                     
                                     </div>
                                 </div>
+
                                 <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Defects/Complain:</label>
+                                    <label class="control-label col-xs-3">Engine number:</label>
+                                    <div class="controls col-xs-4">
+                                        <input type="number" class="form-control" id="engnumber" name="engnumber" 
+                                            placeholder="" required autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="control-group form-group">
+                                    <label class="control-label col-xs-3">Problems:</label>
                                     <div class="controls col-xs-8">
-                                        <textarea rows="3" cols="100" class="form-control" id="defects" name="defects"
-                                            maxlength="999" style="resize:none" placeholder="Defects of the vehicle" 
+                                        <textarea rows="3" cols="100" class="form-control" id="problem" name="problem"
+                                            maxlength="999" style="resize:none" placeholder="" 
                                                 required></textarea>
                                     </div>
                                 </div>
+
+                                
+                                
+                                <hr>
                                 <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Nature and Scope of Works to be Done:</label>
-                                    <div class="controls col-xs-8">
-                                        <textarea rows="3" cols="100" class="form-control" id="natureOfWorksToBeDone" 
-                                            name="natureOfWorksToBeDone"  maxlength="999" style="resize:none" 
-                                            placeholder="Nature and scope of works to be done" required></textarea>
+                                    <h4 class="modal-title" id="emptyformlabel">Services</h4>
+                                    <hr>
+                                    <div class="multi-field-wrapper">
+                                        <div class="multi-fields">
+                                            <div class="multi-field">
+                                                 <div class="col-md-5 pull-left">
+                                                    <div class="control-group form-group pull-left col-md-12">
+                                                        <select class="form-control" id="serviceid" 
+                                                            name="serviceid[]" required>
+                                                            <option value="" disabled selected>
+                                                                Select service</option>
+                                                            <?php
+                                                                $sql = "SELECT * from services"; 
+                                                                $result = $conn->query($sql);
+                                                                if ($result->num_rows > 0) {
+                                                                    // output data of each row
+                                                                    while($resultRow = $result->fetch_assoc()){
+                                                                        $t = '<option value="' . 
+                                                                                $resultRow['serviceid'] . '">' . 
+                                                                                $resultRow['servicename'] .' - ' .
+                                                                                $resultRow['price'] . 
+                                                                            '</option>';
+
+                                                                        echo ($t);
+                                                                    }
+                                                                }
+                                                            ?>
+                                                        </select>                 
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <button type="button" class="pull-left add-field btn btn-default" 
+                                                    id="addfield"><i class="fa fa-plus"></i></button>
+                                                <button type="button" class="pull-left remove-field btn btn-default" 
+                                                    id="removefield"><i class="fa fa-minus"></i></button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
+                            
+                                <hr>
+                                
+                               
                                 <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Parts to be Procured:</label>
-                                    <div class="controls col-xs-8">
-                                        <textarea rows="3" cols="100" class="form-control" id="partsToBeProcured" 
-                                            name="partsToBeProcured"  maxlength="999" style="resize:none" 
-                                            placeholder="Parts to be procured for the repair" required></textarea>
+                                    <h4 class="modal-title" id="emptyformlabel">Machinist/s</h4>
+                                    <hr>
+                                    <div class="multi-field-wrapper">
+                                        <div class="multi-fields">
+                                            <div class="multi-field">
+                                                 <div class="col-md-5 pull-left">
+                                                    <div class="control-group form-group pull-left col-md-12">
+                                                        <select class="form-control" id="employeeid" 
+                                                            name="employeeid[]" required>
+                                                            <option value="" disabled selected>
+                                                                Select Machinist</option>
+                                                            <?php
+                                                                $sql = "SELECT * from employee where type = 'Machinist' "; 
+                                                                $result = $conn->query($sql);
+                                                                if ($result->num_rows > 0) {
+                                                                    // output data of each row
+                                                                    while($resultRow = $result->fetch_assoc()){
+                                                                        $option = '<option value="' . $resultRow['employeeid'] . '">' . 
+                                                                            $resultRow['lastname'] . ", " . $resultRow['firstname'] . '</option>';
+                                                                        echo ($option);
+                                                                    }
+                                                                }
+                                                            ?>
+                                                        </select>                 
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <button type="button" class="pull-left add-field btn btn-default" 
+                                                    id="addfield"><i class="fa fa-plus"></i></button>
+                                                <button type="button" class="pull-left remove-field btn btn-default" 
+                                                    id="removefield"><i class="fa fa-minus"></i></button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Requested By:</label>
+                                    <label class="control-label col-xs-3">Downpayment:</label>
                                     <div class="controls col-xs-4">
-                                        <input type="text" class="form-control" id="requestedBy" name="requestedBy" 
-                                            placeholder="Name of requestor" required>
+                                        <input type="text" class="form-control" id="downpayment" name="downpayment" 
+                                            placeholder="0.00" required autocomplete="off">
                                     </div>
-                                </div>                               
+                                </div>
+
                             </form>
                         </div>
                     </div>

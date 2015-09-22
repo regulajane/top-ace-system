@@ -1,5 +1,5 @@
 <?php
-	$servername = "localhost";
+	$servername = 'localhost';
 	$username = "root";
 	$password = "";
 	$dbname = "top_ace_db";

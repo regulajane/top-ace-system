@@ -72,24 +72,294 @@ footer {
 }
 
 
-#joPreFormModal .modal-content {
-    width: 1000px;
-    position: relative;
-    overflow-y: auto;
-    margin-left: -200px;
-}
-
-
-#joPreFormModal .modal-content {
-        width: 800px;
+#joModal .modal-content, 
+    #editJoModal .modal-content {
+        width: 1000px;
         position: relative;
         overflow-y: auto;
-        margin-left: -100px;
+        margin-left: -200px;
 }
 
+#updateJoModal .modal-content, 
+    #editVehicleInfoModal .modal-content, 
+    #addVehicleModal .modal-content {
+        width: 1200px;
+        position: relative;
+        overflow-y: auto;
+        margin-left: -300px;
+}
 
 label {
     float:left;
     margin-right:5px;
 }
+
+
+
+/*modal format*/
+#joPreFormModal .modal-content, 
+    #joPostFormModal .modal-content, 
+    #joPreFormEmptyModal .modal-content, 
+    #joPostFormEmptyModal .modal-content {
+        width: 800px;
+        position: relative;
+        overflow-y: auto;
+        margin-left: -100px;
+}
 /**/
+
+/*borderless table for forms*/
+.table-borderless {
+    table-layout:fixed;
+}
+
+.table-borderless td {
+ overflow: hidden; 
+}
+
+.table-borderless > tbody > tr > td {
+    border: none;
+}
+/**/
+
+/*font for forms*/
+/*#joPreFormPrint, #joPostFormPrint*/ 
+#preForm, #postForm {
+    font-family: 'Arial';
+    font-weight: bolder;
+    font-size: 13px;
+}
+
+@media print {
+    #preForm, #postForm {
+        font-family: 'Arial';
+        font-weight: bolder;
+        font-size: 12px;
+    }
+}
+
+#notBold {
+    font-weight: normal;
+}
+/**/
+
+/*padding of table for forms*/
+#descriptionForm, 
+    #locationForm, 
+    #articleNomenclatureForm, 
+    #endItemForm, 
+    #plateNoForm , 
+    #brandForm, 
+    #engineNoForm, 
+    #chassisNoForm, 
+    #natureOfLastRepairForm, 
+    #acquisitionCostForm, 
+    #dateOfLastRepairForm, 
+    #joNoForm, 
+    #amountForm, 
+    #accountOfForm, 
+    #deliveredAtForm, 
+    #dateDeliveredForm, 
+    #contractorForm, 
+    #invoiceReceiptNoForm, 
+    #contractNoForm, 
+    #contractor, 
+    #invoiceReceiptNoForm {
+        padding-top: 2px;
+        padding-bottom: 2px;
+}
+
+#descriptionPostForm, 
+    #locationPostForm, 
+    #articleNomenclaturePostForm, 
+    #endItemPostForm, 
+    #plateNoPostForm , 
+    #brandPostForm, 
+    #engineNoPostForm, 
+    #chassisNoPostForm, 
+    #natureOfLastRepairPostForm,
+    #acquisitionCostPostForm, 
+    #dateOfLastRepairPostForm, 
+    #joNoPostForm, 
+    #amountPostForm, 
+    #accountOfPostForm, 
+    #deliveredAtPostForm, 
+    #dateDeliveredPostForm, 
+    #contractorPostForm, 
+    #invoiceReceiptNoPostForm, 
+    #contractNoPostForm, 
+    #contractor, 
+    #invoiceReceiptNoPostForm {
+        padding-top: 2px;
+        padding-bottom: 2px;
+}
+
+#preForm > table:nth-child(8) > tbody > tr > td, 
+    #postForm > table:nth-child(4) > tbody > tr > td {
+        padding-left: 40px;
+}
+
+#preForm > table:nth-child(4) {
+    margin-bottom: 5px;
+}
+
+#requestedByPostForm, 
+    #postForm > table:nth-child(4) > 
+        tbody > tr > td:nth-child(2) > p:nth-child(3), 
+    #postForm > table:nth-child(4) > 
+        tbody > tr > td:nth-child(1) > p:nth-child(3), 
+    #postForm > table:nth-child(4) > 
+        tbody > tr > td:nth-child(1) > p:nth-child(5), 
+    #postForm > table:nth-child(4) > 
+        tbody > tr > td:nth-child(2) > p:nth-child(4), 
+    #requestedByForm, 
+    #preForm > table:nth-child(8) > 
+        tbody > tr > td:nth-child(1) > p:nth-child(3), 
+    #preForm > table:nth-child(8) > 
+        tbody > tr > td:nth-child(2) > p:nth-child(3), 
+    #preForm > table:nth-child(8), 
+    #preForm > table:nth-child(12), 
+    #preForm > table:nth-child(2), 
+    #postForm > table:nth-child(1), 
+    #postForm > table:nth-child(3), 
+    #postForm > table:nth-child(4), 
+    #postForm > table:nth-child(13), 
+    #defectsLabel, 
+    #defectsForm, 
+    #natureOfWorksToBeDoneLabel, 
+    #natureOfWorksToBeDoneForm, 
+    #partsToBeProcuredLabel, 
+    #preForm > table:nth-child(12) > 
+        tbody > tr > td:nth-child(1) > p:nth-child(3), 
+    #preForm > table:nth-child(12) > 
+        tbody > tr > td:nth-child(1) > p:nth-child(5), 
+    #preForm > table:nth-child(12) > 
+        tbody > tr > td:nth-child(2) > p:nth-child(3), 
+    #preForm > table:nth-child(12) > 
+        tbody > tr > td:nth-child(2) > p:nth-child(4), 
+    #preForm > table:nth-child(12) > 
+        tbody > tr > td:nth-child(3) > p:nth-child(3), 
+    #preForm > table:nth-child(12) > 
+        tbody > tr > td:nth-child(3) > p:nth-child(4), 
+    #preForm > table:nth-child(12) > 
+        tbody > tr > td:nth-child(1) > p:nth-child(4), 
+    #postForm > table:nth-child(13) > 
+        tbody > tr > td:nth-child(1) > p:nth-child(3), 
+    #postForm > table:nth-child(13) > 
+        tbody > tr > td:nth-child(1) > p:nth-child(4), 
+    #postForm > table:nth-child(13) > 
+        tbody > tr > td:nth-child(2) > p:nth-child(3), 
+    #postForm > table:nth-child(13) > 
+        tbody > tr > td:nth-child(2) > p:nth-child(4), 
+    #postForm > table:nth-child(13) > 
+        tbody > tr > td:nth-child(3) > p:nth-child(3), 
+    #postForm > table:nth-child(13) > 
+        tbody > tr > td:nth-child(3) > p:nth-child(4) {
+        margin-bottom: 2px;
+}
+/**/
+
+/*padding of div for forms*/
+#defectsLabel, 
+    #natureOfWorksToBeDoneLabel, 
+    #partsToBeProcuredLabel, 
+    #sectionBLabel, 
+    #findingsLabel {
+        padding-left: 10px;
+}
+
+#sectionB2Label, 
+    #toLabel, 
+    #sectionCLabel {
+        padding-left: 7px;
+}
+
+#preForm > div:nth-child(10), 
+    #preForm > div:nth-child(11) {
+        padding-left: 0;
+}
+
+#defectsForm, 
+    #natureOfWorksToBeDoneForm, 
+    #partsToBeProcuredForm {
+        padding-left: 30px;
+}
+
+#postForm > div.row.text-right > div {
+    padding-right: 25px;
+}
+/**/
+
+/*border of forms*/
+#preForm, #postForm {
+    border-top: 2px solid #bdbdbd; 
+    border-right: 2px solid #bdbdbd;
+    border-left: 2px solid #bdbdbd;
+    border-bottom: 2px solid #bdbdbd;
+
+}
+
+#preForm > div:nth-child(3) > div > p, 
+    #preForm > table:nth-child(8), 
+    #preForm > div:nth-child(9) > div > p, 
+    #preForm > table:nth-child(12), 
+    #postForm > div:nth-child(2) > div > p, 
+    #postForm > table:nth-child(4), 
+    #sectionB2Label, 
+    #postForm > table:nth-child(13), 
+    #sectionCLabel {
+        border-top: 1px solid #bdbdbd;
+}
+/**/
+
+/*hide search bar on vehicle records table*/
+/*#vehicleRecordTable-header > div > div {
+    display: none;
+}*/
+/**/
+
+
+/*padding of vehicle records div*/
+#vehicleEditForm > div:nth-child(1) > div:nth-child(2) {
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+/**/
+
+/*vehicle record text alignment*/
+    div h4 {
+        text-align: center;
+    }
+/**/
+
+
+/*add vehicle button and vehicle record label*/
+#vehiclerecordlabel {
+    text-align: center;
+}
+
+#addvehiclebtn {
+    float: left;
+}
+/**/
+
+#helpjo1modal > div > div > div.modal-body > div > div > div > h4, 
+    #helpjo11modal > div > div > div.modal-body > div > div > div > h4,
+    #helpjo2modal > div > div > div.modal-body > div > div > div > h4,
+    #helpjo3modal > div > div > div.modal-body > div > div > div > h4,
+    #helpjo4modal > div > div > div.modal-body > div > div > div > h4,
+    #helpvr1modal > div > div > div.modal-body > div > div > div > h4,
+    #helpvr2modal > div > div > div.modal-body > div > div > div > h4,
+    #helpvr3modal > div > div > div.modal-body > div > div > div > h4,
+    #helps1modal > div > div > div.modal-body > div > div > div > h4,
+    #helps2modal > div > div > div.modal-body > div > div > div > h4,
+    #helps3modal > div > div > div.modal-body > div > div > div > h4,
+    #helps4modal > div > div > div.modal-body > div > div > div > h4,
+    #helps5modal > div > div > div.modal-body > div > div > div > h4 {
+        text-align: left;
+}
+
+.large-nav{
+    font-size: 20px;
+    font-weight:bold;
+}

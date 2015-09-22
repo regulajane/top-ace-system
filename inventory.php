@@ -21,7 +21,6 @@
                 </p>
             </div>  
         <hr>
-                        
         <?php include 'includes/footer.php'; ?>
     </div>
     <!-- Job Order Modals -->

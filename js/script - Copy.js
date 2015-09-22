@@ -1,10 +1,14 @@
-window.onload = function () {
+window.onload = function () { 
+    jobOrder();
+    tables();
     realTime();
     displayDateTime();
     homeNav();
-    tables();
 }
 
+
+
+// Time
 function realTime(){
     var refresh=1000;
     mytime=setTimeout('displayDateTime()',refresh);
@@ -59,6 +63,87 @@ function homeNav(){
     });
 }
 
+function clearForm() {
+    document.getElementById('joForm').reset();
+    document.getElementById('joEditForm').reset();
+}
+
+function printForm(divName) { 
+    location.reload();
+    var originalContents = document.body.innerHTML;
+    var printContents = document.getElementById(divName).innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+}
+
+
+
+
+
+
+
+
+
+
+//Manuel
+function jobOrder(){
+    // job order table
+    $("#jobOrderTable").bootgrid({
+        ajax: true,
+        url: "data-servers/job-order-server.php",
+        selection: true,
+        rowSelect: true
+    });
+
+    // edit
+    $("#editbtn").on("click", function() {
+        var selectedIDArray = $("#jobOrderTable").bootgrid("getSelectedRows");
+        var selectedID = parseInt(selectedIDArray) + 0;
+        // if(! selectedID){
+        //     alert("Please select an item.");
+        //     location.reload();
+        // } else
+        $.ajax({
+            type: "POST",
+            url: "includes/data-processors/processJOajax.php",
+            data: {selectedID: selectedID},
+            success: function(data) {
+                joData = JSON.parse(data);
+                // set JO variables
+                var joJobOrderID = joData.joborderid;
+                var joClientLastname = joData.lastname
+                var joClientFirstname = joData.firstname
+                var joDateBrought = joData.datebrought;
+                var joProblem = joData.problem;
+                var joSymptoms = joData.symptoms;
+                var joDownpayment = joData.downpayment;
+                var joRequestedBy = joData.requestedBy;
+  
+                // $modelid = $_POST['modelid'];
+                // $employeeid = $_POST['employeeid'];
+                // $serviceid = $_POST['serviceid'];
+
+                // Update Form
+                $(".joEdit #receiptNo").val(joJobOrderID);
+                $(".joEdit #problem").val(joProblem);
+                $(".joEdit #dateBrought").val(joDateBrought);
+                $(".joEdit #client").val(joClientLastname + ", " + joClientFirstname);
+                $(".joEdit #symptoms").val(joSymptoms);
+                // $(".joEdit #defects").val(joDefects);
+                // $(".joEdit #natureOfWorksToBeDone").val(joNOWTBD);
+                // $(".joEdit #partsToBeProcured").val(joPTBP);
+                // $(".joEdit #requestedBy").val(joRequestedBy);
+                // $(".joEdit #vehicleNo").val(joVehicleNo);
+
+                
+                $('#editJoModal').modal('show');
+                
+            }
+        });           
+    });
+
+//Trisha
 function tables(){
     //ingoing supplies
     $("#inSuppliesTable").bootgrid({
@@ -132,97 +217,4 @@ function tables(){
     });
 }
 
-function clearForm() {
-    document.getElementById('joForm').reset();
-    document.getElementById('joEditForm').reset();
 }
-
-function printForm(divName) { 
-    location.reload();
-    var originalContents = document.body.innerHTML;
-    var printContents = document.getElementById(divName).innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
-}
-
-function checkRemarks(val){
- var element=document.getElementById('others');
- // var element2=document.getElementById('otherslabel');
- if(val=='Select remark'||val=='Others') {
-   element.style.display='block';
-   // element2.style.display='block';
- } else {  
-   element.style.display='none';
-   // element2.style.display='none';
-   }
-}
-
-
-
-
-
-// window.onload = function () {
-//     realTime();
-//     displayDateTime();
-
-// }
-
-
-
-
-
-
-// function realTime(){
-//     var refresh=1000;
-//     mytime=setTimeout('displayDateTime()',refresh);
-// }
-
-// function displayDateTime() {
-//     var x =document.getElementById('currentDateTime');
-    
-//     if(! x){} else {
-//         var x = new Date();
-//         var time = x.getHours()+ ":" + x.getMinutes() + ":" + x.getSeconds();
-
-//         var monthArr = new Array(12);
-//         monthArr[0] = "Jan";
-//         monthArr[1] = "Feb";
-//         monthArr[2] = "Mar";
-//         monthArr[3] = "Apr";
-//         monthArr[4] = "May";
-//         monthArr[5] = "Jun";
-//         monthArr[6] = "Jul";
-//         monthArr[7] = "Aug";
-//         monthArr[8] = "Sep";
-//         monthArr[9] = "Oct";
-//         monthArr[10] = "Nov";
-//         monthArr[11] = "Dec";
-
-//         var month = monthArr[x.getMonth()];
-//         var mo = x.getMonth();
-//         var date = x.getDate();
-//         var year = x.getFullYear();
-//             year = year.toString().substr(2,2);
-//         var date = date + ' - ' + month + ' - ' + year;
-//         var sqlDate = mo + '/' + date + '/' + year;
-
-//         var dateTime = time + '<br><h4>' + date + '</h4>';
-
-//         document.getElementById('currentDateTime').innerHTML = dateTime;
-//         $(".joEmpty #dateOfPrerepairRequest").val(sqlDate); 
-//     }
-
-//     xx = realTime();
-// }
-
-// function homeNav(){
-//     var activeEl = 2;
-//     var items = $('.btn-nav');
-//     $( items[activeEl] ).addClass('active');
-//     $( ".btn-nav" ).click(function() {
-//         $( items[activeEl] ).removeClass('active');
-//         $( this ).addClass('active');
-//         activeEl = $( ".btn-nav" ).index( this );
-//     });
-// }

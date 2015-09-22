@@ -5,7 +5,7 @@
 ?>
 <!-- EDIT JO Form Modal -->
 <div class="modal fade" id="editJoModal" tabindex="-1" role="dialog" 
-    aria-labelledby="myModalLabel" aria-hidden="true">
+    aria-labelledby="myModalLabel" aria-hidden="true" onload="showServiceBreakdown()">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -18,56 +18,56 @@
                     <div class="row">
                         <div class="col-md-12 bs-example">
                             <form class="form-horizontal">
-                                <h4 class="modal-title" id="emptyformlabel">Pre-Inspection</h4>
+                                <h4 class="modal-title" id="emptyformlabel">Service/s Breakdown</h4>
                                 <hr>
+                                <!-- Receipt number -->
                                 <div class="form-group">
-                                    <label class="control-label col-xs-3">Date:</label>
+                                    <label class="control-label col-xs-3">Receipt number:</label>
                                     <div class="col-xs-3">
-                                        <input type="date" class="form-control" id="dateOfPrerepairRequest" 
-                                            name="dateOfPrerepairRequest" readonly>
+                                        <input type="text" class="form-control" id="receiptNo" 
+                                            name="receiptNo" readonly>
                                     </div>
                                 </div>
-                                <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Vehicle:</label>
-                                    <div class="controls col-xs-5">
-                                        <input type="text" class="form-control" id="vehicle" name="vehicle" readonly>                  
+
+                                <!-- Client name -->
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Client name:</label>
+                                    <div class="col-xs-3">
+                                        <input type="text" class="form-control" id="client" 
+                                            name="client" readonly>
                                     </div>
                                 </div>
+
+                                <!-- Date brought -->
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Date Brought:</label>
+                                    <div class="col-xs-3">
+                                        <input type="date" class="form-control" id="dateBrought" 
+                                            name="dateBrought" readonly>
+                                    </div>
+                                </div>
+
+                                <!-- Problem -->
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Problem:</label>
+                                    <div class="col-xs-3">
+                                        <input type="text" class="form-control" id="problem" 
+                                            name="problem" readonly>
+                                    </div>
+                                </div>
+
+                                <!-- Symptoms -->
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Symptoms:</label>
+                                    <div class="col-xs-3">
+                                        <input type="text" class="form-control" id="symptoms" 
+                                            name="symptoms" readonly>
+                                    </div>
+                                </div>
+
+
                             </form>
-                            <form class="form-horizontal" method="post" action="includes/data-processors/editjoborder.php" 
-                                id="joEditForm2">
-                                <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Defects/Complain:</label>
-                                    <div class="controls col-xs-8">
-                                        <textarea rows="3" cols="100" class="form-control" id="defects" name="defects"  
-                                            maxlength="999" style="resize:none" placeholder="Defects of the vehicle" 
-                                            required></textarea>  
-                                    </div>
-                                </div>
-                                <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Nature and Scope of Works to be Done:</label>
-                                    <div class="controls col-xs-8">
-                                        <textarea rows="3" cols="100" class="form-control" id="natureOfWorksToBeDone" 
-                                            name="natureOfWorksToBeDone"  maxlength="999" style="resize:none" 
-                                            placeholder="Nature and scope of works to be done" required></textarea>
-                                    </div>
-                                </div>
-                                <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Parts to be Procured:</label>
-                                    <div class="controls col-xs-8">
-                                        <textarea rows="3" cols="100" class="form-control" id="partsToBeProcured" 
-                                            name="partsToBeProcured"  maxlength="999" style="resize:none" 
-                                            placeholder="Parts to be procured for the repair" required></textarea>
-                                    </div>
-                                </div>
-                                <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Requested By:</label>
-                                    <div class="controls col-xs-4">
-                                        <input type="datetime" class="form-control" id="requestedBy" name="requestedBy" 
-                                            placeholder="Name of requestor" required> 
-                                    </div>
-                                </div>
-                            </form>
+                             
                         </div>
                     </div>
                 </div>

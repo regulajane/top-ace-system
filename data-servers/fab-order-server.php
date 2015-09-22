@@ -12,7 +12,7 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $where =" 1=1 ";
-    $order_by="joborderid";
+    $order_by="fabricationid";
     $rows=25;
     $current=1;
     $limit_l=($current * $rows) - ($rows);
@@ -28,12 +28,12 @@
       }
 
     //Search 
-    if (isset($_REQUEST['searchPhrase']) )
-      {
-        $search=trim($_REQUEST['searchPhrase']);
-        $where.= " AND ( joborderid LIKE '%".$search."%' OR lastname LIKE '%".$search."%' OR firstname LIKE '%".$search."%' 
-          OR datebrought LIKE '%".$search."%' OR status LIKE '%".$search."%') "; 
-      }
+   if (isset($_REQUEST['searchPhrase']) )
+   {
+      $search=trim($_REQUEST['searchPhrase']);
+      $where.= " AND ( fabricationid LIKE '%".$search."%' OR itemname LIKE '%".$search."%' OR fabricationprice LIKE '%".$search."%' 
+            OR qty LIKE '%".$search."%' OR dateor LIKE '%".$search."%') ";
+    }
 
     //Row Count
     if (isset($_REQUEST['rowCount']) )  
@@ -52,30 +52,16 @@
     else   
       $limit=" LIMIT $limit_l,$limit_h ";
        
-    //Query (Warning: Prone to SQL injection.)
-    $sql="SELECT  joborder.joborderid,
-                  joborder.problem,
-                  joborder.symptoms,
-                  date_format(datebrought,' %b. %m, %Y') as datebrought,
-                  joborder.datestarted,
-                  joborder.datefinished,
-                  joborder.dateclaimed,
-                  joborder.price,
-                  joborder.downpayment,
-                  joborder.status,
-                  joborder.clientid,
-                  joborder.modelid, 
-                  concat(lastname,', ',firstname) as clientname  
-                  from joborder join client using (clientid) 
-                  where $where
-                  ORDER BY $order_by $limit";
+    //Query (Warning: Prone to SQL injection.)SELECT * from fabrications natural join client WHERE $where ORDER BY $order_by $limit
+    $sql="SELECT * from fabrications WHERE $where ORDER BY $order_by";
+
     $stmt=$conn->prepare($sql);
     $stmt->execute();
     $results_array=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
     $json=json_encode( $results_array );
 
-    $nRows=$conn->query("SELECT count(*) from joborder")->fetchColumn();
+    $nRows=$conn->query("SELECT count(*) from fabrications")->fetchColumn();
 
     header('Content-Type: application/json');
 

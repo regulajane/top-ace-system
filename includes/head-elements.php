@@ -5,11 +5,10 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <!-- Web Icon -->
-<link rel="icon" type="image/png" href="img/ta.ico">
+<link rel="icon" type="image/png" href="img/bus.ico">
 <!-- Font Awesome -->
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <!-- Bootstrap Core CSS -->
-<link href="css/bootstrap-theme.min.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- Bootgrid CSS -->
 <link href="css/jquery.bootgrid.min.css" rel="stylesheet">
