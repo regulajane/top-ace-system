@@ -9,7 +9,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                
                     <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">New Job Order</h4>
             </div>
@@ -91,6 +91,8 @@
                                 
                                 
                                 <hr>
+
+                                <div></div>
                                 <div class="control-group form-group">
                                     <h4 class="modal-title" id="emptyformlabel">Services</h4>
                                     <hr>
@@ -200,3 +202,17 @@
     </div>
 </div> 
 <!-- JO Empty Form Modal -->
+
+<script>
+    $('.multi-field-wrapper').each(function() {
+        var $wrapper = $('.multi-fields', this);
+        $(".add-field", $(this)).click(function(e) {
+            $('.multi-field:first-child', 
+                $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
+        });
+        $('.multi-field .remove-field', $wrapper).click(function() {
+            if ($('.multi-field', $wrapper).length > 1)
+                $(this).parent('.multi-field').remove();
+        });
+    });
+</script>
