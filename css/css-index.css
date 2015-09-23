@@ -69,10 +69,9 @@ a:hover {
     background-position:50% 50%\9 !important;
 }
 .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+    
     position: relative;
-    width: 100%;
-    height: 100%;
+
     display: block;
 }
 #menu {
@@ -157,11 +156,11 @@ a:hover {
 	height: 37px
 }
 .logo {
-	margin: 100px 0 40px 0;
+	margin: 90px 0 20px 0;
 }
 .logo img{
 	width: 470px; 
-	height: 100px
+	height: 250px
 }
 .landing h1{
 	font-size: 56px;
@@ -192,7 +191,7 @@ a:hover {
 	color: #fff;
 }
 .signup-header {
-	margin: 210px 0 100px;
+	margin: 125px 0 50px;
 	background: rgba(255,255,255,0.2);
 	border-radius: 4px;
 	padding-left: 20px;
@@ -596,6 +595,8 @@ a:hover {
 #footer {
 	background: #fff;
 	padding: 50px 0 50px;
+	
+	bottom: 0;
 }
 .social ul {
 	padding: 0;

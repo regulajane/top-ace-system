@@ -46,7 +46,7 @@
 <div id="top"></div>
 
 <!-- /.parallax full screen background image -->
-<div class="fullscreen landing parallax" style="background-image:url('images/bg.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
+<div class=" parallax">
 	
 	<div class="overlay">
 		<div class="container">
@@ -54,32 +54,22 @@
 				<div class="col-md-7">
 				
 					<!-- /.logo -->
-					<div class="logo wow fadeInDown"> <a href=""><img src="images/logo.png" alt="logo"></a></div>
+					<div class="logo wow fadeInDown"> <a href=""><img src="images/top-ace-logo.png" alt="logo"></a></div>
+						
 
 					<!-- /.main title -->
 						<h1 class="wow fadeInLeft">
 						Job Order System with Inventory management
 						</h1>
 
-					<!-- /.header paragraph -->
-					<div class="landing-text wow fadeInUp">
-						<p style="text-align:justify">The Top Ace Job Order System with Inventory Management will monitor job orders by capturing all information relevant to a job order such as client information, services availed, items used, machinist assigned, and estimate price. It will monitor items going in and out of the inventory. It will notify the manager and front desk personnel if items in the inventory reach the reorder level. And it will create reports for the manager as part of monitoring job orders.</p>
-					</div>				  
-
-					<!-- /.header button -->
-					<div class="head-btn wow fadeInLeft">
-						
-					</div>
-	
-		  
 
 				</div> 
 				
 				<!-- /.signup form -->
 				<div class="col-md-5">
 				
-					<div class="signup-header wow fadeInUp">
-						<h3 class="form-title text-center">Welcome!</h3>
+					<div class="signup-header wow fadeInUp" style="border:1px solid #dadada;">
+						<h3 class="form-title text-center" style="color: #3eb0f7;">Welcome!</h3>
 						<form class="form-header" action="includes/login.php" role="form" method="POST" id="#">
 						<input type="hidden" name="u" value="503bdae81fde8612ff4944435">
 						<input type="hidden" name="id" value="bfdba52708">
@@ -102,40 +92,17 @@
 	</div> 
 </div>
  
-<!-- NAVIGATION -->
-<div id="menu">
-	<nav class="navbar-wrapper navbar-default" role="navigation">
-		<div class="container">
-			  <div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-backyard">
-				  <span class="sr-only">Toggle navigation</span>
-				  <span class="icon-bar"></span>
-				  <span class="icon-bar"></span>
-				  <span class="icon-bar"></span>
-				</button>
-				<!-- <a class="navbar-brand site-name" href="#top"><img src="images/_____.png" alt="logo"></a> -->
-			  </div>
-	 
-			  <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
-				<ul class="nav navbar-nav">
-				<!-- 	<li><a href="#intro">About</a></li>
-					<li><a href="#feature">Features</a></li>
-					<li><a href="#download">Download</a></li>
-					<li><a href="#package">Pricing</a></li>
-					<li><a href="#testi">Reviews</a></li>
-					<li><a href="#contact">Contact</a></li> -->
-				</ul>
-			  </div>
-		</div>
-	</nav>
-</div>
+
 
 
   
 <!-- /.footer -->
 <footer id="footer">
+
 	<div class="container">
+	<hr>
 		<div class="col-sm-4 col-sm-offset-4">
+
 			<!-- /.social links -->
 				<div class="social text-center">
 					<ul>
@@ -145,7 +112,8 @@
 						<li><a class="wow fadeInUp" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-instagram"></i></a></li>
 					</ul>
 				</div>	
-			<div class="text-center wow fadeInUp" style="font-size: 14px;"> Copyright &copy Top Ace Motor Works 2015</div>
+
+			<div class="text-center wow fadeInUp" style="font-size: 14px;"> Copyright &copy Top Ace Motor Works Inc. 2015</div>
 			<a href="#" class="scrollToTop"><i class="pe-7s-up-arrow pe-va"></i></a>
 		</div>	
 	</div>	
