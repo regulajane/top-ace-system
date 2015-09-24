@@ -16,12 +16,13 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="home.php">Top Ace Job Order System</a>
+                        <a class="navbar-brand" href="home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Top Ace Job Order System</a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
+                       
                             <li>
-                                <a href="job-order.php">Forms</a>
+                                <a href="job-order.php">Job Orders</a>
                             </li>
                             <li>
                                 <a href="inventory.php">Inventory</a>
@@ -30,10 +31,7 @@
                                 <a href="employees.php">Employees</a>
                             </li>
                             <li>
-                                <a href="job.php">Services</a>
-                            </li>
-                            <li>
-                                <a href="clients.php">Clients</a>
+                                <a href="job.php">Job</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="user" >
@@ -50,10 +48,48 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li id="notification_li">
+
+                                <span id="notification_count">5</span>
+                                <a id="notificationLink"
+                                        class="glyphicon glyphicon-exclamation-sign" 
+                                    aria-hidden="true" style="font-size:25px;"></a>
+                                <div id="notificationContainer">
+                                <div id="notificationTitle">Notifications</div>
+                                <div id="notificationsBody" class="notifications"></div>
+                                <div id="notificationFooter"><a href="#">See All</a></div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
-            </nav>';
+                 <script>
+
+$(document).ready(function()
+{
+$("#notificationLink").click(function()
+{
+$("#notificationContainer").fadeToggle(300);
+$("#notification_count").fadeOut("slow");
+return false;
+});
+
+//Document Click hiding the popup 
+$(document).click(function()
+{
+$("#notificationContainer").hide();
+});
+
+//Popup on click
+$("#notificationContainer").click(function()
+{
+return false;
+});
+
+}); 
+                </script>
+            </nav>'
+           ;
         echo $level1nav;
     } else { 
         $level2nav = 
@@ -73,19 +109,16 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="job-order.php">Forms</a>
+                                <a href="job-order.php">Job Orders</a>
                             </li>
                             <li>
-                                <a href="inventory.php">Inventory</a>
+                                <a href="vehicle-records.php">Vehicle Records</a>
                             </li>
                             <li>
-                                <a href="employees.php">Employees</a>
+                                <a href="supplies.php">Supplies</a>
                             </li>
                             <li>
-                                <a href="services.php">Services</a>
-                            </li>
-                            <li>
-                                <a href="clients.php">Clients</a>
+                                <a href="help.php">Help</a>
                             </li>
                             <li>
                                 <a href="includes/logout.php">Logout</a>

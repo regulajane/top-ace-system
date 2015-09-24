@@ -2,7 +2,7 @@
 	include '../header.php';
     if(!isset($_SESSION["username"])){
     header('Location: ../../index.php?loggedout=true');}
-	if(isset($_POST["inoutsupply"])=="Add Supply") {
+	if(isset($_POST["deleteSupply"])=="Delete Supply") {
 		// Define Variables
 
 		$inventID = $_POST["inventID"];
@@ -10,19 +10,10 @@
 		$inventType = $_POST["inventType"];
 		$inventSize = $_POST["inventSize"];
 		$inventPrice = $_POST["inventPrice"];
-		$quantity = $_POST["inventQtyAdded"];
+		$quantity = $_POST["inventQty"];
 
-		//Ingoing
-		ini_set('date.timezone', 'Asia/Manila');
-		$isDate = date("Y-m-d"); 
-		$isTime = date("H:i:s");
-		$isQty = $quantity;
-		$enteredBy = $_SESSION["username"];
-
-		//-----------------------------UPDATE INVENTORY------------------------------------
-		$sql = 	"UPDATE inventory
-					SET quantity = quantity + '$quantity'
-					WHERE inventoryid = '$inventID'";
+		//-----------------------------DELETE INVENTORY------------------------------------
+		$sql = 	"DELETE FROM inventory WHERE inventoryid = '$inventID'";
 		$stmt = $conn->prepare($sql);
 		$stmt->execute(); 
 		//-----------------------------INSERT INTO INGOINGSUPPLIES------------------------------------
