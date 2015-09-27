@@ -31,8 +31,8 @@
    if (isset($_REQUEST['searchPhrase']) )
    {
       $search=trim($_REQUEST['searchPhrase']);
-      $where.= " AND ( fabricationid LIKE '%".$search."%' OR itemname LIKE '%".$search."%' OR fabricationprice LIKE '%".$search."%' 
-            OR qty LIKE '%".$search."%' OR dateor LIKE '%".$search."%') ";
+      $where.= " AND ( fabricationid LIKE '%".$search."%' OR fabricationdesc LIKE '%".$search."%' OR fabricationprice LIKE '%".$search."%' 
+            OR fabricationquantity LIKE '%".$search."%' OR fabricationdateordered LIKE '%".$search."%') ";
     }
 
     //Row Count
@@ -54,6 +54,15 @@
        
     //Query (Warning: Prone to SQL injection.)SELECT * from fabrications natural join client WHERE $where ORDER BY $order_by $limit
     $sql="SELECT * from fabrications WHERE $where ORDER BY $order_by";
+    $sql="SELECT  fabrications.fabricationid,
+                  fabrications.fabricationdesc,
+                  fabrications.fabricationquantity,
+                  fabrications.fabricationprice,
+                  date_format(fabricationdateordered,' %b. %m, %Y') as dateordered,
+                  concat(lastname,', ',firstname) as clientname  
+                  from fabrications join client using (clientid) 
+                  where $where
+                  ORDER BY $order_by $limit";
 
     $stmt=$conn->prepare($sql);
     $stmt->execute();

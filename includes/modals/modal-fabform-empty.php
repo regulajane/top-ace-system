@@ -49,41 +49,30 @@
                                     <div class="multi-field-wrapper">
                                         <div class="multi-fields">
                                             <div class="multi-field">
-                                                <label class="control-label col-xs-3">Item/s:</label>
-                                                <div class="controls col-xs-8">
-                                                    <select class="form-control" id="item" name="item[]" required>
-                                                        <option value="" disabled selected>Select item:</option>
-                                                        <?php
-                                                            $sql = "SELECT * from inventory";
-                                                            $result = $conn->query($sql);
-                                                            if ($result->num_rows > 0) {
-                                                                // output data of each row
-                                                                while($resultRow = $result->fetch_assoc()){
-                                                                    $option = '<option value="' . $resultRow['inventoryname'] . '">' . 
-                                                                        $resultRow['inventoryname'] . " " . $resultRow['type'] . '</option>';
-                                                                    echo ($option);
-                                                                }
-                                                            }
-                                                        ?>
-
-                                                    </select> 
+                                                <div class="control-group form-group">
+                                                    <label class="control-label col-xs-3">Item Name:</label>
+                                                        <div class="controls col-xs-8">
+                                                            <input type="text" class="form-control" id="item" name="item[]" 
+                                                                placeholder="Item name" required>
+                                                        </div>
+                                                
+                                                </div>
+                                                <div class="control-group form-group">
+                                                    <label class="control-label col-xs-3">Length</label>
+                                                    <div class="controls col-xs-5">
+                                                        <input type="number" id="length" name="length[]" min="1" max="100" placeholder="in meter">
+                                                    </div>
                                                 </div>
 
                                                 <div class="control-group form-group">
                                                     <label class="control-label col-xs-3">Price</label>
-                                                    <div class="controls col-xs-5">
+                                                    <div class="controls col-xs-3">
                                                         <input type="text" class="form-control" id="price" name="price[]" 
                                                                 placeholder="Price" required>
                                                     </div>
                                                 </div>
 
-                                                <div class="control-group form-group">
-                                                    <label class="control-label col-xs-3">Quantity</label>
-                                                    <div class="controls col-xs-2">
-                                                        <input type="text" class="form-control" id="qty" name="qty[]" 
-                                                            placeholder="Qty" required>
-                                                    </div>
-                                                </div>
+                                               
                                                 
                                                 <button type="button" class="add-field btn btn-default" 
                                                     id="addfield"><i class="fa fa-plus"></i></button>
@@ -94,10 +83,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                       <label class="control-label col-xs-3">Purchase Date:</label>
+                                       <label class="control-label col-xs-3">Date Ordered:</label>
                                         <div class="col-xs-5">
-                                            <input type="date" class="form-control" id="purchaseDate" 
-                                                name="purchaseDate" required>
+                                            <input type="date" class="form-control" id="dateOrdered" 
+                                                name="dateOrdered" required>
                                        </div>
                                     </div>                                                                                                                                            
                                 </div>
@@ -118,4 +107,18 @@
         </div>
     </div>
 </div> 
+<script>
+    $('.multi-field-wrapper').each(function() {
+        var $wrapper = $('.multi-fields', this);
+        $(".add-field", $(this)).click(function(e) {
+            $('.multi-field:first-child', 
+                $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
+        });
+        $('.multi-field .remove-field', $wrapper).click(function() {
+            if ($('.multi-field', $wrapper).length > 1)
+                $(this).parent('.multi-field').remove();
+        });
+    });
+</script>
 <!-- JO Empty Form Modal -->
+

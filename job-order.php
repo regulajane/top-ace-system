@@ -119,12 +119,15 @@
                                 <tr>
                                     <th data-column-id="fabricationid" data-visible="true" data-identifier="true">
                                         Fabrication ID</th>
-                                    <th data-column-id="itemname">
+                                    <th data-column-id="fabricationdesc">
                                         Item Name</th>
-                                    <th data-column-id="qty">
+                                    <th data-column-id="fabricationquantity">
                                         Quantity</th>
-                                    <th data-column-id="dateor">
+                                    <th data-column-id="dateordered">
                                         Date Ordered</th>
+                                    <th data-column-id="clientname">
+                                        Client</th>
+
                                 </tr>
                             </thead>  
                         </table>
