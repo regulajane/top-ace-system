@@ -80,7 +80,7 @@
 								<input class="form-control input-lg" name="password" id="password" type="password" placeholder="Password" required>
 							</div>
 							<div class="form-group last">
-								<input type="submit" class="btn btn-warning btn-block btn-lg" value="Sign In">
+								<input type="submit" class="btn btn-primary btn-block btn-lg" value="Sign In">
 							</div>
 							<p class="privacy text-center"></p>
 						</form>
@@ -104,14 +104,14 @@
 		<div class="col-sm-4 col-sm-offset-4">
 
 			<!-- /.social links -->
-				<div class="social text-center">
+<!-- 				<div class="social text-center">
 					<ul>
 						<li><a class="wow fadeInUp" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
 						<li><a class="wow fadeInUp" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
 						<li><a class="wow fadeInUp" href="https://plus.google.com/" data-wow-delay="0.4s"><i class="fa fa-google-plus"></i></a></li>
 						<li><a class="wow fadeInUp" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-instagram"></i></a></li>
 					</ul>
-				</div>	
+				</div>	 -->
 
 			<div class="text-center wow fadeInUp" style="font-size: 14px;"> Copyright &copy Top Ace Motor Works Inc. 2015</div>
 			<a href="#" class="scrollToTop"><i class="pe-7s-up-arrow pe-va"></i></a>

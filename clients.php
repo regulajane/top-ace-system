@@ -10,12 +10,13 @@
     <?php include 'includes/nav.php'; ?>
     <br />
     <div class="container" id="clients">          
-        <h2>Clients</h2>
-        <hr>
+        <div class="jumbotron" style="height: 100px;">
+            <h2 style="margin-top: -15px; margin-left: -60px; text-align: center;">Clients</h2>
+        </div>
         <div class="actionBtns">
-            <button type="button" id="newclientbtn" class="btn btn-primary" data-toggle="modal" 
+            <button type="button" id="newclientbtn" class="btn btn-info" data-toggle="modal" 
                 href="#clientModal"><i class="fa fa-plus fa-fw"></i> New Client </button>
-            <button type="button" id="editupdatebtn" class="btn btn-primary" data-toggle="modal">
+            <button type="button" id="editupdatebtn" class="btn btn-info" data-toggle="modal">
                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit/Update </button>
         </div>
         <!-- ClientsTable -->
@@ -25,15 +26,17 @@
                     <tr>
                         <th data-column-id="clientid" data-visible="false" data-identifier="true">
                             Client ID</th>
-                        <th data-column-id="lastname">
+                        <th data-column-id="cllastname">
                             Lastname</th>
-                        <th data-column-id="firstname">
+                        <th data-column-id="clfirstname">
                             Firstname</th>
-                        <th data-column-id="middleinitial">
+                        <th data-column-id="clmidinitial">
                             M.I.</th>
-                        <th data-column-id="celno">
+                        <th data-column-id="clgender">
+                            Gender</th>
+                        <th data-column-id="clcelno">
                             CP No.</th>
-                        <th data-column-id="address">
+                        <th data-column-id="claddress">
                             Address</th>
                     </tr>
                 </thead>  

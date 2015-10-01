@@ -65,10 +65,10 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
                 <button type="submit" name="savedata" class="btn btn-primary" form="clientForm" value="Save">
                     <span class="glyphicon glyphicon-ok-sign"></span> Save </button>  
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
             </div>
         </div>
     </div>
@@ -140,10 +140,10 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
                 <button type="submit" name="updatedata" class="btn btn-primary" form="updateclientForm" value="Update">
                     <span class="glyphicon glyphicon-ok-sign"></span> Save </button>  
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
             </div>
         </div>
     </div>

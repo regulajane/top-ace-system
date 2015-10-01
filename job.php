@@ -9,7 +9,10 @@
 <body>
     <?php include 'includes/nav.php'; ?>
     <br />
-    <div class="container">          
+    <div class="container">   
+        <div class="jumbotron" style="height: 100px;">
+            <h2 style="margin-top: -15px; margin-left: -60px; text-align: center;">Job</h2>
+        </div>       
         <!-- Job Order Buttons -->
 		  
             <div id="job">

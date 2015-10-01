@@ -16,7 +16,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Top Ace Job Order System</a>
+                        <a class="navbar-brand" href="home.php">Top Ace Job Order System</a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
@@ -31,6 +31,9 @@
                                 <a href="employees.php">Employees</a>
                             </li>
                             <li>
+                                <a href="clients.php">Clients</a>
+                            </li>
+                            <li>
                                 <a href="job.php">Job</a>
                             </li>
                             <li class="dropdown">
@@ -39,12 +42,14 @@
                                     <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="systemusers.php"  class="btn btn-default btn-sm" 
-                                            style="text-align:left;  margin: 0px 5px 5px 5px;">View Users</a>
-                                        <a href="sessionlogs.php"  class="btn btn-default btn-sm" 
-                                            style="text-align:left;  margin: 0px 5px 5px 5px;">Session Logs</a>
-                                        <a href="includes/logout.php"  class="btn btn-default btn-sm" 
-                                            style="text-align:left;  margin: 5px 5px 0px 5px;">Logout</a>
+                                        <a href="systemusers.php">View Users</a>
+                                    </li>
+                                    <li>
+                                        <a href="sessionlogs.php">Session Logs</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="includes/logout.php">Logout</a>
                                     </li>
                                 </ul>
                             </li>

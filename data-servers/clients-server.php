@@ -8,7 +8,7 @@
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $where ="1=1";
-    $order_by="lastname asc";
+    $order_by="cllastname asc";
     $rows=25;
     $current=1;
     $limit_l=($current * $rows) - ($rows);
@@ -25,11 +25,12 @@
     if (isset($_REQUEST['searchPhrase']) )
       {
         $search=trim($_REQUEST['searchPhrase']);
-        $where.= " AND ( lastname LIKE '%".$search."%' OR  
-                    firstname LIKE '%".$search."%' OR 
-                    middleinitial LIKE '%".$search."%' OR
-                    celno LIKE '%".$search."%' OR
-                    address LIKE '%".$search."%') "; 
+        $where.= " AND ( cllastname LIKE '%".$search."%' OR  
+                    clfirstname LIKE '%".$search."%' OR 
+                    clmidinitial LIKE '%".$search."%' OR
+                    clcelno LIKE '%".$search."%' OR
+                    clgender LIKE '%".$search."%' OR
+                    claddress LIKE '%".$search."%') "; 
       }
     //Row Count
     if (isset($_REQUEST['rowCount']) )  
@@ -47,14 +48,14 @@
       $limit=" LIMIT $limit_l,$limit_h ";
        
     //Query (Warning: Prone to SQL injection.)
-    $sql="SELECT * from client 
+    $sql="SELECT * from clients
             WHERE $where 
             ORDER BY $order_by $limit";
     $stmt=$conn->prepare($sql);
     $stmt->execute();
     $results_array=$stmt->fetchAll(PDO::FETCH_ASSOC);
     $json=json_encode( $results_array );
-    $nRows=$conn->query("SELECT count(*) from client 
+    $nRows=$conn->query("SELECT count(*) from clients
                           WHERE $where")->fetchColumn();
     header('Content-Type: application/json');
     //JSON

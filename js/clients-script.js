@@ -17,12 +17,12 @@ window.onload = function () {
                 client = JSON.parse(data);
                 // set variables
                 var clientid = client.clientid;
-                var lastname = client.lastname;
-                var firstname = client.firstname;
-                var middleinitial = client.middleinitial;
-                var gender = client.gender;
-                var celno = client.celno;
-                var address = client.address;
+                var lastname = client.cllastname;
+                var firstname = client.clfirstname;
+                var middleinitial = client.clmidinitial;
+                var gender = client.clgender;
+                var celno = client.clcelno;
+                var address = client.claddress;
                 // fill form
                 $(".client #clientid").val(clientid);
                 $(".client #clientln").val(lastname); 

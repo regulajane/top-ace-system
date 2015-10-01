@@ -10,15 +10,17 @@
 <body>
     <?php include 'includes/nav.php'; ?>
     <br />
-    <div class="container">          
+    <div class="container">  
+        <div class="jumbotron" style="height: 100px;">
+            <h2 style="margin-top: -15px; margin-left: -60px; text-align: center;">Employees</h2>
+        </div>        
         <!-- Job Order Buttons -->
         <div class="actionBtns">
-            <button type="button" id="newjoborderbtn" class="btn btn-primary" data-toggle="modal" 
+            <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
                 href="#addEmployeeModal"><i class="fa fa-plus fa-fw"></i> New Employee </button>
-            <button type="button" id="updateemployeebtn" class="btn btn-primary" data-toggle="modal">
+            <button type="button" id="updateemployeebtn" class="btn btn-info" data-toggle="modal">
                 <i class="fa fa-pencil-square-o fa-fw"></i> Update Info </button>
         </div>
-        <hr>
         <!-- Job Order Table -->
         <table  id="employeeTable" class="table table-condensed table-hover">
             <thead>

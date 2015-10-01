@@ -6,24 +6,24 @@
 
     // Define Variables
     $clientid = $_POST["clientid"];
-	$lastname = $_POST["clientln"];
-	$firstname = $_POST["clientfn"];
-	$middleinitial = $_POST["clientmi"];
-	$gender = $_POST["clientgender"];
-	$address = $_POST["clientadd"];
-	$celno = $_POST["clientcp"];
+	$cllastname = $_POST["clientln"];
+	$clfirstname = $_POST["clientfn"];
+	$clmidinitial = $_POST["clientmi"];
+	$clgender = $_POST["clientgender"];
+	$claddress = $_POST["clientadd"];
+	$clcelno = $_POST["clientcp"];
 
 	if (isset($_POST["updatedata"])=="Update") {
 		// ---------------------------------------UPDATE----------------------------------------------
 		// Prepare
-		$sql = "UPDATE client
-      				SET lastname = '$lastname', 
-      					firstname = '$firstname', 
-      					middleinitial = '$middleinitial', 
-      					gender = '$gender', 
-      					address = '$address', 
-      					celno = '$celno'
-                	WHERE clientid= '$clientid'";
+		$sql = "UPDATE clients
+      				SET cllastname = '$cllastname', 
+      					clfirstname = '$clfirstname', 
+      					clmidinitial = '$clmidinitial', 
+      					clgender = '$clgender', 
+      					claddress = '$claddress', 
+      					clcelno = '$clcelno'
+                	WHERE clientid = '$clientid'";
         $stmt = $conn->prepare($sql);
         // Execute     
         $stmt->execute();    

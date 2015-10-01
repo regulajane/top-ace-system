@@ -5,22 +5,22 @@
     	header('Location: ../../index.php?loggedout=true');}
 
     // Define Variables
-	$lastname = $_POST["clientln"];
-	$firstname = $_POST["clientfn"];
-	$middleinitial = $_POST["clientmi"];
-	$gender = $_POST["clientgender"];
-	$address = $_POST["clientadd"];
-	$celno = $_POST["clientcp"];
+	$cllastname = $_POST["clientln"];
+	$clfirstname = $_POST["clientfn"];
+	$clmidinitial = $_POST["clientmi"];
+	$clgender = $_POST["clientgender"];
+	$claddress = $_POST["clientadd"];
+	$clcelno = $_POST["clientcp"];
 
 	if(isset($_POST["savedata"])=="Save") {
 
 		// ---------------------------------------INSERT----------------------------------------------
 		// Prepare
-		$sql = "INSERT INTO client (lastname, firstname, middleinitial, gender, address, celno) 
+		$sql = "INSERT INTO clients (cllastname, clfirstname, clmidinitial, clcelno, clgender, claddress) 
 				VALUES (?, ?, ?, ?, ?, ?)";			
 		$stmt = $conn->prepare($sql);
 		// Bind
-		$stmt->bind_param("sssssi", $lastname, $firstname, $middleinitial, $gender, $address, $celno);
+		$stmt->bind_param("ssssss", $cllastname, $clfirstname, $clmidinitial, $clcelno, $clgender, $claddress);
 		// Execute 
 		$stmt->execute();
 	  

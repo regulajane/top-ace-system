@@ -341,26 +341,26 @@
                     actions = $(tpl.actions.resolve(getParams.call(this)));
 
                 // Refresh Button
-                // if (this.options.ajax)
-                // {
-                //     var refreshIcon = tpl.icon.resolve(getParams.call(this, { iconCss: css.iconRefresh })),
-                //         refresh = $(tpl.actionButton.resolve(getParams.call(this,
-                //         { content: refreshIcon, text: this.options.labels.refresh })))
-                //             .on("click" + namespace, function (e)
-                //             {
-                //                 // todo: prevent multiple fast clicks (fast click detection)
-                //                 e.stopPropagation();
-                //                 that.current = 1;
-                //                 loadData.call(that);
-                //             });
-                //     actions.append(refresh);
-                // }
+                if (this.options.ajax)
+                {
+                    var refreshIcon = tpl.icon.resolve(getParams.call(this, { iconCss: css.iconRefresh })),
+                        refresh = $(tpl.actionButton.resolve(getParams.call(this,
+                        { content: refreshIcon, text: this.options.labels.refresh })))
+                            .on("click" + namespace, function (e)
+                            {
+                                // todo: prevent multiple fast clicks (fast click detection)
+                                e.stopPropagation();
+                                that.current = 1;
+                                loadData.call(that);
+                            });
+                    actions.append(refresh);
+                }
 
                 // Row count selection
                 renderRowCountSelection.call(this, actions);
 
                 // Column selection
-                // renderColumnSelection.call(this, actions);
+                renderColumnSelection.call(this, actions);
 
                 replacePlaceHolder.call(this, actionItems, actions);
             }
@@ -1349,8 +1349,8 @@
          * @for defaults
          **/
         templates: {
-            actionButton: "<button class=\"btn btn-default\" type=\"button\" title=\"{{ctx.text}}\">{{ctx.content}}</button>",
-            actionDropDown: "<div class=\"{{css.dropDownMenu}}\"><button class=\"btn btn-default dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\"><span class=\"{{css.dropDownMenuText}}\">{{ctx.content}}</span> <span class=\"caret\"></span></button><ul class=\"{{css.dropDownMenuItems}}\" role=\"menu\"></ul></div>",
+            actionButton: "<button class=\"btn btn-primary\" type=\"button\" title=\"{{ctx.text}}\">{{ctx.content}}</button>",
+            actionDropDown: "<div class=\"{{css.dropDownMenu}}\"><button class=\"btn btn-primary dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\"><span class=\"{{css.dropDownMenuText}}\">{{ctx.content}}</span> <span class=\"caret\"></span></button><ul class=\"{{css.dropDownMenuItems}}\" role=\"menu\"></ul></div>",
             actionDropDownItem: "<li><a href=\"{{ctx.uri}}\" class=\"{{css.dropDownItem}} {{css.dropDownItemButton}}\">{{ctx.text}}</a></li>",
             actionDropDownCheckboxItem: "<li><label class=\"{{css.dropDownItem}}\"><input name=\"{{ctx.name}}\" type=\"checkbox\" value=\"1\" class=\"{{css.dropDownItemCheckbox}}\" {{ctx.checked}} /> {{ctx.label}}</label></li>",
             actions: "<div class=\"{{css.actions}}\"></div>",
