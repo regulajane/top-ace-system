@@ -31,8 +31,8 @@
     if (isset($_REQUEST['searchPhrase']) )
       {
         $search=trim($_REQUEST['searchPhrase']);
-        $where.= " AND ( joborderid LIKE '%".$search."%' OR lastname LIKE '%".$search."%' OR firstname LIKE '%".$search."%' 
-          OR datebrought LIKE '%".$search."%' OR status LIKE '%".$search."%') "; 
+        $where.= " AND ( joborderid LIKE '%".$search."%' OR cllastname LIKE '%".$search."%' OR clfirstname LIKE '%".$search."%' 
+          OR datebrought LIKE '%".$search."%' OR jostatus LIKE '%".$search."%') "; 
       }
 
     //Row Count
@@ -53,20 +53,21 @@
       $limit=" LIMIT $limit_l,$limit_h ";
        
     //Query (Warning: Prone to SQL injection.)
-    $sql="SELECT  joborder.joborderid,
-                  joborder.problem,
-                  joborder.symptoms,
+    $sql="SELECT  joborders.joborderid,
+                  joborders.problem,
+           
                   date_format(datebrought,' %b. %m, %Y') as datebrought,
-                  joborder.datestarted,
-                  joborder.datefinished,
-                  joborder.dateclaimed,
-                  joborder.price,
-                  joborder.downpayment,
-                  joborder.status,
-                  joborder.clientid,
-                  joborder.modelid, 
-                  concat(lastname,', ',firstname) as clientname  
-                  from joborder join client using (clientid) 
+                  joborders.datestarted,
+                  joborders.datefinished,
+                  joborders.dateclaimed,
+                  joborders.joprice,
+                  joborders.downpayment,
+                  joborders.jostatus,
+                  joborders.clientid,
+                  joborders.modelno, 
+                  concat(cllastname,', ',clfirstname) as clientname  
+                    
+                  from joborders join clients using (clientid) 
                   where $where
                   ORDER BY $order_by $limit";
     $stmt=$conn->prepare($sql);
@@ -75,7 +76,7 @@
 
     $json=json_encode( $results_array );
 
-    $nRows=$conn->query("SELECT count(*) from joborder")->fetchColumn();
+    $nRows=$conn->query("SELECT count(*) from joborders")->fetchColumn();
 
     header('Content-Type: application/json');
 

@@ -6,7 +6,7 @@
     // Job Order Data
 	$_SESSION['joNumber'] = $_POST['selectedID'];
 	$num = $_SESSION['joNumber'];
-	$sql = "SELECT * FROM joborder join client using (clientid)
+	$sql = "SELECT * FROM joborders join clients using (clientid)
 			    where joborderid='$num'
 			    limit 1;";
     $rs = $conn->query($sql);

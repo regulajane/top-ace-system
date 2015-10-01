@@ -10,7 +10,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 
-                    <span aria-hidden="true">&times;</span></button>
+                   
                 <h4 class="modal-title" id="myModalLabel">New Job Order</h4>
             </div>
             <div class="joEmpty modal-body">

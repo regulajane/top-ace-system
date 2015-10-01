@@ -71,9 +71,9 @@
                                         Client name</th>
                                     <th data-column-id="downpayment">
                                         Downpayment</th>
-                                    <th data-column-id="price">
+                                    <th data-column-id="joprice">
                                         Grand Total</th>
-                                    <th data-column-id="status">
+                                    <th data-column-id="jostatus">
                                         Status</th>
                                 </tr>
                             </thead>  

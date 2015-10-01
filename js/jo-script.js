@@ -42,11 +42,11 @@ function jobOrder(){
                 joData = JSON.parse(data);
                 // set JO variables
                 var joJobOrderID = joData.joborderid;
-                var joClientLastname = joData.lastname
-                var joClientFirstname = joData.firstname
+                var joClientLastname = joData.cllastname
+                var joClientFirstname = joData.clfirstname
                 var joDateBrought = joData.datebrought;
                 var joProblem = joData.problem;
-                var joSymptoms = joData.symptoms;
+                
                 var joDownpayment = joData.downpayment;
                 var joRequestedBy = joData.requestedBy;
   
@@ -59,7 +59,7 @@ function jobOrder(){
                 $(".joEdit #problem").val(joProblem);
                 $(".joEdit #dateBrought").val(joDateBrought);
                 $(".joEdit #client").val(joClientLastname + ", " + joClientFirstname);
-				$(".joEdit #symptoms").val(joSymptoms);
+				
                 // $(".joEdit #defects").val(joDefects);
                 // $(".joEdit #natureOfWorksToBeDone").val(joNOWTBD);
                 // $(".joEdit #partsToBeProcured").val(joPTBP);
@@ -74,4 +74,3 @@ function jobOrder(){
     });
 
 }
-

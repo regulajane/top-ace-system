@@ -6,11 +6,11 @@
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            if($row["username"] == $_POST["username"] && $row["password"] == $_POST["password"]) {
+            if($row["username"] == $_POST["username"] && $row["userpassword"] == $_POST["password"]) {
                 // set session variables
                 
                 $_SESSION["username"] = $row["username"];
-                $_SESSION["password"] =  $row["password"];
+                $_SESSION["password"] =  $row["userpassword"];
                 
                 $flag = true;
 
