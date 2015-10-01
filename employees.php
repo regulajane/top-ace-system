@@ -25,21 +25,23 @@
                 <tr>
                     <th data-column-id="employeeid" data-visible="false" data-identifier="true">
                                        employee ID</th>
-                    <th data-column-id="lastname">
+                    <th data-column-id="emplastname">
                        Last Name</th>
-                    <th data-column-id="firstname">
+                    <th data-column-id="empfirstname">
                         First Name</th>
-                    <th data-column-id="gender">
+                    <th data-column-id="empmiddlename">
+                        Middle Name</th>
+                    <th data-column-id="empgender">
                         Gender</th>
-                    <th data-column-id="celno">
+                    <th data-column-id="empcelno">
                         Celno</th>
-                    <th data-column-id="address">
+                    <th data-column-id="empaddress">
                         Address</th>
-                    <th data-column-id="emailad">
+                    <th data-column-id="empemailad">
                         Email Address</th>
-                    <th data-column-id="numofjob">
+                    <th data-column-id="noofjobs">
                         Number of Jobs</th>
-                    <th data-column-id="status">
+                    <th data-column-id="empstatus">
                         Status</th>
                 </tr>
             </thead>  

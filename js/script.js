@@ -107,24 +107,26 @@ function tables(){
                 joData = JSON.parse(data);
                 // set JO variables
                 var empId = joData.employeeid;
-                var empLastname = joData.lastname;
-                var empFirstname = joData.firstname;
-                var empCelno = joData.celno;
-                var empGender = joData.gender;
-                var empNumofjob = joData.numofjob;
-                var empAddress = joData.address;
-                var empStatus = joData.status;
-                var empEmail = joData.emailad;
+                var empLastname = joData.emplastname;
+                var empFirstname = joData.empfirstname;
+                var empMiddlename = joData.empmiddlename;
+                var empCelno = joData.empcelno;
+                var empGender = joData.empgender;
+                var empNoofjobs = joData.noofjobs;
+                var empAddress = joData.empaddress;
+                var empStatus = joData.empstatus;
+                var empEmail = joData.empemailad;
                 // Update Form
                 $(".empUpdate #employeeid").val(empId); 
-                $(".empUpdate #lastname").val(empLastname); 
-                $(".empUpdate #firstname").val(empFirstname);
-                $(".empUpdate #celno").val(empCelno);
-                $(".empUpdate #gender").val(empGender);
-                $(".empUpdate #numofjob").val(empNumofjob);
-                $(".empUpdate #address").val(empAddress);
-                $(".empUpdate #status").val(empStatus);
-                $(".empUpdate #emailad").val(empEmail);
+                $(".empUpdate #emplastname").val(empLastname); 
+                $(".empUpdate #empfirstname").val(empFirstname);
+                $(".empUpdate #empmiddlename").val(empMiddlename);
+                $(".empUpdate #empcelno").val(empCelno);
+                $(".empUpdate #empgender").val(empGender);
+                $(".empUpdate #noofjobs").val(empNoofjobs);
+                $(".empUpdate #empaddress").val(empAddress);
+                $(".empUpdate #empstatus").val(empStatus);
+                $(".empUpdate #empemailad").val(empEmail);
                     
                 $('#updateEmployeeModal').modal('show');
             }

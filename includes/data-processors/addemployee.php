@@ -7,20 +7,21 @@
     if(isset($_POST["submit"])=="submit") {
 
         // Define Variables
-        $lastname= $_POST["lastname"];
-        $firstname= $_POST["firstname"];
-        $gender= $_POST["gender"];
-        $celno= $_POST["celno"];
-        $address= $_POST["address"];
-        $emailad= $_POST["emailad"];
+        $emplastname= $_POST["emplastname"];
+        $empfirstname= $_POST["empfirstname"];
+        $empmiddlename= $_POST["empmiddlename"];
+        $empgender= $_POST["empgender"];
+        $empcelno= $_POST["empcelno"];
+        $empaddress= $_POST["empaddress"];
+        $empemailad= $_POST["empemailad"];
 
 
         // Prepare
-        $sql = "INSERT INTO employee (lastname, firstname, gender, celno, address, emailad, status, backjob) VALUES (?, ?, ?, ?, ?, ?, 'Active', 0)";
+        $sql = "INSERT INTO employees (emplastname, empfirstname, empmiddlename, empgender, empcelno, empaddress, empemailad, empstatus, noofjobs) VALUES (?, ?, ?, ?, ?, ?, ?, 'Active', 0)";
         $stmt = $conn->prepare($sql);     
         
         // Bind
-        $stmt->bind_param("ssssss", $lastname, $firstname, $gender, $celno, $address, $emailad);
+        $stmt->bind_param("sssssss", $emplastname, $empfirstname, $empmiddlename, $empgender, $empcelno, $empaddress, $empemailad);
 
         // Execute
         $stmt->execute();

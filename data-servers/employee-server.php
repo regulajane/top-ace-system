@@ -11,7 +11,7 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $where =" 1=1 ";
-    $order_by="lastname";
+    $order_by="emplastname";
     $rows=25;
     $current=1;
     $limit_l=($current * $rows) - ($rows);
@@ -29,7 +29,7 @@
     if (isset($_REQUEST['searchPhrase']) )
       {
         $search=trim($_REQUEST['searchPhrase']);
-        $where.= " AND ( lastname LIKE '%".$search."%' OR  firstname LIKE '%".$search."%' OR  gender LIKE '%".$search."%') "; 
+        $where.= " AND ( emplastname LIKE '%".$search."%' OR  empfirstname LIKE '%".$search."%') "; 
       }
 
     //Row Count
@@ -50,7 +50,7 @@
       $limit=" LIMIT $limit_l,$limit_h ";
        
     //Query (Warning: Prone to SQL injection.)
-    $sql="SELECT * from employee
+    $sql="SELECT * from employees
                   WHERE $where
                   ORDER BY $order_by $limit";
 
@@ -60,7 +60,7 @@
 
     $json=json_encode( $results_array );
 
-    $nRows=$conn->query("SELECT count(*) FROM employee WHERE $where")->fetchColumn();
+    $nRows=$conn->query("SELECT count(*) FROM employees WHERE $where")->fetchColumn();
 
     header('Content-Type: application/json');
 

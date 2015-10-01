@@ -5,25 +5,27 @@
     if(isset($_POST["submit"])=="submit") {
         // Define Variables
         $empNum = $_SESSION['empNumber'];
-        $lastname= $_POST["lastname"];
-        $firstname= $_POST["firstname"];
-        $gender= $_POST["gender"];
-        $celno= $_POST["celno"];
-        $address= $_POST["address"];
-        $emailad= $_POST["emailad"];
-        $status= $_POST["status"];
-        $numofjob= $_POST["numofjob"];
+        $emplastname= $_POST["emplastname"];
+        $empfirstname= $_POST["empfirstname"];
+        $empmiddlename= $_POST["empmiddlename"];
+        $empgender= $_POST["empgender"];
+        $empcelno= $_POST["empcelno"];
+        $empaddress= $_POST["empaddress"];
+        $empemailad= $_POST["empemailad"];
+        $empstatus= $_POST["empstatus"];
+        $noofjobs= $_POST["noofjobs"];
         //-----------------------------UPDATE------------------------------------
         // Prepare
-        $sql = "UPDATE employee
-                SET lastname='$lastname',
-                    firstname='$firstname',
-                    gender='$gender',
-                    celno='$celno',
-                    address='$address',
-                    emailad='$emailad',
-                    status='$status',
-                    numofjob='$numofjob'
+        $sql = "UPDATE employees
+                SET emplastname='$emplastname',
+                    empfirstname='$empfirstname',
+                    empmiddlename='$empmiddlename',
+                    empgender='$empgender',
+                    empcelno='$empcelno',
+                    empaddress='$empaddress',
+                    empemailad='$empemailad',
+                    empstatus='$empstatus',
+                    noofjobs='$noofjobs'
                 WHERE employeeid= '$empNum'";
         $stmt = $conn->prepare($sql);     
         $stmt->execute();         

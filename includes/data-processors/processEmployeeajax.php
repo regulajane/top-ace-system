@@ -6,7 +6,7 @@
     // Employees Data
 	$_SESSION['empNumber'] = $_POST['selectedID'];
 	$empNum = $_SESSION['empNumber'];
-	$sql = "SELECT * FROM employee
+	$sql = "SELECT * FROM employees
 			    where employeeid='$empNum'";
     $rs = $conn->query($sql);
     $row = $rs->fetch_assoc();
