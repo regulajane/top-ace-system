@@ -6,6 +6,7 @@
     
     
     <script src="js/jo-script.js"></script>
+    
 
     <title>Job Order</title>
 </head>
@@ -151,6 +152,7 @@
         <?php include 'includes/footer.php'; ?>
     </div>
     <!-- Job Order Modals -->
+
     <?php 
         include 'includes/modals/modal-joform-empty.php';
         include 'includes/modals/modal-editjoform.php';
@@ -160,6 +162,6 @@
         include 'includes/modals/modal-jopostform.php';
         
         // include 'includes/modals/modal-servicesbreakdown.php';
-    ?>   
+    ?> 
 </body>
 </html>

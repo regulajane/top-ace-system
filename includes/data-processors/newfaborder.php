@@ -7,25 +7,44 @@
         // Define Variables
         $item= $_POST["item"];
         $price= $_POST["price"];
-        $quantity= $_POST["qty"];
-        $dateOrdered= $_POST["purchaseDate"];
+        $length= $_POST["length"];
+        $dateOrdered= $_POST["dateOrdered"];
         $client= $_POST["client"];
+        $downpayment = $_POST["downpayment"];
+        $totalprice = 0;
+        $pending = "pending";
+        $fabrication = "Fabrication";
+        
+         $sqljoNum = "SELECT clientid FROM clients where clientid = '$client' ";
+         $result = $conn->query($sqljoNum);
+         $resultRow = $result->fetch_assoc();
+         $clientid = $resultRow['clientid'];
 
-        $sqljoNum = "SELECT clientid FROM client where firstname = '$client' ";
-        $result = $conn->query($sqljoNum);
-        $resultRow = $result->fetch_assoc();
-        $clientid = $resultRow['clientid'];
+        for($i=0 ;$i < count($_POST['price']); $i++) {        
+            $totalprice = $totalprice + $price[$i];
+        }
 
-        for($i=0 ;$i < count($_POST['item']); $i++) {
-               // Prepare
-            $sql1 = "INSERT INTO fabrications (itemname, fabricationprice, qty, dateor, clientid) VALUES (?, ?, ?, ?, ?)";
+
+         $sql1 = "INSERT INTO joborders (datestarted, downpayment, joprice, jostatus, jotype, clientid) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt1 = $conn->prepare($sql1);     
         // Bind
-            $stmt1->bind_param("sssss", $item[$i], $price[$i], $quantity[$i], $dateOrdered, $clientid);
+            $stmt1->bind_param("ssssss", $dateOrdered, $downpayment, $totalprice, $pending, $fabrication, $clientid);
         // Execute
             $stmt1->execute();
-//$stmt2->bind_param("iissi", $vehicleNo, $vehiclePartNo[$i], $notes[$i], $date, $remarkNo);
-        }
+
+//         for($i=0 ;$i < count($_POST['item']); $i++) {
+//                // Prepare
+            
+//             $sql1 = "INSERT INTO fabrications (itemname, fabricationprice, qty, dateor, clientid) VALUES (?, ?, ?, ?, ?)";
+//             $stmt1 = $conn->prepare($sql1);     
+//         // Bind
+//             $stmt1->bind_param("sssss", $item[$i], $price[$i], $quantity[$i], $dateOrdered, $clientid);
+//         // Execute
+//             $stmt1->execute();
+
+
+// //$stmt2->bind_param("iissi", $vehicleNo, $vehiclePartNo[$i], $notes[$i], $date, $remarkNo);
+//         }
         
         //-----------------------------INSERT SESSIONLOGS------------------------------------
         //$sqljoNum = "SELECT joNo FROM joborder";

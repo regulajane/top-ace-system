@@ -30,13 +30,13 @@
                                                     <select class="form-control" id="client" name="client" required>
                                                         <option value="" disabled selected>Choose client:</option>
                                                         <?php
-                                                            $sql = "SELECT * from client";
+                                                            $sql = "SELECT * from clients";
                                                             $result = $conn->query($sql);
                                                             if ($result->num_rows > 0) {
                                                                 // output data of each row
                                                                 while($resultRow = $result->fetch_assoc()){
-                                                                    $option = '<option value="' . $resultRow['firstname'] . '">' . 
-                                                                        $resultRow['firstname'] . " " . $resultRow['lastname'] . '</option>';
+                                                                    $option = '<option value="' . $resultRow['clientid'] . '">' . 
+                                                                        $resultRow['clfirstname'] . " " . $resultRow['cllastname'] . '</option>';
                                                                     echo ($option);
                                                                 }
                                                             }
@@ -88,7 +88,16 @@
                                             <input type="date" class="form-control" id="dateOrdered" 
                                                 name="dateOrdered" required>
                                        </div>
-                                    </div>                                                                                                                                            
+                                    </div>
+
+                                    <div class="control-group form-group">
+                                                    <label class="control-label col-xs-3">Downpayment:</label>
+                                                    <div class="controls col-xs-5">
+                                                        <input type="text" class="form-control" id="downpayment" name="downpayment" 
+                                                                placeholder="Downpayment" required>
+                                                    </div>
+                                    </div>    
+
                                 </div>
                                                              
                             </form>
@@ -107,18 +116,6 @@
         </div>
     </div>
 </div> 
-<script>
-    $('.multi-field-wrapper').each(function() {
-        var $wrapper = $('.multi-fields', this);
-        $(".add-field", $(this)).click(function(e) {
-            $('.multi-field:first-child', 
-                $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
-        });
-        $('.multi-field .remove-field', $wrapper).click(function() {
-            if ($('.multi-field', $wrapper).length > 1)
-                $(this).parent('.multi-field').remove();
-        });
-    });
-</script>
+
 <!-- JO Empty Form Modal -->
 
