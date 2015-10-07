@@ -27,13 +27,13 @@
                                         <select class="form-control" id="clientid" name="clientid" required>
                                             <option value="" disabled selected>Select client</option>
                                             <?php
-                                                $sql = "SELECT * from client"; 
+                                                $sql = "SELECT * from clients"; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
                                                     while($resultRow = $result->fetch_assoc()){
                                                         $option = '<option value="' . $resultRow['clientid'] . '">' . 
-                                                            $resultRow['lastname'] . ", " . $resultRow['firstname'] . '</option>';
+                                                            $resultRow['cllastname'] . ", " . $resultRow['clfirstname'] . " " .  $resultRow['clmidinitial'] . '</option>';
                                                         echo ($option);
                                                     }
                                                 }
@@ -56,13 +56,13 @@
                                         <select class="form-control" id="modelid" name="modelid">
                                             <option value="" disabled selected>Select model</option>
                                             <?php
-                                                $sql = "SELECT * from model"; 
+                                                $sql = "SELECT * from models"; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
                                                     while($resultRow = $result->fetch_assoc()){
                                                         $option = '<option value="' . $resultRow['modelid'] . '">' . 
-                                                            $resultRow['modelDesc'] . " " . '</option>';
+                                                            $resultRow['modelno'] . " " . '</option>';
                                                         echo ($option);
                                                     }
                                                 }
@@ -114,7 +114,7 @@
                                                                         $t = '<option value="' . 
                                                                                 $resultRow['serviceid'] . '">' . 
                                                                                 $resultRow['servicename'] .' - ' .
-                                                                                $resultRow['price'] . 
+                                                                                $resultRow['serviceprice'] . 
                                                                             '</option>';
 
                                                                         echo ($t);
@@ -152,13 +152,13 @@
                                                             <option value="" disabled selected>
                                                                 Select Machinist</option>
                                                             <?php
-                                                                $sql = "SELECT * from employee where type = 'Machinist' "; 
+                                                                $sql = "SELECT * from employees where emptype = 'Machinist' "; 
                                                                 $result = $conn->query($sql);
                                                                 if ($result->num_rows > 0) {
                                                                     // output data of each row
                                                                     while($resultRow = $result->fetch_assoc()){
                                                                         $option = '<option value="' . $resultRow['employeeid'] . '">' . 
-                                                                            $resultRow['lastname'] . ", " . $resultRow['firstname'] . '</option>';
+                                                                            $resultRow['emplastname'] . ", " . $resultRow['empfirstname'] .  " " . $resultRow['empmiddlename'] . '</option>';
                                                                         echo ($option);
                                                                     }
                                                                 }
@@ -180,8 +180,24 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-xs-3">Downpayment:</label>
                                     <div class="controls col-xs-4">
-                                        <input type="text" class="form-control" id="downpayment" name="downpayment" 
+                                        <input type="number" class="form-control" id="downpayment" name="downpayment" 
                                             placeholder="0.00" required autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="control-group form-group">
+                                    <label class="control-label col-xs-3">Sales Person Assisted:</label>
+                                    <div class="controls col-xs-4">
+                                        <input type="text" class="form-control" id="salesperson" name="salesperson" 
+                                            placeholder="" required autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="control-group form-group">
+                                    <label class="control-label col-xs-3">Supervisor</label>
+                                    <div class="controls col-xs-4">
+                                        <input type="text" class="form-control" id="supervisor" name="supervisor" 
+                                            placeholder="" required autocomplete="off">
                                     </div>
                                 </div>
 
@@ -203,3 +219,16 @@
 </div> 
 <!-- JO Empty Form Modal -->
 
+<script>
+    $('.multi-field-wrapper').each(function() {
+        var $wrapper = $('.multi-fields', this);
+        $(".add-field", $(this)).click(function(e) {
+            $('.multi-field:first-child', 
+                $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
+        });
+        $('.multi-field .remove-field', $wrapper).click(function() {
+            if ($('.multi-field', $wrapper).length > 1)
+                $(this).parent('.multi-field').remove();
+        });
+    });
+</script>

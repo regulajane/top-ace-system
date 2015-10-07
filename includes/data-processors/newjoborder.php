@@ -9,30 +9,32 @@
         $clientid = $_POST['clientid'];
         $dateBrought = $_POST['dateBrought'];
         $modelid = $_POST['modelid'];
+        $engnumber = $_POST['engnumber'];
         $problem = $_POST['problem'];
-        $symptoms = $_POST['symptoms'];
         $downpayment = $_POST['downpayment'];
         $employeeid = $_POST['employeeid'];
         $pending = 'Pending';
         $serviceid = $_POST['serviceid'];
+        $preparedby = $_POST['salesperson'];
+        $supervisor = $_POST['supervisor'];
 
         
         //-----------------------------INSERT joborder TABLE------------------------------------
-        $sql = "INSERT INTO joborder (problem, symptoms, datebrought, downpayment, status, clientid, modelid) 
-                VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO joborders (problem, engineno, datebrought, downpayment, jostatus, clientid, modelno, preparedby, supervisor) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);     
-        $stmt->bind_param("sssisii", $problem, $symptoms, $dateBrought, $downpayment, $pending, $clientid, $modelid) or mysql_error();
+        $stmt->bind_param("sisisiiss", $problem, $engnumber, $dateBrought, $downpayment, $pending, $clientid, $modelid, $preparedby, $supervisor) or mysql_error();
         $stmt->execute();
 
         //-----------------------------SELECT JOB ORDER ID------------------------------------
-        $sqlmaxjoid = "SELECT joborderid from joborder order by joborderid desc limit 1";
+        $sqlmaxjoid = "SELECT joborderid from joborders order by joborderid desc limit 1";
         $r = $conn->query($sqlmaxjoid);
         $rr = $r->fetch_assoc(); 
         $maxjoid = $rr['joborderid'];
 
         //-----------------------------INSERT joemployee TABLE------------------------------------
         for($i=0 ;$i < count($_POST['employeeid']); $i++) {
-            $sql3 = "INSERT INTO joemployee ( joborderid, employeeid) VALUES ( ?, ?)";
+            $sql3 = "INSERT INTO joemployees ( joborderid, employeeid) VALUES ( ?, ?)";
             $stmt3 = $conn->prepare($sql3);     
             $stmt3->bind_param("ii", $maxjoid, $employeeid[$i]) or mysql_error();
             $stmt3->execute();
@@ -50,13 +52,13 @@
         }
 
         //-----------------------------SELECT totalprice------------------------------------
-        $sqlprice = "SELECT SUM(services.price) AS totalPrice  from servicelogs join services using (serviceid) where joborderid = '$maxjoid' ";
+        $sqlprice = "SELECT SUM(services.serviceprice) AS totalPrice  from servicelogs join services using (serviceid) where joborderid = '$maxjoid' ";
         $rprice = $conn->query($sqlprice);
         $rrprice = $rprice->fetch_assoc(); 
         $totalprice = $rrprice['totalPrice'];
 
         //-----------------------------UPDATE totalprice into joborder table------------------------
-        $sqlupdateprice = "UPDATE joborder SET joborder.price = '$totalprice' where joborderid  = '$maxjoid' ";
+        $sqlupdateprice = "UPDATE joborders SET joborders.joprice = '$totalprice' where joborderid  = '$maxjoid' ";
         $stmtprice = $conn->prepare($sqlupdateprice);
         $stmtprice->execute(); 
         
