@@ -369,8 +369,10 @@
 
     function renderColumnSelection(actions)
     {
+
         if (this.options.columnSelection && this.columns.length > 1)
         {
+
             var that = this,
                 css = this.options.css,
                 tpl = this.options.templates,
@@ -379,7 +381,6 @@
                 selector = getCssSelector(css.dropDownItem),
                 checkboxSelector = getCssSelector(css.dropDownItemCheckbox),
                 itemsSelector = getCssSelector(css.dropDownMenuItems);
-
             $.each(this.columns, function (i, column)
             {
                 var item = $(tpl.actionDropDownCheckboxItem.resolve(getParams.call(that,
@@ -400,6 +401,7 @@
                                 that.element.find("tbody").empty(); // Fixes an column visualization bug
                                 renderTableHeader.call(that);
                                 loadData.call(that);
+                                alert("hi");
                             }
                         });
                 dropDown.find(getCssSelector(css.dropDownMenuItems)).append(item);
@@ -596,7 +598,7 @@
                 {
                     var selected = ($.inArray(row[that.identifier], that.selectedRows) !== -1),
                         selectBox = tpl.select.resolve(getParams.call(that,
-                            { type: "checkbox", value: row[that.identifier], checked: selected }));
+                            { type: "radio", value: row[that.identifier], checked: selected }));
                     cells += tpl.cell.resolve(getParams.call(that, { content: selectBox, css: css.selectCell }));
                     allRowsSelected = (allRowsSelected && selected);
                     if (selected)
@@ -656,9 +658,11 @@
 
         if (this.selection)
         {
+
             tbody.off("click" + namespace, selectBoxSelector)
                 .on("click" + namespace, selectBoxSelector, function(e)
                 {
+
                     e.stopPropagation();
 
                     var $this = $(this),
@@ -666,6 +670,7 @@
 
                     if ($this.prop("checked"))
                     {
+                        
                         that.select([id]);
                     }
                     else
@@ -678,6 +683,7 @@
         tbody.off("click" + namespace, "> tr")
             .on("click" + namespace, "> tr", function(e)
             {
+                 document.getElementById("test1").style.visibility = 'visible';
                 e.stopPropagation();
 
                 var $this = $(this),
@@ -690,10 +696,12 @@
                 {
                     if ($this.hasClass(that.options.css.selected))
                     {
+                        document.getElementById("test1").style.visibility = 'hidden';
                         that.deselect([id]);
                     }
                     else
-                    {
+                    {  
+                        
                         that.select([id]);
                     }
                 }

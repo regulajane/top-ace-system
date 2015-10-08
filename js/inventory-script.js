@@ -1,6 +1,6 @@
 window.onload = function () { supplies(); }
 function supplies(){
-    // document.getElementById("test1").style.visibility = 'hidden';
+     document.getElementById("test1").style.visibility = 'hidden';
 	// INVENTORY TABLE
 	$("#inventoryTable").bootgrid({
 	    ajax: true,

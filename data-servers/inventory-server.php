@@ -31,8 +31,8 @@
       {
         $search=trim($_REQUEST['searchPhrase']);
         //*
-        $where.= " AND ( inventoryname LIKE '%".$search."%' OR type LIKE '%".$search."%' 
-            OR size LIKE '%".$search."%' OR price LIKE '%".$search."%') "; 
+        $where.= " AND ( inventoryname LIKE '%".$search."%' OR inventorytype LIKE '%".$search."%' 
+            OR inventorysize LIKE '%".$search."%' OR inventoryprice LIKE '%".$search."%') "; 
       }
 
     //Row Count
@@ -53,7 +53,7 @@
       $limit=" LIMIT $limit_l,$limit_h ";
        
     //Query (Warning: Prone to SQL injection.)
-    $sql="SELECT * from inventory WHERE $where ORDER BY $order_by $limit";
+    $sql="SELECT * from inventory";
 
     $stmt=$conn->prepare($sql);
     $stmt->execute();
