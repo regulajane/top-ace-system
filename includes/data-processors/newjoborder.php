@@ -18,12 +18,13 @@
         $preparedby = $_POST['salesperson'];
         $supervisor = $_POST['supervisor'];
 
+
         
         //-----------------------------INSERT joborder TABLE------------------------------------
         $sql = "INSERT INTO joborders (problem, engineno, datebrought, downpayment, jostatus, clientid, modelno, preparedby, supervisor) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);     
-        $stmt->bind_param("sisisiiss", $problem, $engnumber, $dateBrought, $downpayment, $pending, $clientid, $modelid, $preparedby, $supervisor) or mysql_error();
+        $stmt->bind_param("sisisiiii", $problem, $engnumber, $dateBrought, $downpayment, $pending, $clientid, $modelid, $preparedby, $supervisor) or mysql_error();
         $stmt->execute();
 
         //-----------------------------SELECT JOB ORDER ID------------------------------------

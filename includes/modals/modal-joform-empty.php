@@ -188,16 +188,51 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-xs-3">Sales Person Assisted:</label>
                                     <div class="controls col-xs-4">
-                                        <input type="text" class="form-control" id="salesperson" name="salesperson" 
-                                            placeholder="" required autocomplete="off">
+                                        <!-- <input type="text" class="form-control" id="salesperson" name="salesperson" 
+                                            placeholder="" required autocomplete="off"> -->
+                                        <select class="form-control" id="salesperson" 
+                                                            name="salesperson" required>
+                                                            <option value="" disabled selected>
+                                                                Select Sales Person</option>
+                                                            <?php
+                                                                $sql = "SELECT * from employees where emptype = 'Front Desk Personnel' "; 
+                                                                $result = $conn->query($sql);
+                                                                if ($result->num_rows > 0) {
+                                                                    // output data of each row
+                                                                    while($resultRow = $result->fetch_assoc()){
+                                                                        $option = '<option value="' . $resultRow['employeeid'] . '">' . 
+                                                                            $resultRow['emplastname'] . ", " . $resultRow['empfirstname'] .  " " . $resultRow['empmiddlename'] . '</option>';
+                                                                        echo ($option);
+                                                                    }
+                                                                }
+                                                            ?>
+                                        </select>
                                     </div>
                                 </div>
 
                                 <div class="control-group form-group">
                                     <label class="control-label col-xs-3">Supervisor</label>
                                     <div class="controls col-xs-4">
-                                        <input type="text" class="form-control" id="supervisor" name="supervisor" 
-                                            placeholder="" required autocomplete="off">
+                                        <!-- <input type="text" class="form-control" id="supervisor" name="supervisor" 
+                                            placeholder="" required autocomplete="off"> -->
+
+                                        <select class="form-control" id="supervisor" 
+                                                            name="supervisor" required>
+                                                            <option value="" disabled selected>
+                                                                Select Supervisor</option>
+                                                            <?php
+                                                                $sql = "SELECT * from employees where emptype = 'Manager' "; 
+                                                                $result = $conn->query($sql);
+                                                                if ($result->num_rows > 0) {
+                                                                    // output data of each row
+                                                                    while($resultRow = $result->fetch_assoc()){
+                                                                        $option = '<option value="' . $resultRow['employeeid'] . '">' . 
+                                                                            $resultRow['emplastname'] . ", " . $resultRow['empfirstname'] .  " " . $resultRow['empmiddlename'] . '</option>';
+                                                                        echo ($option);
+                                                                    }
+                                                                }
+                                                            ?>
+                                        </select>  
                                     </div>
                                 </div>
 
@@ -218,17 +253,3 @@
     </div>
 </div> 
 <!-- JO Empty Form Modal -->
-
-<script>
-    $('.multi-field-wrapper').each(function() {
-        var $wrapper = $('.multi-fields', this);
-        $(".add-field", $(this)).click(function(e) {
-            $('.multi-field:first-child', 
-                $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
-        });
-        $('.multi-field .remove-field', $wrapper).click(function() {
-            if ($('.multi-field', $wrapper).length > 1)
-                $(this).parent('.multi-field').remove();
-        });
-    });
-</script>

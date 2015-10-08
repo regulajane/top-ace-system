@@ -50,20 +50,19 @@
                                 <!-- Problem -->
                                 <div class="form-group">
                                     <label class="control-label col-xs-3">Problem:</label>
-                                    <div class="col-xs-3">
-                                        <input type="text" class="form-control" id="problem" 
-                                            name="problem" readonly>
+                                    <div class="col-xs-6">
+                                        <!-- <input type="text" class="form-control" id="problem" 
+                                            name="problem" readonly> -->
+                                        <textarea rows="3" cols="100" class="form-control" id="problem" name="problem"
+                                            maxlength="999" style="resize:none" readonly>
+                                        </textarea>
                                     </div>
                                 </div>
 
+                               
+
                                 <!-- Symptoms -->
-                                <div class="form-group">
-                                    <label class="control-label col-xs-3">Symptoms:</label>
-                                    <div class="col-xs-3">
-                                        <input type="text" class="form-control" id="symptoms" 
-                                            name="symptoms" readonly>
-                                    </div>
-                                </div>
+                                
 
 
                             </form>
