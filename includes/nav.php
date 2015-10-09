@@ -1,11 +1,8 @@
 <?php
-    // Access validation
-    if(!isset($_SESSION["username"])){
-    header('Location: index.php?loggedout=true');}
     // Navigation
-    if(isset($_SESSION["username"])){
-        $level1nav = 
-            '<!-- Admin Navigation -->
+    if(isset($_SESSION["username"]) && $_SESSION["usertype"]=="admin"){
+        $adminnav = 
+            '<!-- Navigation -->
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
@@ -30,8 +27,7 @@
                                     <i class="fa fa-user"></i> <span>' . $_SESSION["username"] . '</span>
                                     <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li> <a href="systemusers.php">View Users</a> </li>
-                                    <li> <a href="sessionlogs.php">Session Logs</a> </li>
+                                    <li> <a href="#">...</a> </li>
                                     <li class="divider"></li>
                                     <li> <a href="includes/logout.php">Logout</a> </li>
                                 </ul>
@@ -40,6 +36,6 @@
                     </div> 
                 </div>              
             </nav>';
-        echo $level1nav;
+        echo $adminnav;
     } 
 ?>

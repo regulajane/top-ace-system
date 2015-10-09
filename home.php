@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php   include 'includes/header.php';
-            include 'includes/head-elements.php';   ?>
+    <?php   
+        include 'includes/header.php';
+        include 'includes/head-elements.php';   
+        if(!isset($_SESSION["username"])) {
+            header('Location: index.php?loggedout=true');}
+    ?>
     <link href="css/bootstrap-home.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="images/ta.ico">
     <title>Home</title>
 </head>
 <body>
-    <?php include 'includes/nav.php';   ?>
+    <?php include 'includes/nav.php'; ?>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -19,10 +23,7 @@
                 <h1 id="currentDateTime"></h1>
             </div>
         </div>
-	
         <div class="container" id="homenav">
-				
-			
 			<div class="row">
                 <div class="btn-group btn-group-justified">
                     <div class="btn-group">

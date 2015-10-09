@@ -3,7 +3,10 @@ window.onload = function () {
         ajax: true,
         url: "data-servers/clients-server.php",
         selection: true,
-        rowSelect: true
+        rowSelect: true,
+        labels: {
+            infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} Clients"
+        },
     });
 
     $("#editupdatebtn").on("click", function() {

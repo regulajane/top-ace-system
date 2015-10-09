@@ -192,7 +192,7 @@ a:hover {
 	color: #fff;
 }
 .signup-header {
-	margin: 125px 0 50px;
+	margin: 125px 0 10px;
 	background: rgba(255,255,255,0.2);
 	border-radius: 4px;
 	padding-left: 20px;
@@ -662,8 +662,8 @@ a:hover {
 	position: relative; 
 	font-size: 17px; 
 	line-height: 22px; 
-	padding: 16px; 
-	padding-left: 60px; 
+	/*padding: 16px; */
+	padding-left: 30px; 
 }
 .alert i { 
 	font-size: 28px; 

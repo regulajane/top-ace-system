@@ -1,8 +1,3 @@
-<!-- Access validation -->
-<?php
-    if(!isset($_SESSION["username"])){
-    header('Location: ../index.php?loggedout=true');}
-?>
 <!-- Footer -->
 <footer>
     <div class="row">

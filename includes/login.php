@@ -11,6 +11,7 @@
                 
                 $_SESSION["username"] = $row["username"];
                 $_SESSION["password"] =  $row["userpassword"];
+                $_SESSION["usertype"] =  $row["usertype"];
                 
                 $flag = true;
 
