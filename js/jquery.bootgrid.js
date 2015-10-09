@@ -656,6 +656,63 @@
 
     function registerRowEvents(tbody)
     {
+
+        if(window.location.href == "http://localhost/top-ace-system.git/trunk/inventory.php"){
+            
+               var that = this,
+                    selectBoxSelector = getCssSelector(this.options.css.selectBox);
+
+                if (this.selection) {
+                    tbody.off("click" + namespace, selectBoxSelector)
+                        .on("click" + namespace, selectBoxSelector, function(e)
+                        {
+                            e.stopPropagation();
+
+                            var $this = $(this),
+                                id = that.converter.from($this.val());
+
+                            if ($this.prop("checked"))
+                            {
+                                document.getElementById("test1").style.visibility = 'visible';
+                                that.select([id]);
+                            }
+                            else
+                            {
+                                that.deselect([id]);
+                                document.getElementById("test1").style.visibility = 'hidden';
+                            }
+                        });
+                }
+
+                tbody.off("click" + namespace, "> tr")
+                    .on("click" + namespace, "> tr", function(e)
+                    {
+                        e.stopPropagation();
+
+                        var $this = $(this),
+                            id = (that.identifier == null) ? $this.data("row-id") :
+                                that.converter.from($this.data("row-id") + ""),
+                            row = (that.identifier == null) ? that.currentRows[id] :
+                                that.currentRows.first(function (item) { return item[that.identifier] === id; });
+
+                        if (that.selection && that.options.rowSelect)
+                        {
+                            if ($this.hasClass(that.options.css.selected))
+                            {
+                                document.getElementById("test1").style.visibility = 'hidden';
+                                that.deselect([id]);
+                            }
+                            else
+                            {
+                                document.getElementById("test1").style.visibility = 'visible';
+                                that.select([id]);
+                            }
+                        }
+
+                        that.element.trigger("click" + namespace, [that.columns, row]);
+                    });
+                    
+        }else{
         var that = this,
             selectBoxSelector = getCssSelector(this.options.css.selectBox);
 
@@ -706,6 +763,7 @@
                 that.element.trigger("click" + namespace, [that.columns, row]);
             });
     }
+}
 
     function renderSearchField()
     {
