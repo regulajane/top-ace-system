@@ -683,7 +683,6 @@
         tbody.off("click" + namespace, "> tr")
             .on("click" + namespace, "> tr", function(e)
             {
-                document.getElementById("test1").style.visibility = 'visible';
                 e.stopPropagation();
 
                 var $this = $(this),
@@ -697,7 +696,6 @@
                     if ($this.hasClass(that.options.css.selected))
                     {
                         that.deselect([id]);
-                        document.getElementById("test1").style.visibility = 'hidden';
                     }
                     else
                     {
