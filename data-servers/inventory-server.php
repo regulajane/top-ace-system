@@ -31,7 +31,7 @@
       {
         $search=trim($_REQUEST['searchPhrase']);
         //*
-        $where.= " AND ( inventoryname LIKE '%".$search."%' OR inventorytype LIKE '%".$search."%' 
+        $where.= " AND ( inventoryname LIKE '%".$search."%' OR modelno LIKE '%".$search."%' OR inventoryquantity LIKE'%".$search."%'
             OR inventorysize LIKE '%".$search."%' OR inventoryprice LIKE '%".$search."%') "; 
       }
 
@@ -53,7 +53,7 @@
       $limit=" LIMIT $limit_l,$limit_h ";
        
     //Query (Warning: Prone to SQL injection.)
-    $sql="SELECT * from inventory";
+    $sql="SELECT * from inventory JOIN models USING (modelid) WHERE $where ORDER BY $order_by $limit ";
 
     $stmt=$conn->prepare($sql);
     $stmt->execute();

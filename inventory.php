@@ -55,31 +55,31 @@
 					<span class="glyphicon glyphicon-remove-sign"></span>
 				</button>
 				<button type="button" id="deletesupplyBtn" class="btn btn-info" data-toggle="modal"
-						title "Delete" href="#ICS">
-					Edit
-				</button>
+						title "Delete" href="#">
+					<span class="glyphicon glyphicon-remove-sign"></span>
 			</div>
 			<table  id="inventoryTable" class="table table-condensed table-hover">
 				<thead>
 					<tr>
+						<th data-column-id="modelno">
+							Model No
+						</th>
 						<th data-column-id="inventoryid" data-visible="false"  data-identifier="true">
 							Inventory ID
 						</th>
 						<th data-column-id="inventoryname">
 							Name
 						</th>
-						<th data-column-id="type">
-							Type
-						</th>
-						<th data-column-id="size">
+						<th data-column-id="inventorysize">
 							Size
 						</th>
-						<th data-column-id="price">
+						<th data-column-id="inventoryprice">
 							Price
 						</th>
-						<th data-column-id="quantity">
+						<th data-column-id="inventoryquantity">
 							Quantity
 						</th>
+						
 					</tr>
 				</thead>  
 			</table>

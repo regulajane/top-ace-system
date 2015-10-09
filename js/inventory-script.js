@@ -116,10 +116,6 @@ function supplies(){
             }
         });           
     });
-jQuery(document).ready(function($) {
-    $("#inventoryTable tr").click(function() {
-        alert("asa");
-    });
-});
+
 
 }

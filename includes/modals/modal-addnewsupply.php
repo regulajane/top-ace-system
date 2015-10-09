@@ -18,40 +18,40 @@
                     <div class="row">
                         <div class="col-md-12 bs-example">
                             <form class="form-horizontal" method="post" action="includes/data-processors/addnewsupply.php" 
-                                id="newSupplyForm">
-                               
+                              id="newSupplyForm">
                                 <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Inventory Name:</label>
-                                    <div class="controls col-xs-5">                                     
-                                         <textarea rows="1" cols="100" class="form-control" id="inventoryName" name="inventoryName"  maxlength="999" style="resize:none" 
-                                            required></textarea>
-                                    </div>
-                                </div>
-                                <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Type:</label>
+                                    <label class="control-label col-xs-3">Model No:</label>
                                         <div class="controls col-xs-3">
                                              <textarea rows="1" cols="100" class="form-control" id="type" name="type"  maxlength="999" style="resize:none" 
                                             required></textarea>
                                         </div>
-                                </div>  
+                                </div>                                
+                                <div class="control-group form-group">
+                                    <label class="control-label col-xs-3">Inventory Name:</label>
+                                    <div class="controls col-xs-5">                                     
+                                         <textarea rows="1" cols="100" class="form-control" id="inventoryname" name="inventoryName"  maxlength="999" style="resize:none" 
+                                            required></textarea>
+                                    </div>
+                                </div>
+   
                                 <div class="control-group form-group">
                                     <label class="control-label col-xs-3">Size:</label>
                                         <div class="controls col-xs-3">
-                                            <textarea rows="1" cols="100" class="form-control" id="size" name="size"  maxlength="999" style="resize:none" 
+                                            <textarea rows="1" cols="100" class="form-control" id="inventorysize" name="size"  maxlength="999" style="resize:none" 
                                             required></textarea>
                                         </div>
                                 </div>  
                                 <div class="control-group form-group">
                                     <label class="control-label col-xs-3">Quantity:</label>
                                      <div class="controls col-xs-2">
-                                    <textarea rows="1" cols="100" class="form-control" id="quantity" name="quantity"  maxlength="999" style="resize:none" 
+                                    <textarea rows="1" cols="100" class="form-control" id="inventoryquantity" name="quantity"  maxlength="999" style="resize:none" 
                                             required></textarea>
                                      </div>
                                 </div>   
                                 <div class="control-group form-group">
                                     <label class="control-label col-xs-3">Price per piece:</label>
                                      <div class="controls col-xs-3">
-                                     <textarea rows="1" cols="100" class="form-control" id="price" name="price"  maxlength="999" style="resize:none" 
+                                     <textarea rows="1" cols="100" class="form-control" id="inventoryprice" name="price"  maxlength="999" style="resize:none" 
                                             required></textarea>
                                      </div>
                                 </div>   

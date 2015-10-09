@@ -6,12 +6,12 @@
 		
 		// Define Variables
 
-		$inventID = $_POST["inventID"];
-		$inventName = $_POST["inventName"];
-		$inventType = $_POST["inventType"];
-		$inventSize = $_POST["inventSize"];
-		$inventPrice = $_POST["inventPrice"];
-		$quantity = $_POST["inventQtyProcured"];
+		$inventID = $_POST["inventoryid"];
+		$inventName = $_POST["inventoryname"];
+		$inventType = $_POST["modelno"];
+		$inventSize = $_POST["inventorysize"];
+		$inventPrice = $_POST["inventoryprice"];
+		$quantity = $_POST["inventqtyprocured"];
 
 		//outgoing
 		/*
@@ -35,7 +35,7 @@
 		} else {
 			//-----------------------------CREATE procureSupply TRIGGER------------------------------------
 			$sqlTrigger = "UPDATE inventory
-						SET quantity = quantity - '$quantity'
+						SET inventoryquantity = inventoryquantity - '$quantity'
 						WHERE inventoryid = '$inventID'";
 			mysqli_query($conn,$sqlTrigger);
 			//-----------------------------INSERT INTO INGOINGSUPPLIES------------------------------------
