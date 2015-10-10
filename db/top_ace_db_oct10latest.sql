@@ -138,13 +138,13 @@ CREATE TABLE `fabrications` (
   `fabricationid` int(15) NOT NULL AUTO_INCREMENT,
   `fabricationdesc` varchar(500) DEFAULT NULL,
   `fabricationquantity` int(5) DEFAULT NULL,
-  `joborderid` int(15) DEFAULT NULL,
   `fabricationprice` decimal(11,2) DEFAULT NULL,
-  `fabricationstatus` enum('Pending','Started','Done') DEFAULT NULL,
+  `fabricationstatus` enum('Pending','Started','Done') DEFAULT 'Pending',
+  `joborderid` int(15) DEFAULT NULL,
   PRIMARY KEY (`fabricationid`),
   KEY `fk_fabrications_joborderid_idx` (`joborderid`),
   CONSTRAINT `fk_fabrications_joborderid` FOREIGN KEY (`joborderid`) REFERENCES `joborders` (`joborderid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,6 +153,7 @@ CREATE TABLE `fabrications` (
 
 LOCK TABLES `fabrications` WRITE;
 /*!40000 ALTER TABLE `fabrications` DISABLE KEYS */;
+INSERT INTO `fabrications` VALUES (1,'SAMPLE 1',2,1111.00,NULL,1),(2,'SAMPLE 2',1,100.00,NULL,1);
 /*!40000 ALTER TABLE `fabrications` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,7 +247,7 @@ CREATE TABLE `joborders` (
   PRIMARY KEY (`joborderid`),
   KEY `fk_joborders_clientid_idx` (`clientid`),
   CONSTRAINT `fk_joborders_clientid` FOREIGN KEY (`clientid`) REFERENCES `clients` (`clientid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,6 +256,7 @@ CREATE TABLE `joborders` (
 
 LOCK TABLES `joborders` WRITE;
 /*!40000 ALTER TABLE `joborders` DISABLE KEYS */;
+INSERT INTO `joborders` VALUES (1,NULL,NULL,'2015-09-29',NULL,NULL,200.00,1211.00,'Pending',NULL,NULL,NULL,NULL,'Fabrication',3);
 /*!40000 ALTER TABLE `joborders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -281,6 +283,7 @@ CREATE TABLE `joemployees` (
 
 LOCK TABLES `joemployees` WRITE;
 /*!40000 ALTER TABLE `joemployees` DISABLE KEYS */;
+INSERT INTO `joemployees` VALUES (1,2),(1,4);
 /*!40000 ALTER TABLE `joemployees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -456,4 +459,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-10 13:33:23
+-- Dump completed on 2015-10-10 13:42:32
