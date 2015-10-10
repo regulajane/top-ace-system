@@ -28,10 +28,9 @@
 			<div class="row">
                 <div class="btn-group btn-group-justified">
                     <div class="btn-group">
-                        <a href="job-order.php" type="button" class="btn btn-nav">
-                            <i class="fa fa-folder-open fa-5x"></i>
-                            <p>Job Orders</p>
-							</p>
+                        <a href="job.php" type="button" class="btn btn-nav">
+                            <i class="fa fa-list-alt fa-5x"></i>
+                            <p>Job</p>
                         </a>
                     </div>
                     <div class="btn-group">
@@ -41,15 +40,16 @@
                         </a>
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-nav">
-                            <i class="fa fa-home fa-5x"></i>
-                            <p>Home</p>
-                        </button>
+                        <a href="job-order.php" type="button" class="btn btn-nav">
+                            <i class="fa fa-folder-open fa-5x"></i>
+                            <p>Job Orders</p>
+                            </p>
+                        </a>
                     </div>
                     <div class="btn-group">
-                        <a href="job.php" type="button" class="btn btn-nav">
-                            <i class="fa fa-list-alt fa-5x"></i>
-                            <p>Job</p>
+                       <a href="clients.php" type="button" class="btn btn-nav">
+                            <i class="fa fa-book fa-5x"></i>
+                            <p>Clients</p>
                         </a>
                     </div>
                     <div class="btn-group">
