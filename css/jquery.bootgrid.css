@@ -130,11 +130,6 @@
   text-align: center;
   width: 30px;
 }
-.bootgrid-table th.select-cell .select-box,
-.bootgrid-table td.select-cell .select-box {
-  margin: 0;
-  outline: 0;
-}
 .table-responsive .bootgrid-table {
   table-layout: inherit !important;
 }
