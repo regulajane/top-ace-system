@@ -91,6 +91,7 @@ function jobOrder(){
             data: {selectedID: selectedID},
             success: function(data) {
                 joData = JSON.parse(data);
+                alert(data);
                 // set JO variables
                 var joJobOrderID = joData.joborderid;
                 var joClientLastname = joData.cllastname
@@ -100,6 +101,7 @@ function jobOrder(){
                 
                 var joDownpayment = joData.downpayment;
                 var joRequestedBy = joData.requestedBy;
+                var joServices = joData.servicename;
   
 		        // $modelid = $_POST['modelid'];
 		        // $employeeid = $_POST['employeeid'];
@@ -110,6 +112,7 @@ function jobOrder(){
                 $(".joEdit #problem").val(joProblem);
                 $(".joEdit #dateBrought").val(joDateBrought);
                 $(".joEdit #client").val(joClientLastname + ", " + joClientFirstname);
+                $(".joEdit #servicesavailed").val(joServices);
 				
                 // $(".joEdit #defects").val(joDefects);
                 // $(".joEdit #natureOfWorksToBeDone").val(joNOWTBD);
