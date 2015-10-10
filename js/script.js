@@ -137,6 +137,8 @@ function tables(){
 function clearForm() {
     document.getElementById('joForm').reset();
     document.getElementById('joEditForm').reset();
+    document.getElementById('fabForm').reset();
+
 }
 
 function printForm(divName) { 

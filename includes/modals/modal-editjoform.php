@@ -34,7 +34,7 @@
                                     <label class="control-label col-xs-3">Client name:</label>
                                     <div class="col-xs-3">
                                         <input type="text" class="form-control" id="client" 
-                                            name="client" readonly>
+                                            name="client" >
                                     </div>
                                 </div>
 
@@ -73,7 +73,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary pull-left" onclick="clearForm()">Clear All</button>
-                <button type="submit" name="submit" class="btn btn-primary" form="joEditForm2" 
+                <button type="submit" name="submit" class="btn btn-primary"
                     value="submit" id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> SAVE</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>

@@ -9,6 +9,7 @@
     ?>
     <link href="css/bootstrap-home.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="images/ta.ico">
+    
     <title>Home</title>
 </head>
 <body>

@@ -11,6 +11,7 @@
         $dateOrdered= $_POST["dateOrdered"];
         $client= $_POST["client"];
         $downpayment = $_POST["downpayment"];
+        $machinist = $_POST["machinist"];
         $totalprice = 0;
         $pending = "pending";
         $fabrication = "Fabrication";
@@ -32,19 +33,40 @@
         // Execute
             $stmt1->execute();
 
-//         for($i=0 ;$i < count($_POST['item']); $i++) {
-//                // Prepare
+
+        $sqljoNum = "SELECT max(joborderid) as latestjoborder FROM joborders";
+         $result = $conn->query($sqljoNum);
+         $resultRow = $result->fetch_assoc();
+         $latestjoborderid = $resultRow['latestjoborder'];
+
+
+
+        for($i=0 ;$i < count($_POST['item']); $i++) {
+               // Prepare
             
-//             $sql1 = "INSERT INTO fabrications (itemname, fabricationprice, qty, dateor, clientid) VALUES (?, ?, ?, ?, ?)";
-//             $stmt1 = $conn->prepare($sql1);     
-//         // Bind
-//             $stmt1->bind_param("sssss", $item[$i], $price[$i], $quantity[$i], $dateOrdered, $clientid);
-//         // Execute
-//             $stmt1->execute();
+            $sql2 = "INSERT INTO fabrications (fabricationdesc,fabricationquantity, fabricationprice, joborderid) VALUES (?, ?, ?, ?)";
+            $stmt2 = $conn->prepare($sql2); 
+        // Bind
+            $stmt2->bind_param("ssss", $item[$i], $length[$i], $price[$i], $latestjoborderid);
+        // Execute
+            $stmt2->execute();
+        }
+
+
+        for($i=0 ;$i < count($_POST['machinist']); $i++) {
+               // Prepare
+            
+            $sql3 = "INSERT INTO joemployees (joborderid, employeeid) VALUES (?, ?)";
+            $stmt3 = $conn->prepare($sql3); 
+        // Bind
+            $stmt3->bind_param("ss", $latestjoborderid, $machinist[$i]);
+        // Execute
+            $stmt3->execute();
+        }
 
 
 // //$stmt2->bind_param("iissi", $vehicleNo, $vehiclePartNo[$i], $notes[$i], $date, $remarkNo);
-//         }
+     
         
         //-----------------------------INSERT SESSIONLOGS------------------------------------
         //$sqljoNum = "SELECT joNo FROM joborder";

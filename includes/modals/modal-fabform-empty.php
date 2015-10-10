@@ -45,6 +45,7 @@
                                                     </select> 
                                                 </div>
                                     </div>
+                                    <hr>
                                     <label class="control-label col-xs-3">Order/s</label><br><br>
                                     <div class="multi-field-wrapper">
                                         <div class="multi-fields">
@@ -60,7 +61,7 @@
                                                 <div class="control-group form-group">
                                                     <label class="control-label col-xs-3">Length</label>
                                                     <div class="controls col-xs-5">
-                                                        <input type="number" id="length" name="length[]" min="1" max="100" placeholder="in meter">
+                                                        <input type="number" id="length" name="length[]" min="1" max="1000" placeholder="in meter">
                                                     </div>
                                                 </div>
 
@@ -75,13 +76,46 @@
                                                
                                                 
                                                 <button type="button" class="add-field btn btn-default" 
-                                                    id="addfield"><i class="fa fa-plus"></i></button>
+                                                    id="addfield"><i class="fa fa-plus"></i>Add More...</button>
                                                 <button type="button" class="remove-field btn btn-default" 
-                                                    id="removefield"><i class="fa fa-minus"></i></button>
+                                                    id="removefield"><i class="fa fa-minus"></i>Remove Field</button>
 
                                             </div>
                                         </div>
                                     </div>
+                                    <hr>
+                                    <div class="multi-field-wrapper">
+                                        <div class="multi-fields">
+                                            <div class="multi-field">
+                                                <div class="control-group form-group">
+                                                    <label class="control-label col-xs-3">Machinist:</label>
+                                                            <div class="controls col-xs-8">
+                                                                <select class="form-control" id="machinist" name="machinist[]" required>
+                                                                    <option value="" disabled selected>Choose Machinist:</option>
+                                                                    <?php
+                                                                        $sql = "SELECT * from employees";
+                                                                        $result = $conn->query($sql);
+                                                                        if ($result->num_rows > 0) {
+                                                                            // output data of each row
+                                                                            while($resultRow = $result->fetch_assoc()){
+                                                                                $option = '<option value="' . $resultRow['employeeid'] . '">' . 
+                                                                                    $resultRow['empfirstname'] . " " . $resultRow['emplastname'] . '</option>';
+                                                                                echo ($option);
+                                                                            }
+                                                                        }
+                                                                    ?>
+
+                                                                </select> 
+                                                            </div>
+                                                </div>
+                                                <button type="button" class="add-field btn btn-default" 
+                                                    id="addfield"><i class="fa fa-plus"></i>Add More...</button>
+                                                <button type="button" class="remove-field btn btn-default" 
+                                                    id="removefield"><i class="fa fa-minus"></i>Remove Field</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
                                     <div class="form-group">
                                        <label class="control-label col-xs-3">Date Ordered:</label>
                                         <div class="col-xs-5">

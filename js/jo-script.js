@@ -14,6 +14,56 @@ function fabOrder(){
         rowSelect: true
     });
 
+    $("#editfabbtn").on("click", function() {
+        var selectedIDArray = $("#fabricationTable").bootgrid("getSelectedRows");
+        var selectedID = parseInt(selectedIDArray) + 0;
+        // if(! selectedID){
+        //     alert("Please select an item.");
+        //     location.reload();
+        // } else
+        $.ajax({
+            type: "POST",
+            url: "includes/data-processors/processFabajax.php",
+            data: {selectedID: selectedID},
+            success: function(data) {
+                fabData = JSON.parse(data);
+                // set JO variables
+                var fabJobOrderID = fabData.joborderid;
+                var fabClientLastname = fabData.cllastname;
+                var fabClientFirstname = fabData.clfirstname;
+                var fabClientMidInitial = fabData.clmidinitial;
+                var fabDateOrdered = fabData.dateordered;      
+                var fabDownpayment = fabData.downpayment;
+                var fabFabricationID = fabData.fabricationid;
+                var fabFabricationDescription = fabData.fabricationdesc;
+                var fabFabricationQuantity = fabData.fabricationquantity;
+                var fabFabricationPrice = fabData.fabricationprice;
+                var fabFabricationStatus = fabData.fabstatus;
+                var fabFabricationJOPrice = fabData.joprice;
+ 
+  
+                // $modelid = $_POST['modelid'];
+                // $employeeid = $_POST['employeeid'];
+                // $serviceid = $_POST['serviceid'];
+
+                // Update Form
+                $(".fabEdit #receiptNo").val(fabJobOrderID);
+                $(".fabEdit #dateStarted").val(fabDateOrdered);
+                $(".fabEdit #client").val(fabClientLastname + ", " + fabClientFirstname + " " + fabClientMidInitial);
+                $(".fabEdit #item").val(fabFabricationDescription);
+                // $(".joEdit #defects").val(joDefects);
+                // $(".joEdit #natureOfWorksToBeDone").val(joNOWTBD);
+                // $(".joEdit #partsToBeProcured").val(joPTBP);
+                // $(".joEdit #requestedBy").val(joRequestedBy);
+                // $(".joEdit #vehicleNo").val(joVehicleNo);
+
+                
+                $('#editFabModal').modal('show');
+                
+            }
+        });           
+    });
+
 }
 
 
