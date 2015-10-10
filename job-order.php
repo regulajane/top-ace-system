@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php   include 'includes/header.php';
-            include 'includes/head-elements.php'; ?>
-    
-    
+    <?php   
+        include 'includes/header.php';
+        include 'includes/head-elements.php';   
+        if(!isset($_SESSION["username"])) {
+            header('Location: index.php?loggedout=true');}
+    ?>
     <script src="js/jo-script.js"></script>
-
     <title>Job Order</title>
 </head>
 <body>
