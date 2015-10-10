@@ -6,14 +6,15 @@
     if(isset($_POST["submit"])=="submit") {
         // Define Variables
         $inventoryName= $_POST["inventoryName"];
-        $type= $_POST["type"];
-        $size= $_POST["size"];
-        $quantity= $_POST["quantity"];
-        $price= $_POST["price"];
+        $modelNo= $_POST["modelNo"];
+        
+        $inventorySize= $_POST["inventorySize"];
+        $inventoryquantity= $_POST["inventoryquantity"];
+        $inventoryprice= $_POST["inventoryprice"];
         
         // Prepare
-        $sql = "INSERT INTO inventory (inventoryName, type, size, quantity, price) VALUES ('$inventoryName', '$type', '$size', '$quantity', '$price')";
-		
+        $sql = "INSERT INTO inventory (inventoryName, modelNo, inventorySize, inventoryquantity, inventoryprice) VALUES ('$inventoryName','$modelNo', '$inventorySize', '$inventoryquantity', '$inventoryprice')";
+    
 if(mysqli_query($conn, $sql)){
     echo "Supply was added successfully.";
 } else{

@@ -7,7 +7,7 @@
 	$_SESSION['supNumber'] = $_POST['selectedItem'];
 	$supNum = $_SESSION['supNumber'];
 
-	$sql = "SELECT * FROM supplies WHERE supplyNo ='$supNum'";
+	$sql = "SELECT * FROM inventory WHERE inventoryid ='$supNum'";
 
     $rs = $conn->query($sql);
     $row = $rs->fetch_assoc();

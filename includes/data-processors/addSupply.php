@@ -6,11 +6,11 @@
 		// Define Variables
 
 		$inventID = $_POST["inventID"];
-		$inventName = $_POST["inventName"];
-		$inventType = $_POST["inventType"];
-		$inventSize = $_POST["inventSize"];
-		$inventPrice = $_POST["inventPrice"];
-		$quantity = $_POST["inventQtyAdded"];
+		$modelNumber = $_POST["modelNumber"];
+		$inventName = $_POST["inventoryName"];
+		$inventSize = $_POST["inventorySize"];
+		$inventPrice = $_POST["inventoryPrice"];
+		$quantity = $_POST["inventoryQtyAdded"];
 
 		//Ingoing
 		ini_set('date.timezone', 'Asia/Manila');
