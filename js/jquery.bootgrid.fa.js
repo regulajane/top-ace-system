@@ -11,9 +11,9 @@
     $.extend($.fn.bootgrid.Constructor.defaults.css, {
         icon: "icon fa",
         iconColumns: "fa-th-list",
-        iconDown: "fa-sort-desc",
+        iconDown: "fa-sort-amount-desc",
         iconRefresh: "fa-refresh",
         iconSearch: "fa-search",
-        iconUp: "fa-sort-asc"
+        iconUp: "fa-sort-amount-asc"
 });
 })(jQuery, window);
