@@ -38,9 +38,18 @@
             $sql3 = "INSERT INTO joemployees ( joborderid, employeeid) VALUES ( ?, ?)";
             $stmt3 = $conn->prepare($sql3);     
             $stmt3->bind_param("ii", $maxjoid, $employeeid[$i]) or mysql_error();
-            $stmt3->execute();
-            
+            $stmt3->execute();   
         }
+
+        //-----------------------------UPDATE employees TABLE------------------------------------
+        for($i=0 ;$i < count($_POST['employeeid']); $i++) {
+            $sql4 = "UPDATE employees SET noofjobs = (noofjobs + 1) where employeeid = ? ";
+            $stmt4 = $conn->prepare($sql4);     
+            $stmt4->bind_param("i", $employeeid[$i]) or mysql_error();
+            $stmt4->execute();
+        }
+
+     
 
 
         // -----------------------------INSERT sessionlogs TABLE------------------------------------
