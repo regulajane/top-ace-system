@@ -244,8 +244,15 @@
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary pull-left" 
                     onclick="clearForm()">Clear All</button>
+
+
                 <button type="submit" name="submit" class="btn btn-primary" form="joForm" value="submit">
-                    <span class="glyphicon glyphicon-ok-sign"></span> SAVE</button>  
+                    <span class="glyphicon glyphicon-ok-sign"></span> Next</button>
+
+
+                <!-- <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
+                            href="#joModal"><i class="fa fa-plus fa-fw"></i> New Job Order </button> -->
+
                 <button type="button" class="btn btn-primary" data-dismiss="modal">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
             </div>
@@ -253,3 +260,11 @@
     </div>
 </div> 
 <!-- JO Empty Form Modal -->
+
+
+<?php 
+       
+        // include 'includes/modals/modal-servicesbreakdown.php';
+        
+        // include 'includes/modals/modal-servicesbreakdown.php';
+    ?> 

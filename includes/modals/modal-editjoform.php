@@ -34,7 +34,7 @@
                                     <label class="control-label col-xs-3">Client name:</label>
                                     <div class="col-xs-3">
                                         <input type="text" class="form-control" id="client" 
-                                            name="client" >
+                                            name="client" readonly>
                                     </div>
                                 </div>
 
@@ -59,6 +59,19 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Services Availed:</label>
+                                    <div class="col-xs-6">
+                                        <!-- <input type="text" class="form-control" id="problem" 
+                                            name="problem" readonly> -->
+                                        <textarea rows="3" cols="100" class="form-control" id="servicesavailed" name="servicesavailed"
+                                            maxlength="999" style="resize:none" readonly>
+                                        </textarea>
+                                    </div>
+                                </div>
+
+
+
                                
 
                                 <!-- Symptoms -->
@@ -73,7 +86,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary pull-left" onclick="clearForm()">Clear All</button>
-                <button type="submit" name="submit" class="btn btn-primary"
+                <button type="submit" name="submit" class="btn btn-primary" form="joEditForm2" 
                     value="submit" id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> SAVE</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
