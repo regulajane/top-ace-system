@@ -1,4 +1,4 @@
-/* Global Styles */
+ Global Styles */
 
 html,
 body {
@@ -97,14 +97,20 @@ label {
 
 
 /*modal format*/
-#joPreFormModal .modal-content, 
-    #joPostFormModal .modal-content, 
-    #joPreFormEmptyModal .modal-content, 
-    #joPostFormEmptyModal .modal-content {
+#joPostFormModal .modal-content, 
+#joPreFormEmptyModal .modal-content, 
+#joPostFormEmptyModal .modal-content {
         width: 800px;
         position: relative;
         overflow-y: auto;
         margin-left: -100px;
+}
+
+#joPreFormModal .modal-content {
+        width: 755px;
+        position: relative;
+        overflow-y: auto;
+        margin-left: -75px;
 }
 /**/
 
@@ -114,7 +120,7 @@ label {
 }
 
 .table-borderless td {
- overflow: hidden; 
+    overflow: hidden; 
 }
 
 .table-borderless > tbody > tr > td {
@@ -122,16 +128,17 @@ label {
 }
 /**/
 
-/*font for forms*/
-/*#joPreFormPrint, #joPostFormPrint*/ 
-#preForm, #postForm {
+/*NEW*/
+
+/*Font of job order form*/ 
+#preForm {
     font-family: 'Arial';
     font-weight: bolder;
     font-size: 13px;
 }
 
 @media print {
-    #preForm, #postForm {
+    #preForm {
         font-family: 'Arial';
         font-weight: bolder;
         font-size: 12px;
@@ -143,295 +150,156 @@ label {
 }
 /**/
 
-/*padding of table for forms*/
-#descriptionForm, 
-    #locationForm, 
-    #articleNomenclatureForm, 
-    #endItemForm, 
-    #plateNoForm , 
-    #brandForm, 
-    #engineNoForm, 
-    #chassisNoForm, 
-    #natureOfLastRepairForm, 
-    #acquisitionCostForm, 
-    #dateOfLastRepairForm, 
-    #joNoForm, 
-    #amountForm, 
-    #accountOfForm, 
-    #deliveredAtForm, 
-    #dateDeliveredForm, 
-    #contractorForm, 
-    #invoiceReceiptNoForm, 
-    #contractNoForm, 
-    #contractor, 
-    #invoiceReceiptNoForm {
-        padding-top: 2px;
-        padding-bottom: 2px;
-}
 
-#descriptionPostForm, 
-    #locationPostForm, 
-    #articleNomenclaturePostForm, 
-    #endItemPostForm, 
-    #plateNoPostForm , 
-    #brandPostForm, 
-    #engineNoPostForm, 
-    #chassisNoPostForm, 
-    #natureOfLastRepairPostForm,
-    #acquisitionCostPostForm, 
-    #dateOfLastRepairPostForm, 
-    #joNoPostForm, 
-    #amountPostForm, 
-    #accountOfPostForm, 
-    #deliveredAtPostForm, 
-    #dateDeliveredPostForm, 
-    #contractorPostForm, 
-    #invoiceReceiptNoPostForm, 
-    #contractNoPostForm, 
-    #contractor, 
-    #invoiceReceiptNoPostForm {
-        padding-top: 2px;
-        padding-bottom: 2px;
-}
-
-#preForm > table:nth-child(8) > tbody > tr > td, 
-    #postForm > table:nth-child(4) > tbody > tr > td {
-        padding-left: 40px;
-}
-
-#preForm > table:nth-child(4) {
-    margin-bottom: 5px;
-}
-
-#requestedByPostForm, 
-    #postForm > table:nth-child(4) > 
-        tbody > tr > td:nth-child(2) > p:nth-child(3), 
-    #postForm > table:nth-child(4) > 
-        tbody > tr > td:nth-child(1) > p:nth-child(3), 
-    #postForm > table:nth-child(4) > 
-        tbody > tr > td:nth-child(1) > p:nth-child(5), 
-    #postForm > table:nth-child(4) > 
-        tbody > tr > td:nth-child(2) > p:nth-child(4), 
-    #requestedByForm, 
-    #preForm > table:nth-child(8) > 
-        tbody > tr > td:nth-child(1) > p:nth-child(3), 
-    #preForm > table:nth-child(8) > 
-        tbody > tr > td:nth-child(2) > p:nth-child(3), 
-    #preForm > table:nth-child(8), 
-    #preForm > table:nth-child(12), 
-    #preForm > table:nth-child(2), 
-    #postForm > table:nth-child(1), 
-    #postForm > table:nth-child(3), 
-    #postForm > table:nth-child(4), 
-    #postForm > table:nth-child(13), 
-    #defectsLabel, 
-    #defectsForm, 
-    #natureOfWorksToBeDoneLabel, 
-    #natureOfWorksToBeDoneForm, 
-    #partsToBeProcuredLabel, 
-    #preForm > table:nth-child(12) > 
-        tbody > tr > td:nth-child(1) > p:nth-child(3), 
-    #preForm > table:nth-child(12) > 
-        tbody > tr > td:nth-child(1) > p:nth-child(5), 
-    #preForm > table:nth-child(12) > 
-        tbody > tr > td:nth-child(2) > p:nth-child(3), 
-    #preForm > table:nth-child(12) > 
-        tbody > tr > td:nth-child(2) > p:nth-child(4), 
-    #preForm > table:nth-child(12) > 
-        tbody > tr > td:nth-child(3) > p:nth-child(3), 
-    #preForm > table:nth-child(12) > 
-        tbody > tr > td:nth-child(3) > p:nth-child(4), 
-    #preForm > table:nth-child(12) > 
-        tbody > tr > td:nth-child(1) > p:nth-child(4), 
-    #postForm > table:nth-child(13) > 
-        tbody > tr > td:nth-child(1) > p:nth-child(3), 
-    #postForm > table:nth-child(13) > 
-        tbody > tr > td:nth-child(1) > p:nth-child(4), 
-    #postForm > table:nth-child(13) > 
-        tbody > tr > td:nth-child(2) > p:nth-child(3), 
-    #postForm > table:nth-child(13) > 
-        tbody > tr > td:nth-child(2) > p:nth-child(4), 
-    #postForm > table:nth-child(13) > 
-        tbody > tr > td:nth-child(3) > p:nth-child(3), 
-    #postForm > table:nth-child(13) > 
-        tbody > tr > td:nth-child(3) > p:nth-child(4) {
-        margin-bottom: 2px;
-}
-/**/
-
-/*padding of div for forms*/
-#defectsLabel, 
-    #natureOfWorksToBeDoneLabel, 
-    #partsToBeProcuredLabel, 
-    #sectionBLabel, 
-    #findingsLabel {
-        padding-left: 10px;
-}
-
-#sectionB2Label, 
-    #toLabel, 
-    #sectionCLabel {
-        padding-left: 7px;
-}
-
-#preForm > div:nth-child(10), 
-    #preForm > div:nth-child(11) {
-        padding-left: 0;
-}
-
-#defectsForm, 
-    #natureOfWorksToBeDoneForm, 
-    #partsToBeProcuredForm {
-        padding-left: 30px;
-}
-
-#postForm > div.row.text-right > div {
-    padding-right: 25px;
-}
-/**/
-
-/*border of forms*/
-#preForm, #postForm {
+/*border of job order form*/
+#preForm {
     border-top: 2px solid #bdbdbd; 
     border-right: 2px solid #bdbdbd;
     border-left: 2px solid #bdbdbd;
     border-bottom: 2px solid #bdbdbd;
-
-}
-
-#preForm > div:nth-child(3) > div > p, 
-    #preForm > table:nth-child(8), 
-    #preForm > div:nth-child(9) > div > p, 
-    #preForm > table:nth-child(12), 
-    #postForm > div:nth-child(2) > div > p, 
-    #postForm > table:nth-child(4), 
-    #sectionB2Label, 
-    #postForm > table:nth-child(13), 
-    #sectionCLabel {
-        border-top: 1px solid #bdbdbd;
 }
 /**/
 
-/*hide search bar on vehicle records table*/
-/*#vehicleRecordTable-header > div > div {
-    display: none;
-}*/
-/**/
-
-
-/*padding of vehicle records div*/
-#vehicleEditForm > div:nth-child(1) > div:nth-child(2) {
-    padding-top: 1px;
-    padding-bottom: 1px;
+/*TABLES IN JOB ORDER FORM*/
+/*width of job order tables*/
+#joformtable1, #joformtable2, #joformtable3 {
+    width:685px;
 }
-/**/
+/*table margin of job order form*/
+#joformtable1, #joformtable2, #joformtable3 {
+    margin-left: 8px;
+}
+/*qty column of job order form*/
+#joformtable2 > tbody > tr:nth-child(1) > td:nth-child(1),
+#joformtable2 > tbody > tr:nth-child(1) > td:nth-child(4),
+#joformtable3 > tbody > tr:nth-child(1) > td:nth-child(1) {
+    width:30px;
+}
+/*amount column of job order form*/
+#joformtable2 > tbody > tr:nth-child(1) > td:nth-child(3),
+#joformtable2 > tbody > tr:nth-child(1) > td:nth-child(6),
+#joformtable3 > tbody > tr:nth-child(1) > td:nth-child(4) {
+    width:40px;
+}
+/*uprice column of job order form*/
+#joformtable3 > tbody > tr:nth-child(1) > td:nth-child(3) {
+    width:78px;
+}
+/*TABLES IN JOB ORDER FORM*/
 
-/*vehicle record text alignment*/
-    div h4 {
-        text-align: center;
-    }
-/**/
+
+/*DIVS IN JOB ORDER FORM*/
+/*div padding of job order form*/
+#preForm > div:nth-child(5) > div > p {
+    padding-left: 10px;
+}
+#preForm > div:nth-child(6) > div > p {
+    padding-left: 52px;
+}
+/*DIVS IN JOB ORDER FORM*/
 
 
-/*add vehicle button and vehicle record label*/
-#vehiclerecordlabel {
-    text-align: center;
+/*FONTS IN JOB ORDER FROM*/
+/*1st line*/
+#preForm > div.row.text-center > div > p:nth-child(1),
+#preForm > div.row.text-center > div > p:nth-child(2),
+#preForm > div.row.text-center > div > p:nth-child(3),
+#preForm > div.row.text-center > div > p:nth-child(4) {
+    font-family: 'Bookman Old Style';
 }
 
-#addvehiclebtn {
-    float: left;
-}
-/**/
-
-#helpjo1modal > div > div > div.modal-body > div > div > div > h4, 
-    #helpjo11modal > div > div > div.modal-body > div > div > div > h4,
-    #helpjo2modal > div > div > div.modal-body > div > div > div > h4,
-    #helpjo3modal > div > div > div.modal-body > div > div > div > h4,
-    #helpjo4modal > div > div > div.modal-body > div > div > div > h4,
-    #helpvr1modal > div > div > div.modal-body > div > div > div > h4,
-    #helpvr2modal > div > div > div.modal-body > div > div > div > h4,
-    #helpvr3modal > div > div > div.modal-body > div > div > div > h4,
-    #helps1modal > div > div > div.modal-body > div > div > div > h4,
-    #helps2modal > div > div > div.modal-body > div > div > div > h4,
-    #helps3modal > div > div > div.modal-body > div > div > div > h4,
-    #helps4modal > div > div > div.modal-body > div > div > div > h4,
-    #helps5modal > div > div > div.modal-body > div > div > div > h4 {
-        text-align: left;
+#preForm > div.row.text-center > div > p:nth-child(1),
+#preForm > div.row.text-center > div > p:nth-child(4) {
+    font-size: 16px;
 }
 
+#preForm > div.row.text-center > div > p:nth-child(1),
+#preForm > div.row.text-center > div > p:nth-child(2) {
+    margin-bottom: 0px;
+}
+/*FONTS IN JOB ORDER FROM*/
+
+/*label of tabs*/
 .large-nav{
     font-size: 20px;
     font-weight:bold;
 }
+/**/
 
 
+/*notification*/
 #notification_li
 {
 position:relative
 }
-#notification_count 
-                                {
-                                padding: 3px 7px 3px 7px;
-                                background: #cc0000;
-                                color: #ffffff;
-                                font-weight: bold;
-                                margin-left: 35px;
-                                border-radius: 9px;
-                                -moz-border-radius: 9px; 
-                                -webkit-border-radius: 9px;
-                                position: absolute;
-                                margin-top: 2px;
-                                font-size: 9px;
+
+
+#notification_count {
+    padding: 3px 7px 3px 7px;
+    background: #cc0000;
+    color: #ffffff;
+    font-weight: bold;
+    margin-left: 35px;
+    border-radius: 9px;
+    -moz-border-radius: 9px; 
+    -webkit-border-radius: 9px;
+    position: absolute;
+    margin-top: 2px;
+    font-size: 9px;
 }
-#notificationContainer 
-{
-background-color: #fff;
-border: 1px solid rgba(100, 100, 100, .4);
--webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-overflow: visible;
-top: 30px;
-margin-left: -180px;
-width: 400px;
-z-index: 0;
-display: none;
-position: fixed;
+
+#notificationContainer {
+    background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, .4);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    overflow: visible;
+    top: 30px;
+    margin-left: -180px;
+    width: 400px;
+    z-index: 0;
+    display: none;
+    position: fixed;
 }
-// Popup Arrow
+
+/*Popup Arrow*/
 #notificationContainer:before {
-content: '';
-display: block;
-position: absolute;
-width: 0;
-height: 0;
-color: transparent;
-border: 10px solid black;
-border-color: transparent transparent white;
-margin-top: -20px;
-margin-left: 188px;
-position: fixed;
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border: 10px solid black;
+    border-color: transparent transparent white;
+    margin-top: -20px;
+    margin-left: 188px;
+    position: fixed;
 }
-#notificationTitle
-{
-font-weight: bold;
-padding: 8px;
-font-size: 13px;
-background-color: #ffffff;
-position: fixed;
-z-index: 1000;
-width: 384px;
-border-bottom: 1px solid #dddddd;
+/*Popup Arrow*/
+
+
+#notificationTitle {
+    font-weight: bold;
+    padding: 8px;
+    font-size: 13px;
+    background-color: #ffffff;
+    position: fixed;
+    z-index: 1000;
+    width: 384px;
+    border-bottom: 1px solid #dddddd;
 }
-#notificationsBody
-{
-padding: 33px 0px 0px 0px !important;
-min-height:300px;
+
+#notificationsBody{
+    padding: 33px 0px 0px 0px !important;
+    min-height:300px;
 }
-#notificationFooter
-{
-background-color: #e9eaed;
-text-align: center;
-font-weight: bold;
-padding: 8px;
-font-size: 12px;
-border-top: 1px solid #dddddd;
+
+#notificationFooter {
+    background-color: #e9eaed;
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 12px;
+    border-top: 1px solid #dddddd;
 }
+/*notification*/

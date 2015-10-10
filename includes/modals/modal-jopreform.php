@@ -11,131 +11,241 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Pre-Repair Inspection Form</h4>
+                <h4 class="modal-title" id="myModalLabel">Job Order Form</h4>
             </div>
             <div class="joPreForm modal-body" id="joPreFormPrint">
-                <div class="col-md-12">
-                    <p>Form Nr 2</p>
-                </div>
                 <div class="row"  id="a">
                     <div class="col-md-12">
-                        <div class="row text-center">
-                            <p>REQUEST FOR PRE-REPAIR INSPECTION</p>
-                        </div>
                         <form method="post" action="includes/newjoborder.php" id="preForm">
                             <div class="row text-center">
+                                <div class="col-md-12">
+                                    <p>TOP ACE Motor Works Corp., Inc.</p>
+                                    <p>369 Magsaysay Avenue, Baguio City * Tel. Nos.: 445-4848; 442-2805</p>
+                                    <p>VAT Reg. TIN 000-279-654-000</p>
+                                    <p>TEMPORARY JOB ORDER</p>
+                                </div>
                             </div>
-                            <table class="table table-borderless">
+                            <table id="joformtable1" class="table table-borderless">
                                 <tr>
-                                    <td>Section A: Request for Pre-Repair</td>
-                                    <td id="dateOfPrerepairRequestForm" name="dateOfPrerepairRequestForm">
-                                            Date:&nbsp;_________________________</td>
+                                    <td colspan="5"><span id="notBold"></td>
+                                    <td colspan="1"><span id="notBold">No.&nbsp;_____________</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2"><span id="notBold">To:&nbsp;_________________________<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_________________________</span></td>
+                                    <td colspan="4"><span id="notBold">To:&nbsp;_________________________________________________________________</td>
+                                    <td colspan="2"><span id="notBold">Date:&nbsp;_____________________________</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6"><span id="notBold">Address:&nbsp;_______________________________________________________________________________________________</td>
                                 </tr>
                             </table>
-                            <div class="row text-center">
-                                <div class="col-md-12">
-                                    <p>Request conduct pre-repair inspection of the equipment / 
-                                        plant property describes as follows:</p>
-                                </div>
-                            </div>
-                            <table class="table table-borderless">
+                            <table id="joformtable2" class="table table-bordered">
                                 <tr>
-                                    <td id="descriptionForm" name="descriptionForm">Description of Property: </td>
-                                    <td id="locationForm" name="locationForm">Location of Property: </td>
+                                    <td colspan="1">QTY</td>
+                                    <td colspan="3">DESCRIPTION</td>
+                                    <td colspan="1">AMOUNT</td>
+                                    <td colspan="1">QTY</td>
+                                    <td colspan="3">DESCRIPTION</td>
+                                    <td colspan="1">AMOUNT</td>
                                 </tr>
                                 <tr>
-                                    <td id="articleNomenclatureForm" name="articleNomenclatureForm">Article Nomenclature: </td>
-                                    <td id="endItemForm" name="endItemForm">End Item: </td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
                                 </tr>
                                 <tr>
-                                    <td id="plateNoForm" name="plateNoForm">Plate No.: </td>
-                                    <td id="brandForm" name="brandForm">Type / Brand: </td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
                                 </tr>
                                 <tr>
-                                    <td id="engineNoForm" name="engineNoForm">Engine No.: </td>
-                                    <td id="chassisNoForm" name="chassisNoForm">Chassis No.: </td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
                                 </tr>
                                 <tr>
-                                    <td id="natureOfLastRepairForm" name="natureOfLastRepairFormorm">Nature of Last Repair: </td>
-                                    <td id="acquisitionCostForm" name="acquisitionCostForm">Acquistion Cost: </td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
                                 </tr>
                                 <tr>
-                                    <td id="dateOfLastRepairForm" name="dateOfLastRepairForm">Date of Last Repair: </td>
-                                    <td></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                
+                                
+                            </table>
+                            <table id="joformtable3" class="table table-bordered">
+                                <tr>
+                                    <td colspan="1">QTY</td>
+                                    <td colspan="3">DESCRIPTION</td>
+                                    <td colspan="1">U-PRICE</td>
+                                    <td colspan="1">AMOUNT</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                 <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"></td>
+                                    <td colspan="3"></td>
+                                    <td colspan="1"></td>
+                                    <td colspan="1"></td>
                                 </tr>
                             </table>
-                            <div class="row" id="b">
+                            <div class="row">
                                 <div class="col-md-12">
-                                    <p id="defectsLabel">Defects / Complain: </p>
-                                    <p id="defectsForm">&nbsp;</p>
-                                </div>
-                            </div>
-                            <div class="row" id="b">
-                                <div class="col-md-12">
-                                    <p id="natureOfWorksToBeDoneLabel">Nature and scope of works to be done: </p>
-                                    <p id="natureOfWorksToBeDoneForm">&nbsp;</p>
-                                </div>
-                            </div>
-                            <div class="row" id="b">
-                                <div class="col-md-12">
-                                    <p id="partsToBeProcuredLabel">Parts to be procured / Replaced: </p>
-                                    <p id="partsToBeProcuredForm">&nbsp;<br><br><br></p>
-                                </div> 
-                            </div>
-                            <table class="table table-borderless">
-                                <tr>
-                                    <td>Requested by:<br><br>
-                                        <p><span id="notBold">______________________________</br>
-                                        <?php
-                                            $reqby = '<p id="requestedByForm"><span id="notBold">
-                                                ______________________________<br>Supply NCO:Acad</span></p>';
-                                            echo ($reqby);
-                                        ?>
-                                        <p><span id="notBold">Date signed:___________________</span></p>
-                                    </td>
-                                    <td>Noted by:<br><br>
-                                        <p><span id="notBold">LEON L. ONGGAO JR.<br>MAJ (INF) PA<br>
-                                            Commanding Officer: TMC</span></p>
-                                        <p><span id="notBold">Date signed:___________________</span></p>
-                                    </td>
-                                </tr>
-                            </table>
-                            <div class="row text-center">
-                                <div class="col-md-12">
-                                    <p>ACTION TAKEN</p>
-                                </div>
-                            </div>
-                            <div class="row" id="b">
-                                <div class="col-md-12">
-                                    <p id="sectionBLabel">Section B: Report of Pre-Repair Inspector:</p>
+                                    <p id="notBold">NOTE:&nbsp;FOR QUOTATION OF JOB ORDER ONLY</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p id="findingsLabel"><span id="notBold">Findings / 
-                                        Observations  ___________________________________________________________</span></p>
+                                    <p id=""><span id="notBold">(All items not claimed within 30 days after accomplishment shall be forfeited in favor of TOP-ACE MOTOR WORKS CORP., INC)</span></p>
                                 </div>
                             </div>
                             <table class="table table-borderless">
                                 <tr>
-                                    <td>Pre-Inspected by: <br><br>
-                                        <p><span id="notBold">_________________________<br>_________________________</span></p>
-                                        <p><span id="notBold">MFO Inspector</span></p>
-                                        <p><span id="notBold">Date signed:_______________</span></p>
+                                    <td>Machinist: <br><br>
+                                        <p><span id="notBold"></span></p>
                                     </td>
-                                    <td>Witnessed by: <br><br>
-                                        <p><span id="notBold">_________________________<br>_________________________</span></p>
-                                        <p><span id="notBold">Maintenance NCO</span></p>
-                                        <p><span id="notBold">Date signed:_______________</span></p>
+                                    <td>Confirmed by: <br><br>
+                                        <p><span id="notBold"></span></p>
                                     </td>
-                                    <td>Noted by: MFO Representatives:<br><br>
-                                        <p><span id="notBold">_________________________<br>_________________________</span></p>
-                                        <p><span id="notBold">Chief, Pre-Audit MFO</span></p>
-                                        <p><span id="notBold">Date signed:_______________</span></p>
+                                    <td>Received by:<br><br>
+                                        <p><span id="notBold"></span></p>
                                     </td>
                                 </tr>
                             </table>
