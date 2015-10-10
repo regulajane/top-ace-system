@@ -1,6 +1,6 @@
 window.onload = function () { supplies(); }
 function supplies(){
-    // document.getElementById("test1").style.visibility = 'hidden';
+     document.getElementById("test1").style.visibility = 'hidden';
 	// INVENTORY TABLE
 	$("#inventoryTable").bootgrid({
 	    ajax: true,
@@ -17,7 +17,6 @@ function supplies(){
             alert("Please select an item.");
             location.reload();
         } else
-        document.getElementById("test1").style.visibility = 'visible';
         $.ajax({
             type: "POST",
             url: "includes/data-processors/processSupplyajax.php",
@@ -27,15 +26,15 @@ function supplies(){
                 inventoryData = JSON.parse(data);
                 // set Inventory Variables
                 var inventID 	= inventoryData.inventoryid;
+                var modelNum    = inventoryData.modelid;
                 var inventName 	= inventoryData.inventoryname;
-                var inventType 	= inventoryData.type;
-                var inventSize 	= inventoryData.size;
-                var inventPrice = inventoryData.price;
-                var inventQty	= inventoryData.quantity;
-                // Add/Procure Form
+                var inventSize 	= inventoryData.inventorysize;
+                var inventPrice = inventoryData.inventoryprice;
+                var inventQty	= inventoryData.inventoryquantity;
+                // Add Quantity Form
                 $(".addProcSup #inventID").val(inventID);
+                $(".addProcSup #modelNum").val(modelNum);
                 $(".addProcSup #inventName").val(inventName); 
-                $(".addProcSup #inventType").val(inventType);
                 $(".addProcSup #inventSize").val(inventSize);
                 $(".addProcSup #inventPrice").val(inventPrice);
                 $(".addProcSup #inventQty").val(inventQty);
@@ -58,17 +57,17 @@ function supplies(){
                 
                 inventoryData = JSON.parse(data);
                 // set Inventory Variables
-                var inventID    = inventoryData.inventoryid;
+                var inventID   = inventoryData.inventoryid;
+                var modelNum    = inventoryData.modelid;
                 var inventName  = inventoryData.inventoryname;
-                var inventType  = inventoryData.type;
-                var inventSize  = inventoryData.size;
-                var inventPrice = inventoryData.price;
-                var inventQty   = inventoryData.quantity;
+                var inventSize  = inventoryData.inventorysize;
+                var inventPrice = inventoryData.inventoryprice;
+                var inventQty   = inventoryData.inventoryquantity;
 
                 // Add/Procure Form
                 $(".addProcSup #inventID").val(inventID);
+                $(".addProcSup #modelNum").val(modelNum);
                 $(".addProcSup #inventName").val(inventName); 
-                $(".addProcSup #inventType").val(inventType);
                 $(".addProcSup #inventSize").val(inventSize);
                 $(".addProcSup #inventPrice").val(inventPrice);
                 $(".addProcSup #inventQty").val(inventQty);

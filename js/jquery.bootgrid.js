@@ -663,6 +663,7 @@
                     selectBoxSelector = getCssSelector(this.options.css.selectBox);
 
                 if (this.selection) {
+                    
                     tbody.off("click" + namespace, selectBoxSelector)
                         .on("click" + namespace, selectBoxSelector, function(e)
                         {
@@ -673,13 +674,13 @@
 
                             if ($this.prop("checked"))
                             {
-                                document.getElementById("test1").style.visibility = 'visible';
+                                
                                 that.select([id]);
+                                document.getElementById("test1").style.visibility = 'visible';
                             }
                             else
                             {
                                 that.deselect([id]);
-                                document.getElementById("test1").style.visibility = 'hidden';
                             }
                         });
                 }
