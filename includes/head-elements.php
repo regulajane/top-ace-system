@@ -23,6 +23,6 @@
 <script src="js/jqBootstrapValidation-1.3.7.min.js"></script>
 <!-- Bootgrid Scripts -->
 <script src="js/jquery.bootgrid.js"></script>
-<script src="js/jquery.bootgrid.fa.min.js"></script>
+<script src="js/jquery.bootgrid.fa.js"></script>
 <!-- Custom Script -->
 <script src="js/script.js"></script>
