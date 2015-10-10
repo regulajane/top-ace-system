@@ -54,9 +54,6 @@
 						title "Delete" href="#deleteSuppliesModal">
 					<span class="glyphicon glyphicon-remove-sign"></span>
 				</button>
-				<button type="button" id="deletesupplyBtn" class="btn btn-info" data-toggle="modal"
-						title "Delete" href="#">
-					<span class="glyphicon glyphicon-remove-sign"></span>
 			</div>
 			<table  id="inventoryTable" class="table table-condensed table-hover">
 				<thead>
