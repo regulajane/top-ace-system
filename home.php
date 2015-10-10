@@ -43,11 +43,10 @@
                         <a href="job-order.php" type="button" class="btn btn-nav">
                             <i class="fa fa-folder-open fa-5x"></i>
                             <p>Job Orders</p>
-                            </p>
                         </a>
                     </div>
                     <div class="btn-group">
-                       <a href="clients.php" type="button" class="btn btn-nav">
+                        <a href="clients.php" type="button" class="btn btn-nav">
                             <i class="fa fa-book fa-5x"></i>
                             <p>Clients</p>
                         </a>
