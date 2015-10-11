@@ -21,7 +21,7 @@
             </div>
             <div class="col-lg-12">
                     <ul id="myTab" class="nav nav-tabs nav-justified">
-                        <li class="active large-nav"><a href="#joTab" data-toggle="tab"><i class="fa fa-bus"></i> Engineer reconditioning</a>
+                        <li class="active large-nav"><a href="#joTab" data-toggle="tab"><i class="fa fa-car"></i> Engineer reconditioning</a>
                         </li>
                         <li class="large-nav"><a href="#vrTab" data-toggle="tab"><i class="fa fa-bus"></i> Fabrication</a>
                         </li>
@@ -72,6 +72,10 @@
                                         Grand Total</th>
                                     <th data-column-id="jostatus">
                                         Status</th>
+                                    <th data-column-id="jotype">
+                                        Type</th>
+
+
                                 </tr>
                             </thead>  
                         </table>

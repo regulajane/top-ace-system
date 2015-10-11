@@ -32,7 +32,7 @@
       {
         $search=trim($_REQUEST['searchPhrase']);
         $where.= " AND ( joborderid LIKE '%".$search."%' OR cllastname LIKE '%".$search."%' OR clfirstname LIKE '%".$search."%' 
-          OR datebrought LIKE '%".$search."%' OR jostatus LIKE '%".$search."%') "; 
+          OR datebrought LIKE '%".$search."%' OR jostatus LIKE '%".$search."%' OR jotype LIKE '%".$search."%') "; 
       }
 
     //Row Count
@@ -55,7 +55,6 @@
     //Query (Warning: Prone to SQL injection.)
     $sql="SELECT  joborders.joborderid,
                   joborders.problem,
-           
                   date_format(datebrought,' %b. %m, %Y') as datebrought,
                   joborders.datestarted,
                   joborders.datefinished,
@@ -64,11 +63,15 @@
                   joborders.downpayment,
                   joborders.jostatus,
                   joborders.clientid,
-                  joborders.modelno, 
+                  joborders.modelno,
+                  joborders.supervisor,
+                  joborders.preparedby,
+                  joborders.jotype,
+
                   concat(cllastname,', ',clfirstname) as clientname  
                     
                   from joborders join clients using (clientid) 
-                  where $where
+                  where $where AND jotype != 'Fabrication'
                   ORDER BY $order_by $limit";
     $stmt=$conn->prepare($sql);
     $stmt->execute();

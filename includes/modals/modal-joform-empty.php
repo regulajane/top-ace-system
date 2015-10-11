@@ -253,7 +253,7 @@
                 <!-- <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
                             href="#joModal"><i class="fa fa-plus fa-fw"></i> New Job Order </button> -->
 
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="reload()">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
             </div>
         </div>

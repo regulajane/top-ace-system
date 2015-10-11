@@ -9,8 +9,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cancelbtn">
-                    <span aria-hidden="true">&times;</span></button>
+                
                 <h4 class="modal-title" id="myModalLabel">Edit Job Order</h4>
             </div>
             <div class="joEdit modal-body">
@@ -18,8 +17,8 @@
                     <div class="row">
                         <div class="col-md-12 bs-example">
                             <form class="form-horizontal">
-                                <h4 class="modal-title" id="emptyformlabel">Service/s Breakdown</h4>
-                                <hr>
+                                <!-- <h4 class="modal-title" id="emptyformlabel">Service/s Breakdown</h4> -->
+                                <!-- <hr> -->
                                 <!-- Receipt number -->
                                 <div class="form-group">
                                     <label class="control-label col-xs-3">Receipt number:</label>
@@ -61,12 +60,17 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-xs-3">Services Availed:</label>
-                                    <div class="col-xs-6">
-                                        <!-- <input type="text" class="form-control" id="problem" 
-                                            name="problem" readonly> -->
-                                        <textarea rows="3" cols="100" class="form-control" id="servicesavailed" name="servicesavailed"
+                                    <div class="col-xs-6" id="servicesavailed">
+                                        <!-- <input type="text" class="form-control" id="servicesavailed" 
+                                            name="servicesavailed" readonly> -->
+                                        <!-- <textarea rows="3" cols="100" class="form-control" id="servicesavailed" name="servicesavailed"
                                             maxlength="999" style="resize:none" readonly>
-                                        </textarea>
+                                        </textarea> -->
+                                        
+
+
+
+
                                     </div>
                                 </div>
 
@@ -88,7 +92,7 @@
                 <button type="submit" class="btn btn-primary pull-left" onclick="clearForm()">Clear All</button>
                 <button type="submit" name="submit" class="btn btn-primary" form="joEditForm2" 
                     value="submit" id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> SAVE</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2" onclick="reload()">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
             </div>
         </div>
