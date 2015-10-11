@@ -8,6 +8,7 @@ function supplies(){
 	    selection: true,
 	    rowSelect: true
 	});
+    
 
 	$("#addsupplybtn").on("click", function() {
         var selectedItemArray = $("#inventoryTable").bootgrid("getSelectedRows");
@@ -38,6 +39,7 @@ function supplies(){
                 $(".addProcSup #inventSize").val(inventSize);
                 $(".addProcSup #inventPrice").val(inventPrice);
                 $(".addProcSup #inventQty").val(inventQty);
+
             }
         });           
     });
@@ -71,11 +73,6 @@ function supplies(){
                 $(".addProcSup #inventSize").val(inventSize);
                 $(".addProcSup #inventPrice").val(inventPrice);
                 $(".addProcSup #inventQty").val(inventQty);
-
-                if(supQty > 0) {
-                    $('#procSuppliesModal').modal('show');
-                } else
-                    alert("Supply not available.");
             }
         });           
     });
@@ -117,6 +114,4 @@ function supplies(){
             }
         });           
     });
-
-
 }
