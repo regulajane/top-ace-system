@@ -35,7 +35,7 @@
                                 </ul>
                             </li>
                             <li id="notification_li">
-                                <span id="notification_count">5</span>
+                                <span id="notification_count"></span>
                                 <a id="notificationLink"
                                     class="glyphicon glyphicon-exclamation-sign" 
                                     aria-hidden="true" style="font-size:25px;"></a>
@@ -49,6 +49,11 @@
                     </div>
                 </div>
                 <script>
+                    if(localStorage["notif"] == null){
+                        localStorage["notif"] = "0";
+                    }else if (parseInt(localStorage["notif"]) != 0){
+                    document.getElementById("notification_count").innerHTML = localStorage["notif"];
+                    }
                     $(document).ready(function()
                     {
                     $("#notificationLink").click(function()
@@ -57,7 +62,7 @@
                     $("#notification_count").fadeOut("slow");
                     return false;
                     });
-                    
+
                     //Document Click hiding the popup 
                     $(document).click(function()
                     {
@@ -69,7 +74,7 @@
                     {
                     return false;
                     });
-
+                    
                     }); 
                 </script>
             </nav>';
