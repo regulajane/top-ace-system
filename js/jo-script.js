@@ -27,27 +27,22 @@ function fabOrder(){
             url: "includes/data-processors/processFabajax.php",
             data: {selectedID: selectedID},
             success: function(data) {
-                alert(data.length);
                 
-                if(data.length > 100){
-                    alert("HELLO");
-                }else{
-                    alert("1");
-                }
                 fabData = JSON.parse(data);
+                // alert(fabData.length);
                 // set JO variables
-                var fabJobOrderID = fabData.joborderid;
-                var fabClientLastname = fabData.cllastname;
-                var fabClientFirstname = fabData.clfirstname;
-                var fabClientMidInitial = fabData.clmidinitial;
-                var fabDateOrdered = fabData.dateordered;      
-                var fabDownpayment = fabData.downpayment;
-                var fabFabricationID = fabData.fabricationid;
-                var fabFabricationDescription = fabData.fabricationdesc;
-                var fabFabricationQuantity = fabData.fabricationquantity;
-                var fabFabricationPrice = fabData.fabricationprice;
-                var fabFabricationStatus = fabData.fabstatus;
-                var fabFabricationJOPrice = fabData.joprice;
+                var fabJobOrderID = fabData[0].joborderid;
+                var fabClientLastname = fabData[0].cllastname;
+                var fabClientFirstname = fabData[0].clfirstname;
+                var fabClientMidInitial = fabData[0].clmidinitial;
+                var fabDateOrdered = fabData[0].dateordered;      
+                var fabDownpayment = fabData[0].downpayment;
+                var fabFabricationID = fabData[0].fabricationid;
+                // var fabFabricationDescription = fabData.fabricationdesc;
+                // var fabFabricationQuantity = fabData.fabricationquantity;
+                // var fabFabricationPrice = fabData.fabricationprice;
+                // var fabFabricationStatus = fabData.fabstatus;
+                var fabFabricationJOPrice = fabData[0].joprice;
  
   
                 // $modelid = $_POST['modelid'];
@@ -58,13 +53,35 @@ function fabOrder(){
                 $(".fabEdit #receiptNo").val(fabJobOrderID);
                 $(".fabEdit #dateStarted").val(fabDateOrdered);
                 $(".fabEdit #client").val(fabClientLastname + ", " + fabClientFirstname + " " + fabClientMidInitial);
-                $(".fabEdit #item").val(fabFabricationDescription);
+                $(".fabEdit #fabjoborderprice").val(fabFabricationJOPrice);
+                $(".fabEdit #downpayment").val(fabDownpayment);
                 // $(".joEdit #defects").val(joDefects);
                 // $(".joEdit #natureOfWorksToBeDone").val(joNOWTBD);
                 // $(".joEdit #partsToBeProcured").val(joPTBP);
                 // $(".joEdit #requestedBy").val(joRequestedBy);
                 // $(".joEdit #vehicleNo").val(joVehicleNo);
+                for (var i = 0; i < fabData.length; i++) {
+                            var allfaborders = "";
+                            allfaborders += fabData[i].fabricationdesc;
+                            // alert(allservices);
+                            // $(".joEdit #servicesavailed").val(allservices+=joData[i].servicename);
+                            // document.getElementById("servicesavailed").innerHTML += allservices;
+                            var fabor = document.getElementById("fabricationorders");
+                            var btn2 = document.createElement("btn");
+                            btn2.className = "btn btn-default";
+                            
+                            
+                            var br = document.createElement('br');
 
+                            var t = document.createTextNode(allfaborders);       
+                            btn2.appendChild(t);                              
+                            fabor.appendChild(btn2);
+                            fabor.appendChild(br);
+
+
+
+                        // }      
+                };
                 
                 $('#editFabModal').modal('show');
                 
