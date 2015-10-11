@@ -122,9 +122,9 @@ function jobOrder(){
 
                 
 
-                if (joData.length == 1) {
-                    $(".joEdit #servicesavailed").val(joServices);
-                } else {
+                // if (joData.length == 1) {
+                //     $(".joEdit #servicesavailed").val(joServices);
+                // } else {
                     for (var i = 0; i < joData.length; i++) {
                             var allservices = "";
                             allservices += joData[i].servicename;
@@ -145,7 +145,7 @@ function jobOrder(){
 
 
 
-                        }      
+                        // }      
                 };
 
                 
