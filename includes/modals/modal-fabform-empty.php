@@ -93,7 +93,7 @@
                                                                 <select class="form-control" id="machinist" name="machinist[]" required>
                                                                     <option value="" disabled selected>Choose Machinist:</option>
                                                                     <?php
-                                                                        $sql = "SELECT * from employees";
+                                                                        $sql = "SELECT * from employees where emptype = 'Machinist'";
                                                                         $result = $conn->query($sql);
                                                                         if ($result->num_rows > 0) {
                                                                             // output data of each row

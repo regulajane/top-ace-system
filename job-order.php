@@ -90,7 +90,7 @@
                         <div class="actionBtns">
                             <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
                                 href="#fabModal"><i class="fa fa-plus fa-fw"></i> New Order </button>
-                            <button type="button" id="editbtn" class="btn btn-info" data-toggle="modal">
+                            <button type="button" id="editfabbtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit </button>
                             <button type="button" id="updatebtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Update </button>
@@ -112,16 +112,18 @@
                         <table  id="fabricationTable" class="table table-condensed table-hover">
                             <thead>
                                 <tr>
-                                    <th data-column-id="fabricationid" data-visible="true" data-identifier="true">
-                                        Fabrication ID</th>
-                                    <th data-column-id="fabricationdesc">
-                                        Item Name</th>
-                                    <th data-column-id="fabricationquantity">
-                                        Quantity</th>
-                                    <th data-column-id="dateordered">
-                                        Date Ordered</th>
+                                    <th data-column-id="joborderid" data-visible="true" data-identifier="true">
+                                        Receipt number</th>
+                                    <th data-column-id="datestarted">
+                                        Date Started</th>
                                     <th data-column-id="clientname">
-                                        Client</th>
+                                        Client name</th>
+                                    <th data-column-id="downpayment">
+                                        Downpayment</th>
+                                    <th data-column-id="joprice">
+                                        Grand Total</th>
+                                    <th data-column-id="jostatus">
+                                        Status</th>
 
                                 </tr>
                             </thead>  
@@ -156,7 +158,7 @@
         include 'includes/modals/modal-updatejoform.php';
         include 'includes/modals/modal-jopreform.php';
         include 'includes/modals/modal-jopostform.php';
-        
+        include 'includes/modals/modal-editfabform.php';
         // include 'includes/modals/modal-servicesbreakdown.php';
     ?>   
 </body>

@@ -26,6 +26,13 @@ function fabOrder(){
             url: "includes/data-processors/processFabajax.php",
             data: {selectedID: selectedID},
             success: function(data) {
+                alert(data.length);
+                
+                if(data.length > 100){
+                    alert("HELLO");
+                }else{
+                    alert("1");
+                }
                 fabData = JSON.parse(data);
                 // set JO variables
                 var fabJobOrderID = fabData.joborderid;
