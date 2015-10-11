@@ -3,6 +3,7 @@ window.onload = function () {
     displayDateTime();
     homeNav();
     tables();
+
 }
 
 function realTime(){
@@ -12,7 +13,6 @@ function realTime(){
 
 function displayDateTime() {
     var x =document.getElementById('currentDateTime');
-    
     if(! x){} else {
         var x = new Date();
         var time = x.getHours()+ ":" + x.getMinutes() + ":" + x.getSeconds();
