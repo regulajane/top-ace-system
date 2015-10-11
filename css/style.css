@@ -303,3 +303,34 @@ position:relative
     border-top: 1px solid #dddddd;
 }
 /*notification*/
+
+
+/*Custom Checkbox*/
+input[type="checkbox"]{
+    -webkit-appearance: initial;
+    appearance: initial;
+    background: gray;
+    width: 12px;
+    height: 12px;
+    border: none;
+    background: gray;
+    position: relative;
+    border-radius: 4px;
+}
+input[type="checkbox"]:checked {
+    background: #e92d00;
+}
+input[type="checkbox"]:checked:after {
+    
+    content: "\2713";
+    color: #e92d00;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+}
+/*End Custom Checkbox*/
