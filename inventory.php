@@ -32,8 +32,8 @@
 			                            <i class="fa fa-list"></i> Outgoing</a></li>
 			                </ul>
 	            		</div>
-            			<button type="button" id="addnew" class="btn btn-info" data-toggle="modal" 
-							href="#addNewSupply">
+            			<button type="button" id="addnew" class="btn btn-info" 
+							href="includes/nav.php">
 								Fabrication Items 
 						</button>
             	</div>
@@ -76,7 +76,9 @@
 						<th data-column-id="inventoryquantity">
 							Quantity
 						</th>
-						
+						<th data-column-id="reorderlevel" data-visible="false">
+							Reorder Level
+						</th>
 					</tr>
 				</thead>  
 			</table>
