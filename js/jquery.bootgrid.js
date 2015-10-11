@@ -657,7 +657,7 @@
     function registerRowEvents(tbody)
     {
 
-        if(window.location.href == "http://localhost/top-ace-system.git/trunk/inventory.php"){
+        if(window.location.href == "http://localhost/top-ace-system/trunk/inventory.php"){
             
                var that = this,
                     selectBoxSelector = getCssSelector(this.options.css.selectBox);
