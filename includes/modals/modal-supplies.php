@@ -81,7 +81,7 @@
                                 </div>
                                  <div class="control-group form-group">
                                     <div class="controls col-md-12" style="display: none">
-                                        <label>inventory ID:</label>
+                                        <label>Inventory ID:</label>
                                         <input readonly type="text" class="form-control" id="inventID" name="inventID"/>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@
                                 </div>
                                 <div class="control-group form-group">
                                     <div class="controls col-md-12" style="display: none">
-                                        <label>inventoryory ID:</label>
+                                        <label>Inventory ID:</label>
                                         <input readonly type="text" class="form-control" id="inventID" name="inventID"/>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@
                                 <div class="control-group form-group">
                                     <div class="controls col-md-4">
                                         <label>Quantity to be Procured:</label>
-                                        <input type="number" class="form-control" name="inventoryqtyprocured" id="inventoryQtyProcured"
+                                        <input type="number" class="form-control" name="inventQtyProcured" id="inventQtyProcured"
                                             required data-validation-required-message="Please enter quantity."/>
                                     </div>
                                 </div>
@@ -226,40 +226,40 @@
                             <form class="form-horizontal" method="post" 
                                 action="includes/data-processors/deleteSupply.php" id="supplyForm4" novalidate>
                                 <div class="control-group form-group">
+                                    <div class="controls col-md-12">
+                                        <label>Model No:</label>
+                                        <input readonly type="text" class="form-control" id="modelNum" name="modelNum"/>
+                                    </div>
+                                </div>
+                                <div class="control-group form-group">
                                     <div class="controls col-md-12" style="display: none">
                                         <label>Inventory ID:</label>
-                                        <input readonly type="text" class="form-control" id="inventoryID" name="inventoryID"/>
+                                        <input readonly type="text" class="form-control" id="inventID" name="inventID"/>
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
                                     <div class="controls col-md-12">
                                         <label>Item Name:</label>
-                                        <input readonly type="text" class="form-control" id="inventoryName" name="inventoryName"
+                                        <input readonly type="text" class="form-control" id="inventName" name="inventName"
                                             required data-validation-required-message="Please enter item name."/>
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
                                     <div class="controls col-md-12">
-                                        <label>Type:</label>
-                                        <input readonly type="text" class="form-control" id="inventoryType" name="inventoryType"/>
-                                    </div>
-                                </div>
-                                <div class="control-group form-group">
-                                    <div class="controls col-md-12">
                                         <label>Size:</label>
-                                        <input readonly type="text" class="form-control" id="inventorySize" name="inventorySize"/>
+                                        <input readonly type="text" class="form-control" id="inventSize" name="inventSize"/>
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
                                     <div class="controls col-md-12">
                                         <label>Price:</label>
-                                        <input readonly type="text" class="form-control" id="inventoryPrice" name="inventoryPrice"/>
+                                        <input readonly type="text" class="form-control" id="inventPrice" name="inventPrice"/>
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
                                     <div class="controls col-md-4">
                                         <label>Quantity:</label>
-                                        <input readonly type="text" class="form-control" id="inventoryQty" name="inventoryQty"/>
+                                        <input readonly type="text" class="form-control" id="inventQty" name="inventQty"/>
                                     </div>
                                 </div>
                             </form>

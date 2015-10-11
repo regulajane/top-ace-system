@@ -6,12 +6,11 @@
 		
 		// Define Variables
 
-		$inventID = $_POST["inventoryid"];
-		$inventName = $_POST["inventoryname"];
-		$inventType = $_POST["modelno"];
-		$inventSize = $_POST["inventorysize"];
-		$inventPrice = $_POST["inventoryprice"];
-		$quantity = $_POST["inventqtyprocured"];
+		$inventID = $_POST["inventID"];
+		$inventName = $_POST["inventName"];
+		$inventSize = $_POST["inventSize"];
+		$inventPrice = $_POST["inventPrice"];
+		$quantity = $_POST["inventQtyProcured"];
 
 		//outgoing
 		/*
@@ -21,13 +20,13 @@
 		$osQty = $quantity;
 		$procuredBy = $_SESSION["username"];
 		*/
-		$sqlqty = "SELECT quantity FROM inventory WHERE inventoryid = '" .$inventID. "'";
+		$sqlqty = "SELECT inventoryquantity FROM inventory WHERE inventoryid = '" .$inventID. "'";
 		$result = $conn->query($sqlqty);
 		$resultRow = $result->fetch_assoc();
 		
 
 
-		if ($_POST["inventQty"] > $resultRow['quantity']) { 
+		if ($_POST["inventQtyProcured"] > $resultRow['inventoryquantity']) { 
 			echo '<script type="text/javascript">'; 
 			echo 'alert("Error: You are trying to procure more than the available supply.");'; 
 			echo 'window.location.href = "../../inventory.php";';

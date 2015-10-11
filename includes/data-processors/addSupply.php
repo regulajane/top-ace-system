@@ -6,22 +6,22 @@
 		// Define Variables
 
 		$inventID = $_POST["inventID"];
-		$modelNumber = $_POST["modelNumber"];
-		$inventName = $_POST["inventoryName"];
-		$inventSize = $_POST["inventorySize"];
-		$inventPrice = $_POST["inventoryPrice"];
-		$quantity = $_POST["inventoryQtyAdded"];
+		$inventName = $_POST["inventName"];
+		$inventSize = $_POST["inventSize"];
+		$inventPrice = $_POST["inventPrice"];
+		$quantity = $_POST["inventQtyAdded"];
 
 		//Ingoing
+		/*
 		ini_set('date.timezone', 'Asia/Manila');
 		$isDate = date("Y-m-d"); 
 		$isTime = date("H:i:s");
 		$isQty = $quantity;
 		$enteredBy = $_SESSION["username"];
-
+		*/
 		//-----------------------------UPDATE INVENTORY------------------------------------
 		$sql = 	"UPDATE inventory
-					SET quantity = quantity + '$quantity'
+					SET inventoryquantity = inventoryquantity + '$quantity'
 					WHERE inventoryid = '$inventID'";
 		$stmt = $conn->prepare($sql);
 		$stmt->execute(); 
