@@ -134,6 +134,11 @@ function tables(){
     });
 }
 
+function reload(){
+    location.reload();
+}
+
+
 function clearForm() {
     document.getElementById('joForm').reset();
     document.getElementById('joEditForm').reset();
