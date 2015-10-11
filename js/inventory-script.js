@@ -26,7 +26,7 @@ function supplies(){
                 inventoryData = JSON.parse(data);
                 // set Inventory Variables
                 var inventID 	= inventoryData.inventoryid;
-                var modelNum    = inventoryData.modelid;
+                var modelNum    = inventoryData.modelno;
                 var inventName 	= inventoryData.inventoryname;
                 var inventSize 	= inventoryData.inventorysize;
                 var inventPrice = inventoryData.inventoryprice;
@@ -58,7 +58,7 @@ function supplies(){
                 inventoryData = JSON.parse(data);
                 // set Inventory Variables
                 var inventID   = inventoryData.inventoryid;
-                var modelNum    = inventoryData.modelid;
+                var modelNum    = inventoryData.modelno;
                 var inventName  = inventoryData.inventoryname;
                 var inventSize  = inventoryData.inventorysize;
                 var inventPrice = inventoryData.inventoryprice;
@@ -95,18 +95,20 @@ function supplies(){
                 
                 inventoryData = JSON.parse(data);
                 // set Inventory Variables
-                var inventID    = inventoryData.inventoryid;
+                var inventID   = inventoryData.inventoryid;
+                var modelNum    = inventoryData.modelno;
                 var inventName  = inventoryData.inventoryname;
-                var inventType  = inventoryData.type;
-                var inventSize  = inventoryData.size;
-                var inventPrice = inventoryData.price;
-                var inventQty   = inventoryData.quantity;
+                var inventSize  = inventoryData.inventorysize;
+                var inventPrice = inventoryData.inventoryprice;
+                var inventQty   = inventoryData.inventoryquantity;
+
                 // Add/Procure Form
                 $(".addProcSup #inventID").val(inventID);
+                $(".addProcSup #modelNum").val(modelNum);
                 $(".addProcSup #inventName").val(inventName); 
-                $(".addProcSup #inventType").val(inventType);
                 $(".addProcSup #inventSize").val(inventSize);
                 $(".addProcSup #inventPrice").val(inventPrice);
+                $(".addProcSup #inventQty").val(inventQty);
             
                 if(supQty > 0) {
                     $('#deleteSuppliesModal').modal('show');
