@@ -91,28 +91,44 @@ function jobOrder(){
             data: {selectedID: selectedID},
             success: function(data) {
                 joData = JSON.parse(data);
-                alert(data);
                 // set JO variables
-                var joJobOrderID = joData.joborderid;
-                var joClientLastname = joData.cllastname
-                var joClientFirstname = joData.clfirstname
-                var joDateBrought = joData.datebrought;
-                var joProblem = joData.problem;
+                var joJobOrderID = joData[0].joborderid;
+                var joClientLastname = joData[0].cllastname
+                var joClientFirstname = joData[0].clfirstname
+                var joDateBrought = joData[0].datebrought;
+                var joProblem = joData[0].problem;
                 
-                var joDownpayment = joData.downpayment;
-                var joRequestedBy = joData.requestedBy;
-                var joServices = joData.servicename;
-  
-		        // $modelid = $_POST['modelid'];
-		        // $employeeid = $_POST['employeeid'];
-		        // $serviceid = $_POST['serviceid'];
+                var joDownpayment = joData[0].downpayment;
+                var joRequestedBy = joData[0].requestedBy;
+                var joServices = joData[0].servicename;
+
+                // $modelid = $_POST['modelid'];
+                // $employeeid = $_POST['employeeid'];
+                // $serviceid = $_POST['serviceid'];
 
                 // Update Form
                 $(".joEdit #receiptNo").val(joJobOrderID);
                 $(".joEdit #problem").val(joProblem);
                 $(".joEdit #dateBrought").val(joDateBrought);
                 $(".joEdit #client").val(joClientLastname + ", " + joClientFirstname);
-                $(".joEdit #servicesavailed").val(joServices);
+
+                
+
+                if (joData.length == 1) {
+                    $(".joEdit #servicesavailed").val(joServices);
+                } else {
+                    for (var i = 0; i < joData.length; i++) {
+                            var allservices = "";
+                            allservices += joData[i].servicename + ", ";
+                            alert(allservices);
+                            document.getElementById("servicesavailed").innerHTML = allservices;
+                        }      
+                };
+
+		        
+
+                
+                
 				
                 // $(".joEdit #defects").val(joDefects);
                 // $(".joEdit #natureOfWorksToBeDone").val(joNOWTBD);
