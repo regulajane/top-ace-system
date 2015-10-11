@@ -5,7 +5,6 @@
 	if (isset($_POST["outsupply"])=="Procure Supply") {
 		
 		// Define Variables
-
 		$inventID = $_POST["inventID"];
 		$inventName = $_POST["inventName"];
 		$inventSize = $_POST["inventSize"];
@@ -20,23 +19,39 @@
 		$osQty = $quantity;
 		$procuredBy = $_SESSION["username"];
 		*/
-		$sqlqty = "SELECT inventoryquantity FROM inventory WHERE inventoryid = '" .$inventID. "'";
+		$sqlqty = "SELECT inventoryquantity, reorderlevel FROM inventory WHERE inventoryid = '" .$inventID. "'";
 		$result = $conn->query($sqlqty);
 		$resultRow = $result->fetch_assoc();
-		
 
+		$cq = $resultRow['inventoryquantity'] - $quantity;
+		$rr = $resultRow['reorderlevel'];
+ 		
 
-		if ($_POST["inventQtyProcured"] > $resultRow['inventoryquantity']) { 
+		if ($quantity > $resultRow['inventoryquantity']) { 
 			echo '<script type="text/javascript">'; 
 			echo 'alert("Error: You are trying to procure more than the available supply.");'; 
 			echo 'window.location.href = "../../inventory.php";';
 			echo '</script>';
-		} else {
+
+		}  else {
+			if($cq < $rr) { 
+			
+				echo '<script type="text/javascript">'; 
+				echo 'var notif_count = parseInt(localStorage["notif"]);';
+				echo 'var counter = notif_count + 1;';
+				echo 'localStorage["notif"] = counter;';
+				echo ' window.location = "../../inventory.php";';
+				echo '</script>';
+
+			}
 			//-----------------------------CREATE procureSupply TRIGGER------------------------------------
-			$sqlTrigger = "UPDATE inventory
-						SET inventoryquantity = inventoryquantity - '$quantity'
-						WHERE inventoryid = '$inventID'";
-			mysqli_query($conn,$sqlTrigger);
+			$sql = 	"UPDATE inventory
+					SET inventoryquantity = inventoryquantity - '$quantity'
+					WHERE inventoryid = '$inventID'";
+			$stmt = $conn->prepare($sql);
+			$stmt->execute();
+			
+			
 			//-----------------------------INSERT INTO INGOINGSUPPLIES------------------------------------
 			/*$sql2 = "INSERT INTO outgoingsupplies (osDate, osTime, osQty, procuredBy, supplyID) 
 						VALUES (?, ?, ?, ?, ?)";
@@ -46,11 +61,14 @@
 			// Execute
 			$stmt2->execute();*/
 			//-----------------------------DROP procureSupply TRIGGER------------------------------------
-			$sqlDropTrigger = "DROP TRIGGER procureSupply";
-			mysqli_query($conn,$sqlDropTrigger);
+			//$sqlDropTrigger = "DROP TRIGGER procureSupply";
+			//mysqli_query($conn,$sqlDropTrigger);
+
 			
 			// Redirect
-			header('location:../../inventory.php'); 
+			echo '<script type="text/javascript">'; 
+			echo ' window.location = "../../inventory.php";'; 
+			echo '</script>';
 		}
 	}
 	$conn->close();
