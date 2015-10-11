@@ -2,6 +2,7 @@ window.onload = function () {
     jobOrder();
     fabOrder();
     addOrder();
+    jobOrderForm();
 
 }
 
@@ -151,6 +152,58 @@ function jobOrder(){
     });
 
 }
+
+
+function jobOrderForm(){
+
+    // Job Order Form Printing
+    $("#preEvalbtn").on("click", function() {
+        var selectedIDArray = $("#jobOrderTable").bootgrid("getSelectedRows");
+        var selectedID = parseInt(selectedIDArray) + 0;
+        $.ajax({
+            type: "POST",
+            url: "includes/data-processors/processJOEMPajax.php",
+            data: {selectedID: selectedID},
+            success: function(data) {
+                joData = JSON.parse(data);
+                var joJobOrderID = joData[0].joborderid;
+                var joClientLastname = joData[0].cllastname;
+                var joClientFirstname = joData[0].clfirstname;
+                var joDateBrought = joData[0].datebrought;
+                var joClientAddress = joData[0].claddress;
+                var joPreparedBy = joData[0].preparedby;
+                var joSupervisor = joData[0].supervisor;
+
+                var emp = [];
+                var empname;
+                var empnames = "";
+                for (var i = 0; i < joData.length; i++){
+                    empname = joData[i].empfirstname + " " + joData[i].emplastname;
+                    emp.push(empname);
+                    if (empnames != "") {
+                        empnames = empnames + ", " + emp[i];
+                    } else {
+                        empnames = emp[i];
+                    }
+                }
+
+                // Update Form
+                document.getElementById('joborderidform').innerHTML = "Receipt No.&nbsp;&nbsp;&nbsp;<span id='notBold'>" + joJobOrderID + "</span>";
+                document.getElementById('clnameform').innerHTML = "To:&nbsp;&nbsp;&nbsp;<span id='notBold'>" + joClientLastname + ", " + joClientFirstname + "</span>";
+                document.getElementById('datebroughtform').innerHTML = "Date:&nbsp;&nbsp;&nbsp;<span id='notBold'>" + joDateBrought + "</span>";
+                document.getElementById('claddressform').innerHTML = "Address:&nbsp;&nbsp;&nbsp;<span id='notBold'>" +joClientAddress + "</span>";
+                document.getElementById('machinistform').innerHTML = empnames;
+                document.getElementById('confirmedbyform').innerHTML = joSupervisor;
+                document.getElementById('receivedbyform').innerHTML = joPreparedBy;
+                
+                $('#joPreFormModal').modal('show');
+                
+            }
+        });     
+    });
+
+}
+
 
 function addOrder(){
     $('.multi-field-wrapper').each(function() {

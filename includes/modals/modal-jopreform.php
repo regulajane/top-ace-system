@@ -27,15 +27,15 @@
                             </div>
                             <table id="joformtable1" class="table table-borderless">
                                 <tr>
-                                    <td colspan="5"><span id="notBold"></td>
-                                    <td colspan="1"><span id="notBold">No.&nbsp;_____________</td>
+                                    <td colspan="4"></td>
+                                    <td colspan="2" id="joborderidform">Receipt No.&nbsp;<span id="notBold">___________________</span></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4"><span id="notBold">To:&nbsp;_________________________________________________________________</td>
-                                    <td colspan="2"><span id="notBold">Date:&nbsp;_____________________________</td>
+                                    <td colspan="4" id="clnameform">To:&nbsp;<span id="notBold">______________________________________________________________________</span></td>
+                                    <td colspan="2" id="datebroughtform">Date:&nbsp;<span id="notBold">_________________________</span></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="6"><span id="notBold">Address:&nbsp;_______________________________________________________________________________________________</td>
+                                    <td colspan="6" id="claddressform">Address:&nbsp;<span id="notBold">_______________________________________________________________________________________</span></td>
                                 </tr>
                             </table>
                             <table id="joformtable2" class="table table-bordered">
@@ -239,13 +239,13 @@
                             <table class="table table-borderless">
                                 <tr>
                                     <td>Machinist: <br><br>
-                                        <p><span id="notBold"></span></p>
+                                        <span id="notBold"><p id="machinistform"></p></span>
                                     </td>
                                     <td>Confirmed by: <br><br>
-                                        <p><span id="notBold"></span></p>
+                                        <span id="notBold"><p id="confirmedbyform"></p></span>
                                     </td>
                                     <td>Received by:<br><br>
-                                        <p><span id="notBold"></span></p>
+                                        <span id="notBold"><p id="receivedbyform"></p></span>
                                     </td>
                                 </tr>
                             </table>
