@@ -22,7 +22,7 @@
                             <li><a href="inventory.php">Inventory</a></li>
                             <li><a href="employees.php">Employees</a></li>
                             <li><a href="clients.php">Clients</a></li>
-                            <li><a href="job.php">Job</a></li>
+                            <li><a href="services.php">Services</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="user" >
                                     <i class="fa fa-user"></i> <span>' . $_SESSION["username"] . '</span>

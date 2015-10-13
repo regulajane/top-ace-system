@@ -19,7 +19,7 @@
             <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
                 href="#addEmployeeModal"><i class="fa fa-plus fa-fw"></i> New Employee </button>
             <button type="button" id="updateemployeebtn" class="btn btn-info" data-toggle="modal">
-                <i class="fa fa-pencil-square-o fa-fw"></i> Update Info </button>
+                <i class="fa fa-pencil-square-o fa-fw"></i> Edit/Update </button>
         </div>
         <!-- Job Order Table -->
         <table  id="employeeTable" class="table table-condensed table-hover">
@@ -42,7 +42,7 @@
                     <th data-column-id="empemailad">
                         Email Address</th>
                     <th data-column-id="noofjobs">
-                        Number of Jobs</th>
+                        No. of Jobs</th>
                     <th data-column-id="empstatus">
                         Status</th>
                 </tr>

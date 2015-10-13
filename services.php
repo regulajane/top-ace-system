@@ -8,7 +8,7 @@
             header('Location: index.php?loggedout=true');}
     ?>
     <script src="js/job-script.js"></script>
-    <title>Job Order</title>
+    <title>Services</title>
 </head>
 <body>
     <?php include 'includes/nav.php'; ?>
@@ -17,11 +17,10 @@
     <div class="container">
         <div class="row">
             <div class="jumbotron" style="height: 100px;">
-                <h2 style="margin-top: -15px; margin-left: -60px; text-align: center;">Job</h2>
+                <h2 style="margin-top: -15px; margin-left: -60px; text-align: center;">Services</h2>
             </div>
             
         </div>
-        <br>
         <div id="myTabContent" class="tab-content">
             <div class="row tab-pane fade active in" id="joTab">
                 <div class="col-lg-12">
@@ -31,9 +30,9 @@
                         <!-- Job Order Buttons -->
                         <div class="actionBtns">
                             <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
-                                href="#____________"><i class="fa fa-plus fa-fw"></i> New Job </button>
+                                href="#____________"><i class="fa fa-plus fa-fw"></i> New Service </button>
                             <button type="button" id="editbtn" class="btn btn-info" data-toggle="modal">
-                                <i class="fa fa-pencil-square-o fa-fw"></i> Edit </button>
+                                <i class="fa fa-pencil-square-o fa-fw"></i> Edit/Update </button>
                             
                             
                         </div>
