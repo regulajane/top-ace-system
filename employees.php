@@ -36,7 +36,7 @@
                     <th data-column-id="empgender">
                         Gender</th>
                     <th data-column-id="empcelno">
-                        Celno</th>
+                        Contact No.</th>
                     <th data-column-id="empaddress">
                         Address</th>
                     <th data-column-id="empemailad">

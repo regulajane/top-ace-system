@@ -35,7 +35,7 @@
                         <th data-column-id="clgender">
                             Gender</th>
                         <th data-column-id="clcelno">
-                            CP No.</th>
+                            Contact No.</th>
                         <th data-column-id="claddress">
                             Address</th>
                     </tr>
