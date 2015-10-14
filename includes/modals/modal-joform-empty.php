@@ -195,13 +195,13 @@
                                                             <option value="" disabled selected>
                                                                 Select Sales Person</option>
                                                             <?php
-                                                                $sql = "SELECT * from employees where emptype = 'Front Desk Personnel' "; 
+                                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' "; 
                                                                 $result = $conn->query($sql);
                                                                 if ($result->num_rows > 0) {
                                                                     // output data of each row
                                                                     while($resultRow = $result->fetch_assoc()){
-                                                                        $option = '<option value="' . $resultRow['employeeid'] . '">' . 
-                                                                            $resultRow['emplastname'] . ", " . $resultRow['empfirstname'] .  " " . $resultRow['empmiddlename'] . '</option>';
+                                                                        $option = '<option value="' . $resultRow['frontdesk'] . '">' . 
+                                                                            $resultRow['frontdesk'] . '</option>';
                                                                         echo ($option);
                                                                     }
                                                                 }
@@ -221,13 +221,13 @@
                                                             <option value="" disabled selected>
                                                                 Select Supervisor</option>
                                                             <?php
-                                                                $sql = "SELECT * from employees where emptype = 'Manager' "; 
+                                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' "; 
                                                                 $result = $conn->query($sql);
                                                                 if ($result->num_rows > 0) {
                                                                     // output data of each row
                                                                     while($resultRow = $result->fetch_assoc()){
-                                                                        $option = '<option value="' . $resultRow['employeeid'] . '">' . 
-                                                                            $resultRow['emplastname'] . ", " . $resultRow['empfirstname'] .  " " . $resultRow['empmiddlename'] . '</option>';
+                                                                        $option = '<option value="' . $resultRow['manager'] . '">' . 
+                                                                            $resultRow['manager']. '</option>';
                                                                         echo ($option);
                                                                     }
                                                                 }
