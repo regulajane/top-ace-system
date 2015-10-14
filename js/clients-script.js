@@ -26,14 +26,16 @@ window.onload = function () {
                 var gender = client.clgender;
                 var celno = client.clcelno;
                 var address = client.claddress;
+                var since = client.clsince;
                 // fill form
-                $(".client #clientid").val(clientid);
-                $(".client #clientln").val(lastname); 
-                $(".client #clientfn").val(firstname); 
-                $(".client #clientmi").val(middleinitial); 
-                $(".client #clientgender").val(gender); 
-                $(".client #clientcp").val(celno); 
-                $(".client #clientadd").val(address); 
+                $(".clienteditupdate #clientid").val(clientid);
+                $(".clienteditupdate #clientln").val(lastname); 
+                $(".clienteditupdate #clientfn").val(firstname); 
+                $(".clienteditupdate #clientmi").val(middleinitial); 
+                $(".clienteditupdate #clientgender").val(gender); 
+                $(".clienteditupdate #clientcp").val(celno); 
+                $(".clienteditupdate #clientadd").val(address);
+                $(".clienteditupdate #clientsince").val(since); 
             }  
         });  
         if (selectedID > 0) {
