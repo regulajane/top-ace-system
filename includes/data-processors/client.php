@@ -11,16 +11,17 @@
 	$clgender = $_POST["clientgender"];
 	$claddress = $_POST["clientadd"];
 	$clcelno = $_POST["clientcp"];
+	$clsince = $_POST["clientsince"];
 
 	if(isset($_POST["savedata"])=="Save") {
 
 		// ---------------------------------------INSERT----------------------------------------------
 		// Prepare
-		$sql = "INSERT INTO clients (cllastname, clfirstname, clmidinitial, clcelno, clgender, claddress) 
-				VALUES (?, ?, ?, ?, ?, ?)";			
+		$sql = "INSERT INTO clients (cllastname, clfirstname, clmidinitial, clcelno, clgender, claddress, clsince) 
+				VALUES (?, ?, ?, ?, ?, ?, ?)";			
 		$stmt = $conn->prepare($sql);
 		// Bind
-		$stmt->bind_param("ssssss", $cllastname, $clfirstname, $clmidinitial, $clcelno, $clgender, $claddress);
+		$stmt->bind_param("sssssss", $cllastname, $clfirstname, $clmidinitial, $clcelno, $clgender, $claddress, $clsince);
 		// Execute 
 		$stmt->execute();
 	  
