@@ -1,9 +1,3 @@
-<!-- AccessValidation -->
-<?php
-    if(!isset($_SESSION["username"])){
-    header('Location: ../index.php?loggedout=true');}
-?>
-
 <!-- NewClientModal -->
 <div class="modal fade" id="clientModal" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true">
@@ -12,18 +6,17 @@
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <i class="fa fa-user fa-5x"></i>
                 <h4 class="modal-title" id="myModalLabel">New Client</h4>
             </div>
             <div class="client modal-body">
                 <div class="well">
                     <form class="form-horizontal" method="post" 
-                        action="includes/data-processors/client.php" id="clientForm" novalidate>
+                        action="includes/data-processors/client.php" id="clientForm" validate>
                         <div class="control-group form-group">
                             <div class="controls col-md-5">
                                 <label>Lastname:</label>
                                 <input type="text" class="form-control"  placeholder="Lastname"
-                                    id="clientln" name="clientln" required/>
+                                    id="clientln" name="clientln" required>
                             </div>
                             <div class="controls col-md-5">
                                 <label>Firstname:</label>
@@ -47,7 +40,7 @@
                                 </select>
                             </div>
                             <div class="controls col-md-6">
-                                <label>Cellphone No.:</label>
+                                <label>Contact No.:</label>
                                 <input type="number" class="form-control" placeholder=""
                                     id="clientcp" name="clientcp" required/>
                             </div>
@@ -59,6 +52,13 @@
                                     id="clientadd" name="clientadd"
                                     maxlength="999" style="resize:none" 
                                     required></textarea>
+                            </div>
+                        </div>
+                        <div class="control-group form-group">
+                            <div class="controls col-md-offset-6 col-md-6">
+                                <label>Date:</label>
+                                <input type="date" class="form-control" placeholder="Client Since"
+                                    id="clientsince" name="clientsince" required/>
                             </div>
                         </div>
                     </form>
@@ -82,13 +82,12 @@
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <i class="fa fa-user fa-5x"></i>
                 <h4 class="modal-title" id="myModalLabel">Edit/Update Client</h4>
             </div>
-            <div class="client modal-body">
+            <div class="clienteditupdate modal-body">
                 <div class="well">
                     <form class="form-horizontal" method="post" 
-                        action="includes/data-processors/updateclient.php" id="updateclientForm" novalidate>
+                        action="includes/data-processors/updateclient.php" id="updateclientForm" validate>
                         <div class="control-group form-group">
                             <div class="controls" style="display: none;">
                                 <label>Client ID:</label>
@@ -122,7 +121,7 @@
                                 </select>
                             </div>
                             <div class="controls col-md-6">
-                                <label>Cellphone No.:</label>
+                                <label>Contact No.:</label>
                                 <input type="number" class="form-control" placeholder="09123456789"
                                     id="clientcp" name="clientcp" required/>
                             </div>
@@ -134,6 +133,13 @@
                                     id="clientadd" name="clientadd"
                                     maxlength="999" style="resize:none" 
                                     required></textarea>
+                            </div>
+                        </div>
+                        <div class="control-group form-group">
+                            <div class="controls col-md-offset-6 col-md-6">
+                                <label>Client Since:</label>
+                                <input type="date" class="form-control" placeholder="Client Since"
+                                    id="clientsince" name="clientsince" required readonly/>
                             </div>
                         </div>
                     </form>
