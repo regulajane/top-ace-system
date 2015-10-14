@@ -30,7 +30,8 @@
                     clmidinitial LIKE '%".$search."%' OR
                     clcelno LIKE '%".$search."%' OR
                     clgender LIKE '%".$search."%' OR
-                    claddress LIKE '%".$search."%') "; 
+                    claddress LIKE '%".$search."%' OR
+                    clsince LIKE '%".$search."%') "; 
       }
     //Row Count
     if (isset($_REQUEST['rowCount']) )  
