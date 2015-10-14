@@ -38,6 +38,8 @@
                             Contact No.</th>
                         <th data-column-id="claddress">
                             Address</th>
+                        <th data-column-id="clsince">
+                            Client Since</th>
                     </tr>
                 </thead>  
             </table>
