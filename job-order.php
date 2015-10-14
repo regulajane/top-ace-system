@@ -63,17 +63,18 @@
                                     <th data-column-id="joborderid" data-visible="true" data-identifier="true">
                                         Receipt number</th>
                                     <th data-column-id="datebrought">
-                                        Date Brought</th>
+                                        Date Received</th>
                                     <th data-column-id="clientname">
                                         Client name</th>
-                                    <th data-column-id="downpayment">
-                                        Downpayment</th>
                                     <th data-column-id="joprice">
                                         Grand Total</th>
+                                    <th data-column-id="downpayment">
+                                        Downpayment</th>
+                                    <th data-column-id="balance">
+                                        Balance</th>
                                     <th data-column-id="jostatus">
                                         Status</th>
-                                    <th data-column-id="jotype">
-                                        Type</th>
+                                    
 
 
                                 </tr>
