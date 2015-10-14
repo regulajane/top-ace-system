@@ -67,6 +67,7 @@
                   joborders.supervisor,
                   joborders.preparedby,
                   joborders.jotype,
+                  (joborders.joprice - joborders.downpayment) as balance,
 
                   concat(cllastname,', ',clfirstname) as clientname  
                     
