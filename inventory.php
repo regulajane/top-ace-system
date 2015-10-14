@@ -18,24 +18,29 @@
 				   <div class="actionBtns">
 						<button type="button" id="addnew" class="btn btn-info" data-toggle="modal" 
 							href="#addNewSupply"><i class="fa fa-plus fa-fw"></i> Add New Supply </button>
-					
+
+						<a class="btn btn-info" href="fabrication-items.php">
+						<i class="fa fa-folder-open">
+						</i> Fabrication Items</a>
+						</a>
+
 	           			 <div class="btn-group">
 			                <a class="btn btn-info" href="#"><i class="fa fa-folder-open"></i> Logs </a>
 			                <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
 			                <span class="fa fa-caret-down"></span></a>
 			                <ul class="dropdown-menu">
-			                    <li><a type="button" class="btn btn-info" href="" 
+			                    <li>
+			                    	<a type="button" class="btn btn-info" href="" 
 			                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%;">
-			                            <i class="fa fa-list"></i> Ingoing</a></li>
+			                        <i class="fa fa-list"></i>Ingoing
+			                        </a>
+			                    </li>
 			                    <li><a type="button" class="btn btn-info" href="" 
 			                        style="text-align:left;  margin: 0px 5px 0px 5px; width: 94%;">
-			                            <i class="fa fa-list"></i> Outgoing</a></li>
+			                            <i class="fa fa-list"></i> Outgoing</a>
+			                            </li>
 			                </ul>
 	            		</div>
-            			<button type="button" id="addnew" class="btn btn-info" 
-							href="includes/nav.php">
-								Fabrication Items 
-						</button>
             	</div>
 			</div>  
 			<hr>
