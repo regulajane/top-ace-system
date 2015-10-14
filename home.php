@@ -28,9 +28,9 @@
 			<div class="row">
                 <div class="btn-group btn-group-justified">
                     <div class="btn-group">
-                        <a href="job.php" type="button" class="btn btn-nav">
+                        <a href="services.php" type="button" class="btn btn-nav">
                             <i class="fa fa-list-alt fa-5x"></i>
-                            <p>Job</p>
+                            <p>Services</p>
                         </a>
                     </div>
                     <div class="btn-group">
