@@ -20,12 +20,18 @@
         $engRecon = 'EngRecon';
 
 
+        //-----------------------------COUNT JOB ORDER ID------------------------------------
+        $sqlcountjo = "SELECT concat(YEAR(curdate()),MONTH(curdate()),DAY(curdate())) AS curdate ,COUNT(*) AS countall from joborders";
+        $s = $conn->query($sqlcountjo);
+        $ss = $s->fetch_assoc(); 
+        $countjo = $ss['curdate'].$ss['countall'];
+
         
         //-----------------------------INSERT joborder TABLE------------------------------------
-        $sql = "INSERT INTO joborders (problem, engineno, datebrought, downpayment, jostatus, clientid, modelno, preparedby, supervisor, jotype) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO joborders (joborderid, problem, engineno, datebrought, downpayment, jostatus, clientid, modelno, preparedby, supervisor, jotype) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);     
-        $stmt->bind_param("sisisiiiis", $problem, $engnumber, $dateBrought, $downpayment, $pending, $clientid, $modelid, $preparedby, $supervisor, $engRecon) or mysql_error();
+        $stmt->bind_param("ssisisiisss",$countjo, $problem, $engnumber, $dateBrought, $downpayment, $pending, $clientid, $modelid, $preparedby, $supervisor, $engRecon) or mysql_error();
         $stmt->execute();
 
         //-----------------------------SELECT JOB ORDER ID------------------------------------
