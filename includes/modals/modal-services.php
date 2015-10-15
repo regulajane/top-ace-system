@@ -114,15 +114,13 @@
                                     <div class="form-group">
                                         <label class="control-label col-xs-4">Service Name:</label>
                                         <div class="col-xs-7">
-                                            <input type="text" class="form-control" id="servicename" name="servicename" 
-                                                required placeholder="Service Name">
+                                            <input type="text" class="form-control" id="servicename" name="servicename" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-4">Price:</label>
                                         <div class="col-xs-4">
-                                            <input type="text" class="form-control" id="serviceprice" name="serviceprice" 
-                                                required placeholder="Price">
+                                            <input type="text" class="form-control" id="serviceprice" name="serviceprice" readonly>
                                         </div>
                                     </div>
                                 </div>
