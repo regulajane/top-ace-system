@@ -4,7 +4,7 @@
     <?php   include 'includes/header.php';
             include 'includes/head-elements.php'; ?>
     
-    <script src="js/script.js"></script>
+    <script src="js/employee-script.js"></script>
     <title>Employees</title>
 </head>
 <body>

@@ -3,10 +3,10 @@
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cancelbtn">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Add New Employee</h4>
+                <h4 class="modal-title" id="myModalLabel">New Employee</h4>
             </div>
             <div class="modal-body">
                 <div class="well">
@@ -92,10 +92,10 @@
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cancelbtn">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Update Employee Information</h4>
+                <h4 class="modal-title" id="myModalLabel">Edit/Update Employee</h4>
             </div>
             <div class="empUpdate modal-body">
                 <div class="well">

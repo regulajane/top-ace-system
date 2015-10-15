@@ -7,7 +7,7 @@
         if(!isset($_SESSION["username"])) {
             header('Location: index.php?loggedout=true');}
     ?>
-    <script src="js/job-script.js"></script>
+    <script src="js/service-script.js"></script>
     <title>Services</title>
 </head>
 <body>
@@ -29,22 +29,23 @@
                 <div class="col-md-12">       
                         <!-- Job Order Buttons -->
                         <div class="actionBtns">
-                            <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
-                                href="#____________"><i class="fa fa-plus fa-fw"></i> New Service </button>
-                            <button type="button" id="editbtn" class="btn btn-info" data-toggle="modal">
+                            <button type="button" id="newservicebtn" class="btn btn-info" data-toggle="modal" 
+                                href="#addServiceModal"><i class="fa fa-plus fa-fw"></i> New Service </button>
+                            <button type="button" id="editservicebtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit/Update </button>
-                            
-                            
+                            <button type="button" id="deleteservicebtn" class="btn btn-info" data-toggle="modal">
+                                <span class="glyphicon glyphicon-remove-sign"></span> </button>
                         </div>
                         <!-- Job Order Table -->
-                        <table  id="jobTable" class="table table-condensed table-hover">
+                        <table  id="serviceTable" class="table table-condensed table-hover">
                             <thead>
                                 <tr>
-                                    <th data-column-id="servicename" data-visible="true" data-identifier="true">
+                                    <th data-column-id="serviceid" data-visible="false" data-identifier="true">
+                                        Service ID</th>
+                                    <th data-column-id="servicename">
                                         Service name</th>
                                     <th data-column-id="serviceprice">
                                         Price</th>
-                                    
                                 </tr>
                             </thead>  
                         </table>
@@ -60,14 +61,7 @@
     </div>
     <!-- Job Order Modals -->
     <?php 
-        include 'includes/modals/modal-joform-empty.php';
-        include 'includes/modals/modal-editjoform.php';
-        include 'includes/modals/modal-fabform-empty.php';
-        include 'includes/modals/modal-updatejoform.php';
-        include 'includes/modals/modal-jopreform.php';
-        include 'includes/modals/modal-jopostform.php';
-        include 'includes/modals/modal-editfabform.php';
-        // include 'includes/modals/modal-servicesbreakdown.php';
+        include 'includes/modals/modal-services.php';
     ?>   
 </body>
 </html>
