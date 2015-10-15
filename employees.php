@@ -43,6 +43,8 @@
                         Email Address</th>
                     <th data-column-id="noofjobs">
                         No. of Jobs</th>
+                    <th data-column-id="emptype" data-visible="false" data-identifier="true">
+                        Role</th>
                     <th data-column-id="empstatus">
                         Status</th>
                 </tr>

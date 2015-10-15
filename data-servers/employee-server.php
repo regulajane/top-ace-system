@@ -29,7 +29,8 @@
     if (isset($_REQUEST['searchPhrase']) )
       {
         $search=trim($_REQUEST['searchPhrase']);
-        $where.= " AND ( emplastname LIKE '%".$search."%' OR  empfirstname LIKE '%".$search."%') "; 
+        $where.= " AND ( emplastname LIKE '%".$search."%' OR  empfirstname LIKE '%".$search."%' 
+          OR  empmiddlename LIKE '%".$search."%')  OR  empaddress LIKE '%".$search."%'"; 
       }
 
     //Row Count
