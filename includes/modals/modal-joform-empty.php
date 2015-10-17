@@ -177,14 +177,14 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="control-group form-group">
+                                <!-- <div class="control-group form-group">
                                     <label class="control-label col-xs-3">Downpayment:</label>
                                     <div class="controls col-xs-4">
                                         <input type="number" class="form-control" id="downpayment" name="downpayment" 
                                             placeholder="0.00" required autocomplete="off">
                                     </div>
                                 </div>
-
+ -->
                                 <div class="control-group form-group">
                                     <label class="control-label col-xs-3">Sales Person Assisted:</label>
                                     <div class="controls col-xs-4">
@@ -246,7 +246,8 @@
                     onclick="clearForm()">Clear All</button>
 
 
-                <button type="submit" name="submit" class="btn btn-primary" form="joForm" value="submit">
+                <button type="submit" name="submit" class="btn btn-primary" form="joForm" value="submit" 
+                    data-dismiss="modal" data-toggle="modal" href="#brkdownModal">
                     <span class="glyphicon glyphicon-ok-sign"></span> Next</button>
 
 
@@ -264,7 +265,7 @@
 
 <?php 
        
-        // include 'includes/modals/modal-servicesbreakdown.php';
+     include 'includes/modals/modal-servicesbreakdown.php';
         
         // include 'includes/modals/modal-servicesbreakdown.php';
     ?> 
