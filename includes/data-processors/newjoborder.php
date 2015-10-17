@@ -11,7 +11,7 @@
         $modelid = $_POST['modelid'];
         $engnumber = $_POST['engnumber'];
         $problem = $_POST['problem'];
-        $downpayment = $_POST['downpayment'];
+        // $downpayment = $_POST['downpayment'];
         $employeeid = $_POST['employeeid'];
         $pending = 'Pending';
         $serviceid = $_POST['serviceid'];
@@ -28,10 +28,10 @@
 
         
         //-----------------------------INSERT joborder TABLE------------------------------------
-        $sql = "INSERT INTO joborders (joborderid, problem, engineno, datebrought, downpayment, jostatus, clientid, modelno, preparedby, supervisor, jotype) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO joborders (joborderid, problem, engineno, datebrought, jostatus, clientid, modelno, preparedby, supervisor, jotype) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);     
-        $stmt->bind_param("ssisisiisss",$countjo, $problem, $engnumber, $dateBrought, $downpayment, $pending, $clientid, $modelid, $preparedby, $supervisor, $engRecon) or mysql_error();
+        $stmt->bind_param("ssissiisss",$countjo, $problem, $engnumber, $dateBrought, $pending, $clientid, $modelid, $preparedby, $supervisor, $engRecon) or mysql_error();
         $stmt->execute();
 
         //-----------------------------SELECT JOB ORDER ID------------------------------------
@@ -69,20 +69,27 @@
         }
 
         //-----------------------------SELECT totalprice------------------------------------
-        $sqlprice = "SELECT SUM(services.serviceprice) AS totalPrice  from servicelogs join services using (serviceid) where joborderid = '$maxjoid' ";
-        $rprice = $conn->query($sqlprice);
-        $rrprice = $rprice->fetch_assoc(); 
-        $totalprice = $rrprice['totalPrice'];
+        // $sqlprice = "SELECT SUM(services.serviceprice) AS totalPrice  from servicelogs join services using (serviceid) where joborderid = '$maxjoid' ";
+        // $rprice = $conn->query($sqlprice);
+        // $rrprice = $rprice->fetch_assoc(); 
+        // $totalprice = $rrprice['totalPrice'];
 
         //-----------------------------UPDATE totalprice into joborder table------------------------
-        $sqlupdateprice = "UPDATE joborders SET joborders.joprice = '$totalprice' where joborderid  = '$maxjoid' ";
-        $stmtprice = $conn->prepare($sqlupdateprice);
-        $stmtprice->execute(); 
+        // $sqlupdateprice = "UPDATE joborders SET joborders.joprice = '$totalprice' where joborderid  = '$maxjoid' ";
+        // $stmtprice = $conn->prepare($sqlupdateprice);
+        // $stmtprice->execute(); 
         
 
         
         
-        header('location:../../job-order.php');                        
+         
     }
     $conn->close();
 ?>
+<!-- <button  id="brkdwnBtn" data-dismiss="modal" data-toggle="modal" href="#brkdownModal">
+<span class="glyphicon glyphicon-ok-sign"></span> Next</button>
+
+<script type="text/javascript">
+
+    $('#brkdwnBtn').click();
+</script> -->
