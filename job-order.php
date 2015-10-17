@@ -43,8 +43,8 @@
                                 href="#joModal"><i class="fa fa-plus fa-fw"></i> New Job Order </button>
                             <button type="button" id="editbtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit </button>
-                            <button type="button" id="updatebtn" class="btn btn-info" data-toggle="modal">
-                                <i class="fa fa-pencil-square-o fa-fw"></i> Update </button>
+                            <!-- <button type="button" id="updatebtn" class="btn btn-info" data-toggle="modal">
+                                <i class="fa fa-pencil-square-o fa-fw"></i> Update </button> -->
                             <div class="btn-group">
                                 <a class="btn btn-info"><i class="fa fa-print fa-fw"></i> Print </a>
                                 <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
@@ -62,18 +62,26 @@
                                 <tr>
                                     <th data-column-id="joborderid" data-visible="true" data-identifier="true">
                                         Receipt number</th>
-                                    <th data-column-id="datebrought">
+                                    <th data-column-id="datebrought" data-visible="true" data-identifier="true">
                                         Date Received</th>
-                                    <th data-column-id="clientname">
+                                    <th data-column-id="dateStarted" data-visible="false" data-identifier="true">
+                                        Date Started</th>
+                                    <th data-column-id="dateFinished" data-visible="false" data-identifier="true">
+                                        Date Finished</th>
+                                    <th data-column-id="clientname" data-visible="true" data-identifier="true">
                                         Client name</th>
-                                    <th data-column-id="joprice">
+                                    <th data-column-id="joprice" data-visible="true" data-identifier="true">
                                         Grand Total</th>
-                                    <th data-column-id="downpayment">
+                                    <th data-column-id="downpayment" data-visible="true" data-identifier="true">
                                         Downpayment</th>
-                                    <th data-column-id="balance">
+                                    <th data-column-id="balance" data-visible="true" data-identifier="true">
                                         Balance</th>
-                                    <th data-column-id="jostatus">
+                                    <th data-column-id="jostatus" data-visible="true" data-identifier="true">
                                         Status</th>
+                                    <th data-column-id="supervisor" data-visible="false" data-identifier="true">
+                                        Supervisor</th>
+                                    <th data-column-id="preparedby" data-visible="false" data-identifier="true">
+                                        Prepared By</th>
                                     
 
 
@@ -164,7 +172,7 @@
         include 'includes/modals/modal-jopreform.php';
         include 'includes/modals/modal-jopostform.php';
         include 'includes/modals/modal-editfabform.php';
-        // include 'includes/modals/modal-servicesbreakdown.php';
+        include 'includes/modals/modal-servicesbreakdown.php';
     ?>   
 </body>
 </html>
