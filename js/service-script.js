@@ -13,7 +13,7 @@ window.onload = function () {
         var selectedIDArray = $("#serviceTable").bootgrid("getSelectedRows");
         var selectedID = parseInt(selectedIDArray) + 0;
         if(! selectedID){
-            alert("Please select an item.");
+            alert("Please select a service.");
         } else
         $.ajax({
             type: "POST",
@@ -38,7 +38,7 @@ window.onload = function () {
         var selectedIDArray = $("#serviceTable").bootgrid("getSelectedRows");
         var selectedID = parseInt(selectedIDArray) + 0;
         if(! selectedID){
-            alert("Please select an item.");
+            alert("Please select a service.");
         } else
         $.ajax({
             type: "POST",

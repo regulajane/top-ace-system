@@ -12,7 +12,7 @@ window.onload = function () {
         var selectedIDArray = $("#employeeTable").bootgrid("getSelectedRows");
         var selectedID = parseInt(selectedIDArray) + 0;
         if(! selectedID){
-            alert("Please select an item.");
+            alert("Please select an employee.");
         } else
         $.ajax({
             type: "POST",

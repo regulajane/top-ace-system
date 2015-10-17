@@ -41,7 +41,7 @@ window.onload = function () {
         if (selectedID > 0) {
             $('#updateClientModal').modal('show');
         } else {
-            alert("Please select an item.");
+            alert("Please select a client.");
         }         
     });
 }
