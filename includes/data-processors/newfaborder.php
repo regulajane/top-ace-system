@@ -25,11 +25,16 @@
             $totalprice = $totalprice + $price[$i];
         }
 
+        $sqlcountjo = "SELECT concat(YEAR(curdate()),MONTH(curdate()),DAY(curdate())) AS curdate ,COUNT(*) AS countall from joborders";
+        $s = $conn->query($sqlcountjo);
+        $ss = $s->fetch_assoc(); 
+        $countjo = $ss['curdate'].$ss['countall'];
 
-         $sql1 = "INSERT INTO joborders (datestarted, downpayment, joprice, jostatus, jotype, clientid) VALUES (?, ?, ?, ?, ?, ?)";
+
+         $sql1 = "INSERT INTO joborders (joborderid, datestarted, downpayment, joprice, jostatus, jotype, clientid) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt1 = $conn->prepare($sql1);     
         // Bind
-            $stmt1->bind_param("ssssss", $dateOrdered, $downpayment, $totalprice, $pending, $fabrication, $clientid);
+            $stmt1->bind_param("sssssss", $countjo, $dateOrdered, $downpayment, $totalprice, $pending, $fabrication, $clientid);
         // Execute
             $stmt1->execute();
 
