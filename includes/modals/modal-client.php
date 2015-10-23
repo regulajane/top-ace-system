@@ -16,29 +16,29 @@
                                 action="includes/data-processors/client.php" id="clientForm" validate>
                                 <div class="control-group col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Last Name:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Last Name:</label>
+                                        <div class="col-md-7">
                                             <input type="text" class="form-control"  placeholder="Last Name"
                                                 id="clientln" name="clientln" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">First Name:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">First Name:</label>
+                                        <div class="col-md-7">
                                             <input type="text" class="form-control"  placeholder="First Name"
                                                 id="clientfn" name="clientfn" required/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Middle Initial:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Middle Initial:</label>
+                                        <div class="col-md-7">
                                             <input type="text" class="form-control" placeholder="Middle Initial"
                                                 id="clientmi" name="clientmi" required/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Gender:</label>
-                                        <div class="col-xs-4">
+                                        <label class="control-label col-md-4">Gender:</label>
+                                        <div class="col-md-4">
                                             <select class="form-control" placeholder="Gender"
                                                 id="clientgender" name="clientgender" required>
                                                 <option value="Gender"  selected disabled>Select gender</option>
@@ -48,15 +48,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Contact No.:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Contact No.:</label>
+                                        <div class="col-md-7">
                                             <input type="number" class="form-control" placeholder="Contact No."
                                                 id="clientcp" name="clientcp" required/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Address:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Address:</label>
+                                        <div class="col-md-7">
                                             <textarea rows="3" cols="100" class="form-control" placeholder="Address"
                                                 id="clientadd" name="clientadd"
                                                 maxlength="999" style="resize:none" 
@@ -64,8 +64,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Date:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Date:</label>
+                                        <div class="col-md-7">
                                             <input type="date" class="form-control" placeholder="Date"
                                                 id="clientsince" name="clientsince" required/>
                                         </div>
@@ -104,36 +104,36 @@
                                 action="includes/data-processors/updateclient.php" id="updateclientForm" validate>
                                 <div class="control-group col-md-12">
                                     <div class="form-group" style="display: none;">
-                                        <label class="control-label col-xs-4">Last Name:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Last Name:</label>
+                                        <div class="col-md-7">
                                             <input type="text" class="form-control"  placeholder="Client ID"
                                                 id="clientid" name="clientid" required/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Last Name:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Last Name:</label>
+                                        <div class="col-md-7">
                                             <input type="text" class="form-control"  placeholder="Last Name"
                                                 id="clientln" name="clientln" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">First Name:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">First Name:</label>
+                                        <div class="col-md-7">
                                             <input type="text" class="form-control"  placeholder="First Name"
                                                 id="clientfn" name="clientfn" required/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Middle Initial:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Middle Initial:</label>
+                                        <div class="col-md-7">
                                             <input type="text" class="form-control" placeholder="Middle Initial"
                                                 id="clientmi" name="clientmi" required/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Gender:</label>
-                                        <div class="col-xs-4">
+                                        <label class="control-label col-md-4">Gender:</label>
+                                        <div class="col-md-4">
                                             <select class="form-control" placeholder="Gender"
                                                 id="clientgender" name="clientgender" required>
                                                 <option value="Gender"  selected disabled>Select Gender</option>
@@ -143,15 +143,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Contact No.:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Contact No.:</label>
+                                        <div class="col-md-7">
                                             <input type="number" class="form-control" placeholder="Contact No."
                                                 id="clientcp" name="clientcp" required/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Address:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Address:</label>
+                                        <div class="col-md-7">
                                             <textarea rows="3" cols="100" class="form-control" placeholder="Address"
                                                 id="clientadd" name="clientadd"
                                                 maxlength="999" style="resize:none" 
@@ -159,8 +159,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Client Since:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Client Since:</label>
+                                        <div class="col-md-7">
                                             <input type="date" class="form-control" placeholder="Date"
                                                 id="clientsince" name="clientsince" required readonly/>
                                         </div>
