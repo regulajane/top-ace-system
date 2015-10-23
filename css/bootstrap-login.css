@@ -1,0 +1,97 @@
+body
+{
+    background: url('../images/plain_dark_blue.jpg') fixed;
+    padding: 0;
+    margin: 0;
+    margin-top: 100px; 
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.container 
+{
+    position: relative;
+    height: 14rem;
+    top:8%;
+    opacity: 0.7;
+}
+.wrap
+{   
+    background-color: rgba(189, 189, 205, 0.6);
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+    color:black;
+}
+p.form-title
+{
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: black;
+    margin-top: 5%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+p.sign
+{
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    color: #4D4D4D;
+    margin-top: 5%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+form
+{
+    width: 250px;
+    margin: 0 auto;
+}
+form.login input[type="text"], form.login input[type="password"]
+{
+    
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #FFFFFF;
+    outline: 0;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    outline: 0;
+}
+form.login input[type="submit"]
+{
+    width: 100%;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 16px;
+    outline: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+    color:white;
+}
+form.login input[type="submit"]:hover
+{
+    transition: background-color 0.3s ease;
+}
+.img-responsive {
+    margin: 0 auto;
+}
+
+#loginfooter {
+    color: #808080 ;
+}

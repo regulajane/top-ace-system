@@ -5,7 +5,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <!-- Web Icon -->
-<link rel="icon" type="image/png" href="img/bus.ico">
+<link rel="icon" type="image/png" href="images/ta.ico">
 <!-- Font Awesome -->
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <!-- Bootstrap Core CSS -->
