@@ -63,18 +63,25 @@
                                 <br>
                                 <h4 class="modal-title" id="emptyformlabel">Fabrication Order/s</h4>
                                 <hr>
-                                <div class="form-group">
-                                    <div class="col-xs-6" id="fabricationorders">
-                                        <!-- <input type="text" class="form-control" id="servicesavailed" 
-                                            name="servicesavailed" readonly> -->
-                                        <!-- <textarea rows="3" cols="100" class="form-control" id="servicesavailed" name="servicesavailed"
-                                            maxlength="999" style="resize:none" readonly>
-                                        </textarea> -->
+                                <div class="multi-field-wrapper">
+                                    <div class="multi-fields">
+                                        <div class="multi-field">
+
+                                            <div class="form-group">
+                                                <div class="col-xs-6" id="fabricationorders">
+                                                    
                                         
 
 
 
 
+                                                </div>
+                                            </div>
+                                            <button type="button" class="add-field btn btn-default" 
+                                                    id="addfield"><i class="fa fa-plus"></i>Add More...</button>
+                                            <button type="button" class="remove-field btn btn-default" 
+                                                    id="removefield"><i class="fa fa-minus"></i>Remove Field</button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>

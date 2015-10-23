@@ -61,22 +61,47 @@ function fabOrder(){
                 // $(".joEdit #requestedBy").val(joRequestedBy);
                 // $(".joEdit #vehicleNo").val(joVehicleNo);
                 for (var i = 0; i < fabData.length; i++) {
-                            var allfaborders = "";
-                            allfaborders += fabData[i].fabricationdesc;
+                            // var allfaborders = "";
+                            // allfaborders += fabData[i].fabricationdesc;
                             // alert(allservices);
                             // $(".joEdit #servicesavailed").val(allservices+=joData[i].servicename);
                             // document.getElementById("servicesavailed").innerHTML += allservices;
                             var fabor = document.getElementById("fabricationorders");
-                            var btn2 = document.createElement("btn");
-                            btn2.className = "btn btn-default";
+                            var fabdesc = document.createElement("input");
+                            fabdesc.type = "text";
+                            fabdesc.class = "form-control";
+                            fabdesc.id = "item";
+                            fabdesc.name = "item[]";
+                            fabdesc.value = fabData[i].fabricationdesc;
+
+                            // var addbtn = document.createElement("button");
+                            // addbtn.type = "button";
+                            // addbtn.class = "add-field btn btn-default"
+                            // addbtn.id = "addfield";
+                            // addbtn.appendChild(document.createTextNode("Add More..."));
+                            // var addbtninsider = document.createElement("i");
+                            // addbtninsider.class = "fa fa-plus";
+                            // addbtn.appendChild(addbtninsider);
+
+                            document.getElementById("addfield").click;
+
+                            // <button type="button" class="add-field btn btn-default" 
+                            //         id="addfield"><i class="fa fa-plus"></i>Add More...</button>
+                            // <button type="button" class="remove-field btn btn-default" 
+                            //         id="removefield"><i class="fa fa-minus"></i>Remove Field</button>
+
+
+                            // btn2.className = "btn btn-default";
                             
                             
                             var br = document.createElement('br');
 
-                            var t = document.createTextNode(allfaborders);       
-                            btn2.appendChild(t);                              
-                            fabor.appendChild(btn2);
+                            // var t = document.createTextNode(allfaborders);      
+                            // btn2.appendChild(t);
+                         
+                            fabor.appendChild(fabdesc);
                             fabor.appendChild(br);
+                            // fabor.appendChild(addbtn);
 
 
 
