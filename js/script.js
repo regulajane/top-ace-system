@@ -49,7 +49,7 @@ function displayDateTime() {
 }
 
 function homeNav(){
-    var activeEl = 2;
+    var activeEl = -1;
     var items = $('.btn-nav');
     $( items[activeEl] ).addClass('active');
     $( ".btn-nav" ).click(function() {
