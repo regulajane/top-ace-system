@@ -6,7 +6,10 @@ function supplies(){
 	    ajax: true,
 	    url: "data-servers/inventory-server.php",
 	    selection: true,
-	    rowSelect: true
+	    rowSelect: true,
+        labels: {
+            infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} Items"
+        },
 	});
     
 

@@ -5,7 +5,7 @@ window.onload = function () {
         selection: true,
         rowSelect: true,
         labels: {
-            infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} entries"
+            infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} Services"
         },
     });
 

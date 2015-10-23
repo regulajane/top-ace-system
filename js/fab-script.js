@@ -5,7 +5,10 @@ function fabOrder(){
         ajax: true,
         url: "data-servers/fab-order-server.php",
         selection: true,
-        rowSelect: true
+        rowSelect: true,
+        labels: {
+            infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} Job Orders"
+        },
     });
    
 }

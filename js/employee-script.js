@@ -4,7 +4,10 @@ window.onload = function () {
         ajax: true,
         url: "data-servers/employee-server.php",
         selection: true,
-        rowSelect: true
+        rowSelect: true,
+        labels: {
+            infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} Employees"
+        },
     });
 
     // Update Employee Information
