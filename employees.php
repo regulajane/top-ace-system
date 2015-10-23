@@ -37,15 +37,15 @@
                         Gender</th>
                     <th data-column-id="empcelno">
                         Contact No.</th>
-                    <th data-column-id="empaddress">
+                    <th data-column-id="empaddress" data-visible="false">
                         Address</th>
-                    <th data-column-id="empemailad">
+                    <th data-column-id="empemailad" data-visible="false">
                         Email Address</th>
-                    <th data-column-id="noofjobs">
+                    <th data-column-id="noofjobs" data-width="10%">
                         No. of Jobs</th>
-                    <th data-column-id="emptype" data-visible="false" data-identifier="true">
+                    <th data-column-id="emptype" data-visible="false">
                         Role</th>
-                    <th data-column-id="empstatus">
+                    <th data-column-id="empstatus" data-width="10%">
                         Status</th>
                 </tr>
             </thead>  

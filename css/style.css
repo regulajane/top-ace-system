@@ -36,7 +36,7 @@ footer {
         width: 755px;
         position: relative;
         overflow-y: auto;
-        margin-left: -75px;
+        margin-left: -20px;
 }
 /**/
 
@@ -111,6 +111,12 @@ footer {
 /*uprice column of job order form*/
 #joformtable3 > tbody > tr:nth-child(1) > td:nth-child(3) {
     width:78px;
+}
+
+/*padding of 1st table */
+#clnameform, #datebroughtform, #claddressform {
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 /*TABLES IN JOB ORDER FORM*/
 
