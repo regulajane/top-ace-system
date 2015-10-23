@@ -1,14 +1,9 @@
-<!-- Access validation -->
-<?php
-    if(!isset($_SESSION["username"])){
-    header('Location: ../index.php?loggedout=true');}
-?>
 <!-- JO Pre Form Modal --> 
 <div class="modal fade" id="joPreFormModal" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width:755px;">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Job Order Form</h4>
@@ -253,12 +248,12 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">             
-                <button type="button" data-toggle="modal" form="joForm" 
-                    onclick="printForm('joPreFormPrint')" class="btn btn-primary">
-                    <i class="fa fa-print fa-fw"></i> Print</button>
+            <div class="modal-footer">
                 <button id="cancelbtn" type="button" data-toggle="modal" class="btn btn-primary" 
-                    data-dismiss="modal"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                    data-dismiss="modal"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>             
+                <button type="button" data-toggle="modal" form="joForm" 
+                    onclick="printForm('joPreFormPrint')" class="btn btn-success">
+                    <i class="fa fa-print fa-fw"></i> Print</button>
             </div>
         </div>
     </div>
