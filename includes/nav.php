@@ -28,9 +28,6 @@
                                     <i class="fa fa-user"></i> <span>' . $_SESSION["username"] . '</span>
                                     <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="systemusers.php">View Users</a></li>
-                                    <li><a href="sessionlogs.php">Session Logs</a></li>
-                                    <li class="divider"></li>
                                     <li><a href="includes/logout.php">Logout</a></li>
                                 </ul>
                             </li>
