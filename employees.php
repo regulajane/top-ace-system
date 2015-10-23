@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php   include 'includes/header.php';
-            include 'includes/head-elements.php'; ?>
-    
+    <?php   
+        include 'includes/header.php';
+        include 'includes/head-elements.php';   
+        if(!isset($_SESSION["username"])) {
+            header('Location: index.php?loggedout=true');}
+    ?>
     <script src="js/employee-script.js"></script>
     <title>Employees</title>
 </head>
@@ -37,15 +40,15 @@
                         Gender</th>
                     <th data-column-id="empcelno">
                         Contact No.</th>
-                    <th data-column-id="empaddress" data-visible="false">
+                    <th data-column-id="empaddress">
                         Address</th>
-                    <th data-column-id="empemailad" data-visible="false">
+                    <th data-column-id="empemailad">
                         Email Address</th>
-                    <th data-column-id="noofjobs" data-width="10%">
+                    <th data-column-id="noofjobs">
                         No. of Jobs</th>
-                    <th data-column-id="emptype" data-visible="false">
+                    <th data-column-id="emptype" data-visible="false" data-identifier="true">
                         Role</th>
-                    <th data-column-id="empstatus" data-width="10%">
+                    <th data-column-id="empstatus">
                         Status</th>
                 </tr>
             </thead>  
