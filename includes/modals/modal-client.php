@@ -2,72 +2,84 @@
 <div class="modal fade" id="clientModal" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content" style="width: 650px; margin-top: 50px;">
+        <div class="modal-content">
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">New Client</h4>
             </div>
-            <div class="client modal-body">
+            <div class="modal-body">
                 <div class="well">
-                    <form class="form-horizontal" method="post" 
-                        action="includes/data-processors/client.php" id="clientForm" validate>
-                        <div class="control-group form-group">
-                            <div class="controls col-md-5">
-                                <label>Lastname:</label>
-                                <input type="text" class="form-control"  placeholder="Lastname"
-                                    id="clientln" name="clientln" required>
-                            </div>
-                            <div class="controls col-md-5">
-                                <label>Firstname:</label>
-                                <input type="text" class="form-control"  placeholder="Firstname"
-                                    id="clientfn" name="clientfn" required/>
-                            </div>
-                            <div class="controls col-md-2">
-                                <label>M.I.:</label>
-                                <input type="text" class="form-control" placeholder="M.I."
-                                    id="clientmi" name="clientmi" required/>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-horizontal" method="post" 
+                                action="includes/data-processors/client.php" id="clientForm" validate>
+                                <div class="control-group col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Last Name:</label>
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control"  placeholder="Last Name"
+                                                id="clientln" name="clientln" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">First Name:</label>
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control"  placeholder="First Name"
+                                                id="clientfn" name="clientfn" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Middle Initial:</label>
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control" placeholder="Middle Initial"
+                                                id="clientmi" name="clientmi" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Gender:</label>
+                                        <div class="col-xs-4">
+                                            <select class="form-control" placeholder="Gender"
+                                                id="clientgender" name="clientgender" required>
+                                                <option value="Gender"  selected disabled>Select gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Contact No.:</label>
+                                        <div class="col-xs-7">
+                                            <input type="number" class="form-control" placeholder="Contact No."
+                                                id="clientcp" name="clientcp" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Address:</label>
+                                        <div class="col-xs-7">
+                                            <textarea rows="3" cols="100" class="form-control" placeholder="Address"
+                                                id="clientadd" name="clientadd"
+                                                maxlength="999" style="resize:none" 
+                                                required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Date:</label>
+                                        <div class="col-xs-7">
+                                            <input type="date" class="form-control" placeholder="Date"
+                                                id="clientsince" name="clientsince" required/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="control-group form-group">
-                            <div class="controls col-md-6">
-                                <label>Gender:</label>
-                                <select class="form-control" placeholder="Address..."
-                                    id="clientgender" name="clientgender" required>
-                                    <option value="Gender"  selected disabled>Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
-                            <div class="controls col-md-6">
-                                <label>Contact No.:</label>
-                                <input type="number" class="form-control" placeholder=""
-                                    id="clientcp" name="clientcp" required/>
-                            </div>
-                        </div>
-                        <div class="control-group form-group">
-                            <div class="controls col-md-12">
-                                <label>Address:</label>
-                                <textarea rows="3" cols="100" class="form-control" placeholder="Address..."
-                                    id="clientadd" name="clientadd"
-                                    maxlength="999" style="resize:none" 
-                                    required></textarea>
-                            </div>
-                        </div>
-                        <div class="control-group form-group">
-                            <div class="controls col-md-offset-6 col-md-6">
-                                <label>Date:</label>
-                                <input type="date" class="form-control" placeholder="Client Since"
-                                    id="clientsince" name="clientsince" required/>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
-                <button type="submit" name="savedata" class="btn btn-primary" form="clientForm" value="Save">
+                <button type="submit" name="savedata" class="btn btn-success" form="clientForm" value="Save">
                     <span class="glyphicon glyphicon-ok-sign"></span> Save </button>  
             </div>
         </div>
@@ -78,7 +90,7 @@
 <div class="modal fade" id="updateClientModal" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content" style="width: 650px; margin-top: 50px;">
+        <div class="modal-content">
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
@@ -86,70 +98,84 @@
             </div>
             <div class="clienteditupdate modal-body">
                 <div class="well">
-                    <form class="form-horizontal" method="post" 
-                        action="includes/data-processors/updateclient.php" id="updateclientForm" validate>
-                        <div class="control-group form-group">
-                            <div class="controls" style="display: none;">
-                                <label>Client ID:</label>
-                                <input type="text" class="form-control"  placeholder="Client ID"
-                                    id="clientid" name="clientid" required/>
-                            </div>
-                            <div class="controls col-md-5">
-                                <label>Lastname:</label>
-                                <input type="text" class="form-control"  placeholder="Lastname"
-                                    id="clientln" name="clientln" required/>
-                            </div>
-                            <div class="controls col-md-5">
-                                <label>Firstname:</label>
-                                <input type="text" class="form-control"  placeholder="Firstname"
-                                    id="clientfn" name="clientfn" required/>
-                            </div>
-                            <div class="controls col-md-2">
-                                <label>M.I.:</label>
-                                <input type="text" class="form-control" placeholder="M.I."
-                                    id="clientmi" name="clientmi" required/>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-horizontal" method="post" 
+                                action="includes/data-processors/updateclient.php" id="updateclientForm" validate>
+                                <div class="control-group col-md-12">
+                                    <div class="form-group" style="display: none;">
+                                        <label class="control-label col-xs-4">Last Name:</label>
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control"  placeholder="Client ID"
+                                                id="clientid" name="clientid" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Last Name:</label>
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control"  placeholder="Last Name"
+                                                id="clientln" name="clientln" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">First Name:</label>
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control"  placeholder="First Name"
+                                                id="clientfn" name="clientfn" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Middle Initial:</label>
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control" placeholder="Middle Initial"
+                                                id="clientmi" name="clientmi" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Gender:</label>
+                                        <div class="col-xs-4">
+                                            <select class="form-control" placeholder="Gender"
+                                                id="clientgender" name="clientgender" required>
+                                                <option value="Gender"  selected disabled>Select Gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Contact No.:</label>
+                                        <div class="col-xs-7">
+                                            <input type="number" class="form-control" placeholder="Contact No."
+                                                id="clientcp" name="clientcp" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Address:</label>
+                                        <div class="col-xs-7">
+                                            <textarea rows="3" cols="100" class="form-control" placeholder="Address"
+                                                id="clientadd" name="clientadd"
+                                                maxlength="999" style="resize:none" 
+                                                required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Client Since:</label>
+                                        <div class="col-xs-7">
+                                            <input type="date" class="form-control" placeholder="Date"
+                                                id="clientsince" name="clientsince" required readonly/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="control-group form-group">
-                            <div class="controls col-md-6">
-                                <label>Gender:</label>
-                                <select class="form-control" placeholder="Address..."
-                                    id="clientgender" name="clientgender" required>
-                                    <option value="Gender"  selected disabled>Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
-                            <div class="controls col-md-6">
-                                <label>Contact No.:</label>
-                                <input type="number" class="form-control" placeholder="09123456789"
-                                    id="clientcp" name="clientcp" required/>
-                            </div>
-                        </div>
-                        <div class="control-group form-group">
-                            <div class="controls col-md-12">
-                                <label>Address:</label>
-                                <textarea rows="3" cols="100" class="form-control" placeholder="Address..."
-                                    id="clientadd" name="clientadd"
-                                    maxlength="999" style="resize:none" 
-                                    required></textarea>
-                            </div>
-                        </div>
-                        <div class="control-group form-group">
-                            <div class="controls col-md-offset-6 col-md-6">
-                                <label>Client Since:</label>
-                                <input type="date" class="form-control" placeholder="Client Since"
-                                    id="clientsince" name="clientsince" required readonly/>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
-                <button type="submit" name="updatedata" class="btn btn-primary" form="updateclientForm" value="Update">
-                    <span class="glyphicon glyphicon-ok-sign"></span> Save </button>  
+                <button type="submit" name="updatedata" class="btn btn-success" form="updateclientForm" value="Update">
+                    <span class="glyphicon glyphicon-ok-sign"></span> Save Changes</button>  
             </div>
         </div>
     </div>
