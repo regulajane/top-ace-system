@@ -40,7 +40,7 @@
                             Gender</th>
                         <th data-column-id="clcelno">
                             Contact No.</th>
-                        <th data-column-id="claddress">
+                        <th data-column-id="claddress" data-width="30%">
                             Address</th>
                         <th data-column-id="clsince">
                             Client Since</th>
