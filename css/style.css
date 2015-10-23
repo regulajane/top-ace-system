@@ -24,11 +24,15 @@ footer {
 }
 
 /*-------------------------------------------------*/
+*.modal{
+    margin-top: 30px;
+}
+
 /*modal size*/
 .modal-body {
     position: relative;
     overflow-y: auto;
-    max-height: 480px;
+    max-height: 450px;
     padding: 15px;
 }
 
