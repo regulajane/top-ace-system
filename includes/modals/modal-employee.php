@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <div class="well">
                     <div class="row">
-                        <div class="col-md-12 bs-example">
+                        <div class="col-md-12">
                             <form class="form-horizontal" method="post" action="includes/data-processors/addemployee.php" id="addemployeeform">
                                 <div class="control-group col-md-12">
                                     <div class="form-group">
@@ -46,10 +46,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Cellphone No.:</label>
+                                        <label class="control-label col-xs-4">Contact No.:</label>
                                         <div class="col-xs-7">
                                             <input type="text" class="form-control" id="empcelno" name="empcelno" 
-                                                required placeholder="Cellphone No.">
+                                                required placeholder="Contact No.">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -76,10 +76,10 @@
             </div>
 
             <div class="modal-footer">
-                <button type="submit" name="submit" class="btn btn-primary" form="addemployeeform" value="submit" 
-                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>  
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                <button type="submit" name="submit" class="btn btn-success" form="addemployeeform" value="submit" 
+                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>  
             </div>
         </div>
     </div>
@@ -134,10 +134,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Cellphone No.:</label>
+                                        <label class="control-label col-xs-4">Contact No.:</label>
                                         <div class="col-xs-7">
                                             <input type="text" class="form-control" id="empcelno" name="empcelno" 
-                                                required placeholder="Cellphone No.">
+                                                required placeholder="Contact No.">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -181,10 +181,10 @@
             </div>
 
             <div class="modal-footer">
-                <button type="submit" name="submit" class="btn btn-primary" form="updateemployeeform" value="submit" 
-                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>  
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                <button type="submit" name="submit" class="btn btn-success" form="updateemployeeform" value="submit" 
+                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save Changes</button>  
             </div>
         </div>
     </div>
