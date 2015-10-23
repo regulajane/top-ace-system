@@ -1,4 +1,4 @@
-/* Global Styles */
+ Global Styles */
 
 html,
 body {
@@ -24,13 +24,22 @@ footer {
 }
 
 /*-------------------------------------------------*/
-
-*.modal-body {
+/*modal size*/
+.modal-body {
     position: relative;
     overflow-y: auto;
     max-height: 480px;
     padding: 15px;
 }
+
+#joPreFormModal .modal-content{
+        width: 755px;
+        position: relative;
+        overflow-y: auto;
+        margin-left: -75px;
+}
+/**/
+
 
 /*borderless table for forms*/
 .table-borderless {
@@ -253,4 +262,4 @@ input[type="checkbox"]:checked:after {
     transform: translate(-50%,-50%);
 
 }
-/*End Custom Checkbox*/
+/*End Custom Checkbox
