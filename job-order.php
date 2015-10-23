@@ -45,13 +45,8 @@
                         <!-- <button type="button" id="updatebtn" class="btn btn-info" data-toggle="modal">
                             <i class="fa fa-pencil-square-o fa-fw"></i> Update </button> -->
                         <div class="btn-group">
-                            <a class="btn btn-info"><i class="fa fa-print fa-fw"></i> Print </a>
-                            <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
-                                <span class="fa fa-caret-down"></span></a>
-                                <ul class="dropdown-menu joborder">
-                                    <li><a id="preEvalbtn" data-toggle="modal" href="#joPreFormModal">
-                                        <i class="fa fa-file fa-fw"></i> Job Order</a></li>
-                                </ul>
+                            <a class="btn btn-info" id="preEvalbtn" data-toggle="modal" 
+                                    href="#joPreFormModal"><i class="fa fa-print fa-fw"></i> Print </a>
                         </div>
                     </div>
                     <!-- Job Order Table -->
@@ -102,17 +97,8 @@
                         <button type="button" id="updatebtn" class="btn btn-info" data-toggle="modal">
                             <i class="fa fa-pencil-square-o fa-fw"></i> Update </button>
                         <div class="btn-group">
-                            <a class="btn btn-info"><i class="fa fa-print fa-fw"></i> Print </a>
-                            <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span class="fa fa-caret-down"></span></a>
-                            <ul class="dropdown-menu joborder">
-                                <li><button type="button" id="preEvalbtn" class="btn btn-info" data-toggle="modal" 
-                                    href="#joPreFormModal" style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%;">
-                                    <i class="fa fa-file fa-fw"></i> Pre-Inspection</button></li>
-                                <li><button type="button" id="postEvalbtn" class="btn btn-info" data-toggle="modal" 
-                                    href="#joPostFormModal" style="text-align:left;  margin: 0px 5px 0px 5px; width: 94%;">
-                                    <i class="fa fa-file fa-fw"></i> Post-Inspection</button></li>
-                            </ul>
+                            <a class="btn btn-info" id="preEvalbtn" data-toggle="modal" 
+                                    href="#fabFormModal"><i class="fa fa-print fa-fw"></i> Print </a>
                         </div>
                     </div>
                     <!-- Fabrication -->

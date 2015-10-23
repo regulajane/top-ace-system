@@ -27,7 +27,7 @@
 						<i class="fa fa-folder-open">
 						</i> Fabrication Items</a>
 						</a>
-
+						<!-- 
 	           			 <div class="btn-group">
 			                <a class="btn btn-info" href="#"><i class="fa fa-folder-open"></i> Logs </a>
 			                <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
@@ -44,7 +44,7 @@
 			                            <i class="fa fa-list"></i> Outgoing</a>
 			                            </li>
 			                </ul>
-	            		</div>
+	            		</div> -->
             	</div>
 			</div>  
 			<hr>
