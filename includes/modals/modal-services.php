@@ -36,10 +36,10 @@
             </div>
 
             <div class="modal-footer">
-                <button type="submit" name="submit" class="btn btn-primary" form="addserviceform" value="submit" 
-                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>  
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                <button type="submit" name="submit" class="btn btn-success" form="addserviceform" value="submit" 
+                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>  
             </div>
         </div>
     </div>
@@ -85,10 +85,10 @@
             </div>
 
             <div class="modal-footer">
-                <button type="submit" name="submit" class="btn btn-primary" form="updateserviceform" value="submit" 
-                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>  
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                <button type="submit" name="submit" class="btn btn-success" form="updateserviceform" value="submit" 
+                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>  
             </div>
         </div>
     </div>
@@ -131,10 +131,10 @@
             </div>
 
             <div class="modal-footer">
-                <button type="submit" name="submit" class="btn btn-primary" form="deleteserviceform" value="submit" 
-                    id="deletebtn"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>  
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
                     <span class="glyphicon glyphicon-remove-sign"></span> No</button>
+                <button type="submit" name="submit" class="btn btn-success" form="deleteserviceform" value="submit" 
+                    id="deletebtn"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>  
             </div>
         </div>
     </div>
