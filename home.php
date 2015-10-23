@@ -16,7 +16,7 @@
     <?php include 'includes/nav.php'; ?>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-12">
                 <h1 class="page-header">
                     <div class="logo wow fadeInDown"> <a href=""><img src="images/logo-home.png" alt="logo"></a></div>
                     <small>Auto Supply and Motor Works</small><br>
