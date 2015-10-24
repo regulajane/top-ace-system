@@ -46,6 +46,12 @@
                         </a>
                     </div>
                     <div class="btn-group">
+                        <a href="sales.php" type="button" class="btn btn-nav">
+                            <i class="fa fa-calculator fa-5x"></i>
+                            <p>Sales</p>
+                        </a>
+                    </div>
+                    <div class="btn-group">
                         <a href="clients.php" type="button" class="btn btn-nav">
                             <i class="fa fa-book fa-5x"></i>
                             <p>Clients</p>
