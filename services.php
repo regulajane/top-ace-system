@@ -24,8 +24,6 @@
                 href="#addServiceModal"><i class="fa fa-plus fa-fw"></i> New Service </button>
             <button type="button" id="editservicebtn" class="btn btn-info" data-toggle="modal">
                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit/Update </button>
-            <button type="button" id="deleteservicebtn" class="btn btn-info" data-toggle="modal">
-                <span class="glyphicon glyphicon-remove-sign"></span> </button>
         </div>
         <!-- Service Table -->
         <table  id="serviceTable" class="table table-condensed table-hover">
