@@ -46,6 +46,44 @@ function supplies(){
             }
         });           
     });
+
+     // Edit Supply 
+        $("#editsupplybtn").on("click", function() {
+            var selectedItemArray = $("#inventoryTable").bootgrid("getSelectedRows");
+            var selectedItem = parseInt(selectedItemArray) + 0;
+         if(! selectedItem){
+                alert("Please select an item.");
+                location.reload();
+            } else
+            $.ajax({
+                type: "POST",
+                url: "includes/data-processors/processSupplyajax.php",
+                data: {selectedItem: selectedItem},
+                success: function(data) {
+                    
+                    inventoryData = JSON.parse(data);
+
+
+                    var invId = inventoryData.inventoryid;
+                    var modelNum    = inventoryData.modelno;
+                    var invname = inventoryData.inventoryname;
+                    var invsize = inventoryData.inventorysize;
+                    var invprice = inventoryData.inventoryprice;
+                    var invreorderlevel = inventoryData.reorderlevel;
+
+                  
+                    // Update 
+                    $(".invEdit  #modelno").val(modelNum); 
+                    $(".invEdit  #inventID").val(invId); 
+                    $(".invEdit  #inventName").val(invname); 
+                    $(".invEdit  #inventSize").val(invsize);
+                    $(".invEdit  #inventPrice").val(invprice);
+                    $(".invEdit  #inventRL").val(invreorderlevel);
+                 
+                }
+            });           
+        });
+
 	// procure
     $("#procuresupplybtn").on("click", function() {
         var selectedItemArray = $("#inventoryTable").bootgrid("getSelectedRows");
@@ -87,6 +125,7 @@ function supplies(){
             alert("Please select an item.");
             location.reload();
         } else
+
         $.ajax({
             type: "POST",
             url: "includes/data-processors/processSupplyajax.php",
@@ -110,10 +149,12 @@ function supplies(){
                 $(".addProcSup #inventPrice").val(inventPrice);
                 $(".addProcSup #inventQty").val(inventQty);
             
-                if(supQty > 0) {
+                if(inventQty = 0) {
                     $('#deleteSuppliesModal').modal('show');
                 } else
-                    alert("Supply not available.");
+                    $('#deleteSuppliesModal').modal('hide');
+                    alert("ERROR: Cannot Delete Supply still has a value");
+
             }
         });           
     });
