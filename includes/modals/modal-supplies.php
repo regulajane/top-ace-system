@@ -3,59 +3,100 @@
     if(!isset($_SESSION["username"])){
     header('Location: ../index.php?loggedout=true');}
 ?>
-<!-- Modal New Supply -->
-<div class="modal fade" id="newSuppliesModal" tabindex="-1" role="dialog" 
+
+<!-- Add New Supply Form] -->
+<div class="modal fade" id="addNewSupply" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">New Supply</h4>
+                <h4 class="modal-title" id="myModalLabel">Add New Supply</h4>
             </div>
-            <div class="modal-body">
+            <div class="joEmpty modal-body">
                 <div class="well">
                     <div class="row">
-                        <div class="col-md-12">
-                            <form class="form-horizontal" method="post" 
-                                action="includes/data-processors/newsupply.php" id="supplyForm" novalidate>
+                        <div class="col-md-12 bs-example">
+                            <form class="form-horizontal" method="post" action="includes/data-processors/addnewsupply.php" 
+                              id="newSupplyForm">
+                                     <div class="control-group form-group">
+                                    <label class="control-label col-xs-4">Model No:</label>
+                                     <div class="controls col-xs-2">
+                                    <textarea rows="1" cols="100" class="form-control" id="modelno" name="modelno"  maxlength="999" style="resize:none" 
+                                            required></textarea>
+                                     </div>
+                                </div>     
+
                                 <div class="control-group form-group">
-                                    <div class="controls col-md-12">
-                                        <label>Item Name:</label>
-                                        <input type="text" class="form-control" id="newSupplyName" name="newSupplyName"
-                                            required data-validation-required-message="Please enter item name."/>
+                                    <label class="control-label col-xs-3">Item Name:</label>
+                                        <div class="controls col-xs-4">
+                                            <select class="form-control" id="inventoryname" name="inventoryname">
+                                                <option value="" disabled selected>Select Name</option>
+                                                <option value="Engine Valve">Engine Valve</option>
+                                                <option value="Valve Seal">Valve Seal</option>
+                                                <option value="Valve Guide">Valve Guide</option>
+                                                <option value="Valve Tappet">Valve Tappet</option>
+                                                <option value="Valve Insert Ring">Valve Insert Ring</option>
+                                                <option value="Gasket">Gasket</option>
+                                                <option value="Piston Ring">Piston Ring</option>
+                                                <option value="Main Bearing">Main Bearing</option>
+                                                <option value="Connecting Rod Bearing">Connecting Rod Bearing</option>
+                                                <option value="Thrust Washer">Thrust Washer</option>
+                                                <option value="Valve Seal">Valve Seal</option>
+                                            </select>                                   
                                     </div>
                                 </div>
+   
                                 <div class="control-group form-group">
-                                    <div class="controls col-md-12">
-                                        <label>Description:</label>
-                                        <textarea rows="3" cols="100" class="form-control" name="supdescription" 
-                                            id="supdescription" 
-                                            required data-validation-required-message="Please enter item description." 
-                                            maxlength="300" style="resize:none"></textarea>
-                                    </div>
-                                </div>
+                                    <label class="control-label col-xs-3">Size:</label>
+                                        <div class="controls col-xs-4">
+                                            <select class="form-control" id="inventorysize" name="inventorysize">
+                                                <option value="" disabled selected>Select Size</option>
+                                                <option value="std">std</option>
+                                                <option value=".25">0.25</option>
+                                                <option value=".50">0.50</option>
+                                                <option value=".75">0.75</option>
+                                            </select>         
+                                        </div>
+                                </div>  
                                 <div class="control-group form-group">
-                                    <div class="controls col-md-4">
-                                        <label>Quantity:</label>
-                                        <input type="number" class="form-control" name="supquantity" id="supquantity"
-                                            required required data-validation-required-message="Please enter quantity."/>
+                                    <label class="control-label col-xs-3">Quantity:</label>
+                                     <div class="controls col-xs-2">
+                                    <textarea rows="1" cols="100" class="form-control" id="inventoryquantity" name="inventoryquantity"  maxlength="999" style="resize:none" 
+                                            required></textarea>
+                                     </div>
+                                </div>   
+                                <div class="control-group form-group">
+                                    <label class="control-label col-xs-3">Price per piece:</label>
+                                     <div class="controls col-xs-3">
+                                     <textarea rows="1" cols="100" class="form-control" id="inventoryprice" name="inventoryprice"  maxlength="999" style="resize:none" 
+                                            required></textarea>
+                                     </div>
+                                </div> 
+                                <div class="control-group form-group">
+                                     <label class="control-label col-xs-3">Reorder Level:</label>
+                                     <div class="controls col-xs-3">
+                                      <textarea rows="1" cols="100" class="form-control" id="reorderlevel" name="reorderlevel"  maxlength="999" style="resize:none" 
+                                            required></textarea>
                                     </div>
-                                </div>
+                                </div>  
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="submit" name="newsupply" class="btn btn-primary" form="supplyForm" value="New Supply">
-                    <span class="glyphicon glyphicon-ok-sign"></span> SAVE </button>  
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
+             <div class="modal-footer">
+                <button type="submit" class="btn btn-primary pull-left" onclick="clearForm()">Clear All</button>
+
+                <button type="submit" name="submit" class="btn btn-primary" form="newSupplyForm" 
+                    value="submit" id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> SAVE</button>
+
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
+                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
             </div>
         </div>
     </div>
-</div> <!-- /.modal -->
+</div> 
+<!-- end of add new supply -->
 
 <!-- Modal Add Supply -->
 <div class="modal fade" id="addInventoryModal" tabindex="-1" role="dialog" 
@@ -276,4 +317,89 @@
             </div>
         </div>
     </div>
-</div> <!-- /.modal 
+</div>
+
+<!-- EDIT SUPPLY -->
+<div class="modal fade" id="editSupplyModal" tabindex="-1" role="dialog" 
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cancelbtn">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">EDIT SUPPLY</h4>
+            </div>
+            <div class="invEdit modal-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-md-12 bs-example">
+                            <form class="form-horizontal" method="post" 
+                                action="includes/data-processors/editsupply.php" id="editsupplyform">
+
+                                <div class="control-group col-md-12">
+                                <div class="control-group form-group">
+                                    <div class="controls col-md-12" style="display: none">
+                                        <label>Inventory ID:</label>
+                                        <input readonly type="text" class="form-control" id="inventID" name="inventID"/>
+                                    </div>
+                                </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Model No:</label>
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control" id="modelno" name="modelno" 
+                                                required >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Item Name:</label>
+                                        <div class="col-xs-7">
+                                           <input type="text" class="form-control" id="inventName" name="inventName"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Size:</label>
+                                        <div class="col-xs-4">
+                                        <input type="text" class="form-control" id="inventSize" name="inventSize" >                                          
+<!--                                                 <select class="form-control" id="inventSize" name="inventorysize">
+                                                    <option value="std">std</option>
+                                                    <option value=".25">0.25</option>
+                                                    <option value=".50">0.50</option>
+                                                    <option value=".75">0.75</option>
+                                                </select>  -->        
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Price per piece:</label>
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control" id="inventPrice" name="inventPrice" 
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Reorder Level:</label>
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control" id="inventRL" name="inventRL" 
+                                                required>
+                                        </div>
+                                    </div>                                   
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" name="editsupply" class="btn btn-primary" form="editsupplyform" value="Edit Supply" 
+                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>  
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
+                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            </div>
+        </div>
+    </div>
+</div> 
