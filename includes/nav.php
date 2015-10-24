@@ -19,6 +19,7 @@
                         <ul class="nav navbar-nav navbar-right">
                        
                             <li><a href="job-order.php">Job Orders</a></li>
+                            <li><a href="sales.php">Sales</a></li>
                             <li><a href="inventory.php">Inventory</a></li>
                             <li><a href="employees.php">Employees</a></li>
                             <li><a href="clients.php">Clients</a></li>

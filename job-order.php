@@ -19,12 +19,12 @@
         </div>
         <div class="col-md-12">
                 <ul id="myTab" class="nav nav-tabs nav-justified">
-                    <li class="active large-nav"><a href="#joTab" data-toggle="tab">
-                        <i class="fa fa-car"></i> Engineer reconditioning</a></li>
-                    <li class="large-nav"><a href="#vrTab" data-toggle="tab">
+                    <li class="active tab-nav"><a href="#joTab" data-toggle="tab">
+                        <i class="fa fa-bus"></i> Engineer Reconditioning</a></li>
+                    <li class="tab-nav"><a href="#vrTab" data-toggle="tab">
                         <i class="fa fa-bus"></i> Fabrication</a></li>
-                    <li class="large-nav"><a href="#sTab" data-toggle="tab">
-                        <i class="fa fa-money"></i> Sales</a></li>
+                    <li class="tab-nav"><a href="#sTab" data-toggle="tab">
+                        <i class="fa fa-bus"></i> Engineer Reconditioning with Fabrication</a></li>
                 </ul>
         </div>
         <br>
@@ -42,8 +42,8 @@
                             href="#joModal"><i class="fa fa-plus fa-fw"></i> New Job Order </button>
                         <button type="button" id="editbtn" class="btn btn-info" data-toggle="modal">
                             <i class="fa fa-pencil-square-o fa-fw"></i> Edit </button>
-                        <!-- <button type="button" id="updatebtn" class="btn btn-info" data-toggle="modal">
-                            <i class="fa fa-pencil-square-o fa-fw"></i> Update </button> -->
+                        <button type="button" id="updatebtn" class="btn btn-info" data-toggle="modal">
+                            <i class="fa fa-pencil-square-o fa-fw"></i> Update </button>
                         <div class="btn-group">
                             <a class="btn btn-info" id="preEvalbtn" data-toggle="modal" 
                                     href="#joPreFormModal"><i class="fa fa-print fa-fw"></i> Print </a>
@@ -127,7 +127,7 @@
 
             <div class="row tab-pane fade" id="sTab">
                 <div class="col-md-12">
-                    <h2 class="page-header">Purchases</h2>
+                    <h2 class="page-header">To follow...</h2>
                 </div>
                 <div class="col-md-12">
                 </div>
