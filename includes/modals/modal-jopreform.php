@@ -10,7 +10,7 @@
             </div>
             <div class="joPreForm modal-body" id="joPreFormPrint">
                 <div class="row"  id="a">
-                    <div class="col-md-12">
+                    <div class="print col-md-12">
                         <form method="post" action="includes/newjoborder.php" id="preForm">
                             <div class="row text-center">
                                 <div class="col-md-12">
