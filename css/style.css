@@ -248,21 +248,20 @@ position:relative
 input[type="checkbox"]{
     -webkit-appearance: initial;
     appearance: initial;
-    background: gray;
+    background: #6C7B8B;
     width: 12px;
     height: 12px;
     border: none;
-    background: gray;
     position: relative;
     border-radius: 4px;
 }
 input[type="checkbox"]:checked {
-    background: #e92d00;
+    background: #1E90FF;
 }
 input[type="checkbox"]:checked:after {
     
     content: "\2713";
-    color: #e92d00;
+    color: #1E90FF;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -272,4 +271,44 @@ input[type="checkbox"]:checked:after {
     transform: translate(-50%,-50%);
 
 }
-/*End Custom Checkbox
+/*End Custom Checkbox*/
+
+/*Custom Table*/
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #2fa4e7;
+}
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #2fa4e7; 
+}
+
+.table > thead > tr > td.active,
+.table > tbody > tr > td.active,
+.table > tfoot > tr > td.active,
+.table > thead > tr > th.active,
+.table > tbody > tr > th.active,
+.table > tfoot > tr > th.active,
+.table > thead > tr.active > td,
+.table > tbody > tr.active > td,
+.table > tfoot > tr.active > td,
+.table > thead > tr.active > th,
+.table > tbody > tr.active > th,
+.table > tfoot > tr.active > th {
+  background-color: #d9edf7;
+}
+.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover,
+.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr:hover > .active,
+.table-hover > tbody > tr.active:hover > th {
+  background-color: #d9edf7;
+}
