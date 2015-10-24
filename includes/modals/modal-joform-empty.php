@@ -1,3 +1,7 @@
+<?php
+    if(!isset($_SESSION["username"])){
+    header('Location: ../index.php?loggedout=true');}
+?>
 <!-- JO Empty Form Modal -->
 <div class="modal fade" id="joModal" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true">
@@ -225,16 +229,14 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary pull-left" onclick="clearForm()">
-                    <span class="glyphicon glyphicon-edit"></span> Clear All</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="reload()">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
-                <button type="submit" name="submit" class="btn btn-success" form="joForm" value="submit" 
-                    data-dismiss="modal" data-toggle="modal" href="#brkdownModal">
+                <button type="submit" class="btn btn-primary pull-left" 
+                    onclick="clearForm()">Clear All</button>
+                <button type="submit" name="submit" class="btn btn-primary" form="joForm" value="submit" >
                     <span class="glyphicon glyphicon-ok-sign"></span> Next</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="reload()">
+                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
             </div>
         </div>
     </div>
 </div> <!-- JO Empty Form Modal -->
 
-<?php   include 'includes/modals/modal-servicesbreakdown.php'; ?> 

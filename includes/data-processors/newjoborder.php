@@ -1,5 +1,9 @@
+
 <?php
     include '../header.php';
+    // include '../nav-jo.php';
+    
+
     // Access Validation
     if(!isset($_SESSION["username"])){
     header('Location: ../../index.php?loggedout=true');}
@@ -20,11 +24,12 @@
         $engRecon = 'EngRecon';
 
 
-        //-----------------------------COUNT JOB ORDER ID------------------------------------
-        $sqlcountjo = "SELECT concat(YEAR(curdate()),MONTH(curdate()),DAY(curdate())) AS curdate ,COUNT(*) AS countall from joborders";
+        //-----------------------------COUNT and CREATE JOB ORDER ID------------------------------------
+        $sqlcountjo = "SELECT concat(YEAR(curdate()),MONTH(curdate()),DAY(curdate())) AS curdate ,COUNT(*)+1 AS countall from joborders";
         $s = $conn->query($sqlcountjo);
         $ss = $s->fetch_assoc(); 
         $countjo = $ss['curdate'].$ss['countall'];
+
 
         
         //-----------------------------INSERT joborder TABLE------------------------------------
@@ -68,6 +73,14 @@
             
         }
 
+
+        // echo '<script>'; 
+        // echo '$("#brkdownModal").modal("show");';
+        // echo 'alert("asdas");';
+        // echo 'window.location = "../../job-order.php";'; 
+        // echo '</script>';
+
+        
         //-----------------------------SELECT totalprice------------------------------------
         // $sqlprice = "SELECT SUM(services.serviceprice) AS totalPrice  from servicelogs join services using (serviceid) where joborderid = '$maxjoid' ";
         // $rprice = $conn->query($sqlprice);
@@ -78,14 +91,19 @@
         // $sqlupdateprice = "UPDATE joborders SET joborders.joprice = '$totalprice' where joborderid  = '$maxjoid' ";
         // $stmtprice = $conn->prepare($sqlupdateprice);
         // $stmtprice->execute(); 
-        
+       
+        include '../modals/modal-servicesbreakdown.php';
+        include '../head-elements-jo.php';
 
         
         
          
     }
     $conn->close();
+    // include '../footer.php';
 ?>
+
+
 <!-- <button  id="brkdwnBtn" data-dismiss="modal" data-toggle="modal" href="#brkdownModal">
 <span class="glyphicon glyphicon-ok-sign"></span> Next</button>
 
