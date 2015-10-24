@@ -312,3 +312,41 @@ input[type="checkbox"]:checked:after {
 .table-hover > tbody > tr.active:hover > th {
   background-color: #d9edf7;
 }
+
+/*Custom Print Table*/
+
+.print .table > thead > tr > th,
+.print .table > tbody > tr > th,
+.print .table > tfoot > tr > th,
+.print .table > thead > tr > td,
+.print .table > tbody > tr > td,
+.print .table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #fff;
+}
+
+.print #joformtable2 > thead > tr > th,
+.print #joformtable2 > tbody > tr > th,
+.print #joformtable2 > tfoot > tr > th,
+.print #joformtable2 > thead > tr > td,
+.print #joformtable2 > tbody > tr > td,
+.print #joformtable2 > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+
+.print #joformtable3 > thead > tr > th,
+.print #joformtable3 > tbody > tr > th,
+.print #joformtable3 > tfoot > tr > th,
+.print #joformtable3 > thead > tr > td,
+.print #joformtable3 > tbody > tr > td,
+.print #joformtable3 > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
