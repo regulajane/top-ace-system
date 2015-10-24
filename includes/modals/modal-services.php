@@ -15,15 +15,15 @@
                             <form class="form-horizontal" method="post" action="includes/data-processors/addservice.php" id="addserviceform">
                                 <div class="control-group col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Service Name:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Service Name:</label>
+                                        <div class="col-md-7">
                                             <input type="text" class="form-control" id="servicename" name="servicename" 
                                                 required placeholder="Service Name">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Price:</label>
-                                        <div class="col-xs-4">
+                                        <label class="control-label col-md-4">Price:</label>
+                                        <div class="col-md-4">
                                             <input type="text" class="form-control" id="serviceprice" name="serviceprice" 
                                                 required placeholder="Price">
                                         </div>
@@ -64,15 +64,15 @@
                             <form class="form-horizontal" method="post" action="includes/data-processors/updateservice.php" id="updateserviceform">
                                 <div class="control-group col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Service Name:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Service Name:</label>
+                                        <div class="col-md-7">
                                             <input type="text" class="form-control" id="servicename" name="servicename" 
                                                 required placeholder="Service Name">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Price:</label>
-                                        <div class="col-xs-4">
+                                        <label class="control-label col-md-4">Price:</label>
+                                        <div class="col-md-4">
                                             <input type="text" class="form-control" id="serviceprice" name="serviceprice" 
                                                 required placeholder="Price">
                                         </div>
@@ -112,14 +112,14 @@
                             <form class="form-horizontal" method="post" action="includes/data-processors/deleteservice.php" id="deleteserviceform">
                                 <div class="control-group col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Service Name:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Service Name:</label>
+                                        <div class="col-md-7">
                                             <input type="text" class="form-control" id="servicename" name="servicename" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Price:</label>
-                                        <div class="col-xs-4">
+                                        <label class="control-label col-md-4">Price:</label>
+                                        <div class="col-md-4">
                                             <input type="text" class="form-control" id="serviceprice" name="serviceprice" readonly>
                                         </div>
                                     </div>
