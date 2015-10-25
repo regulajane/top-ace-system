@@ -95,7 +95,7 @@
 
 
                 <button type="submit" name="submit" class="btn btn-primary" form="sbForm" value="submit">
-                    <span class="glyphicon glyphicon-ok-sign"></span> Next</button>
+                    <span class="glyphicon glyphicon-ok-sign"></span> Ok</button>
 
 
                 <!-- <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
