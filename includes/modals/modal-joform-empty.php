@@ -40,7 +40,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Date Brought:</label>
+                                    <label class="control-label col-md-3">Date Received:</label>
                                     <div class="col-md-4">
                                         <input type="date" class="form-control" id="dateBrought" 
                                             name="dateBrought" required>
@@ -178,7 +178,7 @@
                                     </div>
                                 </div>-->
                                 <div class="control-group form-group">
-                                    <label class="control-label col-md-3">Sales Person Assisted:</label>
+                                    <label class="control-label col-md-3">Received by:</label>
                                     <div class="controls col-md-4">
                                         <select class="form-control" id="salesperson" 
                                             name="salesperson" required>
@@ -201,7 +201,7 @@
                                 </div>
 
                                 <div class="control-group form-group">
-                                    <label class="control-label col-md-3">Supervisor:</label>
+                                    <label class="control-label col-md-3">Confirmed by:</label>
                                     <div class="controls col-md-4">
                                         <select class="form-control" id="supervisor" 
                                             name="supervisor" required>
