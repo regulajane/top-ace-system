@@ -72,10 +72,11 @@
                                         Balance</th>
                                     <th data-column-id="jostatus" data-visible="true">
                                         Status</th>
-                                    <th data-column-id="supervisor" data-visible="false">
-                                        Supervisor</th>
                                     <th data-column-id="preparedby" data-visible="false">
-                                        Prepared By</th>
+                                        Received by</th>
+                                    <th data-column-id="supervisor" data-visible="false">
+                                        Confirmed by</th>
+                                    
                                     
 
 
