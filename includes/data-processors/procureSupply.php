@@ -12,7 +12,6 @@
 		$quantity = $_POST["inventQtyProcured"];
 
 		//outgoing
-		
 		ini_set('date.timezone', 'Asia/Manila');
 		$otDate = date("Y-m-d"); 
 		$otTime = date("H:i:s");
@@ -27,6 +26,10 @@
 		$rr = $resultRow['reorderlevel'];
  		
 
+		//time
+
+
+
 		if ($quantity > $resultRow['inventoryquantity']) { 
 			echo '<script type="text/javascript">'; 
 			echo 'alert("Error: You are trying to procure more than the available supply.");'; 
@@ -35,13 +38,49 @@
 
 		}  else {
 			if($cq < $rr) { 
-			
-				echo '<script type="text/javascript">'; 
-				echo 'var notif_count = parseInt(localStorage["notif"]);';
-				echo 'var counter = notif_count + 1;';
-				echo 'localStorage["notif"] = counter;';
-				echo ' window.location = "../../inventory.php";';
-				echo '</script>';
+
+					$nDetails = "ITEM: $inventName SIZE: $inventSize is below reorder level";
+					$nDate = date("Y-m-d");
+					$nTime = date("H:i:s");
+
+					$sql3 = "INSERT INTO notification (notificationdetails, ndate, time) 
+								VALUES (?, ?, ?)";
+
+					$stmt3 = $conn->prepare($sql3);
+
+					// Bind
+					$stmt3->bind_param("sss", $nDetails, $nDate, $nTime);
+					// Execute
+
+					$stmt3->execute(); 
+
+					$result = $conn->query("SELECT count(*) from notification");
+					$nCount = 0;
+
+		            while ($row=mysqli_fetch_row($result))
+		                 {
+		                   $nCount = $row[0];
+		                 }
+
+		            $result = $conn->query("SELECT notificationdetails from notification");
+					$nDetails = 0;
+
+		            while ($row=mysqli_fetch_row($result))
+		                 {
+		                   $nDetails = $row[0];
+		                 }
+
+					echo "<script>
+								  localStorage['notif']='$nCount'
+								  localStorage['nDetails']='$nDetails'
+						  </script>";
+
+				//echo '<script type="text/javascript">'; 
+				//echo 'var notif_count = parseInt(localStorage["notif"]);';
+				//echo 'var counter = notif_count + 1;';
+				//echo 'localStorage["notif"] = counter;';
+				//echo ' window.location = "../../inventory.php";';
+				//echo '</script>';
 
 			}
 			//-----------------------------CREATE procureSupply TRIGGER------------------------------------
@@ -53,16 +92,16 @@
 			
 			
 			//-----------------------------INSERT INTO OUTGOINGSUPPLIES------------------------------------
-		$sql2 = "INSERT INTO outgoingitems (isdate, time, quantity, enteredby, inventoryid) 
-					VALUES (?, ?, ?, ?, ?)";
+			$sql2 = "INSERT INTO outgoingitems (isdate, time, quantity, enteredby, inventoryid) 
+						VALUES (?, ?, ?, ?, ?)";
 
-		$stmt2 = $conn->prepare($sql2);
+			$stmt2 = $conn->prepare($sql2);
 
-		// Bind
-		$stmt2->bind_param("sssss", $otDate, $otTime, $otQty, $procuredBy, $inventID);
-		// Execute
+			// Bind
+			$stmt2->bind_param("sssss", $otDate, $otTime, $otQty, $procuredBy, $inventID);
+			// Execute
 
-		$stmt2->execute(); 
+			$stmt2->execute(); 
 
 			
 			// Redirect
