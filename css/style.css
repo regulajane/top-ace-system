@@ -219,13 +219,12 @@ position:relative
 
 #notificationTitle {
     font-weight: bold;
-    padding: 8px;
+    padding: 5px 10px;
     font-size: 13px;
     background-color: #ffffff;
     position: fixed;
     z-index: 1000;
     width: 384px;
-    border-bottom: 1px solid #dddddd;
 }
 
 #notificationsBody{
