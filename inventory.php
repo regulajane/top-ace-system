@@ -35,13 +35,13 @@
 			                <ul class="dropdown-menu">
 			                    <li>
 			                    	<a type="button" class="btn btn-info" href="ingoing-items.php" 
-			                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%;">
-			                        <i class="fa fa-list"></i>Ingoing
+			                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%; color: #FFF">
+			                        <i class="fa fa-list"></i> Add Items Log
 			                        </a>
 			                    </li>
 			                    <li><a type="button" class="btn btn-info" href="outgoing-items.php" 
-			                        style="text-align:left;  margin: 0px 5px 0px 5px; width: 94%;">
-			                            <i class="fa fa-list"></i> Outgoing</a>
+			                        style="text-align:left;  margin: 0px 5px 0px 5px; width: 94%; color: #FFF">
+			                            <i class="fa fa-list"></i> Procure Items Log</a>
 			                            </li>
 			                </ul>
 	            		</div>
@@ -91,9 +91,9 @@
 						<th data-column-id="inventoryquantity">
 							Quantity
 						</th>
-						<th id="options" data-field="operate" data-formatter="operateFormatter" data-events="operateEvents">
+					<!-- 	<th id="options" data-field="operate" data-formatter="operateFormatter" data-events="operateEvents">
 							Options
-						</th>
+						</th> -->
 						<th data-column-id="reorderlevel" data-visible="false">
 							Reorder Level
 						</th>
