@@ -46,9 +46,9 @@
                             <!-- <button type="button" id="updatebtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Update </button> -->
                             <div class="btn-group">
-                            <a class="btn btn-info" id="preEvalbtn" data-toggle="modal" 
+                                <a class="btn btn-info" id="preEvalbtn" data-toggle="modal" 
                                     href="#joPreFormModal"><i class="fa fa-print fa-fw"></i> Print </a>
-                        </div>
+                            </div>
                         </div>
                         <!-- Job Order Table -->
                         <table  id="jobOrderTable" class="table table-condensed table-hover">
@@ -56,25 +56,25 @@
                                 <tr>
                                     <th data-column-id="joborderid" data-visible="true" data-identifier="true">
                                         Receipt number</th>
-                                    <th data-column-id="datebrought" data-visible="true" data-identifier="true">
+                                    <th data-column-id="datebrought" data-visible="true">
                                         Date Received</th>
-                                    <th data-column-id="dateStarted" data-visible="false" data-identifier="true">
+                                    <th data-column-id="dateStarted" data-visible="false">
                                         Date Started</th>
-                                    <th data-column-id="dateFinished" data-visible="false" data-identifier="true">
+                                    <th data-column-id="dateFinished" data-visible="false">
                                         Date Finished</th>
-                                    <th data-column-id="clientname" data-visible="true" data-identifier="true">
+                                    <th data-column-id="clientname" data-visible="true">
                                         Client name</th>
-                                    <th data-column-id="joprice" data-visible="true" data-identifier="true">
+                                    <th data-column-id="joprice" data-visible="true">
                                         Grand Total</th>
-                                    <th data-column-id="downpayment" data-visible="true" data-identifier="true">
+                                    <th data-column-id="downpayment" data-visible="true">
                                         Downpayment</th>
-                                    <th data-column-id="balance" data-visible="true" data-identifier="true">
+                                    <th data-column-id="balance" data-visible="true">
                                         Balance</th>
-                                    <th data-column-id="jostatus" data-visible="true" data-identifier="true">
+                                    <th data-column-id="jostatus" data-visible="true">
                                         Status</th>
-                                    <th data-column-id="supervisor" data-visible="false" data-identifier="true">
+                                    <th data-column-id="supervisor" data-visible="false">
                                         Supervisor</th>
-                                    <th data-column-id="preparedby" data-visible="false" data-identifier="true">
+                                    <th data-column-id="preparedby" data-visible="false">
                                         Prepared By</th>
                                     
 
@@ -96,23 +96,14 @@
                         <!-- Fabrication Buttons -->
                         <div class="actionBtns">
                             <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
-                                href="#fabModal"><i class="fa fa-plus fa-fw"></i> New Order </button>
+                                href="#fabModal"><i class="fa fa-plus fa-fw"></i> New Job Order </button>
                             <button type="button" id="editfabbtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit </button>
                             <button type="button" id="updatebtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Update </button>
                             <div class="btn-group">
-                                <a class="btn btn-info"><i class="fa fa-print fa-fw"></i> Print </a>
-                                <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
-                                <span class="fa fa-caret-down"></span></a>
-                                <ul class="dropdown-menu joborder">
-                                    <li><button type="button" id="preEvalbtn" class="btn btn-info" data-toggle="modal" 
-                                        href="#joPreFormModal" style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%;">
-                                        <i class="fa fa-file fa-fw"></i> Pre-Inspection</button></li>
-                                    <li><button type="button" id="postEvalbtn" class="btn btn-info" data-toggle="modal" 
-                                        href="#joPostFormModal" style="text-align:left;  margin: 0px 5px 0px 5px; width: 94%;">
-                                        <i class="fa fa-file fa-fw"></i> Post-Inspection</button></li>
-                                </ul>
+                                <a class="btn btn-info" id="preEvalbtn" data-toggle="modal" 
+                                    href="#"><i class="fa fa-print fa-fw"></i> Print </a>
                             </div>
                         </div>
                         <!-- Fabrication -->
