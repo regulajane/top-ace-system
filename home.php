@@ -28,18 +28,6 @@
 			<div class="row">
                 <div class="btn-group btn-group-justified">
                     <div class="btn-group">
-                        <a href="services.php" type="button" class="btn btn-nav">
-                            <i class="fa fa-list-alt fa-5x"></i>
-                            <p>Services</p>
-                        </a>
-                    </div>
-                    <div class="btn-group">
-                        <a href="inventory.php" type="button" class="btn btn-nav">
-                            <i class="fa fa-bus fa-5x"></i> 
-                            <p>Inventory</p>
-                        </a>
-                    </div>
-                    <div class="btn-group">
                         <a href="job-order.php" type="button" class="btn btn-nav">
                             <i class="fa fa-folder-open fa-5x"></i>
                             <p>Job Orders</p>
@@ -52,11 +40,27 @@
                         </a>
                     </div>
                     <div class="btn-group">
+                        <a href="inventory.php" type="button" class="btn btn-nav">
+                            <i class="fa fa-bus fa-5x"></i> 
+                            <p>Inventory</p>
+                        </a>
+                    </div>
+                    <div class="btn-group">
                         <a href="clients.php" type="button" class="btn btn-nav">
                             <i class="fa fa-book fa-5x"></i>
                             <p>Clients</p>
                         </a>
                     </div>
+                    <div class="btn-group">
+                        <a href="services.php" type="button" class="btn btn-nav">
+                            <i class="fa fa-list-alt fa-5x"></i>
+                            <p>Services</p>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                    
                     <div class="btn-group">
                         <a href="employees.php" type="button" class="btn btn-nav">
                             <i class="fa fa-book fa-5x"></i>
