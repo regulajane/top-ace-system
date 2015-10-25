@@ -46,11 +46,21 @@
                         </ul>
                     </div>
                 </div>
+
                 <script>
                     if(localStorage["notif"] == null){
                         localStorage["notif"] = "0";
                     }else if (parseInt(localStorage["notif"]) != 0){
                     document.getElementById("notification_count").innerHTML = localStorage["notif"];
+
+                    var text = localStorage["nDetails"];
+                     
+                    var newNotif = document.createElement("p");
+                    var node = document.createTextNode(text);
+                    newNotif.appendChild(node);
+
+                    var element = document.getElementById("notificationsBody");
+                    element.appendChild(newNotif);
                     }
                     $(document).ready(function()
                     {
@@ -75,6 +85,13 @@
                     
                     }); 
                 </script>
+                <style>
+                    #notificationsBody p {
+                        text-align: center;
+                        padding: 20px 0;
+                        background-color: #CAA0A0;
+                    }
+                </style>
             </nav>';
         echo $adminnav;
     } else { 
