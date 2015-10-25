@@ -63,11 +63,11 @@
                                 <br>
                                 <h4 class="modal-title" id="emptyformlabel">Fabrication Order/s</h4>
                                 <hr>
-                                <div class="multi-field-wrapper">
+                             <!--    <div class="multi-field-wrapper">
                                     <div class="multi-fields">
-                                        <div class="multi-field">
+                                        <div class="multi-field"> -->
 
-                                            <div class="form-group">
+                                        <!--     <div class="form-group"> -->
                                                 <div class="col-xs-6" id="fabricationorders">
                                                     
                                         
@@ -76,14 +76,14 @@
 
 
                                                 </div>
-                                            </div>
-                                            <button type="button" class="add-field btn btn-default" 
+                                         <!--    </div> -->
+                                            <!-- <button type="button" class="add-field btn btn-default" 
                                                     id="addfield"><i class="fa fa-plus"></i>Add More...</button>
                                             <button type="button" class="remove-field btn btn-default" 
                                                     id="removefield"><i class="fa fa-minus"></i>Remove Field</button>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </form>
                              
                         </div>
