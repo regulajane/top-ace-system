@@ -63,10 +63,10 @@
 						title="Procure" href="#procSuppliesModal">
 					<span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
 				</button>
-				<button type="button" id="deletesupplyBtn" class="btn btn-info" data-toggle="modal"
+<!-- 				<button type="button" id="deletesupplyBtn" class="btn btn-info" data-toggle="modal"
 						title "Delete" href="#deleteSuppliesModal">
 					<span class="glyphicon glyphicon-remove-sign"></span>
-				</button>
+				</button> -->
 			</div>
 
 			<!-- Inventory Table -->

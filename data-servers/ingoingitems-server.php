@@ -12,7 +12,7 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $where ="1=1";
-    $order_by="osDate desc, osTime desc";
+    $order_by="1";
     $rows=25;
     $current=1;
     $limit_l=($current * $rows) - ($rows);
@@ -30,7 +30,7 @@
     if (isset($_REQUEST['searchPhrase']) )
       {
         $search=trim($_REQUEST['searchPhrase']);
-        $where.= " AND ( item LIKE '%".$search."%' OR  description LIKE '%".$search."%' OR  quantity LIKE '%".$search."%') "; 
+        $where.= " AND ( isdate LIKE '%".$search."%' OR  time LIKE '%".$search."%' OR  enteredby LIKE '%".$search."%') "; 
       }
 
     //Row Count
@@ -51,7 +51,7 @@
       $limit=" LIMIT $limit_l,$limit_h ";
        
     //Query (Warning: Prone to SQL injection.)
-    $sql="SELECT * from supplies NATURAL JOIN outgoingsupplies WHERE $where ORDER BY $order_by $limit";
+    $sql="SELECT * from ingoingitems JOIN inventory USING (inventoryid) WHERE $where ORDER BY $order_by $limit";
 
     $stmt=$conn->prepare($sql);
     $stmt->execute();
@@ -59,11 +59,11 @@
 
     $json=json_encode( $results_array );
 
-    $nRows=$conn->query("SELECT count(*) from supplies NATURAL JOIN outgoingsupplies WHERE $where")->fetchColumn();
+    $nRows=$conn->query("SELECT count(*) from ingoingitems JOIN inventory USING (inventoryid) WHERE $where")->fetchColumn();
 
     header('Content-Type: application/json');
 
-    //JSON
+    //Bootgrid Library
     if (isset($_REQUEST['rowCount']) )
       echo "{ \"current\":  $current, \"rowCount\":$rows,  \"rows\": ".$json.", \"total\": $nRows }";
     else
