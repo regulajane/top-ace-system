@@ -87,11 +87,11 @@
              <div class="modal-footer">
                 <button type="submit" class="btn btn-primary pull-left" onclick="clearForm()">Clear All</button>
 
-                <button type="submit" name="submit" class="btn btn-primary" form="newSupplyForm" 
-                    value="submit" id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> SAVE</button>
-
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+
+                    <button type="submit" name="submit" class="btn btn-success" form="newSupplyForm" 
+                    value="submit" id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span>Add Supply</button>
             </div>
         </div>
     </div>
@@ -164,10 +164,11 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" name="inoutsupply" class="btn btn-primary" form="supplyForm2" value="Add Supply">
-                    <span class="glyphicon glyphicon-ok-sign"></span> Add </button> 
                 <button type="button" class="btn btn-primary" data-dismiss="modal">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
+
+                <button type="submit" name="inoutsupply" class="btn btn-success" form="supplyForm2" value="Add Supply">
+                    <span class="glyphicon glyphicon-ok-sign"></span> Add </button> 
             </div>
         </div>
     </div>
@@ -240,11 +241,11 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer"> 
-                <button type="submit" name="outsupply" class="btn btn-primary" form="supplyForm3" value="Procure Supply">
-                    <span class="glyphicon glyphicon-ok-sign"></span> Procure </button> 
+            <div class="modal-footer">  
                 <button type="button" class="btn btn-primary" data-dismiss="modal">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
+                <button type="submit" name="outsupply" class="btn btn-success" form="supplyForm3" value="Procure Supply">
+                    <span class="glyphicon glyphicon-ok-sign"></span> Procure </button>
             </div>
         </div>
     </div>
@@ -308,12 +309,12 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer"> 
-                <button type="submit" name="deleteSupply" class="btn btn-primary" form="supplyForm4" 
-                    value="Delete Supply">
-                    <span class="glyphicon glyphicon-ok-sign"></span> Delete </button> 
+            <div class="modal-footer">  
                 <button type="button" class="btn btn-primary" data-dismiss="modal">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
+                <button type="submit" name="deleteSupply" class="btn btn-success" form="supplyForm4" 
+                    value="Delete Supply">
+                    <span class="glyphicon glyphicon-ok-sign"></span> Delete </button>
             </div>
         </div>
     </div>
@@ -394,11 +395,11 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
-                <button type="submit" name="editsupply" class="btn btn-primary" form="editsupplyform" value="Edit Supply" 
-                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>  
+            <div class="modal-footer">  
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                <button type="submit" name="editsupply" class="btn btn-success" form="editsupplyform" value="Edit Supply" 
+                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span>Save</button>
             </div>
         </div>
     </div>

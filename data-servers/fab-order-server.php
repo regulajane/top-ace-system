@@ -67,7 +67,7 @@
                   concat(cllastname,', ',clfirstname, ' ', clmidinitial) as clientname           
                   from joborders join clients using (clientid) 
                   where jotype = 'Fabrication' AND $where
-                  ORDER BY $order_by $limit";
+                  ORDER BY $order_by desc $limit";
       // $sql="SELECT joborderid,
       //           fabricationdesc, 
       //           fabricationquantity, 

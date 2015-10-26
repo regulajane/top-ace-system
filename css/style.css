@@ -192,9 +192,9 @@ position:relative
     border: 1px solid rgba(100, 100, 100, .4);
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     overflow: visible;
-    top: 30px;
-    margin-left: -180px;
-    width: 400px;
+    top: 50px;
+    margin-left: -360px;
+    width: 460px;
     z-index: 0;
     display: none;
     position: fixed;

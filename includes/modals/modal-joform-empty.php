@@ -231,10 +231,10 @@
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary pull-left" 
                     onclick="clearForm()">Clear All</button>
-                <button type="submit" name="submit" class="btn btn-primary" form="joForm" value="submit" >
-                    <span class="glyphicon glyphicon-ok-sign"></span> Next</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="reload()">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                <button type="submit" name="submit" class="btn btn-success" form="joForm" value="submit" >
+                    <span class="glyphicon glyphicon-ok-sign"></span> Next</button>
             </div>
         </div>
     </div>

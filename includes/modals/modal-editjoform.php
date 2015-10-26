@@ -30,10 +30,10 @@
 
                                 <!-- Date brought -->
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Date Brought:</label>
+                                    <label class="control-label col-md-4">Date Received:</label>
                                     <div class="col-md-5">
                                         <input type="date" class="form-control" id="dateBrought" 
-                                            name="dateBrought" readonly>
+                                            name="dateBrought">
                                     </div>
                                 </div>
 
@@ -44,7 +44,7 @@
                                         <!-- <input type="text" class="form-control" id="problem" 
                                             name="problem" readonly> -->
                                         <textarea rows="3" cols="100" class="form-control" id="problem" name="problem"
-                                            maxlength="999" style="resize:none" readonly>
+                                            maxlength="999" style="resize:none">
                                         </textarea>
                                     </div>
                                 </div>
@@ -69,9 +69,6 @@
 
                                
 
-                                <!-- Symptoms -->
-                                
-
 
                             </form>
                              
@@ -83,7 +80,7 @@
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2" onclick="reload()">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
                 <button type="submit" name="submit" class="btn btn-success" form="joEditForm2" 
-                    value="submit" id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> SAVE</button>
+                    value="submit" id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save Changes</button>
             </div>
         </div>
     </div>

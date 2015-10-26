@@ -141,11 +141,11 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary pull-left" 
-                    onclick="clearForm()">Clear All</button>
-                <button type="submit" name="submit" class="btn btn-primary" form="fabForm" value="submit">
-                    <span class="glyphicon glyphicon-ok-sign"></span> SAVE</button>  
+                    onclick="clearForm()">Clear All</button>  
                 <button type="button" class="btn btn-primary" data-dismiss="modal">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>  
+                <button type="submit" name="submit" class="btn btn-success" form="fabForm" value="submit">
+                    <span class="glyphicon glyphicon-ok-sign"></span> SAVE</button>
             </div>
         </div>
     </div>
