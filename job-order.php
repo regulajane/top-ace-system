@@ -93,7 +93,7 @@
                     <br>
                 </div>
                   <div class="col-md-12">
-                    <div class="container">          
+    
                         <!-- Fabrication Buttons -->
                         <div class="actionBtns">
                             <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
@@ -128,7 +128,6 @@
                             </thead>  
                         </table>
                         <hr>
-                    </div>
                     
                 </div>
                 <div class="col-md-12">
