@@ -12,8 +12,7 @@
 <body>
    <?php include 'includes/nav.php'; ?>
     <div class="container">        
-        <h3>Ingoing Items</h3>
-
+        <h4>Ingoing Items</h4>
         <div class="actionBtns" style="position: relative; float:right; ">
             <div style="position: relative; margin-top: -40px;">
                 <a type="button" class="btn btn-primary" href="inventory.php" title="Supplies">

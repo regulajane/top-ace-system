@@ -12,11 +12,7 @@
 </head>
 <body>
     <?php include 'includes/nav.php'; ?>
-    <br />
     <div class="container" id="clients">          
-        <div class="jumbotron" style="height: 100px;">
-            <h2 style="margin-top: -15px; margin-left: -60px; text-align: center;">Clients</h2>
-        </div>
         <div class="actionBtns">
             <button type="button" id="newclientbtn" class="btn btn-info" data-toggle="modal" 
                 href="#clientModal"><i class="fa fa-plus fa-fw"></i> New Client </button>

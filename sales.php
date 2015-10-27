@@ -12,11 +12,7 @@
 </head>
 <body>
     <?php include 'includes/nav.php'; ?>
-    <br />
-    <div class="container">  
-        <div class="jumbotron" style="height: 100px;">
-            <h2 style="margin-top: -15px; margin-left: -60px; text-align: center;">Sales</h2>
-        </div>        
+    <div class="container">       
         <!-- Job Order Buttons -->
         <div class="actionBtns">
             <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 

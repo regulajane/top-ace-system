@@ -12,13 +12,8 @@
 </head>
 <body>
     <?php include 'includes/nav.php'; ?>
-    <br />
-<!-- Page Content -->
     <div class="container">
         <div class="row">
-            <div class="jumbotron" style="height: 100px;">
-                <h2 style="margin-top: -15px; margin-left: -60px; text-align: center;">Job Orders</h2>
-            </div>
             <div class="col-md-12">
                 <ul id="myTab" class="nav nav-tabs nav-justified">
                     <li class="active tab-nav"><a href="#joTab" data-toggle="tab">

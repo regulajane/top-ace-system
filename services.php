@@ -12,12 +12,7 @@
 </head>
 <body>
     <?php include 'includes/nav.php'; ?>
-    <br />
-<!-- Page Content -->
     <div class="container">
-        <div class="jumbotron" style="height: 100px;">
-            <h2 style="margin-top: -15px; margin-left: -60px; text-align: center;">Services</h2>
-        </div>
         <!-- Service Buttons -->
         <div class="actionBtns">
             <button type="button" id="newservicebtn" class="btn btn-info" data-toggle="modal" 

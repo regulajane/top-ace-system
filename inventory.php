@@ -12,11 +12,7 @@
 	</head>
 	<body>
 		<?php include 'includes/nav.php'; ?>
-		<br />
 		<div class="container">
-			<div class="jumbotron" style="height: 100px;">
-            	<h2 style="margin-top: -15px; margin-left: -60px; text-align: center;">Inventory</h2>
-        	</div>
 			<!-- Inventory Buttons -->
 			<div id="inventory">
 				   <div class="actionBtns">
