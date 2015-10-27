@@ -9,6 +9,74 @@ window.onload = function () {
         },
     });
 
+    $('#clientForm, #updateclientForm').bootstrapValidator({
+        feedbackIcons: {
+            message: 'This value is not valid',
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            clientln: {
+                validators: {
+                    notEmpty: {
+                        message: 'Last name is required'
+                    }
+                }
+            },
+            clientfn: {
+                validators: {
+                    notEmpty: {
+                        message: 'First name is required'
+                    }
+                }
+            },
+            clientmi: {
+                validators: {
+                    notEmpty: {
+                        message: 'Middle initial is required'
+                    }
+                }
+            },
+            clientgender: {
+                validators: {
+                    notEmpty: {
+                        message: 'Gender is required'
+                    }
+                }
+            },
+            clientcp: {
+                validators: {
+                    notEmpty: {
+                        message: 'Contact number is required'
+                    },
+                    regexp: {
+                        regexp: /^[0-9]+$/,
+                        message: 'Contact number can only consist of numbers'
+                    }
+                }
+            },
+            clientadd: {
+                validators: {
+                    notEmpty: {
+                        message: 'Address is required'
+                    }
+                }
+            },
+            clientsince: {
+                validators: {
+                    notEmpty: {
+                        message: 'Date is required'
+                    }
+                }
+            }
+        }
+    });
+
+    $("#newclientbtn").on("click", function() {
+        document.getElementById('clientsince').valueAsDate = new Date();
+    });
+
     $("#editupdatebtn").on("click", function() {
         var selectedIDArray = $("#clientsTable").bootgrid("getSelectedRows");
         var selectedID = parseInt(selectedIDArray) + 0;
@@ -33,6 +101,7 @@ window.onload = function () {
                 $(".clienteditupdate #clientfn").val(firstname); 
                 $(".clienteditupdate #clientmi").val(middleinitial); 
                 $(".clienteditupdate #clientgender").val(gender); 
+                $("input[name=clientgender][value="+gender+"]").attr('checked', true);
                 $(".clienteditupdate #clientcp").val(celno); 
                 $(".clienteditupdate #clientadd").val(address);
                 $(".clienteditupdate #clientsince").val(since); 

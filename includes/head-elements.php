@@ -14,15 +14,19 @@
 <link href="css/jquery.bootgrid.css" rel="stylesheet">
 <!-- Animate CSS -->
 <link href="css/animate.css" rel="stylesheet">
+<!-- Bootstrap Validator CSS -->
+<link href="css/bootstrapValidator.css" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="css/style.css" rel="stylesheet">
 <!-- JQuery Script -->
 <script src="js/jquery-1.11.3.min.js"></script>
 <!-- Bootstrap Script -->
 <script src="js/bootstrap.min.js"></script>
-<script src="js/jqBootstrapValidation-1.3.7.min.js"></script>
+<!-- <script src="js/jqBootstrapValidation-1.3.7.min.js"></script> -->
 <!-- Bootgrid Scripts -->
 <script src="js/jquery.bootgrid.js"></script>
 <script src="js/jquery.bootgrid.fa.js"></script>
+<!-- Bootstrap Validator Script -->
+<script src="js/bootstrapValidator.js"></script>
 <!-- Custom Script -->
 <script src="js/script.js"></script>
