@@ -14,14 +14,15 @@
         $empcelno= $_POST["empcelno"];
         $empaddress= $_POST["empaddress"];
         $empemailad= $_POST["empemailad"];
+        $emptype = $_POST["emptype"];
 
 
         // Prepare
-        $sql = "INSERT INTO employees (emplastname, empfirstname, empmiddlename, empgender, empcelno, empaddress, empemailad, empstatus, noofjobs) VALUES (?, ?, ?, ?, ?, ?, ?, 'Active', 0)";
+        $sql = "INSERT INTO employees (emplastname, empfirstname, empmiddlename, empgender, empcelno, empaddress, empemailad, empstatus, noofjobs, emptype) VALUES (?, ?, ?, ?, ?, ?, ?, 'Active', 0,?)";
         $stmt = $conn->prepare($sql);     
         
         // Bind
-        $stmt->bind_param("sssssss", $emplastname, $empfirstname, $empmiddlename, $empgender, $empcelno, $empaddress, $empemailad);
+        $stmt->bind_param("ssssssss", $emplastname, $empfirstname, $empmiddlename, $empgender, $empcelno, $empaddress, $empemailad, $emptype);
 
         // Execute
         $stmt->execute();

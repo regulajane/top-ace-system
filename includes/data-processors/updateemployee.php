@@ -14,6 +14,9 @@
         $empemailad= $_POST["empemailad"];
         $empstatus= $_POST["empstatus"];
         $noofjobs= $_POST["noofjobs"];
+        $emptype= $_POST["emptype"];
+        
+
         //-----------------------------UPDATE------------------------------------
         // Prepare
         $sql = "UPDATE employees
@@ -25,7 +28,8 @@
                     empaddress='$empaddress',
                     empemailad='$empemailad',
                     empstatus='$empstatus',
-                    noofjobs='$noofjobs'
+                    noofjobs='$noofjobs',
+                    emptype='$emptype'
                 WHERE employeeid= '$empNum'";
         $stmt = $conn->prepare($sql);     
         $stmt->execute();         

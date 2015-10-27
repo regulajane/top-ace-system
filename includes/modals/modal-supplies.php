@@ -19,8 +19,8 @@
                             <form class="form-horizontal" method="post" action="includes/data-processors/addnewsupply.php" 
                               id="newSupplyForm">
                                      <div class="control-group form-group">
-                                    <label class="control-label col-xs-4">Model No:</label>
-                                     <div class="controls col-xs-2">
+                                    <label class="control-label col-xs-3">Model No:</label>
+                                     <div class="controls col-xs-3">
                                     <textarea rows="1" cols="100" class="form-control" id="modelno" name="modelno"  maxlength="999" style="resize:none" 
                                             required></textarea>
                                      </div>
@@ -51,7 +51,7 @@
                                         <div class="controls col-xs-4">
                                             <select class="form-control" id="inventorysize" name="inventorysize">
                                                 <option value="" disabled selected>Select Size</option>
-                                                <option value="std">std</option>
+                                                <option value="STD">STD</option>
                                                 <option value=".25">0.25</option>
                                                 <option value=".50">0.50</option>
                                                 <option value=".75">0.75</option>

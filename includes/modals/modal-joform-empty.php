@@ -24,7 +24,7 @@
                                         <select class="form-control" id="clientid" name="clientid" required>
                                             <option value="" disabled selected>Select client</option>
                                             <?php
-                                                $sql = "SELECT * from clients"; 
+                                                $sql = "SELECT * from clients ORDER BY cllastname ASC"; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
@@ -71,7 +71,7 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Engine number:</label>
                                     <div class="controls col-md-4">
-                                        <input type="number" class="form-control" id="engnumber" name="engnumber" 
+                                        <input type="text" class="form-control" id="engnumber" name="engnumber" 
                                             placeholder="" required autocomplete="off">
                                     </div>
                                 </div>

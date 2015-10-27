@@ -25,7 +25,7 @@
             $totalprice = $totalprice + $price[$i];
         }
 
-        $sqlcountjo = "SELECT concat(YEAR(curdate()),MONTH(curdate()),DAY(curdate())) AS curdate ,COUNT(*) AS countall from joborders";
+        $sqlcountjo = "SELECT concat(YEAR(curdate()),MONTH(curdate()),DAY(curdate())) AS curdate ,COUNT(*)+1 AS countall from joborders";
         $s = $conn->query($sqlcountjo);
         $ss = $s->fetch_assoc(); 
         $countjo = $ss['curdate'].$ss['countall'];

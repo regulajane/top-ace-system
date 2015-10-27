@@ -25,10 +25,10 @@
                                
                                 <div class="control-group form-group">
                                     <div class="control-group form-group">
-                                        <label class="control-label col-xs-3">Client:</label>
+                                        <label class="control-label col-xs-3">Client Name:</label>
                                                 <div class="controls col-xs-8">
                                                     <select class="form-control" id="client" name="client" required>
-                                                        <option value="" disabled selected>Choose client:</option>
+                                                        <option value="" disabled selected>Select client</option>
                                                         <?php
                                                             $sql = "SELECT * from clients";
                                                             $result = $conn->query($sql);

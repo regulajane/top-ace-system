@@ -36,7 +36,7 @@
         $sql = "INSERT INTO joborders (joborderid, problem, engineno, datebrought, jostatus, clientid, modelno, preparedby, supervisor, jotype) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);     
-        $stmt->bind_param("ssissiisss",$countjo, $problem, $engnumber, $dateBrought, $pending, $clientid, $modelid, $preparedby, $supervisor, $engRecon) or mysql_error();
+        $stmt->bind_param("sssssiisss",$countjo, $problem, $engnumber, $dateBrought, $pending, $clientid, $modelid, $preparedby, $supervisor, $engRecon) or mysql_error();
         $stmt->execute();
 
         //-----------------------------SELECT JOB ORDER ID------------------------------------

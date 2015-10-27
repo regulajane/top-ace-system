@@ -67,6 +67,17 @@
                                                 required placeholder="Email Address">
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Role:</label>
+                                        <div class="col-xs-7">
+                                            <select class="form-control" id="emptype" name="emptype">
+                                                <option value="" disabled selected>Select type</option>
+                                                <option value="Machinist">Machinist</option>
+                                                <option value="Front Desk Personnel">Front Desk Personnel</option>
+                                                <option value="Manager">Manager</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     
                                 </div>
                             </form>
@@ -170,6 +181,17 @@
                                         <div class="col-xs-4">
                                             <input type="number" class="form-control" id="noofjobs" name="noofjobs" 
                                                 required placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Role:</label>
+                                        <div class="col-xs-7">
+                                            <select class="form-control" id="emptype" name="emptype">
+                                                <option value="" disabled selected>Select type</option>
+                                                <option value="Machinist">Machinist</option>
+                                                <option value="Front Desk Personnel">Front Desk Personnel</option>
+                                                <option value="Manager">Manager</option>
+                                            </select>
                                         </div>
                                     </div>
                                     
