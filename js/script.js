@@ -15,28 +15,32 @@ function displayDateTime() {
     var x =document.getElementById('currentDateTime');
     if(! x){} else {
         var x = new Date();
-        var time = x.getHours()+ ":" + x.getMinutes() + ":" + x.getSeconds();
+
+        if(x.getHours() > 12 ){
+            var time = (x.getHours()-12)+ ":" + x.getMinutes() + ":" + x.getSeconds() + " PM";
+        } else
+            var time = x.getHours()+ ":" + x.getMinutes() + ":" + x.getSeconds() + " AM";
 
         var monthArr = new Array(12);
-        monthArr[0] = "Jan";
-        monthArr[1] = "Feb";
-        monthArr[2] = "Mar";
-        monthArr[3] = "Apr";
+        monthArr[0] = "January";
+        monthArr[1] = "February";
+        monthArr[2] = "March";
+        monthArr[3] = "April";
         monthArr[4] = "May";
-        monthArr[5] = "Jun";
-        monthArr[6] = "Jul";
-        monthArr[7] = "Aug";
-        monthArr[8] = "Sep";
-        monthArr[9] = "Oct";
-        monthArr[10] = "Nov";
-        monthArr[11] = "Dec";
+        monthArr[5] = "June";
+        monthArr[6] = "July";
+        monthArr[7] = "August";
+        monthArr[8] = "September";
+        monthArr[9] = "October";
+        monthArr[10] = "November";
+        monthArr[11] = "December";
 
         var month = monthArr[x.getMonth()];
         var mo = x.getMonth();
         var date = x.getDate();
         var year = x.getFullYear();
-            year = year.toString().substr(2,2);
-        var date = date + ' - ' + month + ' - ' + year;
+            // year = year.toString().substr(2,2);
+        var date = month + ' ' + date + ', ' + year;
         var sqlDate = mo + '/' + date + '/' + year;
 
         var dateTime = time + '<br><h4>' + date + '</h4>';
