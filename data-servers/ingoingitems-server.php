@@ -30,7 +30,9 @@
     if (isset($_REQUEST['searchPhrase']) )
       {
         $search=trim($_REQUEST['searchPhrase']);
-        $where.= " AND ( isdate LIKE '%".$search."%' OR  time LIKE '%".$search."%' OR  enteredby LIKE '%".$search."%') "; 
+        //*
+        $where.= " AND ( inventoryname LIKE '%".$search."%' OR isdate LIKE '%".$search."%' OR enteredby LIKE'%".$search."%'
+            OR time LIKE '%".$search."%') "; 
       }
 
     //Row Count
@@ -51,7 +53,7 @@
       $limit=" LIMIT $limit_l,$limit_h ";
        
     //Query (Warning: Prone to SQL injection.)
-    $sql="SELECT * from ingoingitems JOIN inventory USING (inventoryid) WHERE $where ORDER BY $order_by $limit";
+    $sql="SELECT * from ingoingitems JOIN inventory USING (inventoryid) WHERE $where ORDER BY $order_by $limit ";
 
     $stmt=$conn->prepare($sql);
     $stmt->execute();
@@ -59,11 +61,11 @@
 
     $json=json_encode( $results_array );
 
-    $nRows=$conn->query("SELECT count(*) from ingoingitems JOIN inventory USING (inventoryid) WHERE $where")->fetchColumn();
+    $nRows=$conn->query("SELECT count(*) from ingoingitems")->fetchColumn();
 
     header('Content-Type: application/json');
 
-    //Bootgrid Library
+    //JSON
     if (isset($_REQUEST['rowCount']) )
       echo "{ \"current\":  $current, \"rowCount\":$rows,  \"rows\": ".$json.", \"total\": $nRows }";
     else
