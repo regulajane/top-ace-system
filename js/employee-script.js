@@ -10,6 +10,77 @@ window.onload = function () {
         },
     });
 
+    $('#addemployeeform, #updateemployeeform').bootstrapValidator({
+        feedbackIcons: {
+            message: 'This value is not valid',
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            emplastname: {
+                validators: {
+                    notEmpty: {
+                        message: 'Last name is required'
+                    }
+                }
+            },
+            empfirstname: {
+                validators: {
+                    notEmpty: {
+                        message: 'First name is required'
+                    }
+                }
+            },
+            empmiddlename: {
+                validators: {
+                    notEmpty: {
+                        message: 'Middle name is required'
+                    }
+                }
+            },
+            empgender: {
+                validators: {
+                    notEmpty: {
+                        message: 'Gender is required'
+                    }
+                }
+            },
+            empcelno: {
+                validators: {
+                    notEmpty: {
+                        message: 'Contact number is required'
+                    },
+                    regexp: {
+                        regexp: /^[0-9]+$/,
+                        message: 'Contact number can only consist of numbers'
+                    }
+                }
+            },
+            empaddress: {
+                validators: {
+                    notEmpty: {
+                        message: 'Address is required'
+                    }
+                }
+            },
+            empemailad: {
+                validators: {
+                    notEmpty: {
+                        message: 'Email address is required'
+                    }
+                }
+            },
+            emptype: {
+                validators: {
+                    notEmpty: {
+                        message: 'Job description is required'
+                    }
+                }
+            }
+        }
+    });
+
     // Update Employee Information
     $("#updateemployeebtn").on("click", function() {
         var selectedIDArray = $("#employeeTable").bootgrid("getSelectedRows");
@@ -34,6 +105,7 @@ window.onload = function () {
                 var empAddress = joData.empaddress;
                 var empStatus = joData.empstatus;
                 var empEmail = joData.empemailad;
+                var empType = joData.emptype;
                 // Update Form
                 $(".empUpdate #employeeid").val(empId); 
                 $(".empUpdate #emplastname").val(empLastname); 
@@ -41,10 +113,12 @@ window.onload = function () {
                 $(".empUpdate #empmiddlename").val(empMiddlename);
                 $(".empUpdate #empcelno").val(empCelno);
                 $(".empUpdate #empgender").val(empGender);
+                $("input[name=empgender][value="+empGender+"]").attr('checked', true);
                 $(".empUpdate #noofjobs").val(empNoofjobs);
                 $(".empUpdate #empaddress").val(empAddress);
                 $(".empUpdate #empstatus").val(empStatus);
                 $(".empUpdate #empemailad").val(empEmail);
+                $(".empUpdate #emptype").val(empType);
                     
                 $('#updateEmployeeModal').modal('show');
             }

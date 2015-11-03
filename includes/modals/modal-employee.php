@@ -38,11 +38,12 @@
                                     <div class="form-group">
                                         <label class="control-label col-xs-4">Gender:</label>
                                         <div class="col-xs-4">
-                                            <select class="form-control" id="empgender" name="empgender">
-                                                <option value="" disabled selected>Select gender</option>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                            </select>
+                                            <div class="radio">
+                                                <label><input type="radio" name="empgender" value="Male" /> Male</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="empgender" value="Female" /> Female</label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -63,15 +64,15 @@
                                     <div class="form-group">
                                         <label class="control-label col-xs-4">Email Address:</label>
                                         <div class="col-xs-7">
-                                            <input type="text" class="form-control" id="empemailad" name="empemailad" 
+                                            <input type="email" class="form-control" id="empemailad" name="empemailad" 
                                                 required placeholder="Email Address">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Role:</label>
+                                        <label class="control-label col-xs-4">Job Description:</label>
                                         <div class="col-xs-7">
                                             <select class="form-control" id="emptype" name="emptype">
-                                                <option value="" disabled selected>Select type</option>
+                                                <option value="" disabled selected>Select Job Description</option>
                                                 <option value="Machinist">Machinist</option>
                                                 <option value="Front Desk Personnel">Front Desk Personnel</option>
                                                 <option value="Manager">Manager</option>
@@ -138,10 +139,12 @@
                                     <div class="form-group">
                                         <label class="control-label col-xs-4">Gender:</label>
                                         <div class="col-xs-4">
-                                            <select class="form-control" id="empgender" name="empgender" required>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                            </select>
+                                            <div class="radio">
+                                                <label><input type="radio" name="empgender" value="Male" /> Male</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="empgender" value="Female" /> Female</label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -184,10 +187,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Role:</label>
+                                        <label class="control-label col-xs-4">Job Description:</label>
                                         <div class="col-xs-7">
                                             <select class="form-control" id="emptype" name="emptype">
-                                                <option value="" disabled selected>Select type</option>
+                                                <option value="" disabled selected>Select Job Description</option>
                                                 <option value="Machinist">Machinist</option>
                                                 <option value="Front Desk Personnel">Front Desk Personnel</option>
                                                 <option value="Manager">Manager</option>
