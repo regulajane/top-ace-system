@@ -32,7 +32,7 @@
                                         <label class="control-label col-md-4">Middle Initial:</label>
                                         <div class="col-md-7">
                                             <input type="text" class="form-control" placeholder="Middle Initial"
-                                                id="clientmi" name="clientmi" required/>
+                                                id="clientmi" name="clientmi"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -132,7 +132,7 @@
                                         <label class="control-label col-md-4">Middle Initial:</label>
                                         <div class="col-md-7">
                                             <input type="text" class="form-control" placeholder="Middle Initial"
-                                                id="clientmi" name="clientmi" required/>
+                                                id="clientmi" name="clientmi"/>
                                         </div>
                                     </div>
                                     <div class="form-group">

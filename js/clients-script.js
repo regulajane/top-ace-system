@@ -31,13 +31,6 @@ window.onload = function () {
                     }
                 }
             },
-            clientmi: {
-                validators: {
-                    notEmpty: {
-                        message: 'Middle initial is required'
-                    }
-                }
-            },
             clientgender: {
                 validators: {
                     notEmpty: {
@@ -101,7 +94,7 @@ window.onload = function () {
                 $(".clienteditupdate #clientfn").val(firstname); 
                 $(".clienteditupdate #clientmi").val(middleinitial); 
                 $(".clienteditupdate #clientgender").val(gender); 
-                $("input[name=clientgender][value="+gender+"]").attr('checked', true);
+                $(".clienteditupdate input[name=clientgender][value="+gender+"]").attr('checked', true);
                 $(".clienteditupdate #clientcp").val(celno); 
                 $(".clienteditupdate #clientadd").val(address);
                 $(".clienteditupdate #clientsince").val(since); 
