@@ -68,9 +68,6 @@ window.onload = function () {
                 validators: {
                     notEmpty: {
                         message: 'Email address is required'
-                    },
-                    emailAddress: {
-                        message: 'The input is not a valid email address'
                     }
                 }
             },
@@ -116,7 +113,7 @@ window.onload = function () {
                 $(".empUpdate #empmiddlename").val(empMiddlename);
                 $(".empUpdate #empcelno").val(empCelno);
                 $(".empUpdate #empgender").val(empGender);
-                $(".empUpdate input[name=empgender][value="+empGender+"]").attr('checked', true);
+                $("input[name=empgender][value="+empGender+"]").attr('checked', true);
                 $(".empUpdate #noofjobs").val(empNoofjobs);
                 $(".empUpdate #empaddress").val(empAddress);
                 $(".empUpdate #empstatus").val(empStatus);
