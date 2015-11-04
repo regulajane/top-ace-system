@@ -4,7 +4,7 @@
     if(!isset($_SESSION["username"])){
     header('Location: ../../index.php?loggedout=true');}
 
-    if(isset($_POST["submit"])=="submit") {
+    if(isset($_POST["addemp"])=="addemployee") {
 
         // Define Variables
         $emplastname= $_POST["emplastname"];

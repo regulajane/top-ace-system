@@ -12,7 +12,8 @@
                 <div class="well">
                     <div class="row">
                         <div class="col-md-12">
-                            <form class="form-horizontal" method="post" action="includes/data-processors/addemployee.php" id="addemployeeform">
+                            <form class="form-horizontal" method="post" 
+                                action="includes/data-processors/addemployee.php" id="addemployeeform">
                                 <div class="control-group col-md-12">
                                     <div class="form-group">
                                         <label class="control-label col-xs-4">Last Name:</label>
@@ -79,7 +80,15 @@
                                             </select>
                                         </div>
                                     </div>
-                                    
+                                    <br>
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-md-offset-4">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                            <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
+                                        <button type="submit" name="addemp" class="btn btn-success" form="addemployeeform" value="addemployee">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Save </button>  
+                                        </div> 
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -88,10 +97,6 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
-                <button type="submit" name="submit" class="btn btn-success" form="addemployeeform" value="submit" 
-                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>  
             </div>
         </div>
     </div>
@@ -113,7 +118,8 @@
                 <div class="well">
                     <div class="row">
                         <div class="col-md-12 bs-example">
-                            <form class="form-horizontal" method="post" action="includes/data-processors/updateemployee.php" id="updateemployeeform">
+                            <form class="form-horizontal" method="post"
+                                action="includes/data-processors/updateemployee.php" id="updateemployeeform" validate>
                                 <div class="control-group col-md-12">
                                     <div class="form-group">
                                         <label class="control-label col-xs-4">Last Name:</label>
@@ -165,7 +171,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-xs-4">Email Address:</label>
                                         <div class="col-xs-7">
-                                            <input type="text" class="form-control" id="empemailad" name="empemailad" 
+                                            <input type="email" class="form-control" id="empemailad" name="empemailad" 
                                                 required placeholder="Email Address">
                                         </div>
                                     </div>
@@ -174,8 +180,7 @@
                                         <div class="col-xs-4">
                                             <select class="form-control" id="empstatus" name="empstatus" required>
                                                 <option value="Active">Active</option>
-                                                <option value="On leave">On leave</option>
-                                                <option value="Resigned">Resigned</option>
+                                                <option value="Inactive">Inactive</option>
                                             </select>
                                         </div>
                                     </div>
@@ -197,6 +202,15 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-md-offset-4">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                                <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                                            <button type="submit" name="updateemp" class="btn btn-success" form="updateemployeeform" value="updateemployee">
+                                                <span class="glyphicon glyphicon-ok-sign"></span> Save Changes</button> 
+                                        </div> 
+                                    </div>
                                     
                                 </div>
                             </form>
@@ -204,12 +218,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
-                <button type="submit" name="submit" class="btn btn-success" form="updateemployeeform" value="submit" 
-                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save Changes</button>  
+            <div class="modal-footer"> 
             </div>
         </div>
     </div>
