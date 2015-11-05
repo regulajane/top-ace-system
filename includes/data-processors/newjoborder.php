@@ -25,7 +25,8 @@
 
 
         //-----------------------------COUNT and CREATE JOB ORDER ID------------------------------------
-        $sqlcountjo = "SELECT concat(YEAR(curdate()),MONTH(curdate()),DAY(curdate())) AS curdate ,COUNT(*)+1 AS countall from joborders";
+        // $sqlcountjo = "SELECT concat(YEAR(curdate()),MONTH(curdate()),DAY(curdate())) AS curdate ,COUNT(*)+1 AS countall from joborders";
+        $sqlcountjo = "SELECT COUNT(*)+1 AS countall, case when DAY(curdate()) < 10 THEN CONCAT(YEAR(curdate()), MONTH(curdate()), CONCAT(0, DAY(curdate()))) ELSE concat(YEAR(curdate()), MONTH(curdate()), DAY(curdate())) END AS curdate from joborders;";
         $s = $conn->query($sqlcountjo);
         $ss = $s->fetch_assoc(); 
         $countjo = $ss['curdate'].$ss['countall'];
@@ -36,7 +37,7 @@
         $sql = "INSERT INTO joborders (joborderid, problem, engineno, datebrought, jostatus, clientid, modelno, preparedby, supervisor, jotype) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);     
-        $stmt->bind_param("sssssiisss",$countjo, $problem, $engnumber, $dateBrought, $pending, $clientid, $modelid, $preparedby, $supervisor, $engRecon) or mysql_error();
+        $stmt->bind_param("sssssissss",$countjo, $problem, $engnumber, $dateBrought, $pending, $clientid, $modelid, $preparedby, $supervisor, $engRecon) or mysql_error();
         $stmt->execute();
 
         //-----------------------------SELECT JOB ORDER ID------------------------------------
@@ -49,7 +50,7 @@
         for($i=0 ;$i < count($_POST['employeeid']); $i++) {
             $sql3 = "INSERT INTO joemployees ( joborderid, employeeid) VALUES ( ?, ?)";
             $stmt3 = $conn->prepare($sql3);     
-            $stmt3->bind_param("ii", $maxjoid, $employeeid[$i]) or mysql_error();
+            $stmt3->bind_param("si", $maxjoid, $employeeid[$i]) or mysql_error();
             $stmt3->execute();   
         }
 
@@ -65,10 +66,12 @@
 
 
         // -----------------------------INSERT sessionlogs TABLE------------------------------------
+
+
         for($i=0 ;$i < count($_POST['serviceid']); $i++) {
             $sql2 = "INSERT INTO servicelogs ( joborderid, serviceid) VALUES ( ?, ?)";
             $stmt2 = $conn->prepare($sql2);     
-            $stmt2->bind_param("ii", $maxjoid, $serviceid[$i]) or mysql_error();
+            $stmt2->bind_param("si", $maxjoid, $serviceid[$i]) or mysql_error();
             $stmt2->execute();
             
         }
