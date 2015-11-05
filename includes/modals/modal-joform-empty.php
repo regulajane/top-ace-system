@@ -2,6 +2,114 @@
     if(!isset($_SESSION["username"])){
     header('Location: ../index.php?loggedout=true');}
 ?>
+<script>
+                                            $(document).ready(function() {
+                                                // The maximum number of options
+                                                var MAX_OPTIONS = 5;
+
+                                                $('#joForm')
+                                                // Add button click handler
+                                                .on('click', '.addButton', function() {
+                                                    var $template = $('#optionTemplate'),
+                                                        $clone    = $template
+                                                                        .clone()
+                                                                        .removeClass('hide')
+                                                                        .removeAttr('id')
+                                                                        .insertBefore($template),
+                                                        $option   = $clone.find('[name="serviceid[]"]');
+
+                                                    // Add new field
+                                                    // $('#joForm').formValidation('addField', $option);
+                                                })
+                                                // Remove button click handler
+                                                .on('click', '.removeButton', function() {
+                                                    var $row    = $(this).parents('.form-group'),
+                                                        $option = $row.find('[name="serviceid[]"]');
+
+                                                    // Remove element containing the option
+                                                    $row.remove();
+
+                                                    // Remove field
+                                                    // $('#joForm').formValidation('removeField', $option);
+                                                })
+                                                // Called after adding new field
+                                                .on('added.field.fv', function(e, data) {
+                                                    // data.field   --> The field name
+                                                    // data.element --> The new field element
+                                                    // data.options --> The new field options
+
+                                                    if (data.field === 'serviceid[]') {
+                                                        if ($('#joForm').find(':visible[name="serviceid[]"]').length >= MAX_OPTIONS) {
+                                                            $('#joForm').find('.addButton').attr('disabled', 'disabled');
+                                                        }
+                                                    }
+                                                })
+
+                                                // Called after removing the field
+                                                .on('removed.field.fv', function(e, data) {
+                                                   if (data.field === 'serviceid[]') {
+                                                        if ($('#joForm').find(':visible[name="serviceid[]"]').length < MAX_OPTIONS) {
+                                                            $('#joForm').find('.addButton').removeAttr('disabled');
+                                                        }
+                                                    }
+                                                });
+
+                                            });
+
+                                                // ---------------------------------------------------------------------------------------
+                                            $(document).ready(function() {
+                                                // The maximum number of options
+                                                var MAX_OPTIONS = 5;
+
+                                                $('#joForm')
+
+                                                .on('click', '.addButtonMach', function() {
+                                                    var $template = $('#optionTemplateMachinist'),
+                                                        $clone    = $template
+                                                                        .clone()
+                                                                        .removeClass('hide')
+                                                                        .removeAttr('id')
+                                                                        .insertBefore($template),
+                                                        $option   = $clone.find('[name="employeeid[]"]');
+
+                                                    // Add new field
+                                                    // $('#joForm').formValidation('addField', $option);
+                                                })
+                                                // Remove button click handler
+                                                .on('click', '.removeButtonMach', function() {
+                                                    var $row    = $(this).parents('.form-group'),
+                                                        $option = $row.find('[name="employeeid[]"]');
+
+                                                    // Remove element containing the option
+                                                    $row.remove();
+
+                                                    // Remove field
+                                                    // $('#joForm').formValidation('removeField', $option);
+                                                })
+                                                // Called after adding new field
+                                                .on('added.field.fv', function(e, data) {
+                                                    // data.field   --> The field name
+                                                    // data.element --> The new field element
+                                                    // data.options --> The new field options
+
+                                                    if (data.field === 'employeeid[]') {
+                                                        if ($('#joForm').find(':visible[name="employeeid[]"]').length >= MAX_OPTIONS) {
+                                                            $('#joForm').find('.addButtonMach').attr('disabled', 'disabled');
+                                                        }
+                                                    }
+                                                })
+
+                                                // Called after removing the field
+                                                .on('removed.field.fv', function(e, data) {
+                                                   if (data.field === 'serviceid[]') {
+                                                        if ($('#joForm').find(':visible[name="employeeid[]"]').length < MAX_OPTIONS) {
+                                                            $('#joForm').find('.addButtonMach').removeAttr('disabled');
+                                                        }
+                                                    }
+                                                });
+
+                                            });
+                                        </script>
 <!-- JO Empty Form Modal -->
 <div class="modal fade" id="joModal" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true">
@@ -14,9 +122,8 @@
                 <div class="well">
                     <div class="row">
                         <div class="col-md-12 bs-example">
-                            <form class="form-horizontal" method="post" action="includes/data-processors/newjoborder.php" 
-                                id="joForm">
-                                <h4 class="modal-title" id="emptyformlabel">Pre-Inspection</h4>
+                            <form class="form-horizontal" method="post" action="includes/data-processors/newjoborder.php" id="joForm" novalidate>
+                                <h4 class="modal-title" id="emptyformlabel" style="text-align:center">Pre-Inspection</h4>
                                 <hr>
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Client Name:</label>
@@ -58,7 +165,7 @@
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
                                                     while($resultRow = $result->fetch_assoc()){
-                                                        $option = '<option value="' . $resultRow['modelid'] . '">' . 
+                                                        $option = '<option value="' . $resultRow['modelno'] . '">' . 
                                                             $resultRow['modelno'] . " " . '</option>';
                                                         echo ($option);
                                                     }
@@ -79,71 +186,79 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Problems:</label>
                                     <div class="controls col-md-8">
-                                        <textarea rows="3" cols="100" class="form-control" id="problem" name="problem"
+                                        <textarea rows="5" cols="100" class="form-control" id="problem" name="problem"
                                             maxlength="999" style="resize:none" placeholder="" 
                                                 required></textarea>
                                     </div>
                                 </div>
 
                                 <hr>
+                                
+ 
+                                
+                                
+                                  
+                                <div class="control-group form-group">
+                                    <label class="control-label col-md-3">Services:</label>
+                                    <div class="controls col-md-7">
+                                        <select class="form-control" id="serviceid" name="serviceid[]" required>
+                                            <option value="" disabled selected>Select service</option>
+                                                <?php
+                                                    $sql = "SELECT * from services"; 
+                                                    $result = $conn->query($sql);
+                                                        if ($result->num_rows > 0) {
+                                                            while($resultRow = $result->fetch_assoc()){
+                                                                    $t = '<option value="' . 
+                                                                    $resultRow['serviceid'] . '">' . 
+                                                                    $resultRow['servicename'] . '</option>';
+                                                                echo ($t);
+                                                            }
+                                                        }
+                                                ?>
+                                        </select>                 
+                                    </div>
+                                        <button type="button" class="pull-left add-field btn btn-default addButton" >
+                                                <i class="fa fa-plus"></i>
+                                        </button> 
+                                </div>
+                                   
 
-                                <div class="col-md-12">
-                                    <div class="col-md-6">
-                                        <h4 class="modal-title text-center" id="emptyformlabel">Services</h4>
-                                        <hr>
-                                        <div class="control-group form-group">
-                                            <div class="multi-field-wrapper">
-                                                <div class="multi-fields">
-                                                    <div class="multi-field">
-                                                         <div class="col-md-9 pull-left">
-                                                            <div class="control-group form-group pull-left col-md-12">
-                                                                <select class="form-control" id="serviceid" 
-                                                                    name="serviceid[]" required>
-                                                                    <option value="" disabled selected>
-                                                                        Select service</option>
-                                                                    <?php
+                                   
+                                <div class="control-group form-group hide" id="optionTemplate">
+                                    <label class="control-label col-md-3"></label>
+                                    <div class="controls col-md-7">
+                                        <select class="form-control" id="serviceid" name="serviceid[]" required>
+                                            <option value="" disabled selected>Select service</option>
+                                                <?php
                                                                         $sql = "SELECT * from services"; 
                                                                         $result = $conn->query($sql);
                                                                         if ($result->num_rows > 0) {
-                                                                            // output data of each row
+                                                                            
                                                                             while($resultRow = $result->fetch_assoc()){
                                                                                 $t = '<option value="' . 
                                                                                         $resultRow['serviceid'] . '">' . 
-                                                                                        $resultRow['servicename'] .' - ' .
-                                                                                        $resultRow['serviceprice'] . 
+                                                                                        $resultRow['servicename'] .
+                                                                                        
                                                                                     '</option>';
 
                                                                                 echo ($t);
                                                                             }
                                                                         }
                                                                     ?>
-                                                                </select>                 
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="pull-left add-field btn btn-default" 
-                                                            id="addfield"><i class="fa fa-plus"></i></button>
-                                                        <button type="button" class="pull-left remove-field btn btn-default" 
-                                                            id="removefield"><i class="fa fa-minus"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr>
+                                        </select>                 
                                     </div>
+                                        <button type="button" class="pull-left remove-field btn btn-default removeButton">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                </div>                                              
+                                    
+                                 <hr>
 
-                                    <div class="col-md-6">
-                                        <h4 class="modal-title text-center" id="emptyformlabel">Machinist/s</h4>
-                                        <hr>
-                                        <div class="control-group form-group">
-                                            <div class="multi-field-wrapper">
-                                                <div class="multi-fields">
-                                                    <div class="multi-field">
-                                                         <div class="col-md-9 pull-left">
-                                                            <div class="control-group form-group pull-left col-md-12">
-                                                                <select class="form-control" id="employeeid" 
-                                                                    name="employeeid[]" required>
-                                                                    <option value="" disabled selected>
-                                                                        Select Machinist</option>
+                                <div class="control-group form-group">
+                                    <label class="control-label col-md-3">Machinist/s:</label>
+                                    <div class="controls col-md-7">
+                                        <select class="form-control" id="employeeid" name="employeeid[]" required>
+                                            <option value="" disabled selected>Select Machinist</option>
                                                                     <?php
                                                                         $sql = "SELECT * from employees where emptype = 'Machinist' "; 
                                                                         $result = $conn->query($sql);
@@ -156,27 +271,41 @@
                                                                             }
                                                                         }
                                                                     ?>
-                                                                </select>                 
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="pull-left add-field btn btn-default" 
-                                                            id="addfield"><i class="fa fa-plus"></i></button>
-                                                        <button type="button" class="pull-left remove-field btn btn-default" 
-                                                            id="removefield"><i class="fa fa-minus"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr>
+                                        </select>                 
                                     </div>
+                                        <button type="button" class="pull-left add-field btn btn-default addButtonMach" >
+                                            <i class="fa fa-plus"></i>
+                                        </button> 
                                 </div>
-                                <!-- <div class="control-group form-group">
-                                    <label class="control-label col-md-3">Downpayment:</label>
-                                    <div class="controls col-md-4">
-                                        <input type="number" class="form-control" id="downpayment" name="downpayment" 
-                                            placeholder="0.00" required autocomplete="off">
+                               
+                                <div class="control-group form-group hide" id="optionTemplateMachinist">
+                                    <label class="control-label col-md-3"></label>
+                                    <div class="controls col-md-7">        
+                                        <select class="form-control" id="employeeid" name="employeeid[]" required>
+                                            <option value="" disabled selected>Select Machinist</option>
+                                                                    <?php
+                                                                        $sql = "SELECT * from employees where emptype = 'Machinist' "; 
+                                                                        $result = $conn->query($sql);
+                                                                        if ($result->num_rows > 0) {
+                                                                            // output data of each row
+                                                                            while($resultRow = $result->fetch_assoc()){
+                                                                                $option = '<option value="' . $resultRow['employeeid'] . '">' . 
+                                                                                    $resultRow['emplastname'] . ", " . $resultRow['empfirstname'] .  " " . $resultRow['empmiddlename'] . '</option>';
+                                                                                echo ($option);
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                        </select>                 
                                     </div>
-                                </div>-->
+                                        <button type="button" class="pull-left remove-field btn btn-default removeButtonMach">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                </div>
+                                    
+
+                                <hr>
+                               
+
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Received by:</label>
                                     <div class="controls col-md-4">
@@ -239,4 +368,3 @@
         </div>
     </div>
 </div> <!-- JO Empty Form Modal -->
-

@@ -16,9 +16,7 @@
             <div class="modal-header">
                 
                    
-                <h4 class="modal-title" id="myModalLabel">Services Breakdown
-                    
-                </h4>
+                <h4 class="modal-title" id="myModalLabel">Services Breakdown</h4>
             </div>
             <div class="brkdown modal-body">
                 <div class="well">
