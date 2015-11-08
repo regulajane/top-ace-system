@@ -1,0 +1,1 @@
+inventoryname - inventorysize - inventoryprice - inventoryquantity - modelno - reorderlevel
