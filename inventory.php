@@ -24,6 +24,20 @@
 						</i> Fabrication Items</a>
 						</a>
 
+						<div class="btn-group">
+			                <a class="btn btn-info" href="#"><i class="fa fa-folder-open"></i> Upload Files </a>
+			                <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
+			                <span class="fa fa-caret-down"></span></a>
+			                <ul class="dropdown-menu">
+			                    <li>
+			                    	<a type="button" class="btn btn-info" data-toggle="modal"  href="#importNewItems" 
+			                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%; color: #FFF">
+			                        <i class="fa fa-list"></i> New Items (.excel)
+			                        </a>
+			                    </li>
+			                </ul>
+	            		</div>
+
 	           			 <div class="btn-group">
 			                <a class="btn btn-info" href="#"><i class="fa fa-folder-open"></i> Logs </a>
 			                <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
