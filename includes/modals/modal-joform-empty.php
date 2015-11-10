@@ -101,12 +101,66 @@
 
                                                 // Called after removing the field
                                                 .on('removed.field.fv', function(e, data) {
-                                                   if (data.field === 'serviceid[]') {
+                                                   if (data.field === 'employeeid[]') {
                                                         if ($('#joForm').find(':visible[name="employeeid[]"]').length < MAX_OPTIONS) {
                                                             $('#joForm').find('.addButtonMach').removeAttr('disabled');
                                                         }
                                                     }
                                                 });
+                                        // ------------------------------------------------------------------------------------------------------
+
+                                        $(document).ready(function() {
+                                                // The maximum number of options
+                                                var MAX_OPTIONS = 5;
+
+                                                $('#joForm')
+                                                // Add button click handler
+                                                .on('click', '.addButtonItem', function() {
+                                                    var $template = $('#optionTemplateItem'),
+                                                        $clone    = $template
+                                                                        .clone()
+                                                                        .removeClass('hide')
+                                                                        .removeAttr('id')
+                                                                        .insertBefore($template),
+                                                        $option   = $clone.find('[name="itemid[]"]');
+
+                                                    // Add new field
+                                                    // $('#joForm').formValidation('addField', $option);
+                                                })
+                                                // Remove button click handler
+                                                .on('click', '.removeButtonItem', function() {
+                                                    var $row    = $(this).parents('.form-group'),
+                                                        $option = $row.find('[name="itemid[]"]');
+
+                                                    // Remove element containing the option
+                                                    $row.remove();
+
+                                                    // Remove field
+                                                    // $('#joForm').formValidation('removeField', $option);
+                                                })
+                                                // Called after adding new field
+                                                .on('added.field.fv', function(e, data) {
+                                                    // data.field   --> The field name
+                                                    // data.element --> The new field element
+                                                    // data.options --> The new field options
+
+                                                    if (data.field === 'itemid[]') {
+                                                        if ($('#joForm').find(':visible[name="itemid[]"]').length >= MAX_OPTIONS) {
+                                                            $('#joForm').find('.addButtonItem').attr('disabled', 'disabled');
+                                                        }
+                                                    }
+                                                })
+
+                                                // Called after removing the field
+                                                .on('removed.field.fv', function(e, data) {
+                                                   if (data.field === 'itemid[]') {
+                                                        if ($('#joForm').find(':visible[name="itemid[]"]').length < MAX_OPTIONS) {
+                                                            $('#joForm').find('.addButtonItem').removeAttr('disabled');
+                                                        }
+                                                    }
+                                                });
+
+                                            });
 
                                             });
                                         </script>
@@ -125,6 +179,11 @@
                             <form class="form-horizontal" method="post" action="includes/data-processors/newjoborder.php" id="joForm" novalidate>
                                 <h4 class="modal-title" id="emptyformlabel" style="text-align:center">Pre-Inspection</h4>
                                 <hr>
+
+
+
+                               
+
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Client Name:</label>
                                     <div class="controls col-md-4">
@@ -160,7 +219,7 @@
                                         <select class="form-control" id="modelid" name="modelid">
                                             <option value="" disabled selected>Select model</option>
                                             <?php
-                                                $sql = "SELECT * from models"; 
+                                                $sql = "SELECT * FROM inventory join models using (modelid) where inventoryname = 'Engine Valve';"; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
@@ -200,7 +259,7 @@
                                   
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Services:</label>
-                                    <div class="controls col-md-7">
+                                    <div class="controls col-md-6">
                                         <select class="form-control" id="serviceid" name="serviceid[]" required>
                                             <option value="" disabled selected>Select service</option>
                                                 <?php
@@ -226,7 +285,7 @@
                                    
                                 <div class="control-group form-group hide" id="optionTemplate">
                                     <label class="control-label col-md-3"></label>
-                                    <div class="controls col-md-7">
+                                    <div class="controls col-md-6">
                                         <select class="form-control" id="serviceid" name="serviceid[]" required>
                                             <option value="" disabled selected>Select service</option>
                                                 <?php
@@ -252,11 +311,12 @@
                                         </button>
                                 </div>                                              
                                     
-                                 <hr>
+                                
+                                <hr>
 
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Machinist/s:</label>
-                                    <div class="controls col-md-7">
+                                    <div class="controls col-md-6">
                                         <select class="form-control" id="employeeid" name="employeeid[]" required>
                                             <option value="" disabled selected>Select Machinist</option>
                                                                     <?php
@@ -280,7 +340,7 @@
                                
                                 <div class="control-group form-group hide" id="optionTemplateMachinist">
                                     <label class="control-label col-md-3"></label>
-                                    <div class="controls col-md-7">        
+                                    <div class="controls col-md-6">        
                                         <select class="form-control" id="employeeid" name="employeeid[]" required>
                                             <option value="" disabled selected>Select Machinist</option>
                                                                     <?php
@@ -301,7 +361,88 @@
                                             <i class="fa fa-minus"></i>
                                         </button>
                                 </div>
-                                    
+                                
+                                 <hr>
+                                 <div class="control-group form-group">
+                                    <label class="control-label col-md-3">Item List:</label>
+                                    <div class="controls col-md-4">
+                                        <select class="form-control" id="itemid" name="itemid[]" required>
+                                            <option value="" disabled selected>Select Item</option>
+                                                                    <?php
+                                                                        $sql = "SELECT distinct(inventoryname) from inventory"; 
+                                                                        $result = $conn->query($sql);
+                                                                        if ($result->num_rows > 0) {
+                                                                            // output data of each row
+                                                                            while($resultRow = $result->fetch_assoc()){
+                                                                                $optioninvty = '<option value="' . 
+                                                                                        $resultRow['inventoryname'] . '">' . 
+                                                                                        $resultRow['inventoryname'] .
+                                                                                        
+                                                                                    '</option>';
+
+                                                                                echo ($optioninvty);
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                        </select> 
+
+                                    </div>
+                                    <div class="controls col-md-2">
+                                        <input type="number" min="0" name="qty[]" id="qty" class="form-control" placeholder="Quantity" required>
+                                    </div>
+                                    <div class="controls col-md-2">
+                                        <select class="form-control" id="itemsize" name="itemsize[]">
+                                            <option value="" disabled selected>Size</option>
+                                            <option value="STD">STD</option>
+                                            <option value="0.25">0.25</option>
+                                            <option value="0.50">0.50</option>
+                                            <option value="0.75">0.75</option>
+                                        </select>
+                                    </div>
+                                        <button type="button" class="pull-left add-field btn btn-default addButtonItem" >
+                                            <i class="fa fa-plus"></i>
+                                        </button> 
+                                </div>
+                               
+                                <div class="control-group form-group hide" id="optionTemplateItem">
+                                    <label class="control-label col-md-3"></label>
+                                    <div class="controls col-md-4">        
+                                        <select class="form-control" id="itemid" name="itemid[]" required>
+                                            <option value="" disabled selected>Select Item</option>
+                                                                    <?php
+                                                                        $sql = "SELECT distinct(inventoryname) from inventory"; 
+                                                                        $result = $conn->query($sql);
+                                                                        if ($result->num_rows > 0) {
+                                                                            // output data of each row
+                                                                            while($resultRow = $result->fetch_assoc()){
+                                                                                $optioninvty = '<option value="' . 
+                                                                                        $resultRow['inventoryname'] . '">' . 
+                                                                                        $resultRow['inventoryname'] .
+                                                                                        
+                                                                                    '</option>';
+
+                                                                                echo ($optioninvty);
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                        </select>                 
+                                    </div>
+                                    <div class="controls col-md-2">
+                                        <input type="number" min="0" name="qty[]" id="qty" class="form-control" placeholder="Quantity" required>
+                                    </div>
+                                    <div class="controls col-md-2">
+                                        <select class="form-control" id="itemsize" name="itemsize[]">
+                                            <option value="" disabled selected>Size</option>
+                                            <option value="STD">STD</option>
+                                            <option value="0.25">0.25</option>
+                                            <option value="0.50">0.50</option>
+                                            <option value="0.75">0.75</option>
+                                        </select>
+                                    </div>
+                                        <button type="button" class="pull-left remove-field btn btn-default removeButtonItem">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                </div>
 
                                 <hr>
                                
@@ -311,8 +452,7 @@
                                     <div class="controls col-md-4">
                                         <select class="form-control" id="salesperson" 
                                             name="salesperson" required>
-                                            <option value="" disabled selected>
-                                                Select Sales Person</option>
+                                            <option value="" disabled selected>Select personnel</option>
                                             <?php
                                                 $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' "; 
                                                 $result = $conn->query($sql);
@@ -334,8 +474,7 @@
                                     <div class="controls col-md-4">
                                         <select class="form-control" id="supervisor" 
                                             name="supervisor" required>
-                                            <option value="" disabled selected>
-                                                Select Supervisor</option>
+                                            <option value="" disabled selected>Select supervisor</option>
                                             <?php
                                                 $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' "; 
                                                 $result = $conn->query($sql);

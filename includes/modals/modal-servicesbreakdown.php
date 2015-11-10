@@ -9,6 +9,8 @@
 ?>
 
 
+
+
 <div id="brkdownModal" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true" style="opacity:1;">
     <div class="modal-dialog">
@@ -30,19 +32,13 @@
                                         $r = $conn->query($sqlmaxjoid);
                                         $rr = $r->fetch_assoc(); 
                                         $maxjoid = $rr['joborderid'];
-                                        echo $maxjoid;
-
-                                        
-
-
-
-                                        
+                                        echo $maxjoid;                                       
                                     ?>
                                 </h4>
                                 <hr>
                                 <div class="form-group">
-                                    <label class="control-label col-xs-3">Services Availed</label>
-                                    <div class="col-xs-4">
+                                    <label class="control-label col-xs-3">Services Availed:</label>
+                                    <div class="col-md-8">
                                         <?php      
                                             $sqlservices = "SELECT * FROM servicelogs join services using (serviceid) where joborderid = $maxjoid";
                                             $ss = $conn->query($sqlservices);
@@ -50,11 +46,18 @@
                                                 $servicesavailed = $sss['servicename'];
                                                 echo $servicesavailed . "<br>";
 
-                                            }     
+                                            }   
                                         ?>
                                     </div>
                                 </div>
+
+
                                 <hr>
+
+
+                                
+                                
+
                                 <div class="form-group">
                                     <label class="control-label col-xs-3">Grand Total</label>
                                     <div class="col-xs-4">
@@ -72,7 +75,7 @@
 
                                 
 
-                                 <div class="control-group form-group">
+                                <div class="control-group form-group">
                                     <label class="control-label col-md-3">Downpayment:</label>
                                     <div class="controls col-md-4">
                                         <input type="number" class="form-control" id="downpayment" name="downpayment" 
@@ -98,3 +101,24 @@
 </div> 
 <!-- JO Empty Form Modal -->
 
+<!-- $sqlservicesbreakdown = "SELECT distinct(inventoryname) FROM inventory
+                                                                        where
+                                                                        inventoryid IN
+                                                                        (SELECT 
+                                                                                 distinct (servicesinventory.inventoryid)
+                                                                            FROM
+                                                                                inventory 
+                                                                                join models using (modelid)
+                                                                                join joborders using (modelno)
+                                                                                join servicelogs using (joborderid)
+                                                                                join servicesinventory using (serviceid)
+                                                                            where 
+                                                                                joborderid = $maxjoid);";
+                                            $ss = $conn->query($sqlservicesbreakdown);
+                                            while($sss = $ss->fetch_assoc()){
+                                                
+                                                $inv = '<input type="checkbox" value="' . $sss['inventoryname'] . '">' . 
+                                                $sss['inventoryname'] . '<br>';
+                                                echo ($inv);
+
+                                            } -->
