@@ -22,6 +22,10 @@
         $preparedby = $_POST['salesperson'];
         $supervisor = $_POST['supervisor'];
         $engRecon = 'EngRecon';
+        
+        $itemid = $_POST['itemid'];
+        $itemsize = $_POST['itemsize'];
+        $qty = $_POST['qty'];
 
 
         //-----------------------------COUNT and CREATE JOB ORDER ID------------------------------------
@@ -60,14 +64,13 @@
             $stmt4 = $conn->prepare($sql4);     
             $stmt4->bind_param("i", $employeeid[$i]) or mysql_error();
             $stmt4->execute();
+            
         }
 
      
 
 
         // -----------------------------INSERT sessionlogs TABLE------------------------------------
-
-
         for($i=0 ;$i < count($_POST['serviceid']); $i++) {
             $sql2 = "INSERT INTO servicelogs ( joborderid, serviceid) VALUES ( ?, ?)";
             $stmt2 = $conn->prepare($sql2);     
@@ -77,6 +80,57 @@
         }
 
 
+        // -----------------------------INSERT itemlogs TABLE------------------------------------
+        for($i=0 ;$i < count($_POST['itemid']); $i++) {
+         $in = $itemid[$i];
+         $iq = $qty[$i];
+         $is = $itemsize[$i];
+
+            // if ($_POST['itemsize'][$i] != '') {
+            //     if ($_POST['qty'][$i] != '') {
+                    $sqlinvtyid = "SELECT inventoryid from inventory join models using (modelid) 
+                                         where inventoryname = '$itemid[$i]'
+                                         and inventorysize = '$itemsize[$i]'
+                                         and modelno = '$modelid'; ";
+                    $result = $conn->query($sqlinvtyid);
+                    
+                  
+                        // output data of each row
+                        
+                        $resultRow = $result->fetch_assoc();
+                                                                             
+                                $a = $resultRow['inventoryid'];
+                                echo ($a);
+                                // echo $iq = $qty[$i];
+                                // echo $is = $itemsize[$i];
+                        
+                   
+
+                    // $is = $conn->query($sqlinvtyid);
+                    // echo "1";
+                    // $iss = $is->fetch_assoc();
+                    // echo "2";
+                    // $invtyid = $iss['inventoryid'];
+                    // echo "3";
+                    // echo $invtyid;
+                    // echo "4";
+                    // echo $itemid[$i];
+
+                    // $sqlitemlogs = "INSERT INTO itemlogs ( itemquantity, joborderid, inventoryid ) VALUES ( ?, ?, ? )";
+                    // $stmt5 = $conn->prepare($sqlitemlogs);     
+                    // $stmt5->bind_param("isi", $qty[$i],  $maxjoid, $itemid[$i]) or mysql_error();
+                    // $stmt5->execute();
+            //     }
+            // }
+        }
+        
+        // echo $itemsize;
+        // echo $qty;
+
+         // echo $invtyid;
+            // echo '<script>';
+            // echo "alert($itemid[$i]);";
+            // echo '</script>';
         // echo '<script>'; 
         // echo '$("#brkdownModal").modal("show");';
         // echo 'alert("asdas");';
