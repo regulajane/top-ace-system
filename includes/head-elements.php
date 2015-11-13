@@ -22,6 +22,8 @@
 <script src="js/jquery-1.11.3.min.js"></script>
 <!-- Bootstrap Script -->
 <script src="js/bootstrap.min.js"></script>
+<!-- Typeahead Script -->
+<script src="js/typeahead.min.js"></script>
 <!-- <script src="js/jqBootstrapValidation-1.3.7.min.js"></script> -->
 <!-- Bootgrid Scripts -->
 <script src="js/jquery.bootgrid.js"></script>
