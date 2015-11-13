@@ -4,15 +4,17 @@ html,
 body {
     height: 100%;
 }
-
 body {
-    padding-top: 80px; 
+    padding-top: 50px;
 }
-
+.pagecontainer {
+    position: relative;
+    overflow-y: auto;
+    max-height: 625px; 
+}
 .img-portfolio {
     margin-bottom: 30px;
 }
-
 .img-hover:hover {
     opacity: 0.8;
 }
@@ -21,6 +23,7 @@ body {
 
 footer {
     margin: 0;
+    margin-top: 10px;
 }
 
 /*-------------------------------------------------*/
@@ -41,7 +44,6 @@ footer {
         position: relative;
         overflow-y: auto;
 }
-/**/
 
 
 /*borderless table for forms*/
@@ -348,4 +350,88 @@ input[type="checkbox"]:checked:after {
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #dddddd;
+}
+
+
+/* Typeahead : AJAX  Search */
+.typeahead, .tt-query, .tt-hint {
+    height: 40px;
+    line-height: 30px;
+    outline: medium none;
+    padding: 8px 12px;
+}
+.typeahead:focus {
+    border: 2px solid #1d9ce5;
+}
+.tt-query {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.tt-hint {
+    color: #999999;
+}
+.tt-dropdown-menu {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    padding: 8px 0;
+    position: relative;
+    overflow-y: auto;
+}
+.tt-suggestion {
+    line-height: 24px;
+    padding: 3px 12px;
+}
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #1d9ce5;
+    color: #FFFFFF;
+}
+.tt-suggestion p {
+    margin: 0;
+}
+
+/*Typeahead : Sales*/
+.sales #salename {
+    width: 226px;
+}
+.sales #salemodel {
+    width: 226px;
+}
+.sales .tt-hint {
+    width: 226px;
+}
+.sales .tt-dropdown-menu {
+    width: 226px;
+    max-height: 250px;
+}
+
+.navbar .btn-nav.active 
+{
+    background-color: #317eac;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -webkit-transition: border 0.3s ease-out, color 0.3s ease 0.5s;
+    -moz-transition: border 0.3s ease-out, color 0.3s ease 0.5s;
+    -ms-transition: border 0.3s ease-out, color 0.3s ease 0.5s; /* IE10 is actually unprefixed */
+    -o-transition: border 0.3s ease-out, color 0.3s ease 0.5s;
+    transition: border 0.3s ease-out, color 0.3s ease 0.5s;
+    -webkit-animation: pulsate 1.2s linear infinite;
+    animation: pulsate 1.2s linear infinite;
+}
+
+.navbar .btn-nav.active:before 
+{
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 6px 6px 0;
+    border-color: #fff transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    margin-left: -6px;
+    top: 0;
+    left: 50%;
 }

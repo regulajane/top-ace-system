@@ -13,17 +13,17 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="home.php">Top Ace Job Order System</a>
+                        <a class="navbar-brand btn-nav" href="home.php">Top Ace Job Order System</a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                        
-                            <li><a href="job-order.php">Job Orders</a></li>
-                            <li><a href="sales.php">Sales</a></li>
-                            <li><a href="inventory.php">Inventory</a></li>
-                            <li><a href="clients.php">Clients</a></li>
-                            <li><a href="services.php">Services</a></li>
-                            <li><a href="employees.php">Employees</a></li>
+                            <li><a href="job-order.php" class="btn-nav">Job Orders</a></li>
+                            <li><a href="sales.php" class="btn-nav">Sales</a></li>
+                            <li><a href="inventory.php" class="btn-nav">Inventory</a></li>
+                            <li><a href="clients.php" class="btn-nav">Clients</a></li>
+                            <li><a href="services.php" class="btn-nav">Services</a></li>
+                            <li><a href="employees.php" class="btn-nav">Employees</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="user" >
                                     <i class="fa fa-user"></i> <span>' . $_SESSION["username"] . '</span>
