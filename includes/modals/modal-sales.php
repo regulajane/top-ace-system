@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">New Sale</h4>
             </div>
-            <div class="modal-body">
+            <div class="sales modal-body">
                 <div class="well">
                     <div class="row">
                         <div class="col-md-12">
@@ -15,30 +15,42 @@
                                 action="includes/data-processors/sales.php" id="salesForm">
                                 <div class="control-group col-md-12">
                                     <div class="form-group">
+                                        <label class="control-label col-md-4">Model No.:</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="typeahead form-control"  placeholder="Model No."
+                                                id="salemodel" name="salemodel" autocomplete="off" size="15" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="control-label col-md-4">Item Name:</label>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control"  placeholder="Item"
-                                                id="salename" name="salename" required>
+                                            <input type="text" class="typeahead form-control"  placeholder="Item"
+                                                id="salename" name="salename" autocomplete="off" size="15" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-4">Item Size:</label>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control"  placeholder="Size"
-                                                id="salesize" name="salesize" required/>
+                                            <select class="form-control" id="salesize" name="salesize" required>
+                                            <option value="" disabled selected>Size</option>
+                                            <option value="0.25" >0.25</option>
+                                            <option value="0.5" >0.5</option>
+                                            <option value="0.75" >0.75</option>
+                                            <option value="STD " >STD</option>
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-4">Quantity:</label>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" placeholder="Quantity"
+                                            <input type="number" class="form-control" placeholder="Quantity"
                                                 id="saleqty" name="saleqty"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-4">Price:</label>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" placeholder="Price"
+                                            <input type="number" class="form-control" placeholder="Price"
                                                 id="saleprice" name="saleprice" required/>
                                         </div>
                                     </div>
@@ -69,3 +81,5 @@
         </div>
     </div>
 </div> <!-- /.addSale -->
+
+

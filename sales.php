@@ -12,14 +12,16 @@
 </head>
 <body>
     <?php include 'includes/nav.php'; ?>
-    <div class="container" id="clients">          
+    <div class="pagecontainer">
+    <br>
+    <div class="container" id="sales">          
         <div class="actionBtns">
             <button type="button" id="newsalebtn" class="btn btn-info" data-toggle="modal" 
                 href="#salesModal"><i class="fa fa-plus fa-fw"></i> New Sale </button>
             <button type="button" id="printbtn" class="btn btn-info" data-toggle="modal">
                 <i class="fa fa-print fa-fw"></i> Print </button>
         </div>
-        <!-- ClientsTable -->
+        <!-- SalesTable -->
         <div>
             <table  id="salesTable" class="table table-condensed table-hover">
                 <thead>
@@ -30,10 +32,10 @@
                             Date</th>
                         <th data-column-id="itemname">
                             Item</th>   
-                        <th data-column-id="itemsize">
-                            Size</th>  
                         <th data-column-id="noofitems">
                             Quantity</th>
+                        <th data-column-id="itemsize">
+                            Size</th>  
                         <th data-column-id="saleprice">
                             Price</th>
                         <th data-column-id="total">
@@ -42,9 +44,10 @@
                 </thead>  
             </table>
         </div>
-        <hr>
+   
         <?php include 'includes/modals/modal-sales.php'; ?>
         <?php include 'includes/footer.php'; ?>
+         </div>
     </div>  
 </body>
 </html>
