@@ -3,7 +3,14 @@ window.onload = function () {
     fabOrder();
     addOrder();
     jobOrderForm();
+    navbar();
 
+}
+
+function navbar(){
+    var activeEl = 1;
+    var items = $('.navbar .btn-nav');
+    $( items[activeEl] ).addClass('active');
 }
 
 function fabOrder(){

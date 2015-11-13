@@ -1,4 +1,6 @@
 window.onload = function () {
+    navbar();
+
     $("#serviceTable").bootgrid({
         ajax: true,
         url: "data-servers/service-server.php",
@@ -59,4 +61,10 @@ window.onload = function () {
         });         
     });
     
+}
+
+function navbar(){
+    var activeEl = 5;
+    var items = $('.navbar .btn-nav');
+    $( items[activeEl] ).addClass('active');
 }

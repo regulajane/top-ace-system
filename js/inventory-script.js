@@ -1,4 +1,4 @@
-window.onload = function () { supplies(); }
+window.onload = function () { supplies(); navbar();}
 function supplies(){
      document.getElementById("test1").style.visibility = 'hidden';
 	// INVENTORY TABLE
@@ -158,4 +158,10 @@ function supplies(){
             }
         });           
     });
+}
+
+function navbar(){
+    var activeEl = 3;
+    var items = $('.navbar .btn-nav');
+    $( items[activeEl] ).addClass('active');
 }

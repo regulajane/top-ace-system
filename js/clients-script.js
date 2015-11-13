@@ -1,4 +1,7 @@
 window.onload = function () {
+
+    navbar();
+    
     $("#clientsTable").bootgrid({
         ajax: true,
         url: "data-servers/clients-server.php",
@@ -106,4 +109,10 @@ window.onload = function () {
             alert("Please select a client.");
         }         
     });
+}
+
+function navbar(){
+    var activeEl = 4;
+    var items = $('.navbar .btn-nav');
+    $( items[activeEl] ).addClass('active');
 }

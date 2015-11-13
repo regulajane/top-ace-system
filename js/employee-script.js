@@ -1,4 +1,7 @@
 window.onload = function () {
+
+    navbar();
+
 // Employee table
     $("#employeeTable").bootgrid({
         ajax: true,
@@ -125,4 +128,10 @@ window.onload = function () {
         });           
     });
     
+}
+
+function navbar(){
+    var activeEl = 6;
+    var items = $('.navbar .btn-nav');
+    $( items[activeEl] ).addClass('active');
 }
