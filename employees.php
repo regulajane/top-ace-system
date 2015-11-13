@@ -12,6 +12,8 @@
 </head>
 <body>
     <?php include 'includes/nav.php'; ?>
+    <div class="pagecontainer">
+    <br>
     <div class="container">        
         <!-- Job Order Buttons -->
         <div class="actionBtns">
@@ -49,8 +51,8 @@
                 </tr>
             </thead>  
         </table>
-        <hr>
         <?php include 'includes/footer.php'; ?>
+    </div>
     </div>
 
     <!-- Employee Modals -->

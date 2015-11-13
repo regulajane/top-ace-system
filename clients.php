@@ -12,6 +12,8 @@
 </head>
 <body>
     <?php include 'includes/nav.php'; ?>
+    <div class="pagecontainer">
+    <br>
     <div class="container" id="clients">          
         <div class="actionBtns">
             <button type="button" id="newclientbtn" class="btn btn-info" data-toggle="modal" 
@@ -44,9 +46,9 @@
                 </thead>  
             </table>
         </div>
-        <hr>
         <?php include 'includes/modals/modal-client.php'; ?>
         <?php include 'includes/footer.php'; ?>
     </div>  
+</div>
 </body>
 </html>

@@ -12,6 +12,8 @@
 </head>
 <body>
     <?php include 'includes/nav.php'; ?>
+    <div class="pagecontainer">
+    <br>
     <div class="container">
         <!-- Service Buttons -->
         <div class="actionBtns">
@@ -33,8 +35,8 @@
                 </tr>
             </thead>  
         </table>
-        <hr>
         <?php include 'includes/footer.php'; ?>
+    </div>
     </div>
     <!-- Job Order Modals -->
     <?php 
