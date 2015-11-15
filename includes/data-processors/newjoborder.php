@@ -15,14 +15,12 @@
         $modelid = $_POST['modelid'];
         $engnumber = $_POST['engnumber'];
         $problem = $_POST['problem'];
-        // $downpayment = $_POST['downpayment'];
         $employeeid = $_POST['employeeid'];
         $pending = 'Pending';
         $serviceid = $_POST['serviceid'];
         $preparedby = $_POST['salesperson'];
         $supervisor = $_POST['supervisor'];
-        $engRecon = 'EngRecon';
-        
+        $engRecon = 'EngRecon';     
         $itemid = $_POST['itemid'];
         $itemsize = $_POST['itemsize'];
         $qty = $_POST['qty'];
@@ -82,63 +80,38 @@
 
         // -----------------------------INSERT itemlogs TABLE------------------------------------
         for($i=0 ;$i < count($_POST['itemid']); $i++) {
-         $in = $itemid[$i];
-         $iq = $qty[$i];
-         $is = $itemsize[$i];
-
-            // if ($_POST['itemsize'][$i] != '') {
-            //     if ($_POST['qty'][$i] != '') {
-                    $sqlinvtyid = "SELECT inventoryid from inventory join models using (modelid) 
+                    if ($_POST['itemsize'][$i] != '') {
+                        $sqlinvtyid = "SELECT inventoryid,inventoryprice from inventory join models using (modelid) 
+                                             where inventoryname = '$itemid[$i]'
+                                             and inventorysize = '$itemsize[$i]'
+                                             and modelno = '$modelid'; ";
+                        $result = $conn->query($sqlinvtyid);    
+                    }else{
+                        $sqlinvtyid = "SELECT inventoryid,inventoryprice from inventory join models using (modelid) 
                                          where inventoryname = '$itemid[$i]'
-                                         and inventorysize = '$itemsize[$i]'
+                                         and inventorysize IS NULL
                                          and modelno = '$modelid'; ";
-                    $result = $conn->query($sqlinvtyid);
-                    
-                  
-                        // output data of each row
-                        
-                        $resultRow = $result->fetch_assoc();
-                                                                             
-                                $a = $resultRow['inventoryid'];
-                                echo ($a);
-                                // echo $iq = $qty[$i];
-                                // echo $is = $itemsize[$i];
-                        
-                   
+                        $result = $conn->query($sqlinvtyid);
+                    }
+   
+                        // output data of each row             
+                        while($resultRow = $result->fetch_assoc()){
+                            $a = $resultRow['inventoryid'];
+                            $p = $resultRow['inventoryprice'];
 
-                    // $is = $conn->query($sqlinvtyid);
-                    // echo "1";
-                    // $iss = $is->fetch_assoc();
-                    // echo "2";
-                    // $invtyid = $iss['inventoryid'];
-                    // echo "3";
-                    // echo $invtyid;
-                    // echo "4";
-                    // echo $itemid[$i];
+                            // echo "<script> alert($a); </script>";
+       
+                            $sqlitemlogs = "INSERT INTO itemlogs ( itemprice, itemquantity, joborderid, inventoryid ) VALUES ( ?, ?, ?, ? )";
+                            $stmt5 = $conn->prepare($sqlitemlogs);     
+                            $stmt5->bind_param("iisi", $p, $qty[$i],  $maxjoid, $a) or mysql_error();
+                            $stmt5->execute();
 
-                    // $sqlitemlogs = "INSERT INTO itemlogs ( itemquantity, joborderid, inventoryid ) VALUES ( ?, ?, ? )";
-                    // $stmt5 = $conn->prepare($sqlitemlogs);     
-                    // $stmt5->bind_param("isi", $qty[$i],  $maxjoid, $itemid[$i]) or mysql_error();
-                    // $stmt5->execute();
-            //     }
-            // }
+                        }
+
         }
         
-        // echo $itemsize;
-        // echo $qty;
 
-         // echo $invtyid;
-            // echo '<script>';
-            // echo "alert($itemid[$i]);";
-            // echo '</script>';
-        // echo '<script>'; 
-        // echo '$("#brkdownModal").modal("show");';
-        // echo 'alert("asdas");';
-        // echo 'window.location = "../../job-order.php";'; 
-        // echo '</script>';
-
-        
-        //-----------------------------SELECT totalprice------------------------------------
+        //-----------------------------SELECT Total Service/s Availed------------------------------------
         // $sqlprice = "SELECT SUM(services.serviceprice) AS totalPrice  from servicelogs join services using (serviceid) where joborderid = '$maxjoid' ";
         // $rprice = $conn->query($sqlprice);
         // $rrprice = $rprice->fetch_assoc(); 
@@ -161,10 +134,3 @@
 ?>
 
 
-<!-- <button  id="brkdwnBtn" data-dismiss="modal" data-toggle="modal" href="#brkdownModal">
-<span class="glyphicon glyphicon-ok-sign"></span> Next</button>
-
-<script type="text/javascript">
-
-    $('#brkdwnBtn').click();
-</script> -->

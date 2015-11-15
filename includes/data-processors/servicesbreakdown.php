@@ -10,6 +10,8 @@
     if(isset($_POST["submit"])=="submit") {
 
     	$downpayment = $_POST['downpayment'];
+        $markup = $_POST['markup'];
+        $discount = $_POST['discount'];
 
     	//-----------------------------SELECT JOB ORDER ID------------------------------------
     	$sqlmaxjoid = "SELECT joborderid from joborders order by joborderid desc limit 1";
@@ -25,14 +27,22 @@
 
     	
 
-    	//-----------------------------SELECT totalprice------------------------------------
+    	//-----------------------------SELECT services availed total price------------------------------------
         $sqlprice = "SELECT SUM(services.serviceprice) AS totalPrice  from servicelogs join services using (serviceid) where joborderid = '$maxjoid' ";
         $rprice = $conn->query($sqlprice);
         $rrprice = $rprice->fetch_assoc(); 
         $totalprice = $rrprice['totalPrice'];
 
+        //-----------------------------SELECT Item list total price------------------------------------
+        $sqltotalitemprice = "SELECT SUM(itemprice*itemquantity) AS totalitemprice from itemlogs where joborderid = '$maxjoid' ";
+        $iprice = $conn->query($sqltotalitemprice);
+        $iiprice = $iprice->fetch_assoc(); 
+        $totalitemprice = $iiprice['totalitemprice'];
+
+        $tempgrandtotal = $totalprice + $totalitemprice + $markup - $discount;
+
         //-----------------------------UPDATE totalprice into joborder table------------------------
-        $sqlupdateprice = "UPDATE joborders SET joborders.joprice = '$totalprice' where joborderid  = '$maxjoid' ";
+        $sqlupdateprice = "UPDATE joborders SET joborders.joprice = '$tempgrandtotal' where joborderid  = '$maxjoid' ";
         $stmtprice = $conn->prepare($sqlupdateprice);
         $stmtprice->execute(); 
 
