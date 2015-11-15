@@ -59,27 +59,49 @@
                                 
 
                                 <div class="form-group">
-                                    <label class="control-label col-xs-3">Grand Total</label>
+                                    <label class="control-label col-xs-3">Services Availed and Item List Cost</label>
                                     <div class="col-xs-4">
                                         <?php      
-                                            $sqlservices = "SELECT SUM(services.serviceprice) AS gtotal FROM servicelogs join services using (serviceid) where joborderid = $maxjoid";
+                                            $sqlservices = "SELECT SUM(services.serviceprice) AS servicestotal FROM servicelogs join services using (serviceid) where joborderid = $maxjoid";
                                             $aa = $conn->query($sqlservices);
                                             $aaa = $aa->fetch_assoc();
-                                            $gtotal = $aaa['gtotal'];     
+                                            $servicestotal = $aaa['servicestotal']; 
+
+                                            $sqltotalitemprice = "SELECT SUM(itemprice*itemquantity) AS totalitemprice from itemlogs where joborderid = '$maxjoid' ";
+                                            $iprice = $conn->query($sqltotalitemprice);
+                                            $iiprice = $iprice->fetch_assoc(); 
+                                            $totalitemprice = $iiprice['totalitemprice'];
+
+                                            $tempgrandtotal = $servicestotal + $totalitemprice;    
                                         ?>
                                         <input type="text" class="form-control" id="gt" name="gt" 
-                                            value="<?php echo $gtotal; ?>" readonly>
+                                            value="<?php echo $tempgrandtotal; ?>" readonly>
                                         
                                     </div>
                                 </div>
 
+                                <div class="control-group form-group">
+                                    <label class="control-label col-md-3">Markup:</label>
+                                    <div class="controls col-md-4">
+                                        <input type="number" class="form-control" id="markup" name="markup" 
+                                            placeholder="0.00" required autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="control-group form-group">
+                                    <label class="control-label col-md-3">Discount:</label>
+                                    <div class="controls col-md-4">
+                                        <input type="number" class="form-control" id="discount" name="discount" 
+                                            placeholder="0.00" required autocomplete="off">
+                                    </div>
+                                </div>
                                 
 
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Downpayment:</label>
                                     <div class="controls col-md-4">
                                         <input type="number" class="form-control" id="downpayment" name="downpayment" 
-                                            placeholder="0.00" required autocomplete="off">
+                                            placeholder="500.00" required autocomplete="off">
                                     </div>
                                 </div>
                                 

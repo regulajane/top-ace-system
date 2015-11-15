@@ -363,9 +363,13 @@
                                 </div>
                                 
                                  <hr>
+                                 <div class="text-center" style="color:red">Note: Piston Ring, Main Bearing and Connecting Rod Bearing are the only items with sizes.</div>
+                                 <hr>
                                  <div class="control-group form-group">
                                     <label class="control-label col-md-3">Item List:</label>
+
                                     <div class="controls col-md-4">
+
                                         <select class="form-control" id="itemid" name="itemid[]" required>
                                             <option value="" disabled selected>Select Item</option>
                                                                     <?php
@@ -392,7 +396,7 @@
                                     </div>
                                     <div class="controls col-md-2">
                                         <select class="form-control" id="itemsize" name="itemsize[]">
-                                            <option value="" disabled selected>Size</option>
+                                            <option value="" selected>Size</option>
                                             <option value="STD">STD</option>
                                             <option value="0.25">0.25</option>
                                             <option value="0.50">0.50</option>
@@ -402,7 +406,9 @@
                                         <button type="button" class="pull-left add-field btn btn-default addButtonItem" >
                                             <i class="fa fa-plus"></i>
                                         </button> 
+
                                 </div>
+
                                
                                 <div class="control-group form-group hide" id="optionTemplateItem">
                                     <label class="control-label col-md-3"></label>
@@ -432,7 +438,7 @@
                                     </div>
                                     <div class="controls col-md-2">
                                         <select class="form-control" id="itemsize" name="itemsize[]">
-                                            <option value="" disabled selected>Size</option>
+                                            <option value="" selected>Size</option>
                                             <option value="STD">STD</option>
                                             <option value="0.25">0.25</option>
                                             <option value="0.50">0.50</option>
