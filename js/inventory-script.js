@@ -12,6 +12,11 @@ function supplies(){
         },
 	});
     
+    $('.newSupply #modelno').typeahead({
+        name: 'modelno',
+        remote:'includes/data-processors/searchmodel.php?key=%QUERY',
+        limit : 10
+    });
 
 	$("#addsupplybtn").on("click", function() {
         var selectedItemArray = $("#inventoryTable").bootgrid("getSelectedRows");
