@@ -52,7 +52,12 @@
       $limit=" LIMIT $limit_l,$limit_h ";
        
     //Query (Warning: Prone to SQL injection.)
-    $sql="SELECT * from services where $where ORDER BY $order_by $limit";
+    $sql="SELECT  services.serviceid,
+                  services.servicename,
+                  services.serviceprice,
+                  services.servicedesc,
+                  services.servicedatemod
+          from services where $where ORDER BY $order_by $limit";
     $stmt=$conn->prepare($sql);
     $stmt->execute();
     $results_array=$stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -28,13 +28,18 @@
                 <tr>
                     <th data-column-id="serviceid" data-visible="false" data-identifier="true">
                         Service ID</th>
-                    <th data-column-id="servicename">
-                        Service name</th>
-                    <th data-column-id="serviceprice">
-                        Price</th>
+                    <th data-column-id="servicename" data-width="15%">
+                        Service Name</th>
+                    <th data-column-id="servicedesc" data-width="50%">
+                        Description</th>
+                    <th  class="price-value" data-column-id="serviceprice" data-align="right" data-width="8%">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price</th>
+                    <th data-column-id="servicedatemod" data-width="11%">
+                        Date Modified</th>
                 </tr>
             </thead>  
         </table>
+        <hr>
         <?php include 'includes/footer.php'; ?>
     </div>
     </div>

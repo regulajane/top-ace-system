@@ -11,7 +11,57 @@ window.onload = function () {
         },
     });
 
+    $('#addserviceform, #updateserviceform').bootstrapValidator({
+        feedbackIcons: {
+            message: 'This value is not valid',
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            servicename: {
+                validators: {
+                    notEmpty: {
+                        message: 'Service name is required'
+                    }
+                }
+            },
+            serviceprice: {
+                validators: {
+                    notEmpty: {
+                        message: 'Price is required'
+                    },
+                    regexp: {
+                        regexp: /^[0-9.0]+$/,
+                        message: 'Invalid price'
+                    }
+
+                }
+            },
+            servicedesc: {
+                validators: {
+                    notEmpty: {
+                        message: 'Description is required'
+                    }
+                }
+            },
+            servicedatemod: {
+                validators: {
+                    notEmpty: {
+                        message: 'Date modified is required'
+                    }
+                }
+            }
+        }
+    });
+
+    $("#newservicebtn").on("click", function() {
+        document.getElementById('srvdatemod').valueAsDate = new Date();
+    });
+
     $("#editservicebtn").on("click", function() {
+        document.getElementById('servicedatemod').valueAsDate = new Date();
+        
         var selectedIDArray = $("#serviceTable").bootgrid("getSelectedRows");
         var selectedID = parseInt(selectedIDArray) + 0;
         if(! selectedID){
@@ -26,9 +76,11 @@ window.onload = function () {
                 // set variables
                 var srvcname = service.servicename;
                 var srvcprice = service.serviceprice;
+                var srvcdesc = service.servicedesc;
                 // fill form
                 $(".servUpdate #servicename").val(srvcname);
                 $(".servUpdate #serviceprice").val(srvcprice); 
+                $(".servUpdate #servicedesc").val(srvcdesc); 
 
                 $('#editServiceModal').modal('show');
 
@@ -51,9 +103,11 @@ window.onload = function () {
                 // set variables
                 var srvcname = service.servicename;
                 var srvcprice = service.serviceprice;
+                var srvcdesc = service.servicedesc;
                 // fill form
                 $(".servUpdate #servicename").val(srvcname);
                 $(".servUpdate #serviceprice").val(srvcprice); 
+                $(".servUpdate #servicedesc").val(srvcdesc); 
 
                 $('#deleteServiceModal').modal('show');
 
