@@ -40,10 +40,5 @@
 
 			<?php include 'includes/footer.php'; ?>
 		</div>
-		<!-- Job Order Modals -->
-		<?php 
-			include 'includes/modals/modal-addnewsupply.php';
-			include 'includes/modals/modal-supplies.php';
-		?>   
 	</body>
 </html>
