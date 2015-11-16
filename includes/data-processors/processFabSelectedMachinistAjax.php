@@ -7,22 +7,10 @@
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$_SESSION['joNumber'] = $_POST['selectedID'];
-	$num = $_SESSION['joNumber'];
-	$sql = "SELECT joborderid,
-                fabricationid,
-                fabricationdesc, 
-                fabricationquantity, 
-                datestarted as dateordered, 
-                cllastname,
-                clfirstname,
-                clmidinitial,
-                downpayment,
-                fabricationprice,
-                joprice,
-                emplastname,
-                empfirstname,
-                fabricationstatus from joborders join fabrications using (joborderid) join clients using (clientid) join joemployees using (joborderid) join employees using (employeeid) where joborderid = $num group by fabricationid;";
+    $_SESSION['joNumber'] = $_POST['selectedID'];
+    $num = $_SESSION['joNumber'];
+    
+    $sql = "SELECT employeeid, emplastname, empfirstname from employees join joemployees using (employeeid) where joborderid = $num;";
     $stmt=$conn->prepare($sql);
     $stmt->execute();
     $results_array=$stmt->fetchAll(PDO::FETCH_ASSOC);

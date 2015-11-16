@@ -18,7 +18,7 @@
                     <div class="row">
                         <div class="col-md-12 bs-example">
                             <form class="form-horizontal" method="post" 
-                                id="fabForm">
+                                id="fabEditForm" action="includes/data-processors/editfaborder.php">
                                 <hr>
                                 <!-- Receipt number -->
                                 <div class="form-group">
@@ -71,7 +71,8 @@
                                                 <div class="col-xs-6" id="fabricationorders">
                                                     
                                         
-
+                                                <!-- <div class="col-xs-6" id="machinist">
+                                                </div> -->
 
 
 
