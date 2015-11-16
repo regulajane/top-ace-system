@@ -12,17 +12,17 @@
             <div class="modal-header">
                 <h4 class="modal-title" id="myModalLabel">Add New Supply</h4>
             </div>
-            <div class="joEmpty modal-body">
+            <div class="newSupply modal-body">
                 <div class="well">
                     <div class="row">
-                        <div class="col-md-12 bs-example">
+                        <div class="control-group col-md-12">
                             <form class="form-horizontal" method="post" action="includes/data-processors/addnewsupply.php" 
                               id="newSupplyForm">
-                                     <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Model No:</label>
-                                     <div class="controls col-xs-3">
-                                    <textarea rows="1" cols="100" class="form-control" id="modelno" name="modelno"  maxlength="999" style="resize:none" 
-                                            required></textarea>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Model No:</label>
+                                     <div class="col-md-6">
+                                    <input type="text" class="typeahead form-control" id="modelno" placeholder="Model No."
+                                           name="modelno" size="20" autocomplete="off" required>
                                      </div>
                                 </div>     
 
