@@ -31,7 +31,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-xs-4">Description:</label>
                                         <div class="col-xs-7">
-                                            <textarea rows="4" cols="100" class="form-control" id="servicedesc" name="servicedesc"
+                                            <textarea rows="7" cols="100" class="form-control" id="servicedesc" name="servicedesc"
                                             maxlength="300" style="resize:none" placeholder="Description" 
                                                 required></textarea>
                                         </div>
@@ -100,7 +100,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-xs-4">Description:</label>
                                         <div class="col-xs-7">
-                                            <textarea rows="6" cols="100" class="form-control" id="servicedesc" name="servicedesc"
+                                            <textarea rows="7" cols="100" class="form-control" id="servicedesc" name="servicedesc"
                                             maxlength="300" style="resize:none" placeholder="Description" 
                                                 required></textarea>
                                         </div>
