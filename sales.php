@@ -19,11 +19,11 @@
             <button type="button" id="newsalebtn" class="btn btn-info" data-toggle="modal" 
                 href="#salesModal"><i class="fa fa-plus fa-fw"></i> New Sale </button>
             <button type="button" id="printbtn" class="btn btn-info" data-toggle="modal">
-                <i class="fa fa-print fa-fw"></i> Print </button>
+                <i class="fa fa-print fa-fw"></i> Summary </button>
         </div>
         <!-- SalesTable -->
         <div>
-            <table  id="salesTable" class="table table-condensed table-hover">
+            <table  id="salesTable" class="table table-condensed table-hover table-striped">
                 <thead>
                     <tr>
                         <th data-column-id="saleid" data-visible="false" data-identifier="true">
@@ -36,7 +36,7 @@
                             Quantity</th>
                         <th data-column-id="itemsize">
                             Size</th>  
-                        <th data-column-id="saleprice">
+                        <th data-column-id="saleprice" data-align="right">
                             Price</th>
                         <th data-column-id="total">
                             Total</th>

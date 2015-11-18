@@ -23,7 +23,7 @@
         </div>
         <!-- ClientsTable -->
         <div>
-            <table  id="clientsTable" class="table table-condensed table-hover">
+            <table  id="clientsTable" class="table table-condensed table-hover table-striped">
                 <thead>
                     <tr>
                         <th data-column-id="clientid" data-visible="false" data-identifier="true">
