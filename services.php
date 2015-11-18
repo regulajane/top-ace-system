@@ -32,9 +32,9 @@
                         Service Name</th>
                     <th data-column-id="servicedesc" data-width="50%">
                         Description</th>
-                    <th class="mvalue" data-column-id="serviceprice" data-align="right" data-width="10%">
+                    <th class="mvalue" data-column-id="serviceprice" data-align="right" data-header-align="right" data-width="10%">
                         Price</th>
-                    <th data-column-id="servicedatemod" data-align="center" data-width="13%">
+                    <th data-column-id="servicedatemod" data-header-align="right" data-align="center" data-width="13%">
                         Date Modified</th>
                 </tr>
             </thead>  

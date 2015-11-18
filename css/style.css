@@ -286,7 +286,7 @@ input[type="checkbox"]:checked:after {
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #2fa4e7;
-  /*cursor: pointer;*/
+  cursor: pointer;
 }
 .table > thead > tr > th {
   vertical-align: bottom;
@@ -441,14 +441,3 @@ input[type="checkbox"]:checked:after {
     top: 0;
     left: 50%;
 }
-
-
-/*service columns*/
-#serviceTable > thead > tr > th:nth-child(4){
-    text-align: right;
-}
-
-#serviceTable > thead > tr > th:nth-child(5) {
-    text-align: right;
- }
-/*service columns*/
