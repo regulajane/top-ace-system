@@ -176,11 +176,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Status:</label>
-                                        <div class="col-xs-4">
-                                            <select class="form-control" id="empstatus" name="empstatus" required>
-                                                <option value="Active">Active</option>
-                                                <option value="Inactive">Inactive</option>
+                                        <label class="control-label col-xs-4">Job Description:</label>
+                                        <div class="col-xs-7">
+                                            <select class="form-control" id="emptype" name="emptype">
+                                                <option value="" disabled selected>Select Job Description</option>
+                                                <option value="Machinist">Machinist</option>
+                                                <option value="Front Desk Personnel">Front Desk Personnel</option>
+                                                <option value="Manager">Manager</option>
                                             </select>
                                         </div>
                                     </div>
@@ -191,14 +193,12 @@
                                                 required placeholder="">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-4">Job Description:</label>
-                                        <div class="col-xs-7">
-                                            <select class="form-control" id="emptype" name="emptype">
-                                                <option value="" disabled selected>Select Job Description</option>
-                                                <option value="Machinist">Machinist</option>
-                                                <option value="Front Desk Personnel">Front Desk Personnel</option>
-                                                <option value="Manager">Manager</option>
+                                    <div id="empstatusdiv" class="form-group">
+                                        <label class="control-label col-xs-4">Status:</label>
+                                        <div class="col-xs-4">
+                                            <select class="form-control" id="empstatus" name="empstatus" required>
+                                                <option value="Active">Active</option>
+                                                <option value="Inactive">Inactive</option>
                                             </select>
                                         </div>
                                     </div>

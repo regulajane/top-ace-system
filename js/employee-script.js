@@ -122,8 +122,14 @@ window.onload = function () {
                 $(".empUpdate #empstatus").val(empStatus);
                 $(".empUpdate #empemailad").val(empEmail);
                 $(".empUpdate #emptype").val(empType);
-                    
-                $('#updateEmployeeModal').modal('show');
+
+                if (empNoofjobs == 0) {
+                    $('.empUpdate #empstatusdiv').show();  
+                    $('#updateEmployeeModal').modal('show');
+                } else {
+                    $('.empUpdate #empstatusdiv').hide();
+                    $('#updateEmployeeModal').modal('show');
+                }
             }
         });           
     });
