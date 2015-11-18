@@ -11,7 +11,7 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $where =" 1=1 ";
-    $order_by="emplastname";
+    $order_by="empstatus, emplastname";
     $rows=25;
     $current=1;
     $limit_l=($current * $rows) - ($rows);
