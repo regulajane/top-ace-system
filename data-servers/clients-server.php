@@ -49,7 +49,15 @@
       $limit=" LIMIT $limit_l,$limit_h ";
        
     //Query (Warning: Prone to SQL injection.)
-    $sql="SELECT * from clients
+    $sql="SELECT clientid,
+            cllastname,
+            clfirstname,
+            clmidinitial,
+            clcelno,
+            clgender,
+            claddress,
+            date_format(clsince,' %b. %m, %Y') as clsince
+            from clients
             WHERE $where 
             ORDER BY $order_by $limit";
     $stmt=$conn->prepare($sql);
