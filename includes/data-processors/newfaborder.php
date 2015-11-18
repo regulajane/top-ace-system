@@ -59,7 +59,7 @@
 
 
         for($i=0 ;$i < count($_POST['machinist']); $i++) {
-               // Prepare
+        // Prepare
             
             $sql3 = "INSERT INTO joemployees (joborderid, employeeid) VALUES (?, ?)";
             $stmt3 = $conn->prepare($sql3); 
@@ -67,6 +67,10 @@
             $stmt3->bind_param("ss", $latestjoborderid, $machinist[$i]);
         // Execute
             $stmt3->execute();
+
+            $sql = "UPDATE employees SET noofjobs = (noofjobs + 1) WHERE employeeid = '$machinist[$i]'";
+            $stmt = $conn->prepare($sql);     
+            $stmt->execute(); 
         }
 
 

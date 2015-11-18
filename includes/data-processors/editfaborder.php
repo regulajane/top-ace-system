@@ -32,6 +32,12 @@
             $stmt2->execute();
         }
 
+        // $sqljoNum = "SELECT emplastname, empfirstname, noofjobs from joemployees join employees using (employeeid) where joborderid = 201511181;";
+        // $result = $conn->query($sqljoNum);
+        // $resultRow = $result->fetch_assoc();
+        // $latestjoborderid = $resultRow['latestjoborder'];
+
+
         $sql = "DELETE from joemployees where joborderid = '$num'";
         $stmt = $conn->prepare($sql);  
         $stmt->execute();
