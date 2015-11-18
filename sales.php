@@ -36,7 +36,7 @@
                             Quantity</th>
                         <th data-column-id="itemsize">
                             Size</th>  
-                        <th data-column-id="saleprice" data-align="right">
+                        <th data-column-id="saleprice" data-align="right" data-header-align="right">
                             Price</th>
                         <th data-column-id="total">
                             Total</th>
