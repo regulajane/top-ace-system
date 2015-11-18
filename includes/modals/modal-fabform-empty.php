@@ -51,7 +51,7 @@
                                         <div class="multi-fields">
                                             <div class="multi-field">
                                                 <div class="control-group form-group">
-                                                    <label class="control-label col-xs-3">Item Name:</label>
+                                                    <label class="control-label col-xs-3">Item Description:</label>
                                                         <div class="controls col-xs-8">
                                                             <input type="text" class="form-control" id="item" name="item[]" 
                                                                 placeholder="Item name" required>

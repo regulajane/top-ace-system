@@ -9,6 +9,7 @@
         $item= $_POST["item"];
         $price= $_POST["price"];
         $length= $_POST["length"];
+        $machinist = $_POST["machinist"];
         $totalprice = 0;
         //-----------------------------UPDATE------------------------------------
         // Prepare 
@@ -30,6 +31,22 @@
         // Execute
             $stmt2->execute();
         }
+
+        $sql = "DELETE from joemployees where joborderid = '$num'";
+        $stmt = $conn->prepare($sql);  
+        $stmt->execute();
+
+        for($i=0 ;$i < count($_POST['machinist']); $i++) {
+               // Prepare
+            $sql3 = "INSERT INTO joemployees (joborderid, employeeid) VALUES (?, ?)";
+            $stmt3 = $conn->prepare($sql3); 
+        // Bind
+            $stmt3->bind_param("ss", $num, $machinist[$i]);
+        // Execute
+            $stmt3->execute();
+        }
+
+
 
         
         $sql = "UPDATE joborders 

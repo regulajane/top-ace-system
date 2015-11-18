@@ -3,7 +3,10 @@
     if(!isset($_SESSION["username"])){
     header('Location: ../index.php?loggedout=true');}
 ?>
+
+
 <!-- EDIT Fab Form Modal -->
+<script src="js/jo-script.js"></script>
 <div class="modal fade" id="editFabModal" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -68,8 +71,10 @@
                                         <div class="multi-field"> -->
 
                                         <!--     <div class="form-group"> -->
+                                                
                                                 <div class="col-xs-6" id="fabricationorders">
-                                                    
+                                                <button type="button" class="add-field btn btn-default" 
+                                                    id="addfield" onclick="sample()"><i class="fa fa-plus"></i>Add More...</button>
                                         
                                                 <!-- <div class="col-xs-6" id="machinist">
                                                 </div> -->

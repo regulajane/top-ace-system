@@ -46,13 +46,14 @@ function fabOrder(){
                 $(".fabEdit #downpayment").val(fabDownpayment);
                 var div1 = document.createElement("div");
                 div1.className = "multi-field-wrapper";
+                var div2 = document.createElement("div");
+                div2.className = "multi-fields";
                 for (var i = 0; i < fabData.length; i++) {
                             var fabor = document.getElementById("fabricationorders");
                             var fabdesc = document.createElement("input");
                             var fabqty = document.createElement("input");
                             var fabprice = document.createElement("input");
-                            var div2 = document.createElement("div");
-                            div2.className = "multi-fields";
+                            
                             var div3 = document.createElement("div");
                             fabqty.type = "number";
                             fabqty.id = "length";
@@ -73,6 +74,78 @@ function fabOrder(){
                             fabdesc.id = "item";
                             fabdesc.name = "item[]";
                             fabdesc.value = fabData[i].fabricationdesc;
+                            
+                            var removebtn = document.createElement("button");
+                           
+                            removebtn.type = "button";
+                            removebtn.className = "remove-field btn btn-default";
+                            removebtn.id = "removefield";
+                            
+                            var removebtnsymbol = document.createElement("i");
+                            removebtnsymbol.className = "fa fa-minus";
+                            removebtn.appendChild(removebtnsymbol);
+                            removebtn.appendChild(document.createTextNode("Remove")); 
+                            var br = document.createElement('br');
+                            fabor.appendChild(div1);    
+                            div3.appendChild(fabdesc);
+                            div3.appendChild(fabqty);
+                            div3.appendChild(fabprice);
+                            div3.appendChild(br);
+                            
+                            div3.appendChild(removebtn);
+                            div3.appendChild(br);
+
+                            if(i === 0){
+                                var addbtn = document.createElement("button");
+                                addbtn.type = "button";
+                                addbtn.className = "add-field btn btn-default";
+                                addbtn.id = "addfield";
+                                var addbtnsymbol = document.createElement("i");
+                                addbtnsymbol.className = "fa fa-plus";
+                                addbtn.appendChild(addbtnsymbol);
+                                addbtn.appendChild(document.createTextNode("Add More..."));
+                                div3.appendChild(addbtn);
+                            }
+                            
+                           
+                };
+                addbtn.setAttribute("click", addFabrication());
+                removebtn.setAttribute("click", removeOrderInEdit());  
+                $('#editFabModal').modal('show');
+            }
+        });
+
+        // var fabMachinistData;
+        
+        $.ajax({
+            type: "POST",
+            url: "includes/data-processors/processFabSelectedMachinistAjax.php",
+            data: {selectedID: selectedID},
+            success: function(data) {
+                
+                fabMachinistData2 = JSON.parse(data);
+                $.ajax({
+                    type: "POST",
+                    url: "includes/data-processors/processFabMachinistajax.php",
+                    data: {selectedID: selectedID},
+                    success: function(data2) {
+                        fabMachinistData = JSON.parse(data2);
+                        var div1 = document.createElement("div");
+                        div1.className = "multi-field-wrapper";
+                        var div2 = document.createElement("div");
+                        div2.className = "multi-fields";
+                        for (var k = 0; k < fabMachinistData2.length; k++) {
+                            var selectmachinist = document.createElement("select");
+                            selectmachinist.className = "form-control";
+                            selectmachinist.id = "machinist";
+                            selectmachinist.name = "machinist[]";
+                            for (var i = 0; i < fabMachinistData.length; i++) {
+                                var machinistoption = document.createElement("option");
+                                machinistoption.value = fabMachinistData[i].employeeid;
+                                machinistoption.innerHTML = fabMachinistData[i].empfirstname + " " + fabMachinistData[i].emplastname;
+                                selectmachinist.appendChild(machinistoption);
+                                selectmachinist.value = fabMachinistData2[k].employeeid;
+                            }
                             var addbtn = document.createElement("button");
                             var removebtn = document.createElement("button");
                             addbtn.type = "button";
@@ -89,84 +162,27 @@ function fabOrder(){
                             removebtnsymbol.className = "fa fa-minus";
                             removebtn.appendChild(removebtnsymbol);
                             removebtn.appendChild(document.createTextNode("Remove")); 
-                            var br = document.createElement('br');
-                            fabor.appendChild(div1);    
-                            div3.appendChild(fabdesc);
-                            div3.appendChild(fabqty);
-                            div3.appendChild(fabprice);
-                            div3.appendChild(br);
+                            var fabor = document.getElementById("fabricationorders");
+                            // fabor.appendChild(selectmachinist);
+                           
+                            var div3 = document.createElement("div");
+                            div3.className = "multi-field";
+                            div2.appendChild(div3);
+                            div1.appendChild(div2);
+                            fabor.appendChild(div1);
+                            div3.appendChild(selectmachinist);
+                            div3.appendChild(document.createElement('br'));
                             div3.appendChild(addbtn);
                             div3.appendChild(removebtn);
-                            div3.appendChild(br);      
-                };
-                addbtn.setAttribute("click", addOrderInEdit());
-                removebtn.setAttribute("click", removeOrderInEdit());  
-                $('#editFabModal').modal('show');
-            }
-        });
-
-        var fabMachinistData;
-        
-        $.ajax({
-            type: "POST",
-            url: "includes/data-processors/processFabMachinistajax.php",
-            data: {selectedID: selectedID},
-            success: function(data) {
-                fabMachinistData = JSON.parse(data);   
-            }
-        });
-
-        $.ajax({
-            type: "POST",
-            url: "includes/data-processors/processFabSelectedMachinistAjax.php",
-            data: {selectedID: selectedID},
-            success: function(data) {
-                
-                fabMachinistData2 = JSON.parse(data);
-                var div1 = document.createElement("div");
-                div1.className = "multi-field-wrapper";
-                for (var k = 0; k < fabMachinistData2.length; k++) {
-                    var selectmachinist = document.createElement("select");
-                    for (var i = 0; i < fabMachinistData.length; i++) {
-                        var machinistoption = document.createElement("option");
-                        machinistoption.value = fabMachinistData[i].employeeid;
-                        machinistoption.innerHTML = fabMachinistData[i].empfirstname + " " + fabMachinistData[i].emplastname;
-                        selectmachinist.appendChild(machinistoption);
-                        selectmachinist.value = fabMachinistData2[k].employeeid;
+                            
+                        }
+                        addbtn.setAttribute("click", addOrderInEdit());
+                        removebtn.setAttribute("click", removeOrderInEdit()); 
                     }
-                    var addbtn = document.createElement("button");
-                    var removebtn = document.createElement("button");
-                    addbtn.type = "button";
-                    addbtn.className = "add-field btn btn-default";
-                    addbtn.id = "addfield";
-                    removebtn.type = "button";
-                    removebtn.className = "remove-field btn btn-default";
-                    removebtn.id = "removefield";
-                    var addbtnsymbol = document.createElement("i");
-                    addbtnsymbol.className = "fa fa-plus";
-                    addbtn.appendChild(addbtnsymbol);
-                    addbtn.appendChild(document.createTextNode("Add More..."));
-                    var removebtnsymbol = document.createElement("i");
-                    removebtnsymbol.className = "fa fa-minus";
-                    removebtn.appendChild(removebtnsymbol);
-                    removebtn.appendChild(document.createTextNode("Remove")); 
-                    var fabor = document.getElementById("fabricationorders");
-                    // fabor.appendChild(selectmachinist);
-                    var div2 = document.createElement("div");
-                    div2.className = "multi-fields";
-                    var div3 = document.createElement("div");
-                    div3.className = "multi-field";
-                    div2.appendChild(div3);
-                    div1.appendChild(div2);
-                    fabor.appendChild(div1);
-                    div3.appendChild(selectmachinist);
-                    div3.appendChild(document.createElement('br'));
-                    div3.appendChild(addbtn);
-                    div3.appendChild(removebtn);
                     
-                }
-                addbtn.setAttribute("click", addOrderInEdit());
-                removebtn.setAttribute("click", removeOrderInEdit()); 
+                });
+                
+                
             }
         });
 
@@ -338,12 +354,23 @@ function addOrder(){
 
 }
 
+function addFabrication(){
+    var $fields = $('fabricationorders multi-field-wrapper:first-child multi-fields');
+    $('fabricationorders multi-field-wrapper:first-child multi-fields .multi-field:first-child').clone().appendTo($fields).find('input').val('').focus();
+    $('body').on('click', '.remove-field', function(){
+        $(this).closest('div').remove();
+        
+    });
+    $('fabricationorders multi-field-wrapper:first-child multi-fields .multi-field:first-child .add-field').hide();
+    
+}
+
 function addOrderInEdit(){
      $('.multi-field-wrapper').each(function() {
         var $wrapper = $('.multi-fields', this);
         $(".add-field", $(this)).click(function(e) {
-            $('.multi-field:first-child', 
-                $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
+
+            $('.multi-field:first-child', $wrapper).clone(false).appendTo($wrapper).find('input').val('').focus();
         });
        
     });
@@ -358,4 +385,8 @@ function removeOrderInEdit(){
                 $(this).parent('.multi-field').remove();
         });
     });
+}
+
+function sample(){
+    alert("aaa");
 }
