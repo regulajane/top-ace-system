@@ -56,9 +56,9 @@
     $sql="SELECT  joborders.joborderid,
                   joborders.problem,
                   date_format(datebrought,' %b. %m, %Y') as datebrought,
-                  joborders.datestarted,
-                  joborders.datefinished,
-                  joborders.dateclaimed,
+                  date_format(datestarted,' %b. %m, %Y') as datestarted,
+                  date_format(datefinished,' %b. %m, %Y') as datefinished,
+                  date_format(dateclaimed,' %b. %m, %Y') as dateclaimed,
                   joborders.joprice,
                   joborders.downpayment,
                   joborders.jostatus,
@@ -67,7 +67,7 @@
                   joborders.supervisor,
                   joborders.preparedby,
                   joborders.jotype,
-                  (joborders.joprice - joborders.downpayment) as balance,
+                  joborders.balance,
 
                   concat(cllastname,', ',clfirstname) as clientname  
                     
