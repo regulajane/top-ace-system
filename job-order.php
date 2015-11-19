@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <!-- Job Order Table -->
-                        <table  id="jobOrderTable" class="table table-condensed table-hover">
+                        <table  id="jobOrderTable" class="table table-condensed table-hover table-striped">
                             <thead>
                                 <tr>
                                     <th data-column-id="joborderid" data-visible="true" data-identifier="true">

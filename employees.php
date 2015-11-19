@@ -23,7 +23,7 @@
                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit/Update </button>
         </div>
         <!-- Job Order Table -->
-        <table  id="employeeTable" class="table table-condensed table-hover">
+        <table  id="employeeTable" class="table table-condensed table-hover table-striped">
             <thead>
                 <tr>
                     <th data-column-id="employeeid" data-visible="false" data-identifier="true">

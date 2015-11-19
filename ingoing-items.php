@@ -23,7 +23,7 @@
         </div>
         <hr style="margin-bottom: 70px">
 
-        <table  id="inItemsTable" class="table table-condensed table-hover">
+        <table  id="inItemsTable" class="table table-condensed table-hover table-striped">
             <thead>
                 <tr>
                     <th data-column-id="isdate">Date</th>

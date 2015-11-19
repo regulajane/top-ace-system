@@ -23,7 +23,7 @@
                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit/Update </button>
         </div>
         <!-- Service Table -->
-        <table  id="serviceTable" class="table table-condensed table-hover">
+        <table  id="serviceTable" class="table table-condensed table-hover table-striped">
             <thead>
                 <tr>
                     <th data-column-id="serviceid" data-visible="false" data-identifier="true">
@@ -39,7 +39,6 @@
                 </tr>
             </thead>  
         </table>
-        <hr>
         <?php include 'includes/footer.php'; ?>
     </div>
     </div>

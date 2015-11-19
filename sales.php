@@ -30,12 +30,14 @@
                             Sale ID</th>
                         <th data-column-id="saledate">
                             Date</th>
+                        <th data-column-id="modelno">
+                            Model No</th>
                         <th data-column-id="itemname">
-                            Item</th>   
-                        <th data-column-id="noofitems">
-                            Quantity</th>
+                            Name</th>   
                         <th data-column-id="itemsize">
                             Size</th>  
+                        <th data-column-id="noofitems">
+                            Quantity</th>
                         <th data-column-id="saleprice" data-align="right" data-header-align="right">
                             Price</th>
                         <th data-column-id="total">

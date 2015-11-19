@@ -41,7 +41,7 @@
                     </div>
                     <div class="btn-group">
                         <a href="inventory.php" type="button" class="btn btn-nav">
-                            <i class="fa fa-bus fa-5x"></i> 
+                            <i class="fa fa-cogs fa-5x"></i> 
                             <p>Inventory</p>
                         </a>
                     </div>

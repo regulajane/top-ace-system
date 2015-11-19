@@ -82,7 +82,7 @@
 			</div>
 
 			<!-- Inventory Table -->
-			<table  id="inventoryTable" class="table table-condensed table-hover">
+			<table  id="inventoryTable" class="table table-condensed table-hover table-striped">
 				<thead>
 					<tr>
 						<th data-column-id="modelno">

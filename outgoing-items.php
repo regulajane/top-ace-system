@@ -24,7 +24,7 @@
         </div>
         <hr style="margin-bottom: 70px">
 
-        <table  id="outItemsTable" class="table table-condensed table-hover">
+        <table  id="outItemsTable" class="table table-condensed table-hover table-striped">
             <thead>
                 <tr>
                     <th data-column-id="isdate">Date</th>
