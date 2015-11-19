@@ -203,6 +203,8 @@
                                             ?>
                                         </select>
                                     </div>
+                                    <button type="button" id="newclientbtn" class="btn btn-info" data-toggle="modal" 
+                                        href="#clientModal"><i class="fa fa-plus fa-fw"></i> New Client </button>
                                 </div>
 
                                 <div class="form-group">
@@ -513,3 +515,8 @@
         </div>
     </div>
 </div> <!-- JO Empty Form Modal -->
+
+
+<?php 
+    include 'modal-client.php';
+?>

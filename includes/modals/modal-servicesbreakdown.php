@@ -18,7 +18,7 @@
             <div class="modal-header">
                 
                    
-                <h4 class="modal-title" id="myModalLabel">Services Breakdown</h4>
+                <h4 class="modal-title" id="myModalLabel">Payment</h4>
             </div>
             <div class="brkdown modal-body">
                 <div class="well">
@@ -43,8 +43,26 @@
                                             $sqlservices = "SELECT * FROM servicelogs join services using (serviceid) where joborderid = $maxjoid";
                                             $ss = $conn->query($sqlservices);
                                             while($sss = $ss->fetch_assoc()){
-                                                $servicesavailed = $sss['servicename'];
+                                                $servicesavailed = $sss['servicename']. " - PHP ". $sss['serviceprice'];
                                                 echo $servicesavailed . "<br>";
+
+                                            }   
+                                        ?>
+                                    </div>
+                                </div>
+
+
+                                <hr>
+
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Item List:</label>
+                                    <div class="col-md-8">
+                                        <?php      
+                                            $sqlitem = "SELECT * FROM itemlogs join inventory using (inventoryid) where joborderid = $maxjoid; ";
+                                            $is = $conn->query($sqlitem);
+                                            while($iss = $is->fetch_assoc()){
+                                                $invty = $iss['inventoryname']. " " . $iss['inventorysize'] . " - PHP ". $iss['inventoryprice'];
+                                                echo $invty . "<br>";
 
                                             }   
                                         ?>
@@ -59,7 +77,7 @@
                                 
 
                                 <div class="form-group">
-                                    <label class="control-label col-xs-3">Services Availed and Item List Cost</label>
+                                    <label class="control-label col-xs-3">Services/Items Cost</label>
                                     <div class="col-xs-4">
                                         <?php      
                                             $sqlservices = "SELECT SUM(services.serviceprice) AS servicestotal FROM servicelogs join services using (serviceid) where joborderid = $maxjoid";
@@ -92,7 +110,7 @@
                                     <label class="control-label col-md-3">Discount:</label>
                                     <div class="controls col-md-4">
                                         <input type="number" class="form-control" id="discount" name="discount" 
-                                            placeholder="0.00" required autocomplete="off">
+                                            placeholder="0.00" autocomplete="off">
                                     </div>
                                 </div>
                                 
