@@ -47,6 +47,21 @@
             $sqldatestarted = "UPDATE joborders set datestarted = CURDATE(), jostatus = 'Ongoing' where joborderid = '$receiptNo' ";
             $stmtstarted = $conn->prepare($sqldatestarted);
             $stmtstarted->execute();
+
+
+            $sqlinvtyid = "SELECT inventoryid,itemquantity from itemlogs where joborderid = '$receiptNo' ";
+            $resultinvtyid= $conn->query($sqlinvtyid);
+            while($resultRowinvty = $resultinvtyid->fetch_assoc()){
+                $invtyid = $resultRowinvty['inventoryid'];
+                $invtyqty = $resultRowinvty['itemquantity'];
+
+                $sqlinvty = "UPDATE inventory SET inventoryquantity = (inventoryquantity - '$invtyqty' ) where inventoryid = '$invtyid'; ";
+                $stmtinvty = $conn->prepare($sqlinvty);
+                $stmtinvty->execute();
+            }
+
+            
+            
         }
 
         // count services availed where status is done
@@ -68,6 +83,10 @@
             $sqldatefinished = "UPDATE joborders set datefinished = CURDATE(), jostatus = 'Done' where joborderid = '$receiptNo' ";
             $stmtfinished = $conn->prepare($sqldatefinished);
             $stmtfinished->execute();
+
+            $sqlemp = "UPDATE employees SET noofjobs = (noofjobs-1) where employeeid IN (SELECT employeeid from joemployees where joborderid = '$receiptNo');";
+            $stmtemp = $conn->prepare($sqlemp);
+            $stmtemp->execute();
         }
 
         // select balance
@@ -83,7 +102,7 @@
         $stmtpayment = $conn->prepare($sqlpayment);
         $stmtpayment->execute();
 
-
+        // update no of jobs
 
 
         header('location:../../job-order.php');                        
