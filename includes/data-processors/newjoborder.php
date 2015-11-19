@@ -88,8 +88,7 @@
                         $result = $conn->query($sqlinvtyid);    
                     }else{
                         $sqlinvtyid = "SELECT inventoryid,inventoryprice from inventory join models using (modelid) 
-                                         where inventoryname = '$itemid[$i]'
-                                         and inventorysize IS NULL
+                                         where inventoryname = '$itemid[$i]'                                         
                                          and modelno = '$modelid'; ";
                         $result = $conn->query($sqlinvtyid);
                     }

@@ -46,6 +46,12 @@
         $stmtprice = $conn->prepare($sqlupdateprice);
         $stmtprice->execute(); 
 
+        // update balance
+        $bal = $tempgrandtotal - $downpayment;
+        $sqlupdatebalance = "UPDATE joborders SET balance = $bal where joborderid = '$maxjoid' ";
+        $stmtbal = $conn->prepare($sqlupdatebalance);
+        $stmtbal->execute(); 
+
     	header('location:../../job-order.php');           			   
     }
 

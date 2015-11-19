@@ -2,87 +2,90 @@
     include '../header.php';
     if(!isset($_SESSION["username"])){
     header('Location: ../../index.php?loggedout=true');}
-    // Update Job Order
-    $presql = "SELECT remarkNo FROM remarks order by remarkNo desc limit 1;";
-            $rs = $conn->query($presql);
-            $resultRow = $rs->fetch_assoc();
-    $remarkNo = $resultRow['remarkNo'] + 1;
+
+    
+
+    
     if(isset($_POST["submit"])=="submit") {
-        // Update JO Variables
-        $num = $_SESSION['joNumber'];
-        $dateOfPostrepairRequest= $_POST["dateOfPostrepairRequest"];
-        $contractNo= $_POST["contractNo"];
-        $amount= $_POST["amount"];
-        $accountOf= $_POST["accountOf"];
-        $deliveredAt= $_POST["deliveredAt"];
-        $dateDelivered= $_POST["dateDelivered"];
-        $contractor= $_POST["contractor"];
-        $invoiceReceiptNo= $_POST["invoiceReceiptNo"];
-        // MD Variables
-        $vehicleNo= $_POST["vehicleNo"];
-        $vehiclePartNo = $_POST["vehiclePartNo"];
-        $notes = $_POST["notes"];
-        $date = $_POST["dateOfPostrepairRequest"];
-        // Remarks Variable
-        $remark= $_POST["remark"];
-        $remarkID= date("YmdHis");
-        //-----------------------------UPDATE------------------------------------
-        // Prepare
-        $sql = "UPDATE joborder
-                SET dateOfPostrepairRequest='$dateOfPostrepairRequest',
-                    contractNo='$contractNo',
-                    amount='$amount',
-                    accountOf='$accountOf',
-                    deliveredAt='$deliveredAt',
-                    dateDelivered='$dateDelivered',
-                    contractor='$contractor',
-                    invoiceReceiptNo='$invoiceReceiptNo',
-                    joStatus='Done'
-                WHERE joNo= '$num'";
-        $stmt = $conn->prepare($sql);     
-        $stmt->execute();
-        //-----------------------------INSERT------------------------------------
-        for($i=0 ;$i < count($_POST['vehiclePartNo']); $i++) {
-            if ($_POST['remark'][$i] != '') {
-                // Prepare
-                $sql3 = "INSERT INTO remarks (remarkNo, remark) VALUES (?, ?)";
-                // Prepare
-                $sql2 = "INSERT INTO maintenancedetails (vehicleNo, vehiclePartNo, notes, date, remarkNo) VALUES (?, ?, ?, ?, ?)";
-                $stmt3 = $conn->prepare($sql3);     
-                $stmt2 = $conn->prepare($sql2);     
-                // Bind
-                $stmt3->bind_param("is", $remarkNo, $remark[$i]);
-                // Bind
-                $stmt2->bind_param("iissi", $vehicleNo, $vehiclePartNo[$i], $notes[$i], $date, $remarkNo);
-                // Execute
-                $stmt3->execute();
-                // Execute
-                $stmt2->execute();
-                // Increment remarkNo
-                $remarkNo = $remarkNo + 1;
-            } else {
-                // Prepare
-                $sql2 = "INSERT INTO maintenancedetails (vehicleNo, vehiclePartNo, notes, date) VALUES (?, ?, ?, ?)";
-                $stmt2 = $conn->prepare($sql2);     
-                // Bind
-                $stmt2->bind_param("iiss", $vehicleNo, $vehiclePartNo[$i], $notes[$i], $date);
-                // Execute
-                $stmt2->execute();
+        $receiptNo = $_POST['receiptNo'];
+        $servicestatus = $_POST['servicestatus'];
+        $servicesavailed = $_POST['servicesavailed'];
+        $payment = $_POST['payment'];
+
+        // echo $receiptNo;
+        for($i=0 ;$i < count($_POST['servicesavailed']); $i++) {
+            $sqlsrvid = "SELECT serviceid from services where servicename = '$servicesavailed[$i]' ";
+            $result = $conn->query($sqlsrvid); 
+
+            while($resultRow = $result->fetch_assoc()){
+                $sid = $resultRow['serviceid'];
+
+                $sql = "UPDATE servicelogs SET servicestatus = ? where joborderid = $receiptNo and serviceid = '$sid' ";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("s", $servicestatus[$i]  );
+                $stmt->execute();
             }
+            
         }
-        //-----------------------------INSERT SESSIONLOGS------------------------------------
-        ini_set('date.timezone', 'Asia/Manila');
-        $timestamp = date("D M j G:i:s T Y");
-        $username = $_SESSION["username"];
-        $edit = "updated JONumber " .$num;
-        // Prepare
-        $sql = "INSERT INTO sessionlogs (username, timestamp, activity) VALUES (?, ?, ?)";          
-        $stmt = $conn->prepare($sql);
-        // Bind
-        $stmt->bind_param("sss", $username, $timestamp, $edit);
-        // Execute 
-        $stmt->execute();
-        // Redirect
+
+        // Check if any of the services is started
+        $sqlpstarted = "SELECT servicestatus from servicelogs where servicestatus  = 'Started' and joborderid = '$receiptNo' ";
+        $resultstarted = $conn->query($sqlpstarted);
+        while($resultRowStarted = $resultstarted->fetch_assoc()){
+            $started = $resultRowStarted['servicestatus'];
+        }
+
+        // check if the date started has value
+        $sqldstarted= "SELECT datestarted from joborders where joborderid = '$receiptNo' ";
+        $resultdstarted = $conn->query($sqldstarted);
+        while($resultRowdStarted = $resultdstarted->fetch_assoc()){
+            $dstarted = $resultRowdStarted['datestarted'];
+        }
+
+        // update date started
+        if($started == "Started" AND empty($dstarted) ){
+            $sqldatestarted = "UPDATE joborders set datestarted = CURDATE(), jostatus = 'Ongoing' where joborderid = '$receiptNo' ";
+            $stmtstarted = $conn->prepare($sqldatestarted);
+            $stmtstarted->execute();
+        }
+
+        // count services availed where status is done
+        $sqlsadone = "SELECT COUNT(servicestatus) AS countsadone from servicelogs where servicestatus  = 'Done' and joborderid = '$receiptNo' ";
+        $resultsadone= $conn->query($sqlsadone);
+        while($resultRowSaDone = $resultsadone->fetch_assoc()){
+            $sadone = $resultRowSaDone['countsadone'];
+        }
+
+        // count services availed
+        $sqlsa = "SELECT COUNT(servicestatus) AS countsa from servicelogs where joborderid = '$receiptNo' ";
+        $resultsa= $conn->query($sqlsa);
+        while($resultRowSa = $resultsa->fetch_assoc()){
+            $sa = $resultRowSa['countsa'];
+        }
+
+        // update date finished and job order status
+        if($sadone == $sa){
+            $sqldatefinished = "UPDATE joborders set datefinished = CURDATE(), jostatus = 'Done' where joborderid = '$receiptNo' ";
+            $stmtfinished = $conn->prepare($sqldatefinished);
+            $stmtfinished->execute();
+        }
+
+        // select balance
+        $sqlbal = "SELECT balance from joborders where joborderid = '$receiptNo' ";
+        $resultbal= $conn->query($sqlbal);
+        $resultRowSBal = $resultbal->fetch_assoc();
+        $bal = $resultRowSBal['balance'];
+
+        $tempbal = $bal-$payment;
+
+        // update payment
+        $sqlpayment = "UPDATE joborders SET balance = '$tempbal' where joborderid = '$receiptNo' ";
+        $stmtpayment = $conn->prepare($sqlpayment);
+        $stmtpayment->execute();
+
+
+
+
         header('location:../../job-order.php');                        
     }
     $conn->close();
