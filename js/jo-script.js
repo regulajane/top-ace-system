@@ -4,6 +4,10 @@ window.onload = function () {
     addOrder();
     jobOrderForm();
 
+	$('body').on('click', '.remove-field', function(){
+		$(this).closest('div').remove();
+			
+	});
 }
 
 function fabOrder(){
@@ -45,7 +49,7 @@ function fabOrder(){
                 $(".fabEdit #fabjoborderprice").val(fabFabricationJOPrice);
                 $(".fabEdit #downpayment").val(fabDownpayment);
                 var div1 = document.createElement("div");
-                div1.className = "multi-field-wrapper";
+                div1.className = "multi-field-wrapper-fabrication";
                 var div2 = document.createElement("div");
                 div2.className = "multi-fields";
                 for (var i = 0; i < fabData.length; i++) {
@@ -87,18 +91,12 @@ function fabOrder(){
                             removebtn.appendChild(document.createTextNode("Remove")); 
                             var br = document.createElement('br');
                             fabor.appendChild(div1);    
-                            div3.appendChild(fabdesc);
-                            div3.appendChild(fabqty);
-                            div3.appendChild(fabprice);
-                            div3.appendChild(br);
-                            
-                            div3.appendChild(removebtn);
-                            div3.appendChild(br);
+                           
 
                             if(i === 0){
                                 var addbtn = document.createElement("button");
                                 addbtn.type = "button";
-                                addbtn.className = "add-field btn btn-default";
+                                addbtn.className = "add-field btn btn-info";
                                 addbtn.id = "addfield";
                                 var addbtnsymbol = document.createElement("i");
                                 addbtnsymbol.className = "fa fa-plus";
@@ -106,11 +104,18 @@ function fabOrder(){
                                 addbtn.appendChild(document.createTextNode("Add More..."));
                                 div3.appendChild(addbtn);
                             }
+							
+							div3.appendChild(fabdesc);
+                            div3.appendChild(fabqty);
+                            div3.appendChild(fabprice);
+                            div3.appendChild(br);
+                            
+                            div3.appendChild(removebtn);
+                            div3.appendChild(br);
                             
                            
                 };
-                addbtn.setAttribute("click", addFabrication());
-                removebtn.setAttribute("click", removeOrderInEdit());  
+                addbtn.setAttribute("click", addOrderInEdit('fabrication'));
                 $('#editFabModal').modal('show');
             }
         });
@@ -131,7 +136,7 @@ function fabOrder(){
                     success: function(data2) {
                         fabMachinistData = JSON.parse(data2);
                         var div1 = document.createElement("div");
-                        div1.className = "multi-field-wrapper";
+                        div1.className = "multi-field-wrapper-machinist";
                         var div2 = document.createElement("div");
                         div2.className = "multi-fields";
                         for (var k = 0; k < fabMachinistData2.length; k++) {
@@ -146,38 +151,47 @@ function fabOrder(){
                                 selectmachinist.appendChild(machinistoption);
                                 selectmachinist.value = fabMachinistData2[k].employeeid;
                             }
-                            var addbtn = document.createElement("button");
+                           
                             var removebtn = document.createElement("button");
-                            addbtn.type = "button";
-                            addbtn.className = "add-field btn btn-default";
-                            addbtn.id = "addfield";
+                           
                             removebtn.type = "button";
                             removebtn.className = "remove-field btn btn-default";
                             removebtn.id = "removefield";
-                            var addbtnsymbol = document.createElement("i");
-                            addbtnsymbol.className = "fa fa-plus";
-                            addbtn.appendChild(addbtnsymbol);
-                            addbtn.appendChild(document.createTextNode("Add More..."));
+                           
                             var removebtnsymbol = document.createElement("i");
                             removebtnsymbol.className = "fa fa-minus";
                             removebtn.appendChild(removebtnsymbol);
                             removebtn.appendChild(document.createTextNode("Remove")); 
                             var fabor = document.getElementById("fabricationorders");
                             // fabor.appendChild(selectmachinist);
-                           
                             var div3 = document.createElement("div");
                             div3.className = "multi-field";
+
+                            if(k === 0){
+                                var addbtn = document.createElement("button");
+                                addbtn.type = "button";
+                                addbtn.className = "add-field btn btn-info";
+                                addbtn.id = "addfield";
+                                var addbtnsymbol = document.createElement("i");
+                                addbtnsymbol.className = "fa fa-plus";
+                                addbtn.appendChild(addbtnsymbol);
+                                addbtn.appendChild(document.createTextNode("Add More..."));
+                                div3.appendChild(addbtn);
+                            }
+                           
+                            
                             div2.appendChild(div3);
                             div1.appendChild(div2);
                             fabor.appendChild(div1);
+							div3.appendChild(document.createElement('br'));
+							
                             div3.appendChild(selectmachinist);
-                            div3.appendChild(document.createElement('br'));
-                            div3.appendChild(addbtn);
-                            div3.appendChild(removebtn);
+							div3.appendChild(removebtn);
+							div3.appendChild(document.createElement('br'));
+                           
                             
                         }
-                        addbtn.setAttribute("click", addOrderInEdit());
-                        removebtn.setAttribute("click", removeOrderInEdit()); 
+                        addbtn.setAttribute("click", addOrderInEdit('machinist'));
                     }
                     
                 });
@@ -188,6 +202,134 @@ function fabOrder(){
 
                    
     });
+
+    $("#updatefabbtn").on("click", function() {
+        var selectedIDArray = $("#fabricationTable").bootgrid("getSelectedRows");
+        var selectedID = parseInt(selectedIDArray) + 0;
+
+        $.ajax({
+            type: "POST",
+            url: "includes/data-processors/processFabajax.php",
+            data: {selectedID: selectedID},
+            success: function(data) {
+                fabData = JSON.parse(data);
+
+                var fabJobOrderID = fabData[0].joborderid;
+                var fabClientLastname = fabData[0].cllastname;
+                var fabClientFirstname = fabData[0].clfirstname;
+                var fabClientMidInitial = fabData[0].clmidinitial;
+                // var fabDateOrdered = fabData[0].dateordered;      
+                // var fabDownpayment = fabData[0].downpayment;
+                // var fabFabricationID = fabData[0].fabricationid;
+                // var fabFabricationJOPrice = fabData[0].joprice;
+
+                $(".fabUpdate #receiptNo").val(fabJobOrderID);
+                $(".fabUpdate #client").val(fabClientLastname + ", " + fabClientFirstname);
+
+                // var div1 = document.createElement("div");
+                // div1.className = "multi-field-wrapper";
+
+                    for (var i = 0; i < fabData.length; i++) {
+                            var br = document.createElement('br');
+
+                            // var div2 = document.createElement("div");
+                            // var div3 = document.createElement("div");
+                            // div2.className = "multi-fields";
+                            // div3.className = "multi-field";
+                            // div2.appendChild(div3);
+                            // div1.appendChild(div2);
+                            // services availed
+                            var fo = document.getElementById("fabricationsordered");
+                            var faborders = document.createElement("input");
+                            
+                            
+                            faborders.id = "fabricationsordered";
+                            faborders.readOnly = "true";
+                            faborders.className = "form-control";
+                            faborders.type = "text";
+                            faborders.name = "fabricationsordered[]";
+                            faborders.value = fabData[i].fabricationdesc;
+                            faborders.innerHTML = fabData[i].fabricationdesc;
+
+
+                            fo.appendChild(faborders);
+                            fo.appendChild(br);
+
+
+                            // service status
+                            var fabstatus = document.getElementById("faborderstatus");
+                            var selectstatus = document.createElement("select");
+                            
+                            selectstatus.id = "faborderstatus";
+                            selectstatus.className = "form-control";
+                            selectstatus.name = "faborderstatus[]";
+
+                            var selectedoption = document.createElement("option");
+                            selectedoption.value = fabData[i].fabricationstatus;  
+                            selectedoption.innerHTML = fabData[i].fabricationstatus;
+                            selectedoption.selected;
+                            
+                            var optionpending = document.createElement("option");
+                            optionpending.value = "Pending";
+                            optionpending.innerHTML =  "Pending";
+
+                            var optionstarted = document.createElement("option");
+                            optionstarted.value = "Started";
+                            optionstarted.innerHTML =  "Started";
+                            var optiondone = document.createElement("option");
+                            optiondone.value = "Done";
+                            optiondone.innerHTML = "Done";
+
+                            if(selectedoption.value == "Pending"){
+                                selectstatus.appendChild(selectedoption);
+                                selectstatus.appendChild(optionstarted);
+                                selectstatus.appendChild(optiondone);
+                            }else 
+                                
+                              
+                            if(selectedoption.value == "Started"){  
+                      
+                                selectstatus.appendChild(selectedoption);
+                                selectstatus.appendChild(optiondone);
+                            }else 
+
+                            if(selectedoption.value == "Done"){ 
+                                
+                                selectstatus.appendChild(selectedoption);
+
+                            }
+                            
+                            
+
+                            
+                            
+
+
+                            selectstatus.appendChild(br);
+                            fabstatus.appendChild(selectstatus);
+
+                    };
+
+                    
+                                            
+                
+
+                
+                
+                
+                // $(".joEdit #defects").val(joDefects);
+                // $(".joEdit #natureOfWorksToBeDone").val(joNOWTBD);
+                // $(".joEdit #partsToBeProcured").val(joPTBP);
+                // $(".joEdit #requestedBy").val(joRequestedBy);
+                // $(".joEdit #vehicleNo").val(joVehicleNo);
+
+                
+                $('#updateFabModal').modal('show');
+                
+            }
+        });           
+    });
+
 }
 
 
@@ -285,6 +427,120 @@ function jobOrder(){
         });           
     });
 
+    $("#updatebtn").on("click", function() {
+        var selectedIDArray = $("#jobOrderTable").bootgrid("getSelectedRows");
+        var selectedID = parseInt(selectedIDArray) + 0;
+
+        $.ajax({
+            type: "POST",
+            url: "includes/data-processors/processJOajax.php",
+            data: {selectedID: selectedID},
+            success: function(data) {
+                joData = JSON.parse(data);
+
+                var joJobOrderID = joData[0].joborderid;
+                var joClientLastname = joData[0].cllastname
+                var joClientFirstname = joData[0].clfirstname
+                var joServices = joData[0].servicename;
+                var joPrice = joData[0].joprice;
+                var joDpay = joData[0].downpayment;
+                var joDateStarted = joData[0].datestarted;
+                var joDateFinished = joData[0].datefinished;
+
+                var joBal = joData[0].balance;
+
+
+                $(".joUpdate #receiptNo").val(joJobOrderID);
+                $(".joUpdate #client").val(joClientLastname + ", " + joClientFirstname);
+                $(".joUpdate #gt").val(joPrice);
+                $(".joUpdate #balance").val(joBal);
+                $(".joUpdate #datefinish").val(joDateFinished);
+                $(".joUpdate #datestart").val(joDateStarted);
+
+                    for (var i = 0; i < joData.length; i++) {
+                            var br = document.createElement('br');
+
+
+                            var sa = document.getElementById("srvavailed");
+                            var srv = document.createElement("input");
+                            
+                            
+                            srv.id = "servicesavailed";
+                            srv.readOnly = "true";
+                            srv.className = "form-control";
+                            srv.type = "text";
+                            srv.name = "servicesavailed[]";
+                            srv.value = joData[i].servicename;
+                            srv.innerHTML = joData[i].servicename;
+
+
+                            sa.appendChild(srv);
+                            sa.appendChild(br);
+
+
+                            // service status
+                            var srvstatus = document.getElementById("srvstatus");
+                            var selectstatus = document.createElement("select");
+                            
+                            selectstatus.id = "servicestatus";
+                            selectstatus.className = "form-control";
+                            selectstatus.name = "servicestatus[]";
+
+                            var selectedoption = document.createElement("option");
+                            selectedoption.value = joData[i].servicestatus;  
+                            selectedoption.innerHTML = joData[i].servicestatus;
+                            selectedoption.selected;
+                            
+                            var optionpending = document.createElement("option");
+                            optionpending.value = "Pending";
+                            optionpending.innerHTML =  "Pending";
+
+                            var optionstarted = document.createElement("option");
+                            optionstarted.value = "Started";
+                            optionstarted.innerHTML =  "Started";
+                            var optiondone = document.createElement("option");
+                            optiondone.value = "Done";
+                            optiondone.innerHTML = "Done";
+
+                            if(selectedoption.value == "Pending"){
+                                selectstatus.appendChild(selectedoption);
+                                selectstatus.appendChild(optionstarted);
+                                selectstatus.appendChild(optiondone);
+                            }else 
+                                
+                              
+                            if(selectedoption.value == "Started"){  
+                      
+                                selectstatus.appendChild(selectedoption);
+                                selectstatus.appendChild(optiondone);
+                            }else 
+
+                            if(selectedoption.value == "Done"){ 
+                                
+                                selectstatus.appendChild(selectedoption);
+
+                            }
+                            
+                            
+
+                            
+                            
+
+
+                            selectstatus.appendChild(br);
+                            srvstatus.appendChild(selectstatus);
+
+                    };
+
+                    
+
+                
+                $('#updateJoModal').modal('show');
+                
+            }
+        });           
+    });
+
 }
 
 
@@ -354,39 +610,13 @@ function addOrder(){
 
 }
 
-function addFabrication(){
-    var $fields = $('fabricationorders multi-field-wrapper:first-child multi-fields');
-    $('fabricationorders multi-field-wrapper:first-child multi-fields .multi-field:first-child').clone().appendTo($fields).find('input').val('').focus();
-    $('body').on('click', '.remove-field', function(){
-        $(this).closest('div').remove();
-        
-    });
-    $('fabricationorders multi-field-wrapper:first-child multi-fields .multi-field:first-child .add-field').hide();
-    
-}
-
-function addOrderInEdit(){
-     $('.multi-field-wrapper').each(function() {
+function addOrderInEdit(div_type){
+	$('.multi-field-wrapper-'+div_type).each(function() {
         var $wrapper = $('.multi-fields', this);
         $(".add-field", $(this)).click(function(e) {
-
-            $('.multi-field:first-child', $wrapper).clone(false).appendTo($wrapper).find('input').val('').focus();
+			var clone = $('.multi-field:first-child', $wrapper).clone();
+			$(clone).find('.add-field').remove().end().appendTo($wrapper).find('input').val('').focus();
         });
        
     });
-
-}
-
-function removeOrderInEdit(){
-     $('.multi-field-wrapper').each(function() {
-        var $wrapper = $('.multi-fields', this);
-        $('.multi-field .remove-field', $wrapper).click(function() {
-            if ($('.multi-field', $wrapper).length > 1)
-                $(this).parent('.multi-field').remove();
-        });
-    });
-}
-
-function sample(){
-    alert("aaa");
 }
