@@ -73,8 +73,6 @@
                                         <!--     <div class="form-group"> -->
                                                 
                                                 <div class="col-xs-6" id="fabricationorders">
-                                                <button type="button" class="add-field btn btn-default" 
-                                                    id="addfield" onclick="sample()"><i class="fa fa-plus"></i>Add More...</button>
                                         
                                                 <!-- <div class="col-xs-6" id="machinist">
                                                 </div> -->

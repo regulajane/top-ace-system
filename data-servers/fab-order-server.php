@@ -55,7 +55,8 @@
     //Query (Warning: Prone to SQL injection.)SELECT * from fabrications natural join client WHERE $where ORDER BY $order_by $limit
     
     $sql="SELECT  joborders.joborderid,
-                  date_format(datestarted,' %M. %d, %Y') as datestarted,
+                  date_format(datebrought,' %M. %d, %Y') as datebrought,
+                  joborders.datestarted,
                   joborders.datefinished,
                   joborders.dateclaimed,
                   joborders.joprice,
@@ -63,7 +64,10 @@
                   joborders.jostatus,
                   joborders.clientid,
                   joborders.jotype,
+                  joborders.supervisor,
+                  joborders.preparedby,
                   joborders.jostatus,
+                  (joborders.joprice - joborders.downpayment) as balance,
                   concat(cllastname,', ',clfirstname, ' ', clmidinitial) as clientname           
                   from joborders join clients using (clientid) 
                   where jotype = 'Fabrication' AND $where

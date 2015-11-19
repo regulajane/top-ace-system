@@ -97,7 +97,7 @@
                                 href="#fabModal"><i class="fa fa-plus fa-fw"></i> New Job Order </button>
                             <button type="button" id="editfabbtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit </button>
-                            <button type="button" id="updatebtn" class="btn btn-info" data-toggle="modal">
+                            <button type="button" id="updatefabbtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Update </button>
                             <div class="btn-group">
                                 <a class="btn btn-info" id="preEvalbtn" data-toggle="modal" 
@@ -110,16 +110,26 @@
                                 <tr>
                                     <th data-column-id="joborderid" data-visible="true" data-identifier="true">
                                         Receipt number</th>
-                                    <th data-column-id="datestarted">
+                                    <th data-column-id="datebrought" data-visible="true">
+                                        Date Ordered</th>
+                                    <th data-column-id="datestarted" data-visible="false">
                                         Date Started</th>
-                                    <th data-column-id="clientname">
+                                    <th data-column-id="dateFinished" data-visible="false">
+                                        Date Finished</th>
+                                    <th data-column-id="clientname" data-visible="true">
                                         Client name</th>
-                                    <th data-column-id="downpayment">
-                                        Downpayment</th>
-                                    <th data-column-id="joprice">
+                                    <th data-column-id="joprice" data-visible="true">
                                         Grand Total</th>
-                                    <th data-column-id="jostatus">
+                                    <th data-column-id="downpayment" data-visible="true">
+                                        Downpayment</th>
+                                    <th data-column-id="balance" data-visible="true">
+                                        Balance</th>
+                                    <th data-column-id="jostatus" data-visible="true">
                                         Status</th>
+                                    <th data-column-id="preparedby" data-visible="false">
+                                        Received by</th>
+                                    <th data-column-id="supervisor" data-visible="false">
+                                        Confirmed by</th>
 
                                 </tr>
                             </thead>  
@@ -155,6 +165,7 @@
         include 'includes/modals/modal-jopreform.php';
         include 'includes/modals/modal-jopostform.php';
         include 'includes/modals/modal-editfabform.php';
+        include 'includes/modals/modal-updatefabform.php';
         
     ?>   
 </body>

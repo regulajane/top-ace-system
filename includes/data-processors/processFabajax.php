@@ -13,7 +13,7 @@
                 fabricationid,
                 fabricationdesc, 
                 fabricationquantity, 
-                datestarted as dateordered, 
+                datebrought as dateordered, 
                 cllastname,
                 clfirstname,
                 clmidinitial,

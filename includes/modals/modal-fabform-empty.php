@@ -30,13 +30,13 @@
                                                     <select class="form-control" id="client" name="client" required>
                                                         <option value="" disabled selected>Select client</option>
                                                         <?php
-                                                            $sql = "SELECT * from clients";
+                                                            $sql = "SELECT * from clients ORDER BY cllastname ASC";
                                                             $result = $conn->query($sql);
                                                             if ($result->num_rows > 0) {
                                                                 // output data of each row
                                                                 while($resultRow = $result->fetch_assoc()){
                                                                     $option = '<option value="' . $resultRow['clientid'] . '">' . 
-                                                                        $resultRow['clfirstname'] . " " . $resultRow['cllastname'] . '</option>';
+                                                                        $resultRow['cllastname'] . ", " . $resultRow['clfirstname'] . " " .  $resultRow['clmidinitial'] . '</option>';
                                                                     echo ($option);
                                                                 }
                                                             }
@@ -130,7 +130,51 @@
                                                         <input type="text" class="form-control" id="downpayment" name="downpayment" 
                                                                 placeholder="Downpayment" required>
                                                     </div>
-                                    </div>    
+                                    </div>
+
+                                    <div class="control-group form-group">
+                                    <label class="control-label col-md-3">Received by:</label>
+                                        <div class="controls col-md-4">
+                                            <select class="form-control" id="salesperson" 
+                                                name="salesperson" required>
+                                                <option value="" disabled selected>Select personnel</option>
+                                                <?php
+                                                    $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' "; 
+                                                    $result = $conn->query($sql);
+                                                    if ($result->num_rows > 0) {
+                                                        // output data of each row
+                                                        while($resultRow = $result->fetch_assoc()){
+                                                            $option = '<option value="' . $resultRow['frontdesk'] . '">' . 
+                                                                $resultRow['frontdesk'] . '</option>';
+                                                            echo ($option);
+                                                        }
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                </div>
+
+                                    <div class="control-group form-group">
+                                        <label class="control-label col-md-3">Confirmed by:</label>
+                                        <div class="controls col-md-4">
+                                            <select class="form-control" id="supervisor" 
+                                                name="supervisor" required>
+                                                <option value="" disabled selected>Select supervisor</option>
+                                                <?php
+                                                    $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' "; 
+                                                    $result = $conn->query($sql);
+                                                    if ($result->num_rows > 0) {
+                                                        // output data of each row
+                                                        while($resultRow = $result->fetch_assoc()){
+                                                            $option = '<option value="' . $resultRow['manager'] . '">' . 
+                                                                $resultRow['manager']. '</option>';
+                                                            echo ($option);
+                                                        }
+                                                    }
+                                                ?>
+                                            </select>  
+                                        </div>
+                                    </div>
 
                                 </div>
                                                              

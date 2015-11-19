@@ -15,6 +15,8 @@
         $totalprice = 0;
         $pending = "pending";
         $fabrication = "Fabrication";
+        $preparedby = $_POST['salesperson'];
+        $supervisor = $_POST['supervisor'];
         
          $sqljoNum = "SELECT clientid FROM clients where clientid = '$client' ";
          $result = $conn->query($sqljoNum);
@@ -31,10 +33,10 @@
         $countjo = $ss['curdate'].$ss['countall'];
 
 
-         $sql1 = "INSERT INTO joborders (joborderid, datestarted, downpayment, joprice, jostatus, jotype, clientid) VALUES (?, ?, ?, ?, ?, ?, ?)";
+         $sql1 = "INSERT INTO joborders (joborderid, datebrought, downpayment, joprice, jostatus, preparedby, supervisor, jotype, clientid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt1 = $conn->prepare($sql1);     
         // Bind
-            $stmt1->bind_param("sssssss", $countjo, $dateOrdered, $downpayment, $totalprice, $pending, $fabrication, $clientid);
+            $stmt1->bind_param("sssssssss", $countjo, $dateOrdered, $downpayment, $totalprice, $pending, $preparedby, $supervisor, $fabrication, $clientid);
         // Execute
             $stmt1->execute();
 
