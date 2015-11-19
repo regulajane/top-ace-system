@@ -49,9 +49,9 @@
 
                 <script>
                     if(localStorage["notif"] == null){
-                        localStorage["notif"] = "0";
+                        //localStorage["notif"] = "0";
                     }else if (parseInt(localStorage["notif"]) != 0){
-                    document.getElementById("notification_count").innerHTML = localStorage["notif"];
+                    /*document.getElementById("notification_count").innerHTML = localStorage["notif"];
 
                     var text = localStorage["nDetails"];
                      
@@ -60,7 +60,7 @@
                     newNotif.appendChild(node);
 
                     var element = document.getElementById("notificationsBody");
-                    element.appendChild(newNotif);
+                    element.appendChild(newNotif);*/
                     }
                     $(document).ready(function()
                     {
@@ -93,7 +93,19 @@
                     }
                 </style>
             </nav>';
+            $testNotif = $conn->query("SELECT count(*) from notification");
+                    while ($row=mysqli_fetch_row($testNotif))
+                         {
+                           $notifCount = $row[0];
+                         }
+
+                    if($notifCount > 0){
+                            echo "<script>alert('asa');</script>";
+
+                    }
+                //do the math
         echo $adminnav;
+
     } else { 
     }
 ?>
