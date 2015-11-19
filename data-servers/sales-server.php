@@ -46,7 +46,16 @@
       $limit=" LIMIT $limit_l,$limit_h ";
        
     //Query (Warning: Prone to SQL injection.)
-    $sql="SELECT * from sales
+    $sql="SELECT 
+            saleid,
+            date_format(saledate,' %b. %m, %Y') as saledate,
+            itemname,
+            saleprice,
+            itemsize,
+            noofitems,
+            total,
+            modelno
+            from sales
             WHERE $where 
             ORDER BY $order_by $limit";
     $stmt=$conn->prepare($sql);
