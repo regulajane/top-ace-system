@@ -54,7 +54,7 @@
 
 					$stmt3->execute(); 
 
-					$result = $conn->query("SELECT count(*) from notification");
+					/*$result = $conn->query("SELECT count(*) from notification");
 					$nCount = 0;
 
 		            while ($row=mysqli_fetch_row($result))
@@ -68,12 +68,14 @@
 		            while ($row=mysqli_fetch_row($result))
 		                 {
 		                   $nDetails = $row[0];
-		                 }
+		                 }*/
 
-					echo "<script>
+
+		            
+					/*echo "<script>
 								  localStorage['notif']='$nCount'
 								  localStorage['nDetails']='$nDetails'
-						  </script>";
+						  </script>";*/
 
 				//echo '<script type="text/javascript">'; 
 				//echo 'var notif_count = parseInt(localStorage["notif"]);';
