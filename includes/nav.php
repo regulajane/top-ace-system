@@ -100,7 +100,7 @@
                          }
 
                     if($notifCount > 0){
-                            echo "<script>alert('asa');</script>";
+                            //echo "<script>alert('asa');</script>";
 
                     }
                 //do the math
