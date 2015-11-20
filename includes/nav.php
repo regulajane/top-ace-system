@@ -38,9 +38,9 @@
                                     class="glyphicon glyphicon-exclamation-sign" 
                                     aria-hidden="true" style="font-size:25px;"></a>
                                 <div id="notificationContainer">
-                                <div id="notificationTitle">Notifications</div>
-                                <div id="notificationsBody" class="notifications"></div>
-                                <div id="notificationFooter"><a href="#">See All</a></div>
+                                    <div id="notificationTitle">Notifications</div>
+                                    <div id="notificationsBody" class="notifications"></div>
+                                    <div id="notificationFooter"><a href="#">See All</a></div>
                                 </div>
                             </li>
                         </ul>
@@ -93,6 +93,7 @@
                     }
                 </style>
             </nav>';
+            echo $adminnav;
             $testNotif = $conn->query("SELECT count(*) from notification");
                     while ($row=mysqli_fetch_row($testNotif))
                          {
@@ -100,11 +101,31 @@
                          }
 
                     if($notifCount > 0){
-                            //echo "<script>alert('asa');</script>";
+                            //echo '<script>alert($row["notificationdetails"]);</script>';
+                            echo "<script>
+                                    var notifCountSpan = document.getElementById('notification_count').innerHTML = '$notifCount';
+                                    //alert(notifCountSpan);
+                                  </script>";
+
+                            $getNotifs = $conn->query("SELECT * from notification");
+                            while ($row = mysqli_fetch_row($getNotifs)) {
+
+                                echo "<script>
+                                       var text = '$row[1]';
+                                       var newNotif = document.createElement('p');
+                                       var node = document.createTextNode(text);
+                                       newNotif.appendChild(node);
+
+                                       var element = document.getElementById('notificationsBody');
+                                       element.appendChild(newNotif);
+
+                                      </script>";
+                            }
+                            //
 
                     }
                 //do the math
-        echo $adminnav;
+        
 
     } else { 
     }
