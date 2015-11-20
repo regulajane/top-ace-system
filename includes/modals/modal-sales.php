@@ -47,13 +47,13 @@
                                                 id="saleqty" name="saleqty"/>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+<!--                                     <div class="form-group">
                                         <label class="control-label col-md-4">Price:</label>
                                         <div class="col-md-6">
                                             <input type="number" class="form-control" placeholder="Price"
                                                 id="saleprice" name="saleprice" required/>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <label class="control-label col-md-4">Date:</label>
                                         <div class="col-md-6">

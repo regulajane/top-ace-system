@@ -9,12 +9,12 @@
 	$itemname = $_POST["salename"];
 	$itemsize = $_POST["salesize"];
 	$noofitems = $_POST["saleqty"];
-	$saleprice = $_POST["saleprice"];
+	// $saleprice = $_POST["saleprice"];
 	$saledate = $_POST["saledate"];
 
 	if(isset($_POST["savedata"])=="Save") {
 
-		$count="SELECT count(*) AS count from inventory JOIN models USING (modelid) where 
+		$count="SELECT count(*) AS count from inventory JOIN models where 
 						modelno='$modelno'
 		 				&& inventoryname='$itemname' 
 		 				&& inventorysize='$itemsize'";
@@ -24,11 +24,11 @@
 		if ($nRows['count'] > 0) {
 			// ---------------------------------------INSERT----------------------------------------------
 			// Prepare
-			$sql = "INSERT INTO sales (saledate, noofitems, saleprice, itemsize, itemname, total) 
-					VALUES (?, ?, ?, ?, ?, ?)";			
+			$sql = "INSERT INTO sales (saledate, noofitems, saleprice, itemsize, itemname, total, modelno) 
+					VALUES (?, ?, ?, ?, ?, ?, ?)";			
 			$stmt = $conn->prepare($sql);
 			// Bind
-			$stmt->bind_param("sissss", $saledate, $noofitems, $saleprice, $itemsize, $itemname, $saleprice);
+			$stmt->bind_param("sisisss", $saledate, $noofitems, $saleprice, $itemsize, $itemname, $saleprice, $modelno);
 			// Execute 
 			$stmt->execute();
 			// Redirect
