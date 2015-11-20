@@ -10,7 +10,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Add New Supply</h4>
+                <h4 class="modal-title" id="myModalLabel">Add New Item</h4>
             </div>
             <div class="newSupply modal-body">
                 <div class="well">
@@ -229,6 +229,48 @@
                                         <input readonly type="text" class="form-control" id="inventQty" name="inventQty"/>
                                     </div>
                                 </div>
+
+                                <div class="control-group form-group">
+                                    <div class="controls col-md-10" id ="reasonOfP">
+                                        <label>Reason:</label><br>
+
+                                        SALES  <input type="radio" name="choice" value="sales" id="sales" onclick="deleteTextBox()">
+
+                                        Others(Please Specify)  
+
+                                        <input type="radio" name="choice" onclick="showTextBox()" id="others">
+                                        <br><br>
+                                        <script>
+                                            function showTextBox(){
+                                                if(document.getElementById('others').checked) {
+                                                    if(document.getElementById('textArea') == null) {
+                                                        document.getElementById("reasonOfP").disabled = true;
+                                                        var r = document.getElementById("reasonOfP");
+                                                        var tb = document.createElement("textarea");
+                                                        tb.setAttribute('id',"textArea");
+                                                        r.appendChild(tb);   
+                                                    }
+                                                }
+                                            }
+
+                                            function deleteTextBox(){
+                                                if(document.getElementById('textArea') != null) {
+                                                    var r = document.getElementById("reasonOfP");
+                                                    var tb = document.getElementById("textArea");
+                                                    r.removeChild(tb);
+                                                }
+                                            }
+
+                                        </script>
+                                        <style>
+                                            #textArea {
+                                                resize: none;
+                                                margin-left: 65px;
+                                            }
+                                        </style>
+                                    </div>
+                                </div>
+
                                 <div class="control-group form-group">
                                     <div class="controls col-md-4">
                                         <label>Quantity to be Procured:</label>
