@@ -11,7 +11,7 @@
         $servicestatus = $_POST['servicestatus'];
         $servicesavailed = $_POST['servicesavailed'];
         $payment = $_POST['payment'];
-
+        
         // echo $receiptNo;
         for($i=0 ;$i < count($_POST['servicesavailed']); $i++) {
             $sqlsrvid = "SELECT serviceid from services where servicename = '$servicesavailed[$i]' ";
@@ -80,13 +80,28 @@
 
         // update date finished and job order status
         if($sadone == $sa){
+
+
+            $sqlstat = "SELECT jostatus from joborders  where joborderid = '$receiptNo' ";
+            $resultstat= $conn->query($sqlstat);
+            $resultRowStat = $resultstat->fetch_assoc();
+            $stat = $resultRowStat['jostatus'];
+
+            // check status if Done
+            if($stat == "Done"){
+
+            }else{
+                //update no of jobs of employees
+                $sqlemp = "UPDATE employees SET noofjobs = (noofjobs-1) where employeeid IN (SELECT employeeid from joemployees where joborderid = '$receiptNo');";
+                $stmtemp = $conn->prepare($sqlemp);
+                $stmtemp->execute(); 
+            }
+
+
             $sqldatefinished = "UPDATE joborders set datefinished = CURDATE(), jostatus = 'Done' where joborderid = '$receiptNo' ";
             $stmtfinished = $conn->prepare($sqldatefinished);
             $stmtfinished->execute();
-
-            $sqlemp = "UPDATE employees SET noofjobs = (noofjobs-1) where employeeid IN (SELECT employeeid from joemployees where joborderid = '$receiptNo');";
-            $stmtemp = $conn->prepare($sqlemp);
-            $stmtemp->execute();
+   
         }
 
         // select balance
@@ -101,9 +116,6 @@
         $sqlpayment = "UPDATE joborders SET balance = '$tempbal' where joborderid = '$receiptNo' ";
         $stmtpayment = $conn->prepare($sqlpayment);
         $stmtpayment->execute();
-
-        // update no of jobs
-
 
         header('location:../../job-order.php');                        
     }
