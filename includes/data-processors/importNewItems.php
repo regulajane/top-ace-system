@@ -119,6 +119,13 @@
             $x++;
 
         }
+
+        //insert null to blank spaces.
+
+        $updateSQLString = 'UPDATE inventory SET inventorysize = NULL WHERE inventorysize = ""';
+        $updateSql=$conn->prepare($updateSQLString);
+        $updateSql->execute();
+
         echo '<script type="text/javascript">'; 
         echo ' window.location = "../../inventory.php";'; 
         echo '</script>';
