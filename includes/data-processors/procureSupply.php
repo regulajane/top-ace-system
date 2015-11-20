@@ -37,8 +37,8 @@
 			echo '</script>';
 
 		}  else {
-			if($cq < $rr) { 
-
+			if($cq <= $rr) {
+					echo '<script>alert("HEHE");</script>'; 
 					$nDetails = "ITEM: $inventName SIZE: $inventSize is below reorder level";
 					$nDate = date("Y-m-d");
 					$nTime = date("H:i:s");
