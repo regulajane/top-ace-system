@@ -36,6 +36,15 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Date Started</label>
+                                    <div class="col-md-4">
+                                        <input type="date" class="form-control" id="datestartfab" 
+                                            name="datestartfab" readonly>
+                                    </div>
+                                </div>
+
+
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Fabrications Ordered:</label>
@@ -48,6 +57,39 @@
                                     </div>
                                 </div>
 
+                                <hr>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Date Finished</label>
+                                    <div class="col-md-4">
+                                        <input type="date" class="form-control" id="datefinishfab" 
+                                            name="datefinishfab" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Grand Total</label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" id="gtfab" 
+                                            name="gtfab" readonly>
+                                    </div>
+                                </div>
+
+                                 <div class="form-group">
+                                    <label class="control-label col-md-3">Balance</label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" id="balancefab" 
+                                            name="balancefab" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Payment</label>
+                                    <div class="col-md-4">
+                                        <input type="number" class="form-control" id="paymentfab" 
+                                            name="paymentfab" placeholder="0.00">
+                                    </div>
+                                </div>
                                     
                                 </div>
                                     

@@ -3,13 +3,8 @@
     if(!isset($_SESSION["username"])){
     header('Location: ../index.php?loggedout=true');}
 ?>
-<script>
-    function myFunction2(){
-        document.getElementById("hidebtn2").click();
-    }
-</script>
 <!-- JO Empty Form Modal -->
-<div class="modal fade" id="fabModal" tabindex="-1" role="dialog" 
+<div class="modal fade" id="clientfabModal" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -31,10 +26,9 @@
                                     <div class="control-group form-group">
                                         <label class="control-label col-xs-3">Client Name:</label>
                                                 <div class="controls col-xs-8">
-                                                    <select class="form-control" id="client" name="client" required>
-                                                        <option value="" disabled selected>Select client</option>
+                                                    <select style= "Display: none;" class="form-control" id="client" name="client" required>
                                                         <?php
-                                                            $sql = "SELECT * from clients ORDER BY cllastname ASC";
+                                                            $sql = "SELECT * from clients where clientid = (SELECT MAX(clientid) as latest from clients)"; 
                                                             $result = $conn->query($sql);
                                                             if ($result->num_rows > 0) {
                                                                 // output data of each row
@@ -42,16 +36,16 @@
                                                                     $option = '<option value="' . $resultRow['clientid'] . '">' . 
                                                                         $resultRow['cllastname'] . ", " . $resultRow['clfirstname'] . " " .  $resultRow['clmidinitial'] . '</option>';
                                                                     echo ($option);
+                                                                     $option = '<input type="text" class="form-control" id="dateBrought" 
+                                                                        name="dateBrought" readonly value="' . $resultRow['cllastname'] . ", " . $resultRow['clfirstname'] . " " .  $resultRow['clmidinitial'] . '">' 
+                                                                    . '</input>';
+                                                                echo ($option);
                                                                 }
                                                             }
                                                         ?>
-
+                                          
                                                     </select> 
                                                 </div>
-                                         <button onclick="myFunction2()" type="button" id="newclientbtn" class="btn btn-info" data-toggle="modal"
-                                            href="#clientfabricationModal"><i class="fa fa-plus fa-fw"></i> New Client </button>
-                                        <button style= "Display: none;" type="button" id="hidebtn2" class="btn btn-info" data-dismiss="modal">
-                                            <i class="fa fa-plus fa-fw"></i> HIDE </button>
                                     </div>
                                     <hr>
                                     <label class="control-label col-xs-3">Order/s</label><br><br>
@@ -204,7 +198,3 @@
 </div> 
 
 <!-- JO Empty Form Modal -->
-
-<?php 
-    include 'modal-client-fabrication.php';
-?>

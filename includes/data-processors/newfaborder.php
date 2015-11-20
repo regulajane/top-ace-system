@@ -33,10 +33,12 @@
         $countjo = $ss['curdate'].$ss['countall'];
 
 
-         $sql1 = "INSERT INTO joborders (joborderid, datebrought, downpayment, joprice, jostatus, preparedby, supervisor, jotype, clientid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $balance = $totalprice - $downpayment;
+
+         $sql1 = "INSERT INTO joborders (joborderid, datebrought, downpayment, joprice, jostatus, preparedby, supervisor, jotype, clientid, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt1 = $conn->prepare($sql1);     
         // Bind
-            $stmt1->bind_param("sssssssss", $countjo, $dateOrdered, $downpayment, $totalprice, $pending, $preparedby, $supervisor, $fabrication, $clientid);
+            $stmt1->bind_param("ssssssssss", $countjo, $dateOrdered, $downpayment, $totalprice, $pending, $preparedby, $supervisor, $fabrication, $clientid, $balance);
         // Execute
             $stmt1->execute();
 

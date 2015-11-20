@@ -218,14 +218,19 @@ function fabOrder(){
                 var fabClientLastname = fabData[0].cllastname;
                 var fabClientFirstname = fabData[0].clfirstname;
                 var fabClientMidInitial = fabData[0].clmidinitial;
-                // var fabDateOrdered = fabData[0].dateordered;      
-                // var fabDownpayment = fabData[0].downpayment;
-                // var fabFabricationID = fabData[0].fabricationid;
-                // var fabFabricationJOPrice = fabData[0].joprice;
+                var fabordered = fabData[0].fabricationdesc;
+                var fabjoPrice = fabData[0].joprice;
+                var fabjoDpay = fabData[0].downpayment;
+                var fabjoDateStarted = fabData[0].datestarted;
+                var fabjoDateFinished = fabData[0].datefinished;
+                var fabjoBal = fabData[0].balance;
 
                 $(".fabUpdate #receiptNo").val(fabJobOrderID);
                 $(".fabUpdate #client").val(fabClientLastname + ", " + fabClientFirstname);
-
+                $(".fabUpdate #gtfab").val(fabjoPrice);
+                $(".fabUpdate #balancefab").val(fabjoBal);
+                $(".fabUpdate #datefinishfab").val(fabjoDateFinished);
+                $(".fabUpdate #datestartfab").val(fabjoDateStarted);
                 // var div1 = document.createElement("div");
                 // div1.className = "multi-field-wrapper";
 

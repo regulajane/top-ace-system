@@ -67,7 +67,7 @@
                   joborders.supervisor,
                   joborders.preparedby,
                   joborders.jostatus,
-                  (joborders.joprice - joborders.downpayment) as balance,
+                  joborders.balance,
                   concat(cllastname,', ',clfirstname, ' ', clmidinitial) as clientname           
                   from joborders join clients using (clientid) 
                   where jotype = 'Fabrication' AND $where

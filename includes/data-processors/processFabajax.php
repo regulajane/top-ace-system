@@ -15,6 +15,8 @@
                 fabricationquantity, 
                 datebrought as dateordered, 
                 cllastname,
+                datestarted,
+                datefinished,
                 clfirstname,
                 clmidinitial,
                 downpayment,
@@ -22,7 +24,8 @@
                 joprice,
                 emplastname,
                 empfirstname,
-                fabricationstatus from joborders join fabrications using (joborderid) join clients using (clientid) join joemployees using (joborderid) join employees using (employeeid) where joborderid = $num group by fabricationid;";
+                fabricationstatus,
+                balance from joborders join fabrications using (joborderid) join clients using (clientid) join joemployees using (joborderid) join employees using (employeeid) where joborderid = $num group by fabricationid;";
     $stmt=$conn->prepare($sql);
     $stmt->execute();
     $results_array=$stmt->fetchAll(PDO::FETCH_ASSOC);
