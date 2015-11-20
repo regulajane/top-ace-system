@@ -9,23 +9,14 @@
 ?>
 
 
-
-
-<div id="brkdownModal" tabindex="-1" role="dialog" 
-    aria-labelledby="myModalLabel" aria-hidden="true" style="opacity:1;">
+<div id="brkdownModal" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 
                    
-                <h4 class="modal-title" id="myModalLabel">Payment</h4>
-            </div>
-            <div class="brkdown modal-body">
-                <div class="well">
-                    <div class="row">
-                        <div class="col-md-12 bs-example">
-                            <form class="form-horizontal" method="post" action="../data-processors/servicesbreakdown.php" id="sbForm">
-                                <h4 class="modal-title" id="emptyformlabel">Receipt no. 
+                <h4 class="modal-title" id="myModalLabel"> Receipt no. 
                                     <?php 
                                         // $selectedjoid = $_SESSION['selectedjoid'];
                                         $sqlmaxjoid = "SELECT joborderid from joborders order by joborderid desc limit 1";
@@ -34,8 +25,16 @@
                                         $maxjoid = $rr['joborderid'];
                                         echo $maxjoid;                                       
                                     ?>
-                                </h4>
-                                <hr>
+                    
+                </h4>
+
+            </div>
+            <div class="brkdown modal-body">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-md-12 bs-example">
+                            <form class="form-horizontal" method="post" action="../data-processors/servicesbreakdown.php" id="sbForm">
+                                
                                 <div class="form-group">
                                     <label class="control-label col-xs-3">Services Availed:</label>
                                     <div class="col-md-8">
@@ -44,7 +43,8 @@
                                             $ss = $conn->query($sqlservices);
                                             while($sss = $ss->fetch_assoc()){
                                                 $servicesavailed = $sss['servicename']. " - PHP ". $sss['serviceprice'];
-                                                echo $servicesavailed . "<br>";
+                                                // echo $servicesavailed 
+                                                echo '<input type="text" class="form-control" id="receiptNo" name="receiptNo" readonly value="'.  $servicesavailed .'">' . "<br>";
 
                                             }   
                                         ?>
@@ -62,7 +62,7 @@
                                             $is = $conn->query($sqlitem);
                                             while($iss = $is->fetch_assoc()){
                                                 $invty = $iss['inventoryname']. " " . $iss['inventorysize'] . " - PHP ". $iss['inventoryprice'];
-                                                echo $invty . "<br>";
+                                                echo '<input type="text" class="form-control" id="receiptNo" name="receiptNo" readonly value="'.  $invty .'">' . "<br>";
 
                                             }   
                                         ?>
@@ -102,7 +102,7 @@
                                     <label class="control-label col-md-3">Markup:</label>
                                     <div class="controls col-md-4">
                                         <input type="number" class="form-control" id="markup" name="markup" 
-                                            placeholder="0.00" required autocomplete="off">
+                                            placeholder="0.00" autocomplete="off">
                                     </div>
                                 </div>
 
@@ -119,7 +119,7 @@
                                     <label class="control-label col-md-3">Downpayment:</label>
                                     <div class="controls col-md-4">
                                         <input type="number" class="form-control" id="downpayment" name="downpayment" 
-                                            placeholder="500.00" required autocomplete="off">
+                                            placeholder="500.00" autocomplete="off">
                                     </div>
                                 </div>
                                 
@@ -131,8 +131,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="______">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                <a class="btn btn-primary" data-dismiss="modal" href="../data-processors/canceljoborder.php">
+                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel</a>
                 <button type="submit" name="submit" class="btn btn-success" form="sbForm" value="submit">
                     <span class="glyphicon glyphicon-ok-sign"></span> Ok</button>
             </div>
@@ -140,25 +140,3 @@
     </div>
 </div> 
 <!-- JO Empty Form Modal -->
-
-<!-- $sqlservicesbreakdown = "SELECT distinct(inventoryname) FROM inventory
-                                                                        where
-                                                                        inventoryid IN
-                                                                        (SELECT 
-                                                                                 distinct (servicesinventory.inventoryid)
-                                                                            FROM
-                                                                                inventory 
-                                                                                join models using (modelid)
-                                                                                join joborders using (modelno)
-                                                                                join servicelogs using (joborderid)
-                                                                                join servicesinventory using (serviceid)
-                                                                            where 
-                                                                                joborderid = $maxjoid);";
-                                            $ss = $conn->query($sqlservicesbreakdown);
-                                            while($sss = $ss->fetch_assoc()){
-                                                
-                                                $inv = '<input type="checkbox" value="' . $sss['inventoryname'] . '">' . 
-                                                $sss['inventoryname'] . '<br>';
-                                                echo ($inv);
-
-                                            } -->
