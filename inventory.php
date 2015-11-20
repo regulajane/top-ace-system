@@ -19,7 +19,7 @@
 			<div id="inventory">
 				   <div class="actionBtns">
 						<button type="button" id="addnew" class="btn btn-info" data-toggle="modal" 
-							href="#addNewSupply"><i class="fa fa-plus fa-fw"></i> Add New Supply </button>
+							href="#addNewSupply"><i class="fa fa-plus fa-fw"></i>Add New Item</button>
 
 						<a class="btn btn-info" href="fabrication-items.php">
 						<i class="fa fa-folder-open">
@@ -35,6 +35,14 @@
 			                    	<a type="button" class="btn btn-info" data-toggle="modal"  href="#importNewItems" 
 			                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%; color: #FFF">
 			                        <i class="fa fa-list"></i> New Items (.excel)
+			                        </a>
+									<a type="button" class="btn btn-info" data-toggle="modal"  href="#importNewItems" 
+			                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%; color: #FFF">
+			                        <i class="fa fa-list"></i> Edit Item Price (.excel)
+			                        </a>
+									<a type="button" class="btn btn-info" data-toggle="modal"  href="#importNewItems" 
+			                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%; color: #FFF">
+			                        <i class="fa fa-list"></i> Edit Quantity (.excel)
 			                        </a>
 			                    </li>
 			                </ul>
