@@ -21,6 +21,17 @@
 		$rslt = $conn->query($count);
     	$nRows = $rslt->fetch_assoc();
 
+    	$sql="SELECT * from inventory JOIN models where 
+						modelno='$modelno'
+		 				&& inventoryname='$itemname' 
+		 				&& inventorysize='$itemsize'";
+		$result = $conn->query($sql);
+    	$noRows = $result->fetch_assoc();
+
+    	$price = $noRows['inventoryprice'];
+
+    	$total = $noofitems*$price;
+
 		if ($nRows['count'] > 0) {
 			// ---------------------------------------INSERT----------------------------------------------
 			// Prepare
@@ -28,7 +39,7 @@
 					VALUES (?, ?, ?, ?, ?, ?, ?)";			
 			$stmt = $conn->prepare($sql);
 			// Bind
-			$stmt->bind_param("sisisss", $saledate, $noofitems, $saleprice, $itemsize, $itemname, $saleprice, $modelno);
+			$stmt->bind_param("sisisss", $saledate, $noofitems, $price, $itemsize, $itemname, $total, $modelno);
 			// Execute 
 			$stmt->execute();
 			// Redirect
