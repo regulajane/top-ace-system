@@ -52,18 +52,18 @@
 
 		}  else {
 			if($cq <= $rr) {
-					echo '<script>alert("HEHE");</script>'; 
-					$nDetails = "ITEM: $inventName SIZE: $inventSize is below reorder level";
+					//echo '<script>alert("HEHE");</script>'; 
+					$nDetails = "below reorder level";
 					$nDate = date("Y-m-d");
 					$nTime = date("H:i:s");
 
-					$sql3 = "INSERT INTO notification (notificationdetails, ndate, time) 
-								VALUES (?, ?, ?)";
+					$sql3 = "INSERT INTO notification (inventoryname, inventorysize, modelno ,notificationdetails, ndate, time) 
+								VALUES (?, ?, ?, ?, ?, ?)";
 
 					$stmt3 = $conn->prepare($sql3);
 
 					// Bind
-					$stmt3->bind_param("sss", $nDetails, $nDate, $nTime);
+					$stmt3->bind_param("ssssss", $inventName, $inventSize ,$modelNo,$nDetails, $nDate, $nTime);
 					// Execute
 
 					$stmt3->execute(); 
