@@ -3,6 +3,7 @@
     fabOrder();
     addOrder();
     jobOrderForm();
+    navbar();
 
 	$('body').on('click', '.remove-field', function(){
 		$(this).closest('div').remove();
@@ -734,4 +735,10 @@ function addOrderInEdit(div_type){
         });
        
     });
+}
+
+function navbar(){
+    var activeEl = 1;
+    var items = $('.navbar .btn-nav');
+    $( items[activeEl] ).addClass('active');
 }
