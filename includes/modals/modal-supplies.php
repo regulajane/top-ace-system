@@ -232,11 +232,12 @@
                                     <div class="controls col-md-10" id ="reasonOfP">
                                         <label>Reason:</label><br>
 
-                                        SALES  <input type="radio" name="choice" value="sales" id="sales" onclick="deleteTextBox()">
+                                        <label>SALES:  </label>  
+                                        <input type="radio" name="choice" value="sales" id="sales" onclick="deleteTextBox()" required>
 
-                                        Others(Please Specify)  
-
+                                        <label>Others(Please Specify): </label>
                                         <input type="radio" name="choice" onclick="showTextBox()" id="others">
+                                        
                                         <br><br>
                                         <script>
                                             function showTextBox(){
