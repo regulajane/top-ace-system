@@ -11,6 +11,8 @@
 </head>
 <body>
    <?php include 'includes/nav.php'; ?>
+    <div class="pagecontainer">
+    <br>
     <div class="container">        
         <h4>Ingoing Items</h4>
         <div class="actionBtns" style="position: relative; float:right; ">
@@ -36,6 +38,7 @@
         </table>
         <hr>
         <?php include 'includes/footer.php'; ?>
+    </div>
     </div>
 </body>
 </html>
