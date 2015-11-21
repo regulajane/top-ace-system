@@ -11,6 +11,52 @@ function supplies(){
             infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} Items"
         },
 	});
+
+     $('#newSupplyForm').bootstrapValidator({
+        feedbackIcons: {
+            message: 'This value is not valid',
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            modelno: {
+                validators: {
+                    notEmpty: {
+                        message: 'Model no. is required'
+                    }
+                }
+            },
+            inventoryname: {
+                validators: {
+                    notEmpty: {
+                        message: 'Item name is required'
+                    }
+                }
+            },
+            inventoryquantity: {
+                validators: {
+                    notEmpty: {
+                        message: 'Quantity is required'
+                    }
+                }
+            },
+            inventoryprice: {
+                validators: {
+                    notEmpty: {
+                        message: 'Price is required'
+                    }
+                }
+            },
+            reorderlevel: {
+                validators: {
+                    notEmpty: {
+                        message: 'Reorder level is required'
+                    }
+                }
+            }
+        }
+    });
     
     $('.newSupply #modelno').typeahead({
         name: 'modelno',

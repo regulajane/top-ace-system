@@ -2,7 +2,7 @@
     include '../header.php';
     if(!isset($_SESSION["username"])){
     header('Location: ../../index.php?loggedout=true');}
-    if(isset($_POST["submit"])=="submit") {
+    if(isset($_POST["save"])=="save") {
 
         $modelno = $_POST["modelno"];
         $inventName = $_POST["inventoryname"];

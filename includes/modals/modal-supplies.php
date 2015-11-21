@@ -1,36 +1,31 @@
-<!-- Access validation -->
-<?php
-    if(!isset($_SESSION["username"])){
-    header('Location: ../index.php?loggedout=true');}
-?>
-
 <!-- Add New Supply Form] -->
 <div class="modal fade" id="addNewSupply" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Add New Item</h4>
+            <div class="modal-header text-center">
+                <h4 class="modal-title" id="myModalLabel">New Item</h4>
             </div>
             <div class="newSupply modal-body">
                 <div class="well">
                     <div class="row">
-                        <div class="control-group col-md-12">
+                        <div class="col-md-12">
                             <form class="form-horizontal" method="post" action="includes/data-processors/addnewsupply.php" 
                               id="newSupplyForm">
+                                <div class="control-group col-md-12">
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Model No:</label>
-                                     <div class="col-md-6">
+                                    <label class="control-label col-md-4">Model No:</label>
+                                    <div class="col-md-6">
                                     <input type="text" class="typeahead form-control" id="modelno" placeholder="Model No."
                                            name="modelno" size="20" autocomplete="off" required>
                                      </div>
                                 </div>     
 
                                 <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Item Name:</label>
-                                        <div class="controls col-xs-4">
+                                    <label class="control-label col-md-4">Item Name:</label>
+                                        <div class="col-md-6">
                                             <select class="form-control" id="inventoryname" name="inventoryname">
-                                                <option value="" disabled selected>Select Name</option>
+                                                <option value="" disabled selected>Item Name</option>
                                                 <option value="Engine Valve">Engine Valve</option>
                                                 <option value="Valve Seal">Valve Seal</option>
                                                 <option value="Valve Guide">Valve Guide</option>
@@ -47,51 +42,53 @@
                                 </div>
    
                                 <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Size:</label>
-                                        <div class="controls col-xs-4">
+                                    <label class="control-label col-md-4">Size:</label>
+                                        <div class="col-md-4">
                                             <select class="form-control" id="inventorysize" name="inventorysize">
-                                                <option value="" disabled selected>Select Size</option>
-                                                <option value="STD">STD</option>
-                                                <option value=".25">0.25</option>
-                                                <option value=".50">0.50</option>
-                                                <option value=".75">0.75</option>
+                                                <option value="" disabled selected>Size</option>
+                                                <option value="0.25" >0.25</option>
+                                                <option value="0.50" >0.50</option>
+                                                <option value="0.75" >0.75</option>
+                                                <option value="STD " >STD</option>
                                             </select>         
                                         </div>
                                 </div>  
                                 <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Quantity:</label>
-                                     <div class="controls col-xs-2">
+                                    <label class="control-label col-md-4">Quantity:</label>
+                                     <div class="col-md-4">
                                     <textarea rows="1" cols="100" class="form-control" id="inventoryquantity" name="inventoryquantity"  maxlength="999" style="resize:none" 
                                             required></textarea>
                                      </div>
                                 </div>   
                                 <div class="control-group form-group">
-                                    <label class="control-label col-xs-3">Price per piece:</label>
-                                     <div class="controls col-xs-3">
+                                    <label class="control-label col-md-4">Price per piece:</label>
+                                     <div class="col-md-4">
                                      <textarea rows="1" cols="100" class="form-control" id="inventoryprice" name="inventoryprice"  maxlength="999" style="resize:none" 
                                             required></textarea>
                                      </div>
                                 </div> 
                                 <div class="control-group form-group">
-                                     <label class="control-label col-xs-3">Reorder Level:</label>
-                                     <div class="controls col-xs-3">
+                                     <label class="control-label col-md-4">Reorder Level:</label>
+                                     <div class="col-md-4">
                                       <textarea rows="1" cols="100" class="form-control" id="reorderlevel" name="reorderlevel"  maxlength="999" style="resize:none" 
                                             required></textarea>
                                     </div>
                                 </div>  
+                                <div class="form-group">
+                                    <div class="col-md-8 col-md-offset-4">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
+                                            <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                                        <button type="submit" name="save" class="btn btn-success" form="newSupplyForm" value="save" id="savebtn">
+                                            <span class="glyphicon glyphicon-ok-sign"></span> Save</button> 
+                                    </div> 
+                                </div>
+                            </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
              <div class="modal-footer">
-                <button type="submit" class="btn btn-primary pull-left" onclick="clearForm()">Clear All</button>
-
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
-
-                    <button type="submit" name="submit" class="btn btn-success" form="newSupplyForm" 
-                    value="submit" id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span>Add Supply</button>
             </div>
         </div>
     </div>

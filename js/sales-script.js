@@ -50,13 +50,6 @@ window.onload = function () {
                     }
                 }
             },
-            salesize: {
-                validators: {
-                    notEmpty: {
-                        message: 'Size is required'
-                    }
-                }
-            },
             saleqty: {
                 validators: {
                     notEmpty: {

@@ -31,7 +31,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-4">Size:</label>
                                         <div class="col-md-4">
-                                            <select class="form-control" id="salesize" name="salesize" required>
+                                            <select class="form-control" id="salesize" name="salesize">
                                             <option value="" disabled selected>Size</option>
                                             <option value="0.25" >0.25</option>
                                             <option value="0.50" >0.50</option>

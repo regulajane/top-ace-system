@@ -19,7 +19,7 @@
 			<div id="inventory">
 				   <div class="actionBtns">
 						<button type="button" id="addnew" class="btn btn-info" data-toggle="modal" 
-							href="#addNewSupply"><i class="fa fa-plus fa-fw"></i>Add New Item</button>
+							href="#addNewSupply"><i class="fa fa-plus fa-fw"></i>New Item</button>
 
 						<a class="btn btn-info" href="fabrication-items.php">
 						<i class="fa fa-folder-open">
@@ -31,20 +31,13 @@
 			                <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
 			                <span class="fa fa-caret-down"></span></a>
 			                <ul class="dropdown-menu">
-			                    <li>
-			                    	<a type="button" class="btn btn-info" data-toggle="modal"  href="#importNewItems" 
-			                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%; color: #FFF">
-			                        <i class="fa fa-list"></i> New Items (.excel)
-			                        </a>
-									<a type="button" class="btn btn-info" data-toggle="modal"  href="#importNewItems" 
-			                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%; color: #FFF">
-			                        <i class="fa fa-list"></i> Edit Item Price (.excel)
-			                        </a>
-									<a type="button" class="btn btn-info" data-toggle="modal"  href="#importNewItems" 
-			                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%; color: #FFF">
-			                        <i class="fa fa-list"></i> Edit Quantity (.excel)
-			                        </a>
-			                    </li>
+			                    <li><a data-toggle="modal"  href="#importNewItems">
+			                    	<i class="fa fa-list"></i> New Items (.excel)</a></li>
+			                    <li class="divider"></li>
+			                    <li><a data-toggle="modal"  href="#importNewItems">
+			                        <i class="fa fa-list"></i> Edit Price (.excel)</a></li>
+								<li><a data-toggle="modal"  href="#importNewItems">
+			                        <i class="fa fa-list"></i> Edit Quantity (.excel)</a></li>
 			                </ul>
 	            		</div>
 
@@ -53,16 +46,8 @@
 			                <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
 			                <span class="fa fa-caret-down"></span></a>
 			                <ul class="dropdown-menu">
-			                    <li>
-			                    	<a type="button" class="btn btn-info" href="ingoing-items.php" 
-			                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%; color: #FFF">
-			                        <i class="fa fa-list"></i> Add Items Log
-			                        </a>
-			                    </li>
-			                    <li><a type="button" class="btn btn-info" href="outgoing-items.php" 
-			                        style="text-align:left;  margin: 0px 5px 0px 5px; width: 94%; color: #FFF">
-			                            <i class="fa fa-list"></i> Procure Items Log</a>
-			                            </li>
+			                    <li><a href="ingoing-items.php"><i class="fa fa-list"></i> Additions</a></li>
+			                    <li><a href="outgoing-items.php"><i class="fa fa-list"></i> Procurements</a></li>
 			                </ul>
 	            		</div>
             	</div>
@@ -83,10 +68,6 @@
 						title="Procure" href="#procSuppliesModal">
 					<span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
 				</button>
-<!-- 				<button type="button" id="deletesupplyBtn" class="btn btn-info" data-toggle="modal"
-						title "Delete" href="#deleteSuppliesModal">
-					<span class="glyphicon glyphicon-remove-sign"></span>
-				</button> -->
 			</div>
 
 			<!-- Inventory Table -->
@@ -111,9 +92,6 @@
 						<th data-column-id="inventoryquantity">
 							Quantity
 						</th>
-					<!-- 	<th id="options" data-field="operate" data-formatter="operateFormatter" data-events="operateEvents">
-							Options
-						</th> -->
 						<th data-column-id="reorderlevel" data-visible="false">
 							Reorder Level
 						</th>
