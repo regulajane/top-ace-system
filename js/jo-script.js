@@ -8,6 +8,94 @@
 		$(this).closest('div').remove();
 			
 	});
+
+    $('#joForm').bootstrapValidator({
+        feedbackIcons: {
+            message: 'This value is not valid',
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            clientid: {
+                validators: {
+                    notEmpty: {
+                        message: 'Client name is required'
+                    }
+                }
+            },
+            datebrought: {
+                validators: {
+                    notEmpty: {
+                        message: 'Date received is required'
+                    }
+                }
+            },
+            modelid: {
+                validators: {
+                    notEmpty: {
+                        message: 'Engine model is required'
+                    }
+                }
+            },
+            engnumber: {
+                validators: {
+                    notEmpty: {
+                        message: 'Engine number is required'
+                    }
+                }
+            },
+            problem: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please enter problem/s'
+                    }
+                }
+            },
+            // serviceid: {
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'Service/s is required'
+            //         }
+            //     }
+            // },
+            // employeeid: {
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'Machinist/s is required'
+            //         }
+            //     }
+            // },
+            // itemid: {
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'Item name is required'
+            //         }
+            //     }
+            // },
+            // qtyAI: {
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'Quantity is required'
+            //         }
+            //     }
+            // },
+            salesperson: {
+                validators: {
+                    notEmpty: {
+                        message: 'Personnel is required'
+                    }
+                }
+            },
+            supervisor: {
+                validators: {
+                    notEmpty: {
+                        message: 'Supervisor is required'
+                    }
+                }
+            }
+        }
+    });
 }
 
 function fabOrder(){
@@ -367,6 +455,10 @@ function jobOrder(){
         labels: {
             infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} Job Orders"
         },
+    });
+
+    $("#newjoborderbtn").on("click", function() {
+        document.getElementById('dateBrought').valueAsDate = new Date();
     });
 
     // edit

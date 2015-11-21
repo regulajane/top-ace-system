@@ -19,14 +19,9 @@
                 <div class="well">
                     <div class="row">
                         <div class="col-md-12 bs-example">
-                            <form class="form-horizontal" method="post" action="includes/data-processors/newjoborder.php" id="joForm" novalidate>
+                            <form class="form-horizontal" method="post" action="includes/data-processors/newjoborder.php" id="joForm" name="joForm">
                                 <h4 class="modal-title" id="emptyformlabel" style="text-align:center">Pre-Inspection</h4>
                                 <hr>
-
-
-
-                               
-
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Client Name:</label>
                                     <div class="controls col-md-4">
@@ -370,6 +365,14 @@
                                         </select>  
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="col-md-8 col-md-offset-3">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="reload()">
+                                        <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                                    <button type="submit" name="submit" class="btn btn-success" form="joForm" value="submit" >
+                                        <span class="glyphicon glyphicon-ok-sign"></span> Next</button> 
+                                    </div> 
+                                </div>
 
                             </form>
                         </div>
@@ -379,10 +382,6 @@
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary pull-left" 
                     onclick="clearForm()">Clear All</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="reload()">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
-                <button type="submit" name="submit" class="btn btn-success" form="joForm" value="submit" >
-                    <span class="glyphicon glyphicon-ok-sign"></span> Next</button>
             </div>
         </div>
     </div>
