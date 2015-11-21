@@ -412,6 +412,18 @@ input[type="checkbox"]:checked:after {
     max-height: 250px;
 }
 
+/*Typeahead : Sales*/
+.joEmpty #additionalitems {
+    width: 390px;
+}
+.joEmpty .tt-hint {
+    width: 390px;
+}
+.joEmpty .tt-dropdown-menu {
+    width: 390px;
+    max-height: 250px;
+}
+
 .navbar .btn-nav.active 
 {
     background-color: #317eac;
@@ -441,3 +453,19 @@ input[type="checkbox"]:checked:after {
     top: 0;
     left: 50%;
 }
+
+/*#joForm > div:nth-child(20) > div > span{
+    width: 100%;
+}
+
+#joForm > div:nth-child(20) > div.controls.col-md-6 > span > input.tt-hint{
+   width: 100%; 
+}
+
+#joForm > div:nth-child(21) > div.controls.col-md-6 > span{
+    width: 100%;
+}
+
+#joForm > div:nth-child(21) > div.controls.col-md-6 > span > input.tt-hint{
+    width: 100%;
+}*/

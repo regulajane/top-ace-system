@@ -10,6 +10,7 @@ window.onload = function () {
 	});
 }
 
+
 function fabOrder(){
     // job order table
     $("#fabricationTable").bootgrid({
@@ -349,6 +350,13 @@ function jobOrder(){
         labels: {
             infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} Job Orders"
         },
+    });
+
+    $('.joEmpty #additionalitems').typeahead({
+        name: 'additionalitems',
+        remote:'includes/data-processors/searchjo.php?key=%QUERY',
+        limit : 10
+                                                        
     });
 
     // edit

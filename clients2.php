@@ -7,7 +7,7 @@
         if(!isset($_SESSION["username"])) {
             header('Location: index.php?loggedout=true');}
     ?>
-    
+     <script src="js/jo-emptyjoform.js"></script>
     <title>Clients</title>
 </head>
 <body>

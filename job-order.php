@@ -38,8 +38,8 @@
                         <div class="actionBtns">
                             <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
                                 href="#joModal"><i class="fa fa-plus fa-fw"></i> New Job Order </button>
-                            <button type="button" id="editbtn" class="btn btn-info" data-toggle="modal">
-                                <i class="fa fa-pencil-square-o fa-fw"></i> Edit </button>
+                            <!-- <button type="button" id="editbtn" class="btn btn-info" data-toggle="modal">
+                                <i class="fa fa-pencil-square-o fa-fw"></i> Edit </button> -->
                             <button type="button" id="updatebtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Update </button>
                             <div class="btn-group">
@@ -144,12 +144,27 @@
             </div>
             <div class="row tab-pane fade" id="sTab">
                 <div class="col-lg-12">
-                    <h2 class="page-header"></h2>
+                    <br>
                 </div>
                 <div class="col-md-12">
+                    <div class="actionBtns">
+                            <button type="button" id="newjofabbtn" class="btn btn-info" data-toggle="modal" 
+                                href="#_______"><i class="fa fa-plus fa-fw"></i> New Job Order </button>
+                            <!-- <button type="button" id="editjofabbtn" class="btn btn-info" data-toggle="modal">
+                                <i class="fa fa-pencil-square-o fa-fw"></i> Edit </button> -->
+                            <button type="button" id="updatejofabbtn" class="btn btn-info" data-toggle="modal">
+                                <i class="fa fa-pencil-square-o fa-fw"></i> Update </button>
+                            <div class="btn-group">
+                                <a class="btn btn-info" id="preEvalbtn" data-toggle="modal" 
+                                    href="#"><i class="fa fa-print fa-fw"></i> Print </a>
+                            </div>
+                    </div>
                     
 
+
                 </div>
+                <div class="col-md-12"></div>
+                <hr>
             </div>
         </div>
         

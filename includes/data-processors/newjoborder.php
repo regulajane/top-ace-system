@@ -1,8 +1,15 @@
+<script language="javascript">
+    document.onmousedown=disableclick;
+        status="Right Click Disabled";
+            function disableclick(event){
+                if(event.button==2){
+                    return false;    
+                }
+            }
+</script>
 
 <?php
     include '../header.php';
-    // include '../nav-jo.php';
-    
 
     // Access Validation
     if(!isset($_SESSION["username"])){
@@ -24,6 +31,9 @@
         $itemid = $_POST['itemid'];
         $itemsize = $_POST['itemsize'];
         $qty = $_POST['qty'];
+        $additionalitems = $_POST['additionalitems'];
+        $qtyAI = $_POST['qtyAI'];
+
 
 
         //-----------------------------COUNT and CREATE JOB ORDER ID------------------------------------
@@ -32,6 +42,8 @@
         $s = $conn->query($sqlcountjo);
         $ss = $s->fetch_assoc(); 
         $countjo = $ss['curdate'].$ss['countall'];
+
+        
 
 
         
@@ -108,28 +120,58 @@
                         }
 
         }
-        
 
-        //-----------------------------SELECT Total Service/s Availed------------------------------------
-        // $sqlprice = "SELECT SUM(services.serviceprice) AS totalPrice  from servicelogs join services using (serviceid) where joborderid = '$maxjoid' ";
-        // $rprice = $conn->query($sqlprice);
-        // $rrprice = $rprice->fetch_assoc(); 
-        // $totalprice = $rrprice['totalPrice'];
-
-        //-----------------------------UPDATE totalprice into joborder table------------------------
-        // $sqlupdateprice = "UPDATE joborders SET joborders.joprice = '$totalprice' where joborderid  = '$maxjoid' ";
-        // $stmtprice = $conn->prepare($sqlupdateprice);
-        // $stmtprice->execute(); 
+        // ----------------------------- Additional Items ------------------------------------
+        $Bearing = 'Bearing';
+        $OilFilter = 'Oil';
+        $FuelFilter = 'Fuel';
+        for($i=0 ;$i < count($_POST['additionalitems']); $i++) {
+           if(strpos($additionalitems[$i],$Bearing)  !== false ){
+                $additionalitems[$i] = str_replace("Bearing ","",$additionalitems[$i]);
+                $sqladdlitem = "SELECT inventoryid,inventoryprice from inventory join models using (modelid) 
+                                             where modelno = '$additionalitems[$i]' AND inventoryname = 'Bearing'; ";
+                $resultaddlitem = $conn->query($sqladdlitem);
+            
+            }else if(strpos($additionalitems[$i],$OilFilter)  !== false ){
+                $additionalitems[$i] = str_replace("Oil Filter ","",$additionalitems[$i]);
+                $sqladdlitem = "SELECT inventoryid,inventoryprice from inventory join models using (modelid) 
+                                             where modelno = '$additionalitems[$i]' AND inventoryname = 'Oil Filter'; ";
+                $resultaddlitem = $conn->query($sqladdlitem);
+              
+            }else if(strpos($additionalitems[$i],$FuelFilter)  !== false ){
+                $additionalitems[$i] = str_replace("Fuel Filter ","",$additionalitems[$i]);
+                $sqladdlitem = "SELECT inventoryid,inventoryprice from inventory join models using (modelid) 
+                                             where modelno = '$additionalitems[$i]' AND inventoryname = 'Fuel Filter'; ";
+                $resultaddlitem = $conn->query($sqladdlitem);
+            }
+            while($resultRowaddlitem = $resultaddlitem->fetch_assoc()){
+            
+                            $aa = $resultRowaddlitem['inventoryid'];
+                            $ap = $resultRowaddlitem['inventoryprice'];
+                            // echo "<script> alert($a); </script>";
        
+                            $sqlitemlogsaddlitem = "INSERT INTO itemlogs ( itemprice, itemquantity, joborderid, inventoryid ) VALUES ( ?, ?, ?, ? )";
+                            $stmt7 = $conn->prepare($sqlitemlogsaddlitem);     
+                            $stmt7->bind_param("iisi", $ap, $qtyAI[$i],  $maxjoid, $aa) or mysql_error();
+                            $stmt7->execute();
+
+            }
+
+        }
+
+
+   
+    
+
+
+        
+        echo '<body style="background-color: rgba(0, 0, 0, 0.35);" oncontextmenu="return false">';
         include '../modals/modal-servicesbreakdown.php';
         include '../head-elements-jo.php';
+        echo "</body>";
 
-        
-        
-         
     }
     $conn->close();
-    // include '../footer.php';
 ?>
 
 

@@ -58,11 +58,12 @@
                                     <label class="control-label col-xs-3">Item List:</label>
                                     <div class="col-md-8">
                                         <?php      
-                                            $sqlitem = "SELECT * FROM itemlogs join inventory using (inventoryid) where joborderid = $maxjoid; ";
+                                            $sqlitem = "SELECT * FROM itemlogs join inventory using (inventoryid) join models using (modelid) where joborderid = $maxjoid; ";
                                             $is = $conn->query($sqlitem);
                                             while($iss = $is->fetch_assoc()){
-                                                $invty = $iss['inventoryname']. " " . $iss['inventorysize'] . " - PHP ". $iss['inventoryprice'];
-                                                echo '<input type="text" class="form-control" id="receiptNo" name="receiptNo" readonly value="'.  $invty .'">' . "<br>";
+                                                $invty = $iss['inventoryname']. " " . $iss['inventorysize'] . " " .$iss['modelno'] . " - PHP ". $iss['inventoryprice'];
+                                                echo '<input type="text" class="form-control" id="itemlist" name="itemlist" readonly value="'.  $invty .'">' . "<br>";
+
 
                                             }   
                                         ?>

@@ -2,171 +2,11 @@
     if(!isset($_SESSION["username"])){
     header('Location: ../index.php?loggedout=true');}
 ?>
-<script>
-                                            $(document).ready(function() {
-                                                // The maximum number of options
-                                                var MAX_OPTIONS = 5;
-
-                                                $('#joForm')
-                                                // Add button click handler
-                                                .on('click', '.addButton', function() {
-                                                    var $template = $('#optionTemplate'),
-                                                        $clone    = $template
-                                                                        .clone()
-                                                                        .removeClass('hide')
-                                                                        .removeAttr('id')
-                                                                        .insertBefore($template),
-                                                        $option   = $clone.find('[name="serviceid[]"]');
-
-                                                    // Add new field
-                                                    // $('#joForm').formValidation('addField', $option);
-                                                })
-                                                // Remove button click handler
-                                                .on('click', '.removeButton', function() {
-                                                    var $row    = $(this).parents('.form-group'),
-                                                        $option = $row.find('[name="serviceid[]"]');
-
-                                                    // Remove element containing the option
-                                                    $row.remove();
-
-                                                    // Remove field
-                                                    // $('#joForm').formValidation('removeField', $option);
-                                                })
-                                                // Called after adding new field
-                                                .on('added.field.fv', function(e, data) {
-                                                    // data.field   --> The field name
-                                                    // data.element --> The new field element
-                                                    // data.options --> The new field options
-
-                                                    if (data.field === 'serviceid[]') {
-                                                        if ($('#joForm').find(':visible[name="serviceid[]"]').length >= MAX_OPTIONS) {
-                                                            $('#joForm').find('.addButton').attr('disabled', 'disabled');
-                                                        }
-                                                    }
-                                                })
-
-                                                // Called after removing the field
-                                                .on('removed.field.fv', function(e, data) {
-                                                   if (data.field === 'serviceid[]') {
-                                                        if ($('#joForm').find(':visible[name="serviceid[]"]').length < MAX_OPTIONS) {
-                                                            $('#joForm').find('.addButton').removeAttr('disabled');
-                                                        }
-                                                    }
-                                                });
-
-                                            });
-
-                                                // ---------------------------------------------------------------------------------------
-                                            $(document).ready(function() {
-                                                // The maximum number of options
-                                                var MAX_OPTIONS = 5;
-
-                                                $('#joForm')
-
-                                                .on('click', '.addButtonMach', function() {
-                                                    var $template = $('#optionTemplateMachinist'),
-                                                        $clone    = $template
-                                                                        .clone()
-                                                                        .removeClass('hide')
-                                                                        .removeAttr('id')
-                                                                        .insertBefore($template),
-                                                        $option   = $clone.find('[name="employeeid[]"]');
-
-                                                    // Add new field
-                                                    // $('#joForm').formValidation('addField', $option);
-                                                })
-                                                // Remove button click handler
-                                                .on('click', '.removeButtonMach', function() {
-                                                    var $row    = $(this).parents('.form-group'),
-                                                        $option = $row.find('[name="employeeid[]"]');
-
-                                                    // Remove element containing the option
-                                                    $row.remove();
-
-                                                    // Remove field
-                                                    // $('#joForm').formValidation('removeField', $option);
-                                                })
-                                                // Called after adding new field
-                                                .on('added.field.fv', function(e, data) {
-                                                    // data.field   --> The field name
-                                                    // data.element --> The new field element
-                                                    // data.options --> The new field options
-
-                                                    if (data.field === 'employeeid[]') {
-                                                        if ($('#joForm').find(':visible[name="employeeid[]"]').length >= MAX_OPTIONS) {
-                                                            $('#joForm').find('.addButtonMach').attr('disabled', 'disabled');
-                                                        }
-                                                    }
-                                                })
-
-                                                // Called after removing the field
-                                                .on('removed.field.fv', function(e, data) {
-                                                   if (data.field === 'employeeid[]') {
-                                                        if ($('#joForm').find(':visible[name="employeeid[]"]').length < MAX_OPTIONS) {
-                                                            $('#joForm').find('.addButtonMach').removeAttr('disabled');
-                                                        }
-                                                    }
-                                                });
-                                        // ------------------------------------------------------------------------------------------------------
-
-                                        $(document).ready(function() {
-                                                // The maximum number of options
-                                                var MAX_OPTIONS = 5;
-
-                                                $('#joForm')
-                                                // Add button click handler
-                                                .on('click', '.addButtonItem', function() {
-                                                    var $template = $('#optionTemplateItem'),
-                                                        $clone    = $template
-                                                                        .clone()
-                                                                        .removeClass('hide')
-                                                                        .removeAttr('id')
-                                                                        .insertBefore($template),
-                                                        $option   = $clone.find('[name="itemid[]"]');
-
-                                                    // Add new field
-                                                    // $('#joForm').formValidation('addField', $option);
-                                                })
-                                                // Remove button click handler
-                                                .on('click', '.removeButtonItem', function() {
-                                                    var $row    = $(this).parents('.form-group'),
-                                                        $option = $row.find('[name="itemid[]"]');
-
-                                                    // Remove element containing the option
-                                                    $row.remove();
-
-                                                    // Remove field
-                                                    // $('#joForm').formValidation('removeField', $option);
-                                                })
-                                                // Called after adding new field
-                                                .on('added.field.fv', function(e, data) {
-                                                    // data.field   --> The field name
-                                                    // data.element --> The new field element
-                                                    // data.options --> The new field options
-
-                                                    if (data.field === 'itemid[]') {
-                                                        if ($('#joForm').find(':visible[name="itemid[]"]').length >= MAX_OPTIONS) {
-                                                            $('#joForm').find('.addButtonItem').attr('disabled', 'disabled');
-                                                        }
-                                                    }
-                                                })
-
-                                                // Called after removing the field
-                                                .on('removed.field.fv', function(e, data) {
-                                                   if (data.field === 'itemid[]') {
-                                                        if ($('#joForm').find(':visible[name="itemid[]"]').length < MAX_OPTIONS) {
-                                                            $('#joForm').find('.addButtonItem').removeAttr('disabled');
-                                                        }
-                                                    }
-                                                });
-
-                                            });
-
-                                            });
-                                        function myFunction(){
-                                            document.getElementById("hidebtn").click();
-                                        }
-                                        </script>
+<script src="js/jo-emptyjoform.js">
+        function myFunction(){
+            document.getElementById("hidebtn").click();
+        }
+</script>
 <!-- JO Empty Form Modal -->
 <div class="modal fade" id="joModal" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true">
@@ -380,7 +220,7 @@
                                         <select class="form-control" id="itemid" name="itemid[]" required>
                                             <option value="" disabled selected>Select Item</option>
                                                                     <?php
-                                                                        $sql = "SELECT distinct(inventoryname) from inventory"; 
+                                                                        $sql = "SELECT distinct(inventoryname) from inventory join models using (modelid) where modelid = 1 "; 
                                                                         $result = $conn->query($sql);
                                                                         if ($result->num_rows > 0) {
                                                                             // output data of each row
@@ -423,7 +263,7 @@
                                         <select class="form-control" id="itemid" name="itemid[]" required>
                                             <option value="" disabled selected>Select Item</option>
                                                                     <?php
-                                                                        $sql = "SELECT distinct(inventoryname) from inventory"; 
+                                                                        $sql = "SELECT distinct(inventoryname) from inventory join models using (modelid) where modelid = 1 "; 
                                                                         $result = $conn->query($sql);
                                                                         if ($result->num_rows > 0) {
                                                                             // output data of each row
@@ -453,6 +293,33 @@
                                         </select>
                                     </div>
                                         <button type="button" class="pull-left remove-field btn btn-default removeButtonItem">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                </div>
+
+                                <hr>
+                                <div class="control-group form-group">
+                                    <label class="control-label col-md-3">Additional Items</label>
+                                    <div class="controls col-md-6">
+                                        <input type="text" class="form-control" id="additionalitems" name="additionalitems[]">                   
+                                    </div>
+                                    <div class="controls col-md-2">
+                                        <input type="number" min="0" name="qtyAI[]" id="qtyAI" class="form-control" placeholder="Quantity" required>
+                                    </div>
+                                        <button type="button" class="pull-left add-field btn btn-default addButtonAI" >
+                                            <i class="fa fa-plus"></i>
+                                        </button> 
+                                </div>
+                               
+                                <div class="control-group form-group hide" id="optionTemplateAdditionalItems">
+                                    <label class="control-label col-md-3"></label>
+                                    <div class="controls col-md-6">        
+                                        <input type="text" class="form-control" id="additionalitems" name="additionalitems[]">                
+                                    </div>
+                                    <div class="controls col-md-2">
+                                        <input type="number" min="0" name="qtyAI[]" id="qtyAI" class="form-control" placeholder="Quantity" required>
+                                    </div>
+                                        <button type="button" class="pull-left remove-field btn btn-default removeButtonAI">
                                             <i class="fa fa-minus"></i>
                                         </button>
                                 </div>
