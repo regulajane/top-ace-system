@@ -399,20 +399,32 @@ input[type="checkbox"]:checked:after {
 
 /*Typeahead : Sales*/
 .sales #salename {
-    width: 226px;
+    width: 234px;
 }
 .sales #salemodel {
-    width: 226px;
+    width: 234px;
 }
 .sales .tt-hint {
-    width: 226px;
+    width: 234px;
 }
 .sales .tt-dropdown-menu {
+    width: 234px;
+    max-height: 250px;
+}
+
+/*Typeahead : Inv*/
+.newSupply #modelno {
+    width: 226px;
+}
+.newSupply .tt-hint {
+    width: 226px;
+}
+.newSupply .tt-dropdown-menu {
     width: 226px;
     max-height: 250px;
 }
 
-/*Typeahead : Sales*/
+/*Typeahead : JO*/
 .joEmpty #additionalitems {
     width: 390px;
 }
