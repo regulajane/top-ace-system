@@ -110,7 +110,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <form class="form-horizontal" method="post" 
-                                action="includes/data-processors/addSupply.php" id="supplyForm2" novalidate>
+                                action="includes/data-processors/addSupply.php" id="supplyForm2">
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-4">Model No. :</label>
                                     <div class="controls col-md-6">
@@ -189,7 +189,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <form class="form-horizontal" method="post" 
-                                action="includes/data-processors/procureSupply.php" id="supplyForm3" novalidate>
+                                action="includes/data-processors/procureSupply.php" id="supplyForm3">
                                 <div class="control-group form-group">
                                     <div class="controls col-md-12">
                                         <label>Model No:</label>
