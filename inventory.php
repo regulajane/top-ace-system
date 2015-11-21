@@ -58,15 +58,15 @@
 			<div id="test1">
 				<button type="button" id="editsupplybtn" class="btn btn-info" data-toggle="modal" title "Edit"
 					href="#editSupplyModal">
-	                <i class="fa fa-pencil-square-o fa-fw"></i> 
+	                <i class="fa fa-pencil-square-o fa-fw"></i> Edit
                 </button>
 				<button type="button" id="addsupplybtn" class="btn btn-info" data-toggle="modal" 
 						href="#addInventoryModal" title="Add">
-					<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add
 				</button>
 				<button type="button" id="procuresupplybtn" class="btn btn-info" data-toggle="modal"
 						title="Procure" href="#procSuppliesModal">
-					<span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span> Procure
 				</button>
 			</div>
 

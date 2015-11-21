@@ -57,6 +57,67 @@ function supplies(){
             }
         }
     });
+
+    $('#supplyForm2').bootstrapValidator({
+        feedbackIcons: {
+            message: 'This value is not valid',
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            inventQtyAdded: {
+                validators: {
+                    notEmpty: {
+                        message: 'Quantity is required'
+                    }
+                }
+            }
+        }
+    });
+
+    $('#editsupplyform').bootstrapValidator({
+        feedbackIcons: {
+            message: 'This value is not valid',
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            modelno: {
+                validators: {
+                    notEmpty: {
+                        message: 'Model no. is required'
+                    }
+                }
+            },
+            inventName: {
+                validators: {
+                    notEmpty: {
+                        message: 'Item name is required'
+                    }
+                }
+            },
+            inventPrice: {
+                validators: {
+                    notEmpty: {
+                        message: 'Price is required'
+                    },
+                    regexp: {
+                        regexp: /^[0-9]+./,
+                        message: 'Please enter a valid value'
+                    }
+                }
+            },
+            inventRL: {
+                validators: {
+                    notEmpty: {
+                        message: 'Reorder level is required'
+                    }
+                }
+            }
+        }
+    });
     
     $('.newSupply #modelno').typeahead({
         name: 'modelno',

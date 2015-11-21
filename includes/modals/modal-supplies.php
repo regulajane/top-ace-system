@@ -100,10 +100,10 @@
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Add Quantity</h4>
+                <h4 class="modal-title" id="myModalLabel">Add</h4>
             </div>
             <div class="addProcSup modal-body">
                 <div class="well">
@@ -112,48 +112,55 @@
                             <form class="form-horizontal" method="post" 
                                 action="includes/data-processors/addSupply.php" id="supplyForm2" novalidate>
                                 <div class="control-group form-group">
-                                    <div class="controls col-md-12">
-                                        <label>Model No. :</label>
+                                    <label class="control-label col-md-4">Model No. :</label>
+                                    <div class="controls col-md-6">
                                         <input readonly type="text" class="form-control" id="modelNum" name="modelNum"/>
                                     </div>
                                 </div>
-                                 <div class="control-group form-group">
-                                    <div class="controls col-md-12" style="display: none">
-                                        <label>Inventory ID:</label>
+                                 <div class="control-group form-group" style="display: none">
+                                    <label class="control-label col-md-4">Inventory ID:</label>
+                                    <div class="controls col-md-6">
                                         <input readonly type="text" class="form-control" id="inventID" name="inventID"/>
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
-                                    <div class="controls col-md-12">
-                                        <label>Item Name:</label>
-                                        <input readonly type="text" class="form-control" id="inventName" name="inventName"
-                                            required data-validation-required-message="Please enter item name."/>
+                                    <label class="control-label col-md-4">Item Name:</label>
+                                    <div class="controls col-md-6">
+                                        <input readonly type="text" class="form-control" id="inventName" name="inventName"/>
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
-                                    <div class="controls col-md-12">
-                                        <label>Size:</label>
+                                    <label class="control-label col-md-4">Size:</label>
+                                    <div class="controls col-md-4">
                                         <input readonly type="text" class="form-control" id="inventSize" name="inventSize"/>
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
-                                    <div class="controls col-md-12">
-                                        <label>Price:</label>
+                                    <label class="control-label col-md-4">Price:</label>
+                                    <div class="controls col-md-4">
                                         <input readonly type="text" class="form-control" id="inventPrice" name="inventPrice"/>
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
+                                    <label class="control-label col-md-4">Current Quantity:</label>
                                     <div class="controls col-md-4">
-                                        <label>Current Quantity:</label>
                                         <input readonly type="text" class="form-control" id="inventQty" name="inventQty"/>
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
+                                    <label class="control-label col-md-4">Add:</label>
                                     <div class="controls col-md-4">
-                                        <label>Quantity to be Added:</label>
                                         <input type="number" class="form-control" name="inventQtyAdded" id="inventQtyAdded"
-                                            required data-validation-required-message="Please enter quantity."/>
+                                            required placeholder="Quantity"/>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-8 col-md-offset-4">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                        <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
+                                    <button type="submit" name="inoutsupply" class="btn btn-success" form="supplyForm2" value="Add Supply">
+                                        <span class="glyphicon glyphicon-ok-sign"></span> Add </button>  
+                                    </div> 
                                 </div>
                             </form>
                         </div>
@@ -161,11 +168,6 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
-
-                <button type="submit" name="inoutsupply" class="btn btn-success" form="supplyForm2" value="Add Supply">
-                    <span class="glyphicon glyphicon-ok-sign"></span> Add </button> 
             </div>
         </div>
     </div>
@@ -203,8 +205,7 @@
                                 <div class="control-group form-group">
                                     <div class="controls col-md-12">
                                         <label>Item Name:</label>
-                                        <input readonly type="text" class="form-control" id="inventName" name="inventName"
-                                            required data-validation-required-message="Please enter item name."/>
+                                        <input readonly type="text" class="form-control" id="inventName" name="inventName"/>
                                     </div>
                                 </div>
 
@@ -364,10 +365,10 @@
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cancelbtn">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">EDIT SUPPLY</h4>
+                <h4 class="modal-title" id="myModalLabel">Edit Supply</h4>
             </div>
             <div class="invEdit modal-body">
                 <div class="well">
@@ -377,31 +378,31 @@
                                 action="includes/data-processors/editsupply.php" id="editsupplyform">
 
                                 <div class="control-group col-md-12">
-                                <div class="control-group form-group">
-                                    <div class="controls col-md-12" style="display: none">
-                                        <label>Inventory ID:</label>
+                                <div class="control-group form-group" style="display: none">
+                                    <label class="control-label col-md-4">Inventory ID:</label>
+                                    <div class="controls col-md-12">
                                         <input readonly type="text" class="form-control" id="inventID" name="inventID"/>
                                     </div>
                                 </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Model No:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Model No:</label>
+                                        <div class="col-md-6">
                                             <input type="text" class="form-control" id="modelno" name="modelno" 
                                                 required >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Item Name:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Item Name:</label>
+                                        <div class="col-md-6">
                                            <input type="text" class="form-control" id="inventName" name="inventName"/>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Size:</label>
-                                        <div class="col-xs-4">
+                                        <label class="control-label col-md-4">Size:</label>
+                                        <div class="col-md-4">
                                         <input type="text" class="form-control" id="inventSize" name="inventSize" >                                          
 <!--                                                 <select class="form-control" id="inventSize" name="inventorysize">
                                                     <option value="std">std</option>
@@ -413,20 +414,27 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Price per piece:</label>
-                                        <div class="col-xs-7">
+                                        <label class="control-label col-md-4">Price per piece:</label>
+                                        <div class="col-md-4">
                                             <input type="text" class="form-control" id="inventPrice" name="inventPrice" 
                                                 required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-4">Reorder Level:</label>
-                                        <div class="col-xs-7">
-                                            <input type="text" class="form-control" id="inventRL" name="inventRL" 
+                                        <label class="control-label col-md-4">Reorder Level:</label>
+                                        <div class="col-md-4">
+                                            <input type="number" class="form-control" id="inventRL" name="inventRL" 
                                                 required>
                                         </div>
                                     </div>                                   
-                                    
+                                    <div class="form-group">
+                                    <div class="col-md-8 col-md-offset-4">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
+                                            <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                                        <button type="submit" name="editsupply" class="btn btn-success" form="editsupplyform" value="Edit Supply" 
+                                            id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span>Save</button> 
+                                    </div> 
+                                </div>
                                 </div>
                             </form>
                         </div>
@@ -435,10 +443,6 @@
             </div>
 
             <div class="modal-footer">  
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
-                <button type="submit" name="editsupply" class="btn btn-success" form="editsupplyform" value="Edit Supply" 
-                    id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span>Save</button>
             </div>
         </div>
     </div>
