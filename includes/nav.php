@@ -111,7 +111,7 @@
                             while ($row = mysqli_fetch_row($getNotifs)) {
 
                                 echo "<script>
-                                       var text = '$row[1]';
+                                       var text = 'NAME: $row[1], SIZE: $row[2], Model-No: $row[3] is $row[4]';
                                        var newNotif = document.createElement('p');
                                        var node = document.createTextNode(text);
                                        newNotif.appendChild(node);
