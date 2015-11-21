@@ -6,7 +6,8 @@
 	        include 'includes/head-elements.php';   
 	        if(!isset($_SESSION["username"])) {
 	            header('Location: index.php?loggedout=true');}
-	    ?>		
+	    ?>
+	    <script src="js/fabrication-inventory-script.js"></script>		
 		<title>Inventory</title>
 	</head>
 	<body>
@@ -26,9 +27,9 @@
 				                <span class="fa fa-caret-down"></span></a>
 				                <ul class="dropdown-menu">
 				                    <li>
-				                    	<a type="button" class="btn btn-info" data-toggle="modal"  href="#" 
+				                    	<a type="button" class="btn btn-info" data-toggle="modal"  href="#importNewItemsFabrication" 
 				                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%; color: #FFF">
-				                        <i class="fa fa-list"></i> New Items (.excel)
+				                        <i class="fa fa-list"></i> New Fabrication Items (.excel)
 				                        </a>
 				                    </li>
 				                </ul>
@@ -37,25 +38,23 @@
 				<table  id="fabricationTable" class="table table-condensed table-hover table-striped" style="margin-top: 20px">
 				<thead>
 					<tr>
-						<th data-column-id="fabricationid" data-visible="false"  data-identifier="true">
-							Fabrication ID
+						<th data-column-id="itemid" data-visible="false"  data-identifier="true">
+							Item ID
 						</th>
-						<th data-column-id="fabricationname">
-							Fabrication Name
+						<th data-column-id="itemname">
+							Name
 						</th>
-						<th data-column-id="fabricationsize(diam)">
-							Fabrication Size (diam)
+						<th data-column-id="itemsizediam">
+							Size (diam)
 						</th>
-						<th data-column-id="fabricationsize(length)">
-							Fabrication Length (length)
-						</th>
-						<th data-column-id="reorderlevel" data-visible="false">
-							Reorder Level
+						<th data-column-id="itemsizelength">
+							Length (length)
 						</th>
 
 					</tr>
 				</thead>  
 			</table>
+				<?php include 'includes/modals/modal-fabricationitems.php';?>  
 				<?php include 'includes/footer.php'; ?>
 			</div>
 		</div>
