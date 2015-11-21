@@ -10,6 +10,9 @@
 		$inventSize = $_POST["inventSize"];
 		$inventPrice = $_POST["inventPrice"];
 		$quantity = $_POST["inventQtyAdded"];
+		$modelNo = $_POST["modelNum"];
+		$rl = $_POST["rl"];
+		$inventQty = $_POST["inventQty"];
 
 		//Ingoing
 		ini_set('date.timezone', 'Asia/Manila');
@@ -18,7 +21,24 @@
 		$isQty = $quantity;
 		$enteredBy = $_SESSION["username"];
 
-		echo "<script>alert('$isDate $isTime $isQty $enteredBy $inventID')</script>";
+		//echo "<script>alert('$isDate $isTime $isQty $enteredBy $inventID')</script>";
+
+		$sqlchecknotif = "SELECT * from notification where inventoryname = '$inventName' 
+							AND inventorysize = '$inventSize' AND modelno = '$modelNo'";
+        $s = $conn->query($sqlchecknotif);
+        $ss = $s->fetch_assoc(); 
+
+        if($ss==null){
+
+        }else{
+        	if(($inventQty+$quantity)>$rl){
+    			$sqlgetnotif = "DELETE from notification where inventoryname = '$inventName' 
+						AND inventorysize = '$inventSize' AND modelno = '$modelNo'";
+		        $s = $conn->prepare($sqlgetnotif);
+		        $s->execute();
+        	}
+        }
+
 		//-----------------------------UPDATE INVENTORY------------------------------------
 		$sql = 	"UPDATE inventory
 					SET inventoryquantity = inventoryquantity + '$quantity'
