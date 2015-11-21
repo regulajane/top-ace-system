@@ -6,39 +6,58 @@
 	        include 'includes/head-elements.php';   
 	        if(!isset($_SESSION["username"])) {
 	            header('Location: index.php?loggedout=true');}
-	    ?>		<script src="js/fabr-page-script.js"></script>
+	    ?>		
 		<title>Inventory</title>
 	</head>
 	<body>
 		<?php include 'includes/nav.php'; ?>
-		<div class="container">
-			<hr>
-			<div class="progress">
-			  <div class="progress-bar" role="progressbar" aria-valuenow="70"
-			  aria-valuemin="0" aria-valuemax="100" style="width:70%">
-			    Metal 1 = 10 Meters
-			  </div>
+		<div id="fabrication">
+			<div class="container" style="margin-top: 20px">
+				<div class="actionBtns">
+							<a type="button" class="btn btn-info" href="inventory.php" >
+                    			<i class="fa fa-arrow-left fa-fw"></i> Back
+                    		</a>
+							<button type="button" id="addnew" class="btn btn-info" data-toggle="modal" 
+								href="#"><i class="fa fa-plus fa-fw"></i>Add New Item</button>
+
+							<div class="btn-group">
+				                <a class="btn btn-info" href="#"><i class="fa fa-folder-open"></i> Upload Files </a>
+				                <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
+				                <span class="fa fa-caret-down"></span></a>
+				                <ul class="dropdown-menu">
+				                    <li>
+				                    	<a type="button" class="btn btn-info" data-toggle="modal"  href="#" 
+				                        style="text-align:left;  margin: 0px 5px 5px 5px; width: 94%; color: #FFF">
+				                        <i class="fa fa-list"></i> New Items (.excel)
+				                        </a>
+				                    </li>
+				                </ul>
+		            		</div>
+				</div>
+				<table  id="fabricationTable" class="table table-condensed table-hover table-striped" style="margin-top: 20px">
+				<thead>
+					<tr>
+						<th data-column-id="fabricationid" data-visible="false"  data-identifier="true">
+							Fabrication ID
+						</th>
+						<th data-column-id="fabricationname">
+							Fabrication Name
+						</th>
+						<th data-column-id="fabricationsize(diam)">
+							Fabrication Size (diam)
+						</th>
+						<th data-column-id="fabricationsize(length)">
+							Fabrication Length (length)
+						</th>
+						<th data-column-id="reorderlevel" data-visible="false">
+							Reorder Level
+						</th>
+
+					</tr>
+				</thead>  
+			</table>
+				<?php include 'includes/footer.php'; ?>
 			</div>
-
-			<hr>
-
-			<div class="progress">
-			  <div class="progress-bar" role="progressbar" aria-valuenow="70"
-			  aria-valuemin="0" aria-valuemax="100" style="width:70%">
-			    Metal 2 = 20 Meters
-			  </div>
-			</div>
-
-			<hr>
-
-			<div class="progress">
-			  <div class="progress-bar" role="progressbar" aria-valuenow="70"
-			  aria-valuemin="0" aria-valuemax="100" style="width:70%">
-			    Metal 3 = 20 Meters
-			  </div>
-			</div>
-
-			<?php include 'includes/footer.php'; ?>
 		</div>
 	</body>
 </html>
