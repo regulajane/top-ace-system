@@ -368,7 +368,7 @@
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cancelbtn">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Edit Supply</h4>
+                <h4 class="modal-title" id="myModalLabel">Edit</h4>
             </div>
             <div class="invEdit modal-body">
                 <div class="well">
