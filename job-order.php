@@ -19,11 +19,11 @@
             <div class="col-md-12">
                 <ul id="myTab" class="nav nav-tabs nav-justified">
                     <li class="active tab-nav"><a href="#joTab" data-toggle="tab">
-                        <i class="fa fa-bus"></i> Engineer Reconditioning</a></li>
+                        <i class="fa fa-bus"></i> Engine Reconditioning</a></li>
                     <li class="tab-nav"><a href="#vrTab" data-toggle="tab">
                         <i class="fa fa-bus"></i> Fabrication</a></li>
                     <li class="tab-nav"><a href="#sTab" data-toggle="tab">
-                        <i class="fa fa-bus"></i> Engineer Reconditioning with Fabrication</a></li>
+                        <i class="fa fa-bus"></i> Engine Reconditioning with Fabrication</a></li>
                 </ul>
         </div>
         </div>
