@@ -142,6 +142,12 @@
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
+                                    <label class="control-label col-md-4">Reorder Level:</label>
+                                    <div class="controls col-md-4">
+                                        <input readonly type="text" class="form-control" id="rl" name="rl"/>
+                                    </div>
+                                </div>
+                                <div class="control-group form-group">
                                     <label class="control-label col-md-4">Current Quantity:</label>
                                     <div class="controls col-md-4">
                                         <input readonly type="text" class="form-control" id="inventQty" name="inventQty"/>
@@ -237,7 +243,7 @@
 
                                         <label>Others(Please Specify): </label>
                                         <input type="radio" name="choice" onclick="showTextBox()" id="others">
-                                        
+
                                         <br><br>
                                         <script>
                                             function showTextBox(){
