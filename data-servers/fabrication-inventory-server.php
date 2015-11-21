@@ -60,7 +60,7 @@
 
     $json=json_encode( $results_array );
 
-    $nRows=$conn->query("SELECT count(*) from inventory")->fetchColumn();
+    $nRows=$conn->query("SELECT count(*) from inventoryfabrication")->fetchColumn();
 
     header('Content-Type: application/json');
 
