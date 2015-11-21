@@ -27,6 +27,52 @@ window.onload = function () {
         remote:'includes/data-processors/searchinv.php?key=%QUERY',
         limit : 8
     });
+
+    $('#salesForm').bootstrapValidator({
+        feedbackIcons: {
+            message: 'This value is not valid',
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            salemodel: {
+                validators: {
+                    notEmpty: {
+                        message: 'Sale model is required'
+                    }
+                }
+            },
+            salename: {
+                validators: {
+                    notEmpty: {
+                        message: 'Name is required'
+                    }
+                }
+            },
+            salesize: {
+                validators: {
+                    notEmpty: {
+                        message: 'Size is required'
+                    }
+                }
+            },
+            saleqty: {
+                validators: {
+                    notEmpty: {
+                        message: 'Quantity is required'
+                    }
+                }
+            },
+            saledate: {
+                validators: {
+                    notEmpty: {
+                        message: 'Date is required'
+                    }
+                }
+            }
+        }
+    });
 }
 
 function navbar(){

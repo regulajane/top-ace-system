@@ -18,8 +18,6 @@
         <div class="actionBtns">
             <button type="button" id="newsalebtn" class="btn btn-info" data-toggle="modal" 
                 href="#salesModal"><i class="fa fa-plus fa-fw"></i> New Sale </button>
-            <button type="button" id="printbtn" class="btn btn-info" data-toggle="modal">
-                <i class="fa fa-print fa-fw"></i> Summary </button>
         </div>
         <!-- SalesTable -->
         <div>

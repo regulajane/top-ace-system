@@ -22,19 +22,19 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-4">Item Name:</label>
+                                        <label class="control-label col-md-4">Name:</label>
                                         <div class="col-md-6">
                                             <input type="text" class="typeahead form-control"  placeholder="Item"
                                                 id="salename" name="salename" autocomplete="off" size="15" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-4">Item Size:</label>
-                                        <div class="col-md-6">
+                                        <label class="control-label col-md-4">Size:</label>
+                                        <div class="col-md-4">
                                             <select class="form-control" id="salesize" name="salesize" required>
                                             <option value="" disabled selected>Size</option>
                                             <option value="0.25" >0.25</option>
-                                            <option value="0.5" >0.5</option>
+                                            <option value="0.50" >0.50</option>
                                             <option value="0.75" >0.75</option>
                                             <option value="STD " >STD</option>
                                         </select>
@@ -42,18 +42,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-4">Quantity:</label>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <input type="number" class="form-control" placeholder="Quantity"
                                                 id="saleqty" name="saleqty"/>
                                         </div>
                                     </div>
-<!--                                     <div class="form-group">
-                                        <label class="control-label col-md-4">Price:</label>
-                                        <div class="col-md-6">
-                                            <input type="number" class="form-control" placeholder="Price"
-                                                id="saleprice" name="saleprice" required/>
-                                        </div>
-                                    </div> -->
                                     <div class="form-group">
                                         <label class="control-label col-md-4">Date:</label>
                                         <div class="col-md-6">
