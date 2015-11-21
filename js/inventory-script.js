@@ -147,6 +147,7 @@ function supplies(){
                 var inventSize 	= inventoryData.inventorysize;
                 var inventPrice = inventoryData.inventoryprice;
                 var inventQty	= inventoryData.inventoryquantity;
+                var rl = inventoryData.reorderlevel;
                 // Add Quantity Form
                 $(".addProcSup #inventID").val(inventID);
                 $(".addProcSup #modelNum").val(modelNum);
@@ -154,6 +155,7 @@ function supplies(){
                 $(".addProcSup #inventSize").val(inventSize);
                 $(".addProcSup #inventPrice").val(inventPrice);
                 $(".addProcSup #inventQty").val(inventQty);
+                $(".addProcSup #rl").val(rl);
 
             }
         });           
