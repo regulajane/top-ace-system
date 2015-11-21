@@ -7,7 +7,22 @@
         if(!isset($_SESSION["username"])) {
             header('Location: index.php?loggedout=true');}
     ?>
-    
+    <script>
+    function addOrder(){
+    $('.multi-field-wrapper').each(function() {
+        var $wrapper = $('.multi-fields', this);
+        $(".add-field", $(this)).click(function(e) {
+            $('.multi-field:first-child', 
+                $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
+        });
+        $('.multi-field .remove-field', $wrapper).click(function() {
+            if ($('.multi-field', $wrapper).length > 1)
+                $(this).parent('.multi-field').remove();
+        });
+    });
+
+}
+</script>
     <title>Clients</title>
 </head>
 <body>
@@ -57,6 +72,7 @@
     <script>
         window.onload = function(){
             document.getElementById("addfaborderbtn").click();
+            addOrder();
         }
     </script>
 </html>

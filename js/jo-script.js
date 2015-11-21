@@ -1,4 +1,4 @@
-window.onload = function () { 
+    window.onload = function () { 
     jobOrder();
     fabOrder();
     addOrder();
@@ -9,7 +9,6 @@ window.onload = function () {
 			
 	});
 }
-
 
 function fabOrder(){
     // job order table
@@ -58,8 +57,14 @@ function fabOrder(){
                             var fabdesc = document.createElement("input");
                             var fabqty = document.createElement("input");
                             var fabprice = document.createElement("input");
-                            
+                            var fabdesclabel = document.createElement("label");
+                            var fabqtylabel = document.createElement("label");
+                            var fabpricelabel = document.createElement("label");
+
                             var div3 = document.createElement("div");
+                            fabpricelabel.appendChild(document.createTextNode("Price"));
+                            fabdesclabel.appendChild(document.createTextNode("Item Description"));
+                            fabqtylabel.appendChild(document.createTextNode("Quantity"));
                             fabqty.type = "number";
                             fabqty.id = "length";
                             fabqty.name = "length[]";
@@ -104,16 +109,24 @@ function fabOrder(){
                                 addbtn.appendChild(addbtnsymbol);
                                 addbtn.appendChild(document.createTextNode("Add More..."));
                                 div3.appendChild(addbtn);
+                                
                             }
-							
+                            div3.appendChild(document.createElement('br'));
+							div3.appendChild(fabdesclabel);
+                            div3.appendChild(document.createElement('br'));
 							div3.appendChild(fabdesc);
+                            div3.appendChild(document.createElement('br'));
+                            div3.appendChild(fabqtylabel);
+                            div3.appendChild(document.createElement('br'));
                             div3.appendChild(fabqty);
+                            div3.appendChild(document.createElement('br'));
+                            div3.appendChild(fabpricelabel);
+                            div3.appendChild(document.createElement('br'));
                             div3.appendChild(fabprice);
-                            div3.appendChild(br);
-                            
                             div3.appendChild(removebtn);
-                            div3.appendChild(br);
-                            
+                            div3.appendChild(document.createElement('br'));
+                            div3.appendChild(document.createElement('br'));
+
                            
                 };
                 addbtn.setAttribute("click", addOrderInEdit('fabrication'));
@@ -142,6 +155,8 @@ function fabOrder(){
                         div2.className = "multi-fields";
                         for (var k = 0; k < fabMachinistData2.length; k++) {
                             var selectmachinist = document.createElement("select");
+                            var selectmachinistlabel = document.createElement("label");
+                            selectmachinistlabel.appendChild(document.createTextNode("Machinist"));
                             selectmachinist.className = "form-control";
                             selectmachinist.id = "machinist";
                             selectmachinist.name = "machinist[]";
@@ -178,6 +193,7 @@ function fabOrder(){
                                 addbtn.appendChild(addbtnsymbol);
                                 addbtn.appendChild(document.createTextNode("Add More..."));
                                 div3.appendChild(addbtn);
+                                div3.appendChild(document.createElement('br'));
                             }
                            
                             
@@ -185,7 +201,8 @@ function fabOrder(){
                             div1.appendChild(div2);
                             fabor.appendChild(div1);
 							div3.appendChild(document.createElement('br'));
-							
+							div3.appendChild(selectmachinistlabel);
+                            div3.appendChild(document.createElement('br'));
                             div3.appendChild(selectmachinist);
 							div3.appendChild(removebtn);
 							div3.appendChild(document.createElement('br'));
@@ -350,13 +367,6 @@ function jobOrder(){
         labels: {
             infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} Job Orders"
         },
-    });
-
-    $('.joEmpty #additionalitems').typeahead({
-        name: 'additionalitems',
-        remote:'includes/data-processors/searchjo.php?key=%QUERY',
-        limit : 10
-                                                        
     });
 
     // edit

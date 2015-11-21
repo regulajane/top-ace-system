@@ -79,13 +79,25 @@
 
         // update date finished and job order status
         if($fabdone == $fo){
+
+            $sqlstat = "SELECT jostatus from joborders  where joborderid = '$receiptNo' ";
+            $resultstat= $conn->query($sqlstat);
+            $resultRowStat = $resultstat->fetch_assoc();
+            $stat = $resultRowStat['jostatus'];
+
+            // check status if Done to prevent negative number in active jobs
+            if($stat == "Done"){
+
+            }else{
+                $sqlemp = "UPDATE employees SET noofjobs = (noofjobs-1) where employeeid IN (SELECT employeeid from joemployees where joborderid = '$receiptNo');";
+                $stmtemp = $conn->prepare($sqlemp);
+                $stmtemp->execute();  
+            }
+            
             $sqldatefinished = "UPDATE joborders set datefinished = CURDATE(), jostatus = 'Done' where joborderid = '$receiptNo' ";
             $stmtfinished = $conn->prepare($sqldatefinished);
             $stmtfinished->execute();
 
-            $sqlemp = "UPDATE employees SET noofjobs = (noofjobs-1) where employeeid IN (SELECT employeeid from joemployees where joborderid = '$receiptNo');";
-            $stmtemp = $conn->prepare($sqlemp);
-            $stmtemp->execute();
         }
 
         // select balance
