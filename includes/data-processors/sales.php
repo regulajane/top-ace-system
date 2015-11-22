@@ -40,7 +40,7 @@
 					VALUES (?, ?, ?, ?, ?, ?, ?, ?)";			
 			$stmt = $conn->prepare($sql);
 			// Bind
-			$stmt->bind_param("ssisisss", $invoiceno, $saledate, $noofitems, $price, $itemsize, $itemname, $total, $modelno);
+			$stmt->bind_param("ssisssss", $invoiceno, $saledate, $noofitems, $price, $itemsize, $itemname, $total, $modelno);
 			// Execute 
 			$stmt->execute();
 			// Redirect
