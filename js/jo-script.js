@@ -10,49 +10,49 @@
 			
 	});
 
-    $('#joForm').bootstrapValidator({
-        feedbackIcons: {
-            message: 'This value is not valid',
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            clientid: {
-                validators: {
-                    notEmpty: {
-                        message: 'Client name is required'
-                    }
-                }
-            },
-            datebrought: {
-                validators: {
-                    notEmpty: {
-                        message: 'Date received is required'
-                    }
-                }
-            },
-            modelid: {
-                validators: {
-                    notEmpty: {
-                        message: 'Engine model is required'
-                    }
-                }
-            },
-            engnumber: {
-                validators: {
-                    notEmpty: {
-                        message: 'Engine number is required'
-                    }
-                }
-            },
-            problem: {
-                validators: {
-                    notEmpty: {
-                        message: 'Please enter problem/s'
-                    }
-                }
-            },
+    // $('#joForm').bootstrapValidator({
+    //     feedbackIcons: {
+    //         message: 'This value is not valid',
+    //         valid: 'glyphicon glyphicon-ok',
+    //         invalid: 'glyphicon glyphicon-remove',
+    //         validating: 'glyphicon glyphicon-refresh'
+    //     },
+    //     fields: {
+    //         clientid: {
+    //             validators: {
+    //                 notEmpty: {
+    //                     message: 'Client name is required'
+    //                 }
+    //             }
+    //         },
+    //         datebrought: {
+    //             validators: {
+    //                 notEmpty: {
+    //                     message: 'Date received is required'
+    //                 }
+    //             }
+    //         },
+    //         modelid: {
+    //             validators: {
+    //                 notEmpty: {
+    //                     message: 'Engine model is required'
+    //                 }
+    //             }
+    //         },
+    //         engnumber: {
+    //             validators: {
+    //                 notEmpty: {
+    //                     message: 'Engine number is required'
+    //                 }
+    //             }
+    //         },
+    //         problem: {
+    //             validators: {
+    //                 notEmpty: {
+    //                     message: 'Please enter problem/s'
+    //                 }
+    //             }
+    //         },
             // serviceid: {
             //     validators: {
             //         notEmpty: {
@@ -81,22 +81,22 @@
             //         }
             //     }
             // },
-            salesperson: {
-                validators: {
-                    notEmpty: {
-                        message: 'Personnel is required'
-                    }
-                }
-            },
-            supervisor: {
-                validators: {
-                    notEmpty: {
-                        message: 'Supervisor is required'
-                    }
-                }
-            }
-        }
-    });
+    //         salesperson: {
+    //             validators: {
+    //                 notEmpty: {
+    //                     message: 'Personnel is required'
+    //                 }
+    //             }
+    //         },
+    //         supervisor: {
+    //             validators: {
+    //                 notEmpty: {
+    //                     message: 'Supervisor is required'
+    //                 }
+    //             }
+    //         }
+    //     }
+    // });
 }
 
 function fabOrder(){
