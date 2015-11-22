@@ -92,7 +92,7 @@
 						<th data-column-id="inventoryquantity">
 							Quantity
 						</th>
-						<th data-column-id="reorderlevel" data-visible="false">
+						<th data-column-id="reorderlevel" >
 							Reorder Level
 						</th>
 
