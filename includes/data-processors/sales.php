@@ -30,6 +30,7 @@
     	$noRows = $result->fetch_assoc();
 
     	$price = $noRows['inventoryprice'];
+    	$inventID = $noRows['inventoryid'];
 
     	$total = $noofitems*$price;
 
@@ -43,17 +44,113 @@
 			$stmt->bind_param("ssisssss", $invoiceno, $saledate, $noofitems, $price, $itemsize, $itemname, $total, $modelno);
 			// Execute 
 			$stmt->execute();
-			// Redirect
-			header('location:../../sales.php');  
+
+			//outgoing
+			ini_set('date.timezone', 'Asia/Manila');
+			$otDate = date("Y-m-d"); 
+			$otTime = date("H:i:s");
+			$otQty = $noofitems;
+			$procuredBy = $_SESSION["username"];
+			
+			$sqlqty = "SELECT inventoryquantity, reorderlevel FROM inventory WHERE inventoryid = '" .$inventID. "'";
+			$result = $conn->query($sqlqty);
+			$resultRow = $result->fetch_assoc();
+
+			$cq = $resultRow['inventoryquantity'] - $noofitems;
+			$rr = $resultRow['reorderlevel'];
+	 		
+
+			//time
+			$saledate = date("Y-m-d");
+
+			if ($noofitems > $resultRow['inventoryquantity']) { 
+			echo '<script type="text/javascript">'; 
+			echo 'alert("Error: You are trying to procure more than the available supply.");'; 
+			echo 'window.location.href = "../../sales.php";';
+			echo '</script>';
+
+		}  else {
+			if($cq <= $rr) {
+					//echo '<script>alert("HEHE");</script>'; 
+					$nDetails = "below reorder level";
+					$nDate = date("Y-m-d");
+					$nTime = date("H:i:s");
+
+					$sql3 = "INSERT INTO notification (inventoryname, inventorysize, modelno ,notificationdetails, ndate, time) 
+								VALUES (?, ?, ?, ?, ?, ?)";
+
+					$stmt3 = $conn->prepare($sql3);
+
+					// Bind
+					$stmt3->bind_param("ssssss", $itemname, $itemsize ,$modelno, $nDetails, $nDate, $nTime);
+					// Execute
+
+					$stmt3->execute(); 
+
+					/*$result = $conn->query("SELECT count(*) from notification");
+					$nCount = 0;
+
+		            while ($row=mysqli_fetch_row($result))
+		                 {
+		                   $nCount = $row[0];
+		                 }
+
+		            $result = $conn->query("SELECT notificationdetails from notification");
+					$nDetails = 0;
+
+		            while ($row=mysqli_fetch_row($result))
+		                 {
+		                   $nDetails = $row[0];
+		                 }*/
+
+
+		            
+					/*echo "<script>
+								  localStorage['notif']='$nCount'
+								  localStorage['nDetails']='$nDetails'
+						  </script>";*/
+
+				//echo '<script type="text/javascript">'; 
+				//echo 'var notif_count = parseInt(localStorage["notif"]);';
+				//echo 'var counter = notif_count + 1;';
+				//echo 'localStorage["notif"] = counter;';
+				//echo ' window.location = "../../inventory.php";';
+				//echo '</script>';
+
+			}
+			//-----------------------------CREATE procureSupply TRIGGER------------------------------------
+			$sql = 	"UPDATE inventory
+					SET inventoryquantity = inventoryquantity - '$noofitems'
+					WHERE inventoryid = '$inventID'";
+			$stmt = $conn->prepare($sql);
+			$stmt->execute();
+			
+			$reason = "Sales";
+			//-----------------------------INSERT INTO OUTGOINGSUPPLIES------------------------------------
+			$sql2 = "INSERT INTO outgoingitems (isdate, time, quantity, enteredby, inventoryid, reason) 
+						VALUES (?, ?, ?, ?, ?, ?)";
+
+			$stmt2 = $conn->prepare($sql2);
+
+			// Bind
+			$stmt2->bind_param("ssssss", $otDate, $otTime, $otQty, $procuredBy, $inventID, $reason);
+			// Execute
+
+			$stmt2->execute(); 
+
+			
+					// Redirect
+			header('location:../../sales.php');
+		}  
 
 		} else {
 			echo '<script type="text/javascript">'; 
 			echo 'alert("Error: Product not available");'; 
-			echo 'window.location.href = "../../inventory.php";';
+			echo 'window.location.href = "../../sales.php";';
 			echo '</script>';
 		}
 
-
+			
 
 	}
 
