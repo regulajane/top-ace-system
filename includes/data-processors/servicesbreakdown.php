@@ -12,6 +12,7 @@
     	$downpayment = $_POST['downpayment'];
         $markup = $_POST['markup'];
         $discount = $_POST['discount'];
+        $sbsupervisor = $_POST['sbsupervisor'];
 
     	//-----------------------------SELECT JOB ORDER ID------------------------------------
     	$sqlmaxjoid = "SELECT joborderid from joborders order by joborderid desc limit 1";
@@ -25,7 +26,11 @@
         $stmt4->bind_param("i", $maxjoid) or mysql_error();
         $stmt4->execute();
 
-    	
+    	//-----------------------------UPDATE Service Breakdown supervisor------------------------------------
+        $sqlsbs = "UPDATE joborders SET sbsupervisor = '$sbsupervisor' where joborderid = ? ";
+        $stmtsbs = $conn->prepare($sqlsbs);     
+        $stmtsbs->bind_param("i", $maxjoid) or mysql_error();
+        $stmtsbs->execute();
 
     	//-----------------------------SELECT services availed total price------------------------------------
         $sqlprice = "SELECT SUM(services.serviceprice) AS totalPrice  from servicelogs join services using (serviceid) where joborderid = '$maxjoid' ";

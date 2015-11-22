@@ -13,6 +13,8 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header text-center">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cancelbtn">
+                    <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">New Job Order</h4>
             </div>
             <div class="joEmpty modal-body">
@@ -25,7 +27,7 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Client Name:</label>
                                     <div class="controls col-md-4">
-                                        <select class="form-control" id="clientid" name="clientid" required>
+                                        <select class="form-control" id="clientid" name="clientid" >
                                             <option value="" disabled selected>Select client</option>
                                             <?php
                                                 $sql = "SELECT * from clients ORDER BY cllastname ASC"; 
@@ -51,7 +53,7 @@
                                     <label class="control-label col-md-3">Date Received:</label>
                                     <div class="col-md-4">
                                         <input type="date" class="form-control" id="dateBrought" 
-                                            name="dateBrought" required>
+                                            name="dateBrought" >
                                     </div>
                                 </div>
 
@@ -80,7 +82,7 @@
                                     <label class="control-label col-md-3">Engine number:</label>
                                     <div class="controls col-md-4">
                                         <input type="text" class="form-control" id="engnumber" name="engnumber" 
-                                            placeholder="" required autocomplete="off">
+                                            placeholder=""  autocomplete="off">
                                     </div>
                                 </div>
 
@@ -89,7 +91,7 @@
                                     <div class="controls col-md-8">
                                         <textarea rows="5" cols="100" class="form-control" id="problem" name="problem"
                                             maxlength="999" style="resize:none" placeholder="" 
-                                                required></textarea>
+                                                ></textarea>
                                     </div>
                                 </div>
 
@@ -102,7 +104,7 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Services:</label>
                                     <div class="controls col-md-6">
-                                        <select class="form-control" id="serviceid" name="serviceid[]">
+                                        <select class="form-control" id="serviceid" name="serviceid[]" >
                                             <option value="" disabled selected>Select service</option>
                                                 <?php
                                                     $sql = "SELECT * from services"; 
@@ -159,7 +161,7 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Machinist/s:</label>
                                     <div class="controls col-md-6">
-                                        <select class="form-control" id="employeeid" name="employeeid[]" required>
+                                        <select class="form-control" id="employeeid" name="employeeid[]" >
                                             <option value="" disabled selected>Select Machinist</option>
                                                                     <?php
                                                                         $sql = "SELECT * from employees where emptype = 'Machinist' "; 
@@ -183,7 +185,7 @@
                                 <div class="control-group form-group hide" id="optionTemplateMachinist">
                                     <label class="control-label col-md-3"></label>
                                     <div class="controls col-md-6">        
-                                        <select class="form-control" id="employeeid" name="employeeid[]">
+                                        <select class="form-control" id="employeeid" name="employeeid[]" >
                                             <option value="" disabled selected>Select Machinist</option>
                                                                     <?php
                                                                         $sql = "SELECT * from employees where emptype = 'Machinist' "; 
@@ -212,7 +214,7 @@
 
                                     <div class="controls col-md-4">
 
-                                        <select class="form-control" id="itemid" name="itemid[]">
+                                        <select class="form-control" id="itemid" name="itemid[]" >
                                             <option value="" disabled selected>Select Item</option>
                                                                     <?php
                                                                         $sql = "SELECT distinct(inventoryname) from inventory join models using (modelid) where modelid = 1 "; 
@@ -234,7 +236,7 @@
 
                                     </div>
                                     <div class="controls col-md-2">
-                                        <input type="number" min="0" name="qty[]" id="qty" class="form-control" placeholder="Quantity">
+                                        <input type="number" min="0" name="qty[]" id="qty" class="form-control" placeholder="Quantity" >
                                     </div>
                                     <div class="controls col-md-2">
                                         <select class="form-control" id="itemsize" name="itemsize[]">
@@ -255,7 +257,7 @@
                                 <div class="control-group form-group hide" id="optionTemplateItem">
                                     <label class="control-label col-md-3"></label>
                                     <div class="controls col-md-4">        
-                                        <select class="form-control" id="itemid" name="itemid[]">
+                                        <select class="form-control" id="itemid" name="itemid[]" >
                                             <option value="" disabled selected>Select Item</option>
                                                                     <?php
                                                                         $sql = "SELECT distinct(inventoryname) from inventory join models using (modelid) where modelid = 1 "; 
@@ -276,7 +278,7 @@
                                         </select>                 
                                     </div>
                                     <div class="controls col-md-2">
-                                        <input type="number" min="0" name="qty[]" id="qty" class="form-control" placeholder="Quantity">
+                                        <input type="number" min="0" name="qty[]" id="qty" class="form-control" placeholder="Quantity" >
                                     </div>
                                     <div class="controls col-md-2">
                                         <select class="form-control" id="itemsize" name="itemsize[]">
@@ -293,8 +295,11 @@
                                 </div>
 
                                 <hr>
+                                <div class="text-center" style="color:red">Note: For Bearing, Oil Filter and Fuel Filter only.</div>
+                                <hr>
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Additional Items</label>
+
                                     <div class="controls col-md-6">
                                         <input type="text" class="form-control" id="additionalitems" name="additionalitems[]">                   
                                     </div>
@@ -326,7 +331,7 @@
                                     <label class="control-label col-md-3">Received by:</label>
                                     <div class="controls col-md-4">
                                         <select class="form-control" id="salesperson" 
-                                            name="salesperson" required>
+                                            name="salesperson" >
                                             <option value="" disabled selected>Select personnel</option>
                                             <?php
                                                 $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' "; 
@@ -348,7 +353,7 @@
                                     <label class="control-label col-md-3">Confirmed by:</label>
                                     <div class="controls col-md-4">
                                         <select class="form-control" id="supervisor" 
-                                            name="supervisor" required>
+                                            name="supervisor" >
                                             <option value="" disabled selected>Select supervisor</option>
                                             <?php
                                                 $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' "; 

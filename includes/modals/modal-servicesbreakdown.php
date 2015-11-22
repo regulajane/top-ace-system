@@ -51,6 +51,8 @@
                                     </div>
                                 </div>
 
+                                
+
 
                                 <hr>
 
@@ -78,7 +80,25 @@
                                 
 
                                 <div class="form-group">
-                                    <label class="control-label col-xs-3">Services/Items Cost</label>
+                                    <label class="control-label col-xs-3">Items Cost</label>
+                                    <div class="col-xs-4">
+                                        <?php      
+                                            
+
+                                            $sqltotalitemprice = "SELECT SUM(itemprice*itemquantity) AS totalitemprice from itemlogs where joborderid = '$maxjoid' ";
+                                            $iprice = $conn->query($sqltotalitemprice);
+                                            $iiprice = $iprice->fetch_assoc(); 
+                                            $totalitemprice = $iiprice['totalitemprice'];
+
+                                           
+                                        ?>
+                                        <input type="text" class="form-control" id="ic" name="ic" 
+                                            value="<?php echo $totalitemprice; ?>" readonly>
+                                        
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Services Availed Cost</label>
                                     <div class="col-xs-4">
                                         <?php      
                                             $sqlservices = "SELECT SUM(services.serviceprice) AS servicestotal FROM servicelogs join services using (serviceid) where joborderid = $maxjoid";
@@ -86,18 +106,18 @@
                                             $aaa = $aa->fetch_assoc();
                                             $servicestotal = $aaa['servicestotal']; 
 
-                                            $sqltotalitemprice = "SELECT SUM(itemprice*itemquantity) AS totalitemprice from itemlogs where joborderid = '$maxjoid' ";
-                                            $iprice = $conn->query($sqltotalitemprice);
-                                            $iiprice = $iprice->fetch_assoc(); 
-                                            $totalitemprice = $iiprice['totalitemprice'];
 
-                                            $tempgrandtotal = $servicestotal + $totalitemprice;    
+                                           
                                         ?>
-                                        <input type="text" class="form-control" id="gt" name="gt" 
-                                            value="<?php echo $tempgrandtotal; ?>" readonly>
+                                        <input type="text" class="form-control" id="sac" name="sac" 
+                                            value="<?php echo $servicestotal; ?>" readonly>
                                         
                                     </div>
                                 </div>
+
+                                <hr>
+
+
 
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Markup:</label>
@@ -121,6 +141,28 @@
                                     <div class="controls col-md-4">
                                         <input type="number" class="form-control" id="downpayment" name="downpayment" 
                                             placeholder="500.00" autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="control-group form-group">
+                                    <label class="control-label col-md-3">Confirmed by:</label>
+                                    <div class="controls col-md-6">
+                                        <select class="form-control" id="sbsupervisor" 
+                                            name="sbsupervisor" required ng-show="displayCondition" ng-required="displayCondition">
+                                            <option value="" disabled selected>Select supervisor</option>
+                                            <?php
+                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' "; 
+                                                $result = $conn->query($sql);
+                                                if ($result->num_rows > 0) {
+                                                    // output data of each row
+                                                    while($resultRow = $result->fetch_assoc()){
+                                                        $option = '<option value="' . $resultRow['manager'] . '">' . 
+                                                            $resultRow['manager']. '</option>';
+                                                        echo ($option);
+                                                    }
+                                                }
+                                            ?>
+                                        </select>  
                                     </div>
                                 </div>
                                 
