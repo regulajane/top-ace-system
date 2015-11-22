@@ -12,6 +12,7 @@
 		$quantity = $_POST["inventQtyProcured"];
 		$choice = $_POST["choice"];
 		$modelNo =  $_POST["modelNum"];
+		$invoiceno = $_POST["saleci"];
 
 		//outgoing
 		ini_set('date.timezone', 'Asia/Manila');
@@ -33,11 +34,11 @@
 		$saledate = date("Y-m-d");
 
 		if($choice == 'sales'){
-			$sql = "INSERT INTO sales (saledate, noofitems, saleprice, itemsize, itemname, total, modelno) 
-					VALUES (?, ?, ?, ?, ?, ?, ?)";			
+			$sql = "INSERT INTO sales (invoiceno, saledate, noofitems, saleprice, itemsize, itemname, total, modelno) 
+					VALUES (?, ?, ?, ?, ?, ?, ?, ?)";			
 			$stmt = $conn->prepare($sql);
 			// Bind
-			$stmt->bind_param("sisisss", $saledate, $quantity, $inventPrice, $inventSize, $inventName, $total, $modelNo);
+			$stmt->bind_param("ssisisss", $invoiceno, $saledate, $quantity, $inventPrice, $inventSize, $inventName, $total, $modelNo);
 			// Execute 
 			$stmt->execute();
 		}
