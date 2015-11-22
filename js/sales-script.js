@@ -36,10 +36,17 @@ window.onload = function () {
             validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
+            saleci: {
+                validators: {
+                    notEmpty: {
+                        message: 'Cash invoice no. is required'
+                    }
+                }
+            },
             salemodel: {
                 validators: {
                     notEmpty: {
-                        message: 'Sale model is required'
+                        message: 'Model no. is required'
                     }
                 }
             },

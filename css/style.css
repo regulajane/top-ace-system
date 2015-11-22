@@ -399,16 +399,16 @@ input[type="checkbox"]:checked:after {
 
 /*Typeahead : Sales*/
 .sales #salename {
-    width: 234px;
+    width: 228px;
 }
 .sales #salemodel {
-    width: 234px;
+    width: 226px;
 }
 .sales .tt-hint {
-    width: 234px;
+    width: 226px;
 }
 .sales .tt-dropdown-menu {
-    width: 234px;
+    width: 226px;
     max-height: 250px;
 }
 

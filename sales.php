@@ -28,6 +28,8 @@
                             Sale ID</th>
                         <th data-column-id="saledate">
                             Date</th>
+                        <th data-column-id="invoiceno">
+                            Invoice No</th>
                         <th data-column-id="modelno">
                             Model No</th>
                         <th data-column-id="itemname">

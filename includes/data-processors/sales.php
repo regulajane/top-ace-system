@@ -5,6 +5,7 @@
     	header('Location: ../../index.php?loggedout=true');}
 
     // Define Variables
+    $invoiceno = $_POST["saleci"];
 	$modelno = $_POST["salemodel"];
 	$itemname = $_POST["salename"];
 	$itemsize = $_POST["salesize"];
@@ -35,11 +36,11 @@
 		if ($nRows['count'] > 0) {
 			// ---------------------------------------INSERT----------------------------------------------
 			// Prepare
-			$sql = "INSERT INTO sales (saledate, noofitems, saleprice, itemsize, itemname, total, modelno) 
+			$sql = "INSERT INTO sales (invoiceno, saledate, noofitems, saleprice, itemsize, itemname, total, modelno) 
 					VALUES (?, ?, ?, ?, ?, ?, ?)";			
 			$stmt = $conn->prepare($sql);
 			// Bind
-			$stmt->bind_param("sisisss", $saledate, $noofitems, $price, $itemsize, $itemname, $total, $modelno);
+			$stmt->bind_param("ssisisss", $invoiceno, $saledate, $noofitems, $price, $itemsize, $itemname, $total, $modelno);
 			// Execute 
 			$stmt->execute();
 			// Redirect

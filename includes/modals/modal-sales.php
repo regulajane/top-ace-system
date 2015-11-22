@@ -15,6 +15,13 @@
                                 action="includes/data-processors/sales.php" id="salesForm">
                                 <div class="control-group col-md-12">
                                     <div class="form-group">
+                                        <label class="control-label col-md-4">Cash Invoice No.:</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control"  placeholder="Cash Invoice No."
+                                                id="saleci" name="saleci" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="control-label col-md-4">Model No.:</label>
                                         <div class="col-md-6">
                                             <input type="text" class="typeahead form-control"  placeholder="Model No."
