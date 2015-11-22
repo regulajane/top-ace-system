@@ -712,6 +712,16 @@
 
                         that.element.trigger("click" + namespace, [that.columns, row]);
                     });
+                    var tableCount = document.getElementById("inventoryTable").rows.length;
+                    for(var tblrow = 1; tblrow <= tableCount-1; tblrow++){
+                            
+                            var quantity = document.getElementById("inventoryTable").rows.item(tblrow).cells[5].innerHTML;
+                            var rl = document.getElementById("inventoryTable").rows.item(tblrow).cells[6].innerHTML;
+                            if(parseInt(quantity) <= parseInt(rl)){
+                                var tableinventory = document.getElementById("inventoryTable").rows[tblrow];
+                                tableinventory.style.color = 'red';
+                            }
+                    }
                     
         }else{
         var that = this,
