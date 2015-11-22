@@ -243,7 +243,7 @@
                                     <label class="control-label col-md-4">Reason:</label>
                                     <div class="controls col-md-8">
                                         <div>
-                                            <label class="control-label"><input type="radio" name="choice" value="sales" id="sales" onclick="deleteTextBox()" /> Sales</label>
+                                            <label class="control-label"><input type="radio" name="choice" value="Sales" id="sales" onclick="deleteTextBox()" /> Sales</label>
                                             <div class="col-md-11" id ="salesreason"></div>
                                         </div>
                                         <div>
@@ -264,6 +264,7 @@
                                                         var r = document.getElementById("reasonOfP");
                                                         var tb = document.createElement("textarea");
                                                             tb.setAttribute('id',"textArea");
+                                                            tb.setAttribute('name',"textArea");
                                                             tb.setAttribute('class',"form-control");
                                                             tb.setAttribute('rows',"3");
                                                             tb.setAttribute('maxlength',"300");

@@ -13,6 +13,11 @@
 		$choice = $_POST["choice"];
 		$modelNo =  $_POST["modelNum"];
 		$invoiceno = $_POST["saleci"];
+		if ($_POST["choice"]=="Sales") {
+			$reason = $_POST["choice"];
+		} else {
+			$reason = $_POST["textArea"];
+		}
 
 		//outgoing
 		ini_set('date.timezone', 'Asia/Manila');
@@ -109,13 +114,13 @@
 			
 			
 			//-----------------------------INSERT INTO OUTGOINGSUPPLIES------------------------------------
-			$sql2 = "INSERT INTO outgoingitems (isdate, time, quantity, enteredby, inventoryid) 
-						VALUES (?, ?, ?, ?, ?)";
+			$sql2 = "INSERT INTO outgoingitems (isdate, time, quantity, enteredby, inventoryid, reason) 
+						VALUES (?, ?, ?, ?, ?, ?)";
 
 			$stmt2 = $conn->prepare($sql2);
 
 			// Bind
-			$stmt2->bind_param("sssss", $otDate, $otTime, $otQty, $procuredBy, $inventID);
+			$stmt2->bind_param("ssssss", $otDate, $otTime, $otQty, $procuredBy, $inventID, $reason);
 			// Execute
 
 			$stmt2->execute(); 
