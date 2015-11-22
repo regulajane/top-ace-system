@@ -19,8 +19,6 @@
             <div style="position: relative; margin-top: -40px;">
                 <a type="button" class="btn btn-primary" href="inventory.php" title="Supplies">
                     <i class="fa fa-arrow-left fa-fw"></i> Back</a>
-                <a type="button" class="btn btn-primary" href="includes/printIngoingSupplies.php" title="Print Ingoing Supplies" 
-                    target="_blank"><i class="fa fa-print fa-fw"></i> Print</a>
             </div>
         </div>
         <hr style="margin-bottom: 70px">
