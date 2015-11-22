@@ -190,7 +190,7 @@
                                         <label class="control-label col-xs-4">Number of Jobs:</label>
                                         <div class="col-xs-4">
                                             <input type="number" class="form-control" id="noofjobs" name="noofjobs" 
-                                                required placeholder="">
+                                                required placeholder="" readonly="">
                                         </div>
                                     </div>
                                     <div id="empstatusdiv" class="form-group">

@@ -10,6 +10,8 @@
 	$serviceprice = $_POST["serviceprice"];
 	$servicedesc = $_POST["servicedesc"];
 	$servicedatemod = $_POST["servicedatemod"];
+    $servicestatus= $_POST["servicestatus"];
+
 
 	if (isset($_POST["updatesrv"])=="updateservice") {
 		// ---------------------------------------UPDATE----------------------------------------------
@@ -18,7 +20,8 @@
       				SET servicename = '$servicename', 
       					serviceprice = '$serviceprice',
       					servicedesc = '$servicedesc',
-      					servicedatemod = '$servicedatemod'
+      					servicedatemod = '$servicedatemod',
+      					servicestatus = '$servicestatus'
                 	WHERE serviceid = '$servNum'";
         $stmt = $conn->prepare($sql);
         // Execute     

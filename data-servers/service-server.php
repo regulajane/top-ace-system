@@ -12,7 +12,7 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $where =" 1=1 ";
-    $order_by="serviceid";
+    $order_by="servicestatus, servicename";
     $rows=25;
     $current=1;
     $limit_l=($current * $rows) - ($rows);
@@ -56,7 +56,8 @@
                   services.servicename,
                   services.serviceprice,
                   services.servicedesc,
-                  services.servicedatemod
+                  services.servicedatemod,
+                  services.servicestatus
           from services where $where ORDER BY $order_by $limit";
     $stmt=$conn->prepare($sql);
     $stmt->execute();

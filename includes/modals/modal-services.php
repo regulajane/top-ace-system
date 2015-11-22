@@ -112,6 +112,16 @@
                                                 id="servicedatemod" name="servicedatemod" required/>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Status:</label>
+                                        <div class="col-md-5">
+                                            <select class="form-control" id="servicestatus" name="servicestatus" required>
+                                                <option value="Offered">Offered</option>
+                                                <option value="Discontinued">Discontinued</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <br>
                                     <div class="form-group">
                                         <div class="col-md-8 col-md-offset-4">

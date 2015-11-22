@@ -36,6 +36,8 @@
                         Price</th>
                     <th data-column-id="servicedatemod" data-header-align="right" data-align="center" data-width="13%">
                         Date Modified</th>
+                    <th data-column-id="servicestatus" data-visible="false" data-width="10%">
+                        Status</th>
                 </tr>
             </thead>  
         </table>

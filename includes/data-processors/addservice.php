@@ -9,13 +9,14 @@
         $serviceprice= $_POST["serviceprice"];
         $servicedesc= $_POST["servicedesc"];
         $servicedatemod= $_POST["srvdatemod"];
+        $servicestatus= $_POST["servicestatus"];
         
         // Prepare
-        $sql = "INSERT INTO services (servicename, serviceprice, servicedesc, servicedatemod) VALUES ('$servicename','$serviceprice', '$servicedesc', '$servicedatemod')";
+        $sql = "INSERT INTO services (servicename, serviceprice, servicedesc, servicedatemod, servicestatus) VALUES ('$servicename','$serviceprice', '$servicedesc', '$servicedatemod', 'Offered')";
         $stmt = $conn->prepare($sql);     
         
         // Bind
-        $stmt->bind_param("ssss", $servicename, $serviceprice, $servicedesc, $servicedatemod);
+        $stmt->bind_param("sssss", $servicename, $serviceprice, $servicedesc, $servicedatemod, $servicestatus);
 
         // Execute
         $stmt->execute();
