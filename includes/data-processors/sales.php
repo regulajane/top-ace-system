@@ -37,7 +37,7 @@
 			// ---------------------------------------INSERT----------------------------------------------
 			// Prepare
 			$sql = "INSERT INTO sales (invoiceno, saledate, noofitems, saleprice, itemsize, itemname, total, modelno) 
-					VALUES (?, ?, ?, ?, ?, ?, ?)";			
+					VALUES (?, ?, ?, ?, ?, ?, ?, ?)";			
 			$stmt = $conn->prepare($sql);
 			// Bind
 			$stmt->bind_param("ssisisss", $invoiceno, $saledate, $noofitems, $price, $itemsize, $itemname, $total, $modelno);
