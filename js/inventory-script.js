@@ -45,6 +45,10 @@ function supplies(){
                 validators: {
                     notEmpty: {
                         message: 'Price is required'
+                    },
+                    regexp: {
+                        regexp: /^[0-9, .]+$/,
+                        message: 'Please enter a valid price.'
                     }
                 }
             },

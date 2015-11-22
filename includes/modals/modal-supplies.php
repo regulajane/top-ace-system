@@ -56,22 +56,22 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-4">Quantity:</label>
                                      <div class="col-md-4">
-                                    <textarea rows="1" cols="100" class="form-control" id="inventoryquantity" name="inventoryquantity"  maxlength="999" style="resize:none" 
-                                            required></textarea>
+                                    <input type="number" class="form-control" id="inventoryquantity" name="inventoryquantity"  maxlength="999" style="resize:none" 
+                                            required placeholder="Quantity"></input>
                                      </div>
                                 </div>   
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-4">Price per piece:</label>
                                      <div class="col-md-4">
-                                     <textarea rows="1" cols="100" class="form-control" id="inventoryprice" name="inventoryprice"  maxlength="999" style="resize:none" 
-                                            required></textarea>
+                                     <input type="text" class="form-control" id="inventoryprice" name="inventoryprice"  maxlength="999" style="resize:none" 
+                                            required placeholder="Price"></input>
                                      </div>
                                 </div> 
                                 <div class="control-group form-group">
                                      <label class="control-label col-md-4">Reorder Level:</label>
                                      <div class="col-md-4">
-                                      <textarea rows="1" cols="100" class="form-control" id="reorderlevel" name="reorderlevel"  maxlength="999" style="resize:none" 
-                                            required></textarea>
+                                      <input type="number" class="form-control" id="reorderlevel" name="reorderlevel"  maxlength="999" style="resize:none" 
+                                            required placeholder="Level"></input>
                                     </div>
                                 </div>  
                                 <div class="form-group">
