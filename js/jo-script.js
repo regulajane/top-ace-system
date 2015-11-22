@@ -458,6 +458,13 @@ function jobOrder(){
         },
     });
 
+    $('.joEmpty #additionalitems').typeahead({
+        name: 'additionalitems',
+        remote:'includes/data-processors/searchjo.php?key=%QUERY',
+        limit : 10
+                                                        
+    });
+
     $("#newjoborderbtn").on("click", function() {
         document.getElementById('dateBrought').valueAsDate = new Date();
     });
