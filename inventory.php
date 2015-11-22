@@ -46,8 +46,8 @@
 			                <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
 			                <span class="fa fa-caret-down"></span></a>
 			                <ul class="dropdown-menu">
-			                    <li><a href="ingoing-items.php"><i class="fa fa-list"></i> Additions</a></li>
-			                    <li><a href="outgoing-items.php"><i class="fa fa-list"></i> Procurements</a></li>
+			                    <li><a href="ingoing-items.php"><i class="fa fa-list"></i> Ingoing</a></li>
+			                    <li><a href="outgoing-items.php"><i class="fa fa-list"></i> Outgoing</a></li>
 			                </ul>
 	            		</div>
             	</div>
