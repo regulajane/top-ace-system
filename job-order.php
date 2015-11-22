@@ -38,8 +38,8 @@
                         <div class="actionBtns">
                             <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
                                 href="#joModal"><i class="fa fa-plus fa-fw"></i> New Job Order </button>
-                            <!-- <button type="button" id="editbtn" class="btn btn-info" data-toggle="modal">
-                                <i class="fa fa-pencil-square-o fa-fw"></i> Edit </button> -->
+                             <button type="button" id="editbtn" class="btn btn-info" data-toggle="modal">
+                                <i class="fa fa-pencil-square-o fa-fw"></i> Edit </button> 
                             <button type="button" id="updatebtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Update </button>
                             <div class="btn-group">
