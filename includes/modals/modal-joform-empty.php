@@ -102,7 +102,7 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Services:</label>
                                     <div class="controls col-md-6">
-                                        <select class="form-control" id="serviceid" name="serviceid[]" required>
+                                        <select class="form-control" id="serviceid" name="serviceid[]">
                                             <option value="" disabled selected>Select service</option>
                                                 <?php
                                                     $sql = "SELECT * from services"; 
@@ -128,7 +128,7 @@
                                 <div class="control-group form-group hide" id="optionTemplate">
                                     <label class="control-label col-md-3"></label>
                                     <div class="controls col-md-6">
-                                        <select class="form-control" id="serviceid" name="serviceid[]" required>
+                                        <select class="form-control" id="serviceid" name="serviceid[]" >
                                             <option value="" disabled selected>Select service</option>
                                                 <?php
                                                                         $sql = "SELECT * from services"; 
@@ -183,7 +183,7 @@
                                 <div class="control-group form-group hide" id="optionTemplateMachinist">
                                     <label class="control-label col-md-3"></label>
                                     <div class="controls col-md-6">        
-                                        <select class="form-control" id="employeeid" name="employeeid[]" required>
+                                        <select class="form-control" id="employeeid" name="employeeid[]">
                                             <option value="" disabled selected>Select Machinist</option>
                                                                     <?php
                                                                         $sql = "SELECT * from employees where emptype = 'Machinist' "; 
@@ -212,7 +212,7 @@
 
                                     <div class="controls col-md-4">
 
-                                        <select class="form-control" id="itemid" name="itemid[]" required>
+                                        <select class="form-control" id="itemid" name="itemid[]">
                                             <option value="" disabled selected>Select Item</option>
                                                                     <?php
                                                                         $sql = "SELECT distinct(inventoryname) from inventory join models using (modelid) where modelid = 1 "; 
@@ -234,7 +234,7 @@
 
                                     </div>
                                     <div class="controls col-md-2">
-                                        <input type="number" min="0" name="qty[]" id="qty" class="form-control" placeholder="Quantity" required>
+                                        <input type="number" min="0" name="qty[]" id="qty" class="form-control" placeholder="Quantity">
                                     </div>
                                     <div class="controls col-md-2">
                                         <select class="form-control" id="itemsize" name="itemsize[]">
@@ -255,7 +255,7 @@
                                 <div class="control-group form-group hide" id="optionTemplateItem">
                                     <label class="control-label col-md-3"></label>
                                     <div class="controls col-md-4">        
-                                        <select class="form-control" id="itemid" name="itemid[]" required>
+                                        <select class="form-control" id="itemid" name="itemid[]">
                                             <option value="" disabled selected>Select Item</option>
                                                                     <?php
                                                                         $sql = "SELECT distinct(inventoryname) from inventory join models using (modelid) where modelid = 1 "; 
@@ -276,7 +276,7 @@
                                         </select>                 
                                     </div>
                                     <div class="controls col-md-2">
-                                        <input type="number" min="0" name="qty[]" id="qty" class="form-control" placeholder="Quantity" required>
+                                        <input type="number" min="0" name="qty[]" id="qty" class="form-control" placeholder="Quantity">
                                     </div>
                                     <div class="controls col-md-2">
                                         <select class="form-control" id="itemsize" name="itemsize[]">
@@ -299,7 +299,7 @@
                                         <input type="text" class="form-control" id="additionalitems" name="additionalitems[]">                   
                                     </div>
                                     <div class="controls col-md-2">
-                                        <input type="number" min="0" name="qtyAI[]" id="qtyAI" class="form-control" placeholder="Quantity" required>
+                                        <input type="number" min="0" name="qtyAI[]" id="qtyAI" class="form-control" placeholder="Quantity" >
                                     </div>
                                         <button type="button" class="pull-left add-field btn btn-default addButtonAI" >
                                             <i class="fa fa-plus"></i>
@@ -312,7 +312,7 @@
                                         <input type="text" class="form-control" id="additionalitems" name="additionalitems[]">                
                                     </div>
                                     <div class="controls col-md-2">
-                                        <input type="number" min="0" name="qtyAI[]" id="qtyAI" class="form-control" placeholder="Quantity" required>
+                                        <input type="number" min="0" name="qtyAI[]" id="qtyAI" class="form-control" placeholder="Quantity" >
                                     </div>
                                         <button type="button" class="pull-left remove-field btn btn-default removeButtonAI">
                                             <i class="fa fa-minus"></i>
