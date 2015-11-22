@@ -76,6 +76,31 @@ function supplies(){
         }
     });
 
+    $('#supplyForm3').bootstrapValidator({
+        feedbackIcons: {
+            message: 'This value is not valid',
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            inventQtyProcured: {
+                validators: {
+                    notEmpty: {
+                        message: 'Quantity is required'
+                    }
+                }
+            },
+            choice: {
+                validators: {
+                    notEmpty: {
+                        message: 'Reason is required'
+                    }
+                }
+            }
+        }
+    });
+
     $('#editsupplyform').bootstrapValidator({
         feedbackIcons: {
             message: 'This value is not valid',

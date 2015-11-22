@@ -185,7 +185,7 @@
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Procure</h4>
@@ -197,91 +197,103 @@
                             <form class="form-horizontal" method="post" 
                                 action="includes/data-processors/procureSupply.php" id="supplyForm3">
                                 <div class="control-group form-group">
-                                    <div class="controls col-md-12">
-                                        <label>Model No:</label>
+                                    <label class="control-label col-md-4">Model No. :</label>
+                                    <div class="controls col-md-6">
                                         <input readonly type="text" class="form-control" id="modelNum" name="modelNum"/>
                                     </div>
                                 </div>
-                                <div class="control-group form-group">
-                                    <div class="controls col-md-12" style="display: none">
-                                        <label>Inventory ID:</label>
+                                 <div class="control-group form-group" style="display: none">
+                                    <label class="control-label col-md-4">Inventory ID:</label>
+                                    <div class="controls col-md-6">
                                         <input readonly type="text" class="form-control" id="inventID" name="inventID"/>
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
-                                    <div class="controls col-md-12">
-                                        <label>Item Name:</label>
+                                    <label class="control-label col-md-4">Item Name:</label>
+                                    <div class="controls col-md-6">
                                         <input readonly type="text" class="form-control" id="inventName" name="inventName"/>
                                     </div>
                                 </div>
-
                                 <div class="control-group form-group">
-                                    <div class="controls col-md-12">
-                                        <label>Size:</label>
+                                    <label class="control-label col-md-4">Size:</label>
+                                    <div class="controls col-md-4">
                                         <input readonly type="text" class="form-control" id="inventSize" name="inventSize"/>
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
-                                    <div class="controls col-md-12">
-                                        <label>Price:</label>
+                                    <label class="control-label col-md-4">Price:</label>
+                                    <div class="controls col-md-4">
                                         <input readonly type="text" class="form-control" id="inventPrice" name="inventPrice"/>
                                     </div>
                                 </div>
                                 <div class="control-group form-group">
+                                    <label class="control-label col-md-4">Reorder Level:</label>
                                     <div class="controls col-md-4">
-                                        <label>Current Quantity:</label>
+                                        <input readonly type="text" class="form-control" id="rl" name="rl"/>
+                                    </div>
+                                </div>
+                                <div class="control-group form-group">
+                                    <label class="control-label col-md-4">Current Quantity:</label>
+                                    <div class="controls col-md-4">
                                         <input readonly type="text" class="form-control" id="inventQty" name="inventQty"/>
                                     </div>
                                 </div>
 
-                                <div class="control-group form-group">
-                                    <div class="controls col-md-10" id ="reasonOfP">
-                                        <label>Reason:</label><br>
-
-                                        <label>SALES:  </label>  
-                                        <input type="radio" name="choice" value="sales" id="sales" onclick="deleteTextBox()" required>
-
-                                        <label>Others(Please Specify): </label>
-                                        <input type="radio" name="choice" onclick="showTextBox()" id="others">
-
-                                        <br><br>
-                                        <script>
-                                            function showTextBox(){
-                                                if(document.getElementById('others').checked) {
-                                                    if(document.getElementById('textArea') == null) {
-                                                        document.getElementById("reasonOfP").disabled = true;
-                                                        var r = document.getElementById("reasonOfP");
-                                                        var tb = document.createElement("textarea");
-                                                        tb.setAttribute('id',"textArea");
-                                                        r.appendChild(tb);   
+                                 <div class="form-group">
+                                   
+                                        <label class="control-label col-md-4">Reason:</label>
+                                        <div class="col-md-8">
+                                            <div class="radio">
+                                                <label><input type="radio" name="choice" value="sales" id="sales" onclick="deleteTextBox()" required/> Sales</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="choice" onclick="showTextBox()" id="others" /> Others (Please Specify):</label>
+                                                <div class="controls col-md-12" id ="reasonOfP">
+                                                <script>
+                                                    function showTextBox(){
+                                                        if(document.getElementById('others').checked) {
+                                                            if(document.getElementById('textArea') == null) {
+                                                                document.getElementById("reasonOfP").disabled = true;
+                                                                var r = document.getElementById("reasonOfP");
+                                                                var tb = document.createElement("textarea");
+                                                                    tb.setAttribute('id',"textArea");
+                                                                    tb.setAttribute('class',"form-control");
+                                                                    tb.setAttribute('rows',"3");
+                                                                    tb.setAttribute('maxlength',"300");
+                                                                    tb.setAttribute('placeholder',"...");
+                                                                r.appendChild(tb);   
+                                                            }
+                                                        }
                                                     }
-                                                }
-                                            }
 
-                                            function deleteTextBox(){
-                                                if(document.getElementById('textArea') != null) {
-                                                    var r = document.getElementById("reasonOfP");
-                                                    var tb = document.getElementById("textArea");
-                                                    r.removeChild(tb);
-                                                }
-                                            }
-
-                                        </script>
-                                        <style>
-                                            #textArea {
-                                                resize: none;
-                                                margin-left: 65px;
-                                            }
-                                        </style>
+                                                    function deleteTextBox(){
+                                                        if(document.getElementById('textArea') != null) {
+                                                            var r = document.getElementById("reasonOfP");
+                                                            var tb = document.getElementById("textArea");
+                                                            r.removeChild(tb);
+                                                        }
+                                                    }
+                                                </script>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="control-group form-group">
+                                    <label class="control-label col-md-4">Procure:</label>
                                     <div class="controls col-md-4">
-                                        <label>Quantity to be Procured:</label>
                                         <input type="number" class="form-control" name="inventQtyProcured" id="inventQtyProcured"
-                                            required data-validation-required-message="Please enter quantity."/>
+                                            required placeholder="Quantity"/>
                                     </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-8 col-md-offset-4">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                        <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
+                                    <button type="submit" name="outsupply" class="btn btn-success" form="supplyForm3" value="Procure Supply">
+                                        <span class="glyphicon glyphicon-ok-sign"></span> Procure </button>
+                                    </div> 
                                 </div>
                             </form>
                         </div>
@@ -289,10 +301,6 @@
                 </div>
             </div>
             <div class="modal-footer">  
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
-                <button type="submit" name="outsupply" class="btn btn-success" form="supplyForm3" value="Procure Supply">
-                    <span class="glyphicon glyphicon-ok-sign"></span> Procure </button>
             </div>
         </div>
     </div>
