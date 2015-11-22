@@ -29,9 +29,10 @@
                 <tr>
                     <th data-column-id="isdate">Date</th>
                     <th data-column-id="time">Time</th>
-                    <th data-column-id="quantity">Quantity Procured</th>
-                    <th data-column-id="enteredby">User</th>
                     <th data-column-id="inventoryname">Item Name</th>
+                    <th data-column-id="quantity">Quantity Procured</th>
+                    <th data-column-id="reason">Reason</th>
+                    <th data-column-id="enteredby">User</th>
                 </tr>
             </thead>  
         </table>
