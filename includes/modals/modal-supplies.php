@@ -239,43 +239,62 @@
                                     </div>
                                 </div>
 
-                                 <div class="form-group">
-                                   
-                                        <label class="control-label col-md-4">Reason:</label>
-                                        <div class="col-md-8">
-                                            <div class="radio">
-                                                <label><input type="radio" name="choice" value="sales" id="sales" onclick="deleteTextBox()" required/> Sales</label>
-                                            </div>
-                                            <div class="radio">
-                                                <label><input type="radio" name="choice" onclick="showTextBox()" id="others" /> Others (Please Specify):</label>
-                                                <div class="controls col-md-12" id ="reasonOfP">
-                                                <script>
-                                                    function showTextBox(){
-                                                        if(document.getElementById('others').checked) {
-                                                            if(document.getElementById('textArea') == null) {
-                                                                document.getElementById("reasonOfP").disabled = true;
-                                                                var r = document.getElementById("reasonOfP");
-                                                                var tb = document.createElement("textarea");
-                                                                    tb.setAttribute('id',"textArea");
-                                                                    tb.setAttribute('class',"form-control");
-                                                                    tb.setAttribute('rows',"3");
-                                                                    tb.setAttribute('maxlength',"300");
-                                                                    tb.setAttribute('placeholder',"...");
-                                                                r.appendChild(tb);   
-                                                            }
-                                                        }
-                                                    }
-
-                                                    function deleteTextBox(){
-                                                        if(document.getElementById('textArea') != null) {
-                                                            var r = document.getElementById("reasonOfP");
-                                                            var tb = document.getElementById("textArea");
-                                                            r.removeChild(tb);
-                                                        }
-                                                    }
-                                                </script>
-                                            </div>
+                                <div class="control-group form-group">
+                                    <label class="control-label col-md-4">Reason:</label>
+                                    <div class="controls col-md-8">
+                                        <div>
+                                            <label class="control-label"><input type="radio" name="choice" value="sales" id="sales" onclick="deleteTextBox()" /> Sales</label>
+                                            <div class="col-md-11" id ="salesreason"></div>
                                         </div>
+                                        <div>
+                                            <label class="control-label"><input type="radio" name="choice" onclick="showTextBox()" id="others" /> Others (Please Specify):</label>
+                                            <div class="col-md-11" id ="reasonOfP"></div>
+                                        </div> 
+                                        <script>
+                                            function showTextBox(){
+                                                if(document.getElementById('saleci') != null) {
+                                                    var res = document.getElementById("salesreason");
+                                                    var ci = document.getElementById("saleci");
+                                                    res.removeChild(ci);
+                                                }
+
+                                                if(document.getElementById('others').checked) {
+                                                    if(document.getElementById('textArea') == null) {
+                                                        document.getElementById("reasonOfP").disabled = true;
+                                                        var r = document.getElementById("reasonOfP");
+                                                        var tb = document.createElement("textarea");
+                                                            tb.setAttribute('id',"textArea");
+                                                            tb.setAttribute('class',"form-control");
+                                                            tb.setAttribute('rows',"3");
+                                                            tb.setAttribute('maxlength',"300");
+                                                            tb.setAttribute('placeholder',"...");
+                                                        r.appendChild(tb);   
+                                                    }
+                                                }
+                                            }
+
+                                            function deleteTextBox(){
+                                                if(document.getElementById('textArea') != null) {
+                                                    var r = document.getElementById("reasonOfP");
+                                                    var tb = document.getElementById("textArea");
+                                                    r.removeChild(tb);
+                                                }
+
+                                                if(document.getElementById('sales').checked) {
+                                                    if(document.getElementById('saleci') == null) {
+                                                        document.getElementById("salesreason").disabled = true;
+                                                        var res = document.getElementById("salesreason");
+                                                        var ci = document.createElement("input");
+                                                            ci.setAttribute('type',"text");
+                                                            ci.setAttribute('id',"saleci");
+                                                            ci.setAttribute('name', "saleci");
+                                                            ci.setAttribute('class',"form-control");
+                                                            ci.setAttribute('placeholder',"Cash Invoice No.");
+                                                        res.appendChild(ci);   
+                                                    }
+                                                }
+                                            }
+                                        </script>
                                     </div>
                                 </div>
 
