@@ -14,7 +14,7 @@
     <div class="pagecontainer">
     <br>
     <div class="container">        
-        <h4>Procured Items</h4>
+        <h4>Outgoing Items</h4>
 
         <div class="actionBtns" style="position: relative; float:right; ">
             <div style="position: relative; margin-top: -40px;">
