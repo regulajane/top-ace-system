@@ -26,7 +26,7 @@
 		        <hr>
 				<div class="actionBtns">
 					<button type="button" id="addnew" class="btn btn-info" data-toggle="modal" 
-						href="#"><i class="fa fa-plus fa-fw"></i>New Item</button>
+						href="#addNewFab"><i class="fa fa-plus fa-fw"></i>New Item</button>
 
 					<div class="btn-group">
 		                <a class="btn btn-info" href="#"><i class="fa fa-folder-open"></i> Upload Files </a>
@@ -48,7 +48,8 @@
 						</tr>
 					</thead>  
 				</table>
-				<?php include 'includes/modals/modal-fabricationitems.php';?>  
+				<?php include 'includes/modals/modal-fabricationitems.php';?> 
+				<?php include 'includes/modals/modal-newfab.php';?> 
 				<?php include 'includes/footer.php'; ?>
 				</div>
 			</div>
