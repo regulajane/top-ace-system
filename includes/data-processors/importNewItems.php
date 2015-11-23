@@ -45,7 +45,7 @@
             $iquantity = trim($allDataInSheet[$i]["D"]);
             $imodeln = trim($allDataInSheet[$i]["E"]);
             $irl = trim($allDataInSheet[$i]["F"]);
-
+            $testModelID = 0;
             //echo "<script>alert('$iname $isize $iprice $iquantity $imodelid $irl')</script>";
 
               $imodeln=$conn->real_escape_string($imodeln);
