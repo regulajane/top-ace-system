@@ -63,11 +63,14 @@
                                             <br>
                                             <div class="control-group form-group">
                                                 <label class="control-label col-md-3">Item Description:</label>
-                                                    <div class="controls col-md-5">
+                                                    <div class="controls col-md-4">
                                                         <input type="text" class="form-control" id="item" name="item[]" 
                                                             placeholder="Item name" required>
                                                     </div>
-                                                    <div class="controls col-md-2">
+                                            </div>
+                                            <div class="control-group form-group">
+                                                    <label class="control-label col-md-3"></label>
+                                                    <div class="controls col-md-4">
                                                         <select class="form-control" id="metal" name="metal[]" required>
                                                             <option value="" disabled selected>Select metal</option>
                                                             <?php
@@ -84,7 +87,7 @@
                                                             ?>
                                                         </select> 
                                                     </div>
-                                                    <div class="controls col-md-2">
+                                                    <div class="controls col-md-4">
                                                         <select class="form-control" id="metaldiameter" name="metaldiameter[]" required>
                                                             <option value="" disabled selected>Select diameter size</option>
                                                             <?php
@@ -101,12 +104,15 @@
                                                             ?>
                                                         </select> 
                                                     </div>
-                                                    <div class="controls col-md-2">
+                                            </div>
+                                            <div class="control-group form-group">
+                                                    <label class="control-label col-md-3"></label>
+                                                    <div class="controls col-md-4">
                                                     <input type="text" class="form-control" id="metallength" name="metallength[]" 
                                                                 placeholder="Input length" required>   
                                                         
                                                     </div>
-                                                    <div class="controls col-md-2">
+                                                    <div class="controls col-md-4">
                                                     <select class="form-control" id="metallengthul" name="metallengthul[]" required>
                                                                     <option value="" disabled selected>Unit of length</option>
                                                                     <?php
@@ -123,17 +129,21 @@
                                                                     ?>
                                                                 </select>
                                                     </div>
-                                                    <div class="controls col-md-2">
+                                            </div>
+                                            <div class="control-group form-group">
+                                                    <label class="control-label col-md-3"></label>
+                                                    <div class="controls col-md-4">
                                                     <input type="text" class="form-control" id="price" name="price[]" 
                                                             placeholder="Price" required>
                                                     </div>
+                                            </div>
 <!--                                                     <div class="controls col-md-2">
                                                         <button type="button" class="add-field btn btn-default" 
                                                             id="addfield"><i class="fa fa-plus"></i></button>
                                                         <button type="button" class="remove-field btn btn-default" 
                                                             id="removefield"><i class="fa fa-minus"></i></button>
                                                     </div> -->
-                                            </div>
+                                        
 
                                             <div class="col-md-1 col-md-offset-3" style="margin: 0 0 0 143px"></div> 
                                             <button type="button" class="add-field btn btn-default" 
