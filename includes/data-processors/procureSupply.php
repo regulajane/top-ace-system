@@ -11,8 +11,9 @@
 		$inventPrice = $_POST["inventPrice"];
 		$quantity = $_POST["inventQtyProcured"];
 		$modelNo =  $_POST["modelNum"];
-		$invoiceno = $_POST["saleci"];
+		
 		if ($_POST["choice"]=="Sales") {
+			$invoiceno = $_POST["saleci"];
 			$reason = $_POST["choice"];
 		} else {
 			$reason = $_POST["textArea"];
@@ -51,7 +52,7 @@
 
 		if ($quantity > $resultRow['inventoryquantity']) { 
 			echo '<script type="text/javascript">'; 
-			echo 'alert("Error: You are trying to procure more than the available supply.");'; 
+			echo 'alert("Error: You are trying to procure more than the available items.");'; 
 			echo 'window.location.href = "../../inventory.php";';
 			echo '</script>';
 
@@ -60,8 +61,17 @@
 					//echo '<script>alert("HEHE");</script>'; 
 					$nDetails = "below reorder level";
 					$nDate = date("Y-m-d");
-					$nTime = date("H:i:s");
 
+					//check duplicates
+					//echo "<script>alert('$inventName , $inventSize , $modelNo');</script>"; 
+					$sqlcheckduplicates = "SELECT * from notification 
+                                    WHERE inventoryname LIKE '$inventName' AND inventorysize LIKE '$inventSize' AND modelno LIKE '$modelNo' ";
+                    $qq = $conn->query($sqlcheckduplicates);
+                    $qqq = $qq->fetch_assoc();
+
+
+					if($qqq==null){
+						//echo "<script>alert('DITO');</script>"; 
 					$sql3 = "INSERT INTO notification (inventoryname, inventorysize, modelno ,notificationdetails, ndate, time) 
 								VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -71,39 +81,11 @@
 					$stmt3->bind_param("ssssss", $inventName, $inventSize ,$modelNo,$nDetails, $nDate, $nTime);
 					// Execute
 
-					$stmt3->execute(); 
-
-					/*$result = $conn->query("SELECT count(*) from notification");
-					$nCount = 0;
-
-		            while ($row=mysqli_fetch_row($result))
-		                 {
-		                   $nCount = $row[0];
-		                 }
-
-		            $result = $conn->query("SELECT notificationdetails from notification");
-					$nDetails = 0;
-
-		            while ($row=mysqli_fetch_row($result))
-		                 {
-		                   $nDetails = $row[0];
-		                 }*/
-
-
-		            
-					/*echo "<script>
-								  localStorage['notif']='$nCount'
-								  localStorage['nDetails']='$nDetails'
-						  </script>";*/
-
-				//echo '<script type="text/javascript">'; 
-				//echo 'var notif_count = parseInt(localStorage["notif"]);';
-				//echo 'var counter = notif_count + 1;';
-				//echo 'localStorage["notif"] = counter;';
-				//echo ' window.location = "../../inventory.php";';
-				//echo '</script>';
-
+					$stmt3->execute();
+					}
 			}
+
+			
 			//-----------------------------CREATE procureSupply TRIGGER------------------------------------
 			$sql = 	"UPDATE inventory
 					SET inventoryquantity = inventoryquantity - '$quantity'
