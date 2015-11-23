@@ -32,195 +32,73 @@
                                 <tr>
                                     <td colspan="6" id="claddressform">Address:&nbsp;<span id="notBold">_______________________________________________________________________________________</span></td>
                                 </tr>
+                                <tr>
+                                    <td colspan="4" id="clcontactinfo">Contact number:&nbsp;<span id="notBold">_______________________________________________</span></td>
+                                </tr>
                             </table>
                             <table id="joformtable2" class="table table-bordered">
                                 <tr>
-                                    <td colspan="1">QTY</td>
-                                    <td colspan="3">DESCRIPTION</td>
-                                    <td colspan="1">AMOUNT</td>
-                                    <td colspan="1">QTY</td>
-                                    <td colspan="3">DESCRIPTION</td>
-                                    <td colspan="1">AMOUNT</td>
+                                    <td colspan="9">Service Name</td>
+                                    <td colspan="1">Service Price</td> 
                                 </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
+
+                                <tr id="s">
+                                    <td colspan="9" id="srvname" ></td>
+                                    <td colspan="1" id="srvprice" ></td>
                                 </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                </tr>
+
+                               
                                 
                                 
                             </table>
+                            <div id="tsc" style="border:1px solid white;text-align:right;margin:20px 20px 20px 10px;"></div>
                             <table id="joformtable3" class="table table-bordered">
                                 <tr>
-                                    <td colspan="1">QTY</td>
-                                    <td colspan="3">DESCRIPTION</td>
-                                    <td colspan="1">U-PRICE</td>
-                                    <td colspan="1">AMOUNT</td>
+                                    
+                                    <td colspan="9" >Item Name</td>
+                                    <td colspan="2" >Item Price</td>
+                                    <td colspan="2" >Item Quantity</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
+                                    
+                                    <td colspan="9" id="itemname"></td>
+                                    <td colspan="2" id="itemprice"></td>
+                                    <td colspan="2" id="itemqty"></td>
                                 </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                 <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="1"></td>
-                                    <td colspan="3"></td>
-                                    <td colspan="1"></td>
-                                    <td colspan="1"></td>
-                                </tr>
+                           
                             </table>
+                            <div id="tic" style="border:1px solid white;text-align:right;margin:20px 20px 20px 10px;"></div>
+                            <hr>
+
+                            <table id="joformtable3" class="table table-bordered">
+                                <!-- <tr>
+                                    
+                                    <td colspan="9" ></td>
+                                    
+                                    
+                                </tr> -->
+                                
+                                    <tr>
+                                        <td colspan="9" id="srcanditemcost" style="border:1px solid white;text-align:right;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9" id="adjustments" style="border:1px solid white;text-align:right;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9" id="grandtotal" style="border:1px solid white;text-align:right;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9" id="dpayment" style="border:1px solid white;text-align:right;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9" id="jobalance" style="border:1px solid white;text-align:right;"></td>
+                                    </tr>
+                                  
+                                
+                           
+                            </table>
+
+                            <hr>
                             <div class="row">
                                 <div class="col-md-12">
                                     <p id="notBold">NOTE:&nbsp;FOR QUOTATION OF JOB ORDER ONLY</p>
@@ -250,7 +128,7 @@
             </div>
             <div class="modal-footer">
                 <button id="cancelbtn" type="button" data-toggle="modal" class="btn btn-primary" 
-                    data-dismiss="modal"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>             
+                    data-dismiss="modal" onclick="reload();"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>             
                 <button type="button" data-toggle="modal" form="joForm" 
                     onclick="printForm('joPreFormPrint')" class="btn btn-success">
                     <i class="fa fa-print fa-fw"></i> Print</button>
