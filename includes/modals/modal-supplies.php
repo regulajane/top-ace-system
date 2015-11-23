@@ -24,21 +24,9 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-4">Item Name:</label>
                                         <div class="col-md-6">
-                                            <select class="form-control" id="inventoryname" name="inventoryname">
-                                                <option value="" disabled selected>Item Name</option>
-                                                <option value="Engine Valve">Engine Valve</option>
-                                                <option value="Valve Seal">Valve Seal</option>
-                                                <option value="Valve Guide">Valve Guide</option>
-                                                <option value="Valve Tappet">Valve Tappet</option>
-                                                <option value="Valve Insert Ring">Valve Insert Ring</option>
-                                                <option value="Gasket">Gasket</option>
-                                                <option value="Piston Ring">Piston Ring</option>
-                                                <option value="Main Bearing">Main Bearing</option>
-                                                <option value="Connecting Rod Bearing">Connecting Rod Bearing</option>
-                                                <option value="Thrust Washer">Thrust Washer</option>
-                                                <option value="Valve Seal">Valve Seal</option>
-                                            </select>                                   
-                                    </div>
+                                        <input type="text" class="typeahead form-control" id="invtname" placeholder="Inventory Name"
+                                           name="invtname" size="20" autocomplete="off" required>                                  
+                                        </div>
                                 </div>
    
                                 <div class="control-group form-group">
