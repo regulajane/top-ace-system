@@ -42,7 +42,7 @@
                                     <div id="notificationTitle">Notifications</div>
                                     <div id="notificationsBody" class="notifications"></div>
                                     <div id="notificationFooter">
-                                        <a id="akosibatman">See All</a>
+                                        <a id="seeAll">See All</a>
                                     </div>
                                 </div>
                             </li>
@@ -79,7 +79,7 @@
                     {
                     $("#notificationContainer").hide();
                     });
-                    $("#akosibatman").click(function()
+                    $("#seeAll").click(function()
                     {
                     window.location = "notification.php";
                     });
@@ -112,6 +112,7 @@
                                     document.getElementById('notification_count').style.background = '#cc0000';
                                     var notifCountSpan = document.getElementById('notification_count').innerHTML = '$notifCount';
                                     //alert(notifCountSpan); 
+
                                   </script>";
 
                             $getNotifs = $conn->query("SELECT * from notification");
@@ -122,6 +123,12 @@
                                        var newNotif = document.createElement('p');
                                        var node = document.createTextNode(text);
                                        newNotif.appendChild(node);
+                                       newNotif.setAttribute('class', 'newNotifp');
+                                       newNotif.setAttribute('onclick', 'x()');
+
+                                       function x(){
+                                        window.location = 'notification.php';
+                                       }
 
                                        var element = document.getElementById('notificationsBody');
                                        element.appendChild(newNotif);
