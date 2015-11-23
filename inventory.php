@@ -48,6 +48,7 @@
 			                <span class="fa fa-caret-down"></span></a>
 			                <ul class="dropdown-menu">
 			                    <li><a href="ingoing-items.php"><i class="fa fa-list"></i> Ingoing</a></li>
+			                    <li class="divider"></li>
 			                    <li><a href="outgoing-items.php"><i class="fa fa-list"></i> Outgoing</a></li>
 			                </ul>
 	            		</div>
