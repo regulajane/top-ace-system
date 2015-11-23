@@ -154,6 +154,12 @@ function supplies(){
         limit : 10
     });
 
+    $('.newSupply #invtname').typeahead({
+        name: 'invtname',
+        remote:'includes/data-processors/searchinv.php?key=%QUERY',
+        limit : 10
+    });
+
 	$("#addsupplybtn").on("click", function() {
         var selectedItemArray = $("#inventoryTable").bootgrid("getSelectedRows");
         var selectedItem = parseInt(selectedItemArray) + 0;
