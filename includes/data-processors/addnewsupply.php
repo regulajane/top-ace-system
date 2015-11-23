@@ -36,7 +36,7 @@
 
                             $qq = $conn->query($sqlcheckduplicates);
                             $qqq = $qq->fetch_assoc();
-                            if($qqq=null){
+                            if($qqq==null){
                             $sql2 =  "INSERT INTO inventory (inventoryname, inventorysize, inventoryprice, inventoryquantity, 
                                             modelid, reorderlevel)
                                   VALUES ('$inventName', '$inventSize', '$inventPrice', '$quantity', '$modelID', '$reorderlevel')";
@@ -61,7 +61,7 @@
 
                             $qq = $conn->query($sqlcheckduplicates);
                             $qqq = $qq->fetch_assoc();
-                            if($qqq=null){
+                            if($qqq==null){
                             $sql2 =  "INSERT INTO inventory (inventoryname, inventorysize, inventoryprice, inventoryquantity, 
                                             modelid, reorderlevel)
                                   VALUES ('$inventName', '$inventSize', '$inventPrice', '$quantity', '$modelID', '$reorderlevel')";
