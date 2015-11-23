@@ -1,6 +1,7 @@
 <?php
     // Navigation
     if(isset($_SESSION["username"]) && ($_SESSION["usertype"] = "admin")){
+
         $adminnav = 
             '<!-- Admin Navigation -->
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -40,14 +41,16 @@
                                 <div id="notificationContainer">
                                     <div id="notificationTitle">Notifications</div>
                                     <div id="notificationsBody" class="notifications"></div>
-                                    <div id="notificationFooter"><a href="#">See All</a></div>
+                                    <div id="notificationFooter">
+                                        <a id="akosibatman">See All</a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <script>
+                <script>                   
                     if(localStorage["notif"] == null){
                         //localStorage["notif"] = "0";
                     }else if (parseInt(localStorage["notif"]) != 0){
@@ -76,7 +79,10 @@
                     {
                     $("#notificationContainer").hide();
                     });
-
+                    $("#akosibatman").click(function()
+                    {
+                    window.location = "notification.php";
+                    });
                     //Popup on click
                     $("#notificationContainer").click(function()
                     {
