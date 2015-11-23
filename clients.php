@@ -20,6 +20,15 @@
                 href="#clientModal"><i class="fa fa-plus fa-fw"></i> New Client </button>
             <button type="button" id="editupdatebtn" class="btn btn-info" data-toggle="modal">
                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit/Update </button>
+            <div class="btn-group">
+                <a class="btn btn-info" href="#"><i class="fa fa-folder-open"></i> Upload Files </a>
+                <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
+                <span class="fa fa-caret-down"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a data-toggle="modal"  href="#importNewItems">
+                        <i class="fa fa-list"></i> New Clients (.excel)</a></li>
+                </ul>
+            </div>
         </div>
         <!-- ClientsTable -->
         <div>
