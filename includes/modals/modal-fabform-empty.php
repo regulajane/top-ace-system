@@ -68,7 +68,60 @@
                                                             placeholder="Item name" required>
                                                     </div>
                                                     <div class="controls col-md-2">
-                                                        <input type="number" class="form-control" id="length" name="length[]" min="1" max="1000" placeholder="Size(m)">
+                                                        <select class="form-control" id="metal" name="metal[]" required>
+                                                            <option value="" disabled selected>Select metal</option>
+                                                            <?php
+                                                                $sql = "SELECT * from inventoryfabrication";
+                                                                $result = $conn->query($sql);
+                                                                if ($result->num_rows > 0) {
+                                                                    // output data of each row
+                                                                    while($resultRow = $result->fetch_assoc()){
+                                                                        $option = '<option value="' . $resultRow['itemid'] . '">' . 
+                                                                            $resultRow['itemname'] .'</option>';
+                                                                        echo ($option);
+                                                                    }
+                                                                }
+                                                            ?>
+                                                        </select> 
+                                                    </div>
+                                                    <div class="controls col-md-2">
+                                                        <select class="form-control" id="metaldiameter" name="metaldiameter[]" required>
+                                                            <option value="" disabled selected>Select diameter size</option>
+                                                            <?php
+                                                                $sql = "SELECT * from precutmetal";
+                                                                $result = $conn->query($sql);
+                                                                if ($result->num_rows > 0) {
+                                                                    // output data of each row
+                                                                    while($resultRow = $result->fetch_assoc()){
+                                                                        $option = '<option value="' . $resultRow['precutmetalid'] . '">' . 
+                                                                            $resultRow['precutitemdiam'] . " " . $resultRow['precutitemdiamul'] .'</option>';
+                                                                        echo ($option);
+                                                                    }
+                                                                }
+                                                            ?>
+                                                        </select> 
+                                                    </div>
+                                                    <div class="controls col-md-2">
+                                                    <input type="text" class="form-control" id="metallength" name="metallength[]" 
+                                                                placeholder="Input length" required>   
+                                                        
+                                                    </div>
+                                                    <div class="controls col-md-2">
+                                                    <select class="form-control" id="metallengthul" name="metallengthul[]" required>
+                                                                    <option value="" disabled selected>Unit of length</option>
+                                                                    <?php
+                                                                        $sql = "SELECT DISTINCT precutmetalid, precutitemlengthul from precutmetal where precutitemlengthul != '' group by 2";
+                                                                        $result = $conn->query($sql);
+                                                                        if ($result->num_rows > 0) {
+                                                                            // output data of each row
+                                                                            while($resultRow = $result->fetch_assoc()){
+                                                                                $option = '<option value="' . $resultRow['precutmetalid'] . '">' . 
+                                                                                    $resultRow['precutitemlengthul'] .'</option>';
+                                                                                echo ($option);
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
                                                     </div>
                                                     <div class="controls col-md-2">
                                                     <input type="text" class="form-control" id="price" name="price[]" 
