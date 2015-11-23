@@ -8,7 +8,7 @@
     
     if(isset($_POST["submit"])=="submit") {
         $receiptNo = $_POST['receiptNo'];
-        $servicestatus = $_POST['servicestatus'];
+        $servicesstatus = $_POST['servicesstatus'];
         $servicesavailed = $_POST['servicesavailed'];
         $payment = $_POST['payment'];
         
@@ -20,19 +20,19 @@
             while($resultRow = $result->fetch_assoc()){
                 $sid = $resultRow['serviceid'];
 
-                $sql = "UPDATE servicelogs SET servicestatus = ? where joborderid = $receiptNo and serviceid = '$sid' ";
+                $sql = "UPDATE servicelogs SET servicesstatus = ? where joborderid = $receiptNo and serviceid = '$sid' ";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("s", $servicestatus[$i]  );
+                $stmt->bind_param("s", $servicesstatus[$i]  );
                 $stmt->execute();
             }
             
         }
 
         // Check if any of the services is started
-        $sqlpstarted = "SELECT servicestatus from servicelogs where servicestatus  = 'Started' and joborderid = '$receiptNo' ";
+        $sqlpstarted = "SELECT servicesstatus from servicelogs where servicesstatus  = 'Started' and joborderid = '$receiptNo' ";
         $resultstarted = $conn->query($sqlpstarted);
         while($resultRowStarted = $resultstarted->fetch_assoc()){
-            $started = $resultRowStarted['servicestatus'];
+            $started = $resultRowStarted['servicesstatus'];
         }
 
         // check if the date started has value
@@ -49,30 +49,20 @@
             $stmtstarted->execute();
 
 
-            $sqlinvtyid = "SELECT inventoryid,itemquantity from itemlogs where joborderid = '$receiptNo' ";
-            $resultinvtyid= $conn->query($sqlinvtyid);
-            while($resultRowinvty = $resultinvtyid->fetch_assoc()){
-                $invtyid = $resultRowinvty['inventoryid'];
-                $invtyqty = $resultRowinvty['itemquantity'];
-
-                $sqlinvty = "UPDATE inventory SET inventoryquantity = (inventoryquantity - '$invtyqty' ) where inventoryid = '$invtyid'; ";
-                $stmtinvty = $conn->prepare($sqlinvty);
-                $stmtinvty->execute();
-            }
 
             
             
         }
 
         // count services availed where status is done
-        $sqlsadone = "SELECT COUNT(servicestatus) AS countsadone from servicelogs where servicestatus  = 'Done' and joborderid = '$receiptNo' ";
+        $sqlsadone = "SELECT COUNT(servicesstatus) AS countsadone from servicelogs where servicesstatus  = 'Done' and joborderid = '$receiptNo' ";
         $resultsadone= $conn->query($sqlsadone);
         while($resultRowSaDone = $resultsadone->fetch_assoc()){
             $sadone = $resultRowSaDone['countsadone'];
         }
 
         // count services availed
-        $sqlsa = "SELECT COUNT(servicestatus) AS countsa from servicelogs where joborderid = '$receiptNo' ";
+        $sqlsa = "SELECT COUNT(servicesstatus) AS countsa from servicelogs where joborderid = '$receiptNo' ";
         $resultsa= $conn->query($sqlsa);
         while($resultRowSa = $resultsa->fetch_assoc()){
             $sa = $resultRowSa['countsa'];
@@ -95,6 +85,18 @@
                 $sqlemp = "UPDATE employees SET noofjobs = (noofjobs-1) where employeeid IN (SELECT employeeid from joemployees where joborderid = '$receiptNo');";
                 $stmtemp = $conn->prepare($sqlemp);
                 $stmtemp->execute(); 
+
+                // remove items
+                $sqlinvtyid = "SELECT inventoryid,itemquantity from itemlogs where joborderid = '$receiptNo' ";
+                $resultinvtyid= $conn->query($sqlinvtyid);
+                while($resultRowinvty = $resultinvtyid->fetch_assoc()){
+                    $invtyid = $resultRowinvty['inventoryid'];
+                    $invtyqty = $resultRowinvty['itemquantity'];
+
+                    $sqlinvty = "UPDATE inventory SET inventoryquantity = (inventoryquantity - '$invtyqty' ) where inventoryid = '$invtyid'; ";
+                    $stmtinvty = $conn->prepare($sqlinvty);
+                    $stmtinvty->execute();
+                }
             }
 
 

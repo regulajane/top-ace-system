@@ -125,6 +125,13 @@
         $Bearing = 'Bearing';
         $OilFilter = 'Oil';
         $FuelFilter = 'Fuel';
+
+        if( empty($additionalitems[0]) ) {
+            // echo "Array is Empty";
+
+        } else {
+            // echo "Array is not Empty";
+            // echo $additionalitems[0];
         for($i=0 ;$i < count($_POST['additionalitems']); $i++) {
            if(strpos($additionalitems[$i],$Bearing)  !== false ){
                 $additionalitems[$i] = str_replace("Bearing ","",$additionalitems[$i]);
@@ -148,7 +155,7 @@
             
                             $aa = $resultRowaddlitem['inventoryid'];
                             $ap = $resultRowaddlitem['inventoryprice'];
-                            // echo "<script> alert($a); </script>";
+                            
        
                             $sqlitemlogsaddlitem = "INSERT INTO itemlogs ( itemprice, itemquantity, joborderid, inventoryid ) VALUES ( ?, ?, ?, ? )";
                             $stmt7 = $conn->prepare($sqlitemlogsaddlitem);     
@@ -158,6 +165,9 @@
             }
 
         }
+        }
+
+        
 
 
    

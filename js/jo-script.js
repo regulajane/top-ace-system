@@ -470,6 +470,7 @@ function jobOrder(){
     });
 
     // edit
+    // edit
     $("#editbtn").on("click", function() {
         var selectedIDArray = $("#jobOrderTable").bootgrid("getSelectedRows");
         var selectedID = parseInt(selectedIDArray) + 0;
@@ -483,6 +484,13 @@ function jobOrder(){
             data: {selectedID: selectedID},
             success: function(data) {
                 joData = JSON.parse(data);
+
+                 $.ajax({
+                    type: "POST",
+                    url: "includes/data-processors/processJOeditserviceajax.php",
+                    data: {selectedID: selectedID},
+                    success: function(data2) {
+                        joDataSrv = JSON.parse(data2);
                 // set JO variables
                 var joJobOrderID = joData[0].joborderid;
                 var joClientLastname = joData[0].cllastname
@@ -493,6 +501,7 @@ function jobOrder(){
                 var joDownpayment = joData[0].downpayment;
                 var joRequestedBy = joData[0].requestedBy;
                 var joServices = joData[0].servicename;
+                var joItems = joData[0].itemname;
 
                 // $modelid = $_POST['modelid'];
                 // $employeeid = $_POST['employeeid'];
@@ -503,51 +512,95 @@ function jobOrder(){
                 $(".joEdit #problem").val(joProblem);
                 $(".joEdit #dateBrought").val(joDateBrought);
                 $(".joEdit #client").val(joClientLastname + ", " + joClientFirstname);
-
                 
 
-                // if (joData.length == 1) {
-                //     $(".joEdit #servicesavailed").val(joServices);
-                // } else {
+                var div1 = document.createElement("div");
+                div1.className = "multi-field-wrapper-joborder";
+                var div2 = document.createElement("div");
+                div2.className = "multi-fields";
+
                     for (var i = 0; i < joData.length; i++) {
+                            var service = document.getElementById("servicesavailed");
                             var allservices = "";
                             allservices += joData[i].servicename;
-                            // alert(allservices);
-                            // $(".joEdit #servicesavailed").val(allservices+=joData[i].servicename);
-                            // document.getElementById("servicesavailed").innerHTML += allservices;
-                            var sa = document.getElementById("servicesavailed");
-                            var btn = document.createElement("button");
+                            var servicename = document.createElement("select");
+                            var srvoption = document.createElement("option");
+
+                            // servicename.appendChild(srvoption);
+
+                            var servicenamelabel = document.createElement("label");
+                            var div3 = document.createElement("div");
                             
-                            btn.className = "btn btn-default";
+                           
+                            div3.className = "multi-field";
+                            div2.appendChild(div3);
+                            div1.appendChild(div2);
+                            // servicename.type = "text";
+                            servicename.className = "form-control";
+                            servicename.id = "serviceid";
+                            servicename.name = "serviceid[]";
+
+                            var selectedoptionsrv = document.createElement("option");
+                            selectedoptionsrv.value = joData[i].servicename;  
+                            selectedoptionsrv.innerHTML = joData[i].servicename;
+                            
+                            // for (var i = 0; i < joDataSrv.length; i++) {
+                            //     var option = document.createElement("option");
+
+                            //     // var optsrv = joDataSrv[i].servicename;
+
+                            //     option.value = joDataSrv[i].servicename;
+                            //     option.innerHTML = joDataSrv[i].servicename;
+
+                            
+                            // }
+
+                            servicename.appendChild(selectedoptionsrv);
+                            // servicename.appendChild(option);
+                            
+
+                            div3.appendChild(document.createElement('br'));
+                            var removebtn = document.createElement("button");
+                            removebtn.type = "button";
+                            removebtn.className = "remove-field btn btn-default";
+                            removebtn.id = "removefield";
+                            
+                            var removebtnsymbol = document.createElement("i");
+                            removebtnsymbol.className = "fa fa-minus";
+                            removebtn.appendChild(removebtnsymbol);
                             
                             var br = document.createElement('br');
+                            service.appendChild(div1);    
+                           
 
-                            var t = document.createTextNode(allservices);       
-                            btn.appendChild(t);                              
-                            sa.appendChild(btn);
-                            sa.appendChild(br);
+                            if(i === 0){
+                                var addbtn = document.createElement("button");
+                                addbtn.type = "button";
+                                addbtn.className = "add-field btn btn-info";
+                                addbtn.id = "addfield";
+                                var addbtnsymbol = document.createElement("i");
+                                addbtnsymbol.className = "fa fa-plus";
+                                addbtn.appendChild(addbtnsymbol);
+                                div3.appendChild(addbtn);
+                                
+                            }
 
+                            div3.appendChild(servicename);
+                            service.appendChild(div1);
+                            div3.appendChild(removebtn);
 
-
-                        // }      
-                };
-
+                        }
+                        addbtn.setAttribute("click", addServiceinEdit('joborder')); 
+                        $('#editJoModal').modal('show');
+                    }
+                    
+                });
                 
-
-                
-                
-                
-                // $(".joEdit #defects").val(joDefects);
-                // $(".joEdit #natureOfWorksToBeDone").val(joNOWTBD);
-                // $(".joEdit #partsToBeProcured").val(joPTBP);
-                // $(".joEdit #requestedBy").val(joRequestedBy);
-                // $(".joEdit #vehicleNo").val(joVehicleNo);
-
-                
-                $('#editJoModal').modal('show');
                 
             }
-        });           
+        });
+
+                   
     });
 
     $("#updatebtn").on("click", function() {
@@ -605,13 +658,13 @@ function jobOrder(){
                             var srvstatus = document.getElementById("srvstatus");
                             var selectstatus = document.createElement("select");
                             
-                            selectstatus.id = "servicestatus";
+                            selectstatus.id = "servicesstatus";
                             selectstatus.className = "form-control";
-                            selectstatus.name = "servicestatus[]";
+                            selectstatus.name = "servicesstatus[]";
 
                             var selectedoption = document.createElement("option");
-                            selectedoption.value = joData[i].servicestatus;  
-                            selectedoption.innerHTML = joData[i].servicestatus;
+                            selectedoption.value = joData[i].servicesstatus;  
+                            selectedoption.innerHTML = joData[i].servicesstatus;
                             selectedoption.selected;
                             
                             var optionpending = document.createElement("option");
@@ -673,6 +726,9 @@ function jobOrderForm(){
     $("#preEvalbtn").on("click", function() {
         var selectedIDArray = $("#jobOrderTable").bootgrid("getSelectedRows");
         var selectedID = parseInt(selectedIDArray) + 0;
+
+        // employees, receipt number, machinist, supervisor, prepared by, customer name, date brought, address
+        var joPrice = 0;
         $.ajax({
             type: "POST",
             url: "includes/data-processors/processJOEMPajax.php",
@@ -686,6 +742,12 @@ function jobOrderForm(){
                 var joClientAddress = joData[0].claddress;
                 var joPreparedBy = joData[0].preparedby;
                 var joSupervisor = joData[0].supervisor;
+                var joCelno = joData[0].clcelno;
+                var joBalance = joData[0].balance;
+                joPrice = parseFloat(joData[0].joprice).toFixed(2);
+                var joDownpayment = joData[0].downpayment;
+
+
 
                 var emp = [];
                 var empname;
@@ -705,14 +767,99 @@ function jobOrderForm(){
                 document.getElementById('clnameform').innerHTML = "To:&nbsp;&nbsp;&nbsp;<span id='notBold'>" + joClientLastname + ", " + joClientFirstname + "</span>";
                 document.getElementById('datebroughtform').innerHTML = "Date:&nbsp;&nbsp;&nbsp;<span id='notBold'>" + joDateBrought + "</span>";
                 document.getElementById('claddressform').innerHTML = "Address:&nbsp;&nbsp;&nbsp;<span id='notBold'>" +joClientAddress + "</span>";
+                document.getElementById('clcontactinfo').innerHTML =  "Contact number:&nbsp;&nbsp;&nbsp;<span id='notBold'>" +joCelno+ "</span>";
                 document.getElementById('machinistform').innerHTML = empnames;
                 document.getElementById('confirmedbyform').innerHTML = joSupervisor;
                 document.getElementById('receivedbyform').innerHTML = joPreparedBy;
+                document.getElementById('grandtotal').innerHTML =  "Grand Total:&nbsp;&nbsp;&nbsp;<span id='notBold'>" +joPrice+ "</span>";
+                document.getElementById('dpayment').innerHTML =  "Downpayment:&nbsp;&nbsp;&nbsp;<span id='notBold'>" +joDownpayment+ "</span>";
+                document.getElementById('jobalance').innerHTML =  "Balance:&nbsp;&nbsp;&nbsp;<span id='notBold'>" +joBalance+ "</span>";
+                $('#joPreFormModal').modal('show');
+                
+            }
+        });
+        var totalservicecost = 0;
+        // services 
+        $.ajax({
+            type: "POST",
+            url: "includes/data-processors/processJOSERVICEajax.php",
+            data: {selectedID: selectedID},
+            success: function(data) {
+                joData = JSON.parse(data);
+                // var joServicesAvailed = joData[0].joborderid;
+                
+
+                var josrvAvailedname = [];
+                var josrvAvailedprice = [];
+                var srvn;
+                var srvp;
+                var srvAvailedn = "";
+                var srvAvailedp = "";
+                
+                
+
+                for (var i = 0; i < joData.length; i++){
+                    srvn = joData[i].servicename;
+                    srvp = joData[i].serviceprice;
+                    document.getElementById('srvname').innerHTML += srvn + "<br>";
+                    document.getElementById('srvprice').innerHTML +=  srvp +  "<br>";
+                    totalservicecost = totalservicecost + parseInt(srvp);
+
+                    
+                }
+                document.getElementById('tsc').innerHTML =  "Total Service/s Cost:&nbsp;&nbsp;&nbsp;<span>" +parseFloat(totalservicecost).toFixed(2)+ "</span>";
+                
                 
                 $('#joPreFormModal').modal('show');
                 
             }
-        });     
+        });
+
+        // item list
+        $.ajax({
+            type: "POST",
+            url: "includes/data-processors/processJOajaxItems.php",
+            data: {selectedID: selectedID},
+            success: function(data) {
+                joData = JSON.parse(data);
+                // var joServicesAvailed = joData[0].joborderid;
+                
+
+                var joItemname = [];
+                var joItemprice = [];
+                var joItemqty = [];
+                var itemn;
+                var itemp;
+                var itemq;
+                var totalitemcost = 0;
+                var tempprice = 0;
+              
+                
+                for (var i = 0; i < joData.length; i++){
+                    itemn = joData[i].inventoryname;
+                    itemp = joData[i].itemprice;
+                    itemq = joData[i].itemquantity;
+                    document.getElementById('itemname').innerHTML +=itemn + "<br>";
+                    document.getElementById('itemprice').innerHTML +=  itemp +  "<br>";
+                    document.getElementById('itemqty').innerHTML +=  itemq +  "<br>";
+
+                    tempprice = parseInt(itemp) * parseInt(itemq);
+                    totalitemcost = totalitemcost + tempprice;
+                    
+                }
+                document.getElementById('tic').innerHTML =  "Total Item/s Cost:&nbsp;&nbsp;&nbsp;<span>" +parseFloat(totalitemcost).toFixed(2)+ "</span>";
+                var tempsrvanditemcost = totalitemcost+totalservicecost;
+                document.getElementById('srcanditemcost').innerHTML =  "Services and Items cost:&nbsp;&nbsp;&nbsp;<span id='notBold'>" +parseFloat(tempsrvanditemcost).toFixed(2)+ "</span>";
+                var tempadjustments = (joPrice-(totalitemcost+totalservicecost));
+                document.getElementById('adjustments').innerHTML =  "Adjustments:&nbsp;&nbsp;&nbsp;<span id='notBold'>" +parseFloat(tempadjustments).toFixed(2)+ "</span>";
+
+                
+                 
+                
+                $('#joPreFormModal').modal('show');
+                
+            }
+        });   
     });
 
 }
