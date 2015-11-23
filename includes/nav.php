@@ -103,8 +103,9 @@
                     if($notifCount > 0){
                             //echo '<script>alert($row["notificationdetails"]);</script>';
                             echo "<script>
+                                    document.getElementById('notification_count').style.background = '#cc0000';
                                     var notifCountSpan = document.getElementById('notification_count').innerHTML = '$notifCount';
-                                    //alert(notifCountSpan);
+                                    //alert(notifCountSpan); 
                                   </script>";
 
                             $getNotifs = $conn->query("SELECT * from notification");
@@ -122,6 +123,7 @@
                                       </script>";
                             }
                             //
+
 
                     }
                 //do the math
