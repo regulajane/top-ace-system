@@ -40,7 +40,7 @@
                             Quantity</th>
                         <th data-column-id="saleprice" data-align="right" data-header-align="right">
                             Price</th>
-                        <th data-column-id="total">
+                        <th data-column-id="total" data-align="right" data-header-align="right">
                             Total</th>
                     </tr>
                 </thead>  
