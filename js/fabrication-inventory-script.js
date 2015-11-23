@@ -10,6 +10,11 @@ function supplies(){
             infos: "Showing {{ctx.start}} to {{ctx.end}} of {{ctx.total}} Items"
         },
 	});
+	$('.newFab #itemname').typeahead({
+        name: 'itemname',
+        remote:'includes/data-processors/searchfabname.php?key=%QUERY',
+        limit : 10
+    });
 }
 
 function navbar(){
