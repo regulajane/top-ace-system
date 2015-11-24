@@ -4,8 +4,8 @@
     <?php   
         include 'includes/header.php';
         include 'includes/head-elements.php';   
-        if(!isset($_SESSION["username"])) {
-            header('Location: index.php?loggedout=true');}
+        if(isset($_SESSION["username"]) && ($_SESSION["usertype"] == "frontdesk")) {
+                header('Location: index.php?loggedout=true');}
     ?>
     <script src="js/employee-script.js"></script>
     <title>Employees</title>

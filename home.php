@@ -44,29 +44,29 @@
                             <i class="fa fa-cogs fa-5x"></i> 
                             <p>Inventory</p>
                         </a>
-                    </div>
-                    <div class="btn-group">
-                        <a href="clients.php" type="button" class="btn btn-nav">
-                            <i class="fa fa-book fa-5x"></i>
-                            <p>Clients</p>
-                        </a>
-                    </div>
+                    </div> 
                     <div class="btn-group">
                         <a href="services.php" type="button" class="btn btn-nav">
                             <i class="fa fa-list-alt fa-5x"></i>
                             <p>Services</p>
                         </a>
                     </div>
-                    
-                    
-                    
-                    
-                    <div class="btn-group">
-                        <a href="employees.php" type="button" class="btn btn-nav">
-                            <i class="fa fa-book fa-5x"></i>
-                            <p>Employees</p>
-                        </a>
-                    </div>
+                    <?php
+                    if(isset($_SESSION["username"]) && ($_SESSION["usertype"] == "admin")) {
+                        echo ('<div class="btn-group">
+                                <a href="clients.php" type="button" class="btn btn-nav">
+                                    <i class="fa fa-book fa-5x"></i>
+                                    <p>Clients</p>
+                                </a>
+                            </div>
+                            <div class="btn-group">
+                                <a href="employees.php" type="button" class="btn btn-nav">
+                                    <i class="fa fa-book fa-5x"></i>
+                                    <p>Employees</p>
+                                </a>
+                            </div>');
+                        }
+                    ?>      
                 </div>
             </div>
         </div>

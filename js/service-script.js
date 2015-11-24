@@ -118,7 +118,7 @@ window.onload = function () {
 }
 
 function navbar(){
-    var activeEl = 5;
+    var activeEl = 4;
     var items = $('.navbar .btn-nav');
     $( items[activeEl] ).addClass('active');
 }
