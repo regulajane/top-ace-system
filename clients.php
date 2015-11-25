@@ -25,7 +25,7 @@
                 <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
                 <span class="fa fa-caret-down"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a data-toggle="modal"  href="#importNewItems">
+                    <li><a data-toggle="modal"  href="#importNewClients">
                         <i class="fa fa-list"></i> New Clients (.excel)</a></li>
                 </ul>
             </div>
