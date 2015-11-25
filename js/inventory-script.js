@@ -38,6 +38,9 @@ function supplies(){
                 validators: {
                     notEmpty: {
                         message: 'Quantity is required'
+                    },regexp: {
+                        regexp: /^[0-9, .]+$/,
+                        message: 'Please enter a valid price.'
                     }
                 }
             },
@@ -56,6 +59,9 @@ function supplies(){
                 validators: {
                     notEmpty: {
                         message: 'Reorder level is required'
+                    },regexp: {
+                        regexp: /^[0-9, .]+$/,
+                        message: 'Please enter a valid price.'
                     }
                 }
             }
