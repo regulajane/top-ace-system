@@ -100,7 +100,7 @@
                             <button type="button" id="updatefabbtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Update </button>
                             <div class="btn-group">
-                                <a class="btn btn-info" id="preEvalbtn" data-toggle="modal" 
+                                <a class="btn btn-info" id="fabpreEvalbtn" data-toggle="modal" 
                                     href="#"><i class="fa fa-print fa-fw"></i> Print </a>
                             </div>
                         </div>
@@ -181,7 +181,7 @@
         include 'includes/modals/modal-jopostform.php';
         include 'includes/modals/modal-editfabform.php';
         include 'includes/modals/modal-updatefabform.php';
-        
+        include 'includes/modals/modal-fabpreform.php';
     ?>   
 </body>
 </html>

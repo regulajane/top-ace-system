@@ -7,7 +7,7 @@
         if(!isset($_SESSION["username"])) {
             header('Location: index.php?loggedout=true');}
     ?>
-    <script>
+    <script src="js/jo-emptyfabform.js">
     function addOrder(){
     $('.multi-field-wrapper').each(function() {
         var $wrapper = $('.multi-fields', this);

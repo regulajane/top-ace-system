@@ -91,7 +91,63 @@
             }else{
                 $sqlemp = "UPDATE employees SET noofjobs = (noofjobs-1) where employeeid IN (SELECT employeeid from joemployees where joborderid = '$receiptNo');";
                 $stmtemp = $conn->prepare($sqlemp);
-                $stmtemp->execute();  
+                $stmtemp->execute();
+
+                // $sqlinvtyid = "SELECT itemid, itemname from inventoryfabrication where itemid in (select fabricationmetal from fabrications where joborderid = '$receiptNo');";
+                // $resultinvtyid= $conn->query($sqlinvtyid);
+               
+                //     $invtyid = $resultRowinvty['itemid'];
+                //     $invtyqty = $resultRowinvty['itemquantity'];
+
+                    $sqlfabord = "SELECT * from fabrications where joborderid = '$receiptNo' ";
+                    $resultstat= $conn->query($sqlfabord);
+                    while($resultRowStat = $resultstat->fetch_assoc()){
+                        $itemdiam = $resultRowStat['fabricationmetaldiameter'];
+                        $itemlength = $resultRowStat['fabricationmetallength'];
+                        $itemdiamul = $resultRowStat['fabricationmetaldiameterul'];
+                        $itemlengthul = $resultRowStat['fabricationmetallengthul'];
+                        $metaltouse = $resultRowStat['fabricationmetal'];
+
+                        if($itemdiamul == "mm"){
+                            $sqlinvty = "UPDATE inventoryfabrication SET itemsizediam = (itemsizediam - '$itemdiam' ) where itemid = '$metaltouse'; ";
+                            $stmtinvty = $conn->prepare($sqlinvty);
+                            $stmtinvty->execute();
+                            if($itemlengthul == "METER"){
+                                $sqlinvty = "UPDATE inventoryfabrication SET itemsizelength = (itemsizelength - '$itemlength' ) where itemid = '$metaltouse';";
+                                $stmtinvty = $conn->prepare($sqlinvty);
+                                $stmtinvty->execute();    
+                            }else if($itemlengthul == "FT"){
+                                $sqlinvty = "UPDATE inventoryfabrication SET itemsizelength = (itemsizelength - ('$itemlength' * 1 / 3.2808 ) ) where itemid = '$metaltouse';";
+                                $stmtinvty = $conn->prepare($sqlinvty);
+                                $stmtinvty->execute();
+                            }else if($itemlengthul == "inch"){
+                                $sqlinvty = "UPDATE inventoryfabrication SET itemsizelength = (itemsizelength - ('$itemlength' * 1 / 39.3701 ) ) where itemid = '$metaltouse';";
+                                $stmtinvty = $conn->prepare($sqlinvty);
+                                $stmtinvty->execute();
+                            }
+                        }else{
+                            $sqlinvty = "UPDATE inventoryfabrication SET itemsizediam = (itemsizediam - ('$itemdiam' * 1 / 0.0393) ) where itemid = '$metaltouse'; ";
+                            $stmtinvty = $conn->prepare($sqlinvty);
+                            $stmtinvty->execute();
+                            if($itemlengthul == "METER"){
+                                $sqlinvty = "UPDATE inventoryfabrication SET itemsizelength = (itemsizelength - '$itemlength' ) where itemid = '$metaltouse';";
+                                $stmtinvty = $conn->prepare($sqlinvty);
+                                $stmtinvty->execute();    
+                            }else if($itemlengthul == "FT"){
+                                $sqlinvty = "UPDATE inventoryfabrication SET itemsizelength = (itemsizelength - ('$itemlength' * 1 / 3.2808 ) ) where itemid = '$metaltouse';";
+                                $stmtinvty = $conn->prepare($sqlinvty);
+                                $stmtinvty->execute();
+                            }else if($itemlengthul == "inch"){
+                                $sqlinvty = "UPDATE inventoryfabrication SET itemsizelength = (itemsizelength - ('$itemlength' * 1 / 39.3701 ) ) where itemid = '$metaltouse';";
+                                $stmtinvty = $conn->prepare($sqlinvty);
+                                $stmtinvty->execute();
+                            }
+                        }
+
+                    }
+                    
+                
+
             }
             
             $sqldatefinished = "UPDATE joborders set datefinished = CURDATE(), jostatus = 'Done' where joborderid = '$receiptNo' ";

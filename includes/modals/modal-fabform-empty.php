@@ -3,7 +3,7 @@
     if(!isset($_SESSION["username"])){
     header('Location: ../index.php?loggedout=true');}
 ?>
-<script>
+<script src="js/jo-emptyfabform.js">
     function myFunction2(){
         document.getElementById("hidebtn2").click();
     }
@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-md-12 bs-example">
                             <form class="form-horizontal" method="post" action="includes/data-processors/newfaborder.php" 
-                                id="fabForm">
+                                id="fabForm" novalidate>
                                 <h4 class="modal-title text-center" id="emptyformlabel">Fabrication Form</h4>
                                 <hr>
                                 <div class="control-group form-group">
@@ -57,9 +57,7 @@
                                     <div class="controls col-md-4">
                                     </div>
                                 </div>
-                                <div class="multi-field-wrapper">
-                                    <div class="multi-fields">
-                                        <div class="multi-field">
+                                <div class="control-group form-group">
                                             <br>
                                             <div class="control-group form-group">
                                                 <label class="control-label col-md-3">Item Description:</label>
@@ -74,7 +72,7 @@
                                                         <select class="form-control" id="metal" name="metal[]" required>
                                                             <option value="" disabled selected>Select metal</option>
                                                             <?php
-                                                                $sql = "SELECT * from inventoryfabrication";
+                                                                $sql = "SELECT * from inventoryfabrication order by itemname";
                                                                 $result = $conn->query($sql);
                                                                 if ($result->num_rows > 0) {
                                                                     // output data of each row
@@ -91,7 +89,7 @@
                                                         <select class="form-control" id="metaldiameter" name="metaldiameter[]" required>
                                                             <option value="" disabled selected>Select diameter size</option>
                                                             <?php
-                                                                $sql = "SELECT * from precutmetal";
+                                                                $sql = "SELECT DISTINCT CONCAT(precutitemdiam, ' ', precutitemdiamul), precutmetalid, precutitemdiam, precutitemdiamul from precutmetal group by 1 order by 3, 4 desc;";
                                                                 $result = $conn->query($sql);
                                                                 if ($result->num_rows > 0) {
                                                                     // output data of each row
@@ -146,10 +144,11 @@
                                         
 
                                             <div class="col-md-1 col-md-offset-3" style="margin: 0 0 0 143px"></div> 
-                                            <button type="button" class="add-field btn btn-default" 
-                                                id="addfield"><i class="fa fa-plus"></i></button>
-                                            <button type="button" class="remove-field btn btn-default" 
-                                                id="removefield"><i class="fa fa-minus"></i></button>
+                                            <button type="button" class="pull-left add-field btn btn-default addButtonFab" >
+                                                <i class="fa fa-plus"></i>
+                                             </button>
+                                            <!-- <button type="button" class="remove-field btn btn-default" 
+                                                id="removefield"><i class="fa fa-minus"></i></button> -->
 
 
                                             <!-- <div class="control-group form-group">
@@ -161,13 +160,116 @@
                                             <div class="control-group form-group">
                                                 <label class="control-label col-md-3"></label>
                                             </div> -->
-                                        </div>
-                                    </div>
+                              
+                                </div>
+
+                                <div class="control-group form-group hide" id="optionTemplatefab">
+                                            <br>
+                                            <div class="control-group form-group">
+                                                <label class="control-label col-md-3">Item Description:</label>
+                                                    <div class="controls col-md-4">
+                                                        <input type="text" class="form-control" id="item" name="item[]" 
+                                                            placeholder="Item name" required>
+                                                    </div>
+                                            </div>
+                                            <div class="control-group form-group">
+                                                    <label class="control-label col-md-3"></label>
+                                                    <div class="controls col-md-4">
+                                                        <select class="form-control" id="metal" name="metal[]" required>
+                                                            <option value="" disabled selected>Select metal</option>
+                                                            <?php
+                                                                $sql = "SELECT * from inventoryfabrication order by itemname";
+                                                                $result = $conn->query($sql);
+                                                                if ($result->num_rows > 0) {
+                                                                    // output data of each row
+                                                                    while($resultRow = $result->fetch_assoc()){
+                                                                        $option = '<option value="' . $resultRow['itemid'] . '">' . 
+                                                                            $resultRow['itemname'] .'</option>';
+                                                                        echo ($option);
+                                                                    }
+                                                                }
+                                                            ?>
+                                                        </select> 
+                                                    </div>
+                                                    <div class="controls col-md-4">
+                                                        <select class="form-control" id="metaldiameter" name="metaldiameter[]" required>
+                                                            <option value="" disabled selected>Select diameter size</option>
+                                                            <?php
+                                                                $sql = "SELECT DISTINCT CONCAT(precutitemdiam, ' ', precutitemdiamul), precutmetalid, precutitemdiam, precutitemdiamul from precutmetal group by 1 order by 3, 4 desc;";
+                                                                $result = $conn->query($sql);
+                                                                if ($result->num_rows > 0) {
+                                                                    // output data of each row
+                                                                    while($resultRow = $result->fetch_assoc()){
+                                                                        $option = '<option value="' . $resultRow['precutmetalid'] . '">' . 
+                                                                            $resultRow['precutitemdiam'] . " " . $resultRow['precutitemdiamul'] .'</option>';
+                                                                        echo ($option);
+                                                                    }
+                                                                }
+                                                            ?>
+                                                        </select> 
+                                                    </div>
+                                            </div>
+                                            <div class="control-group form-group">
+                                                    <label class="control-label col-md-3"></label>
+                                                    <div class="controls col-md-4">
+                                                    <input type="text" class="form-control" id="metallength" name="metallength[]" 
+                                                                placeholder="Input length" required>   
+                                                        
+                                                    </div>
+                                                    <div class="controls col-md-4">
+                                                    <select class="form-control" id="metallengthul" name="metallengthul[]" required>
+                                                                    <option value="" disabled selected>Unit of length</option>
+                                                                    <?php
+                                                                        $sql = "SELECT DISTINCT precutmetalid, precutitemlengthul from precutmetal where precutitemlengthul != '' group by 2";
+                                                                        $result = $conn->query($sql);
+                                                                        if ($result->num_rows > 0) {
+                                                                            // output data of each row
+                                                                            while($resultRow = $result->fetch_assoc()){
+                                                                                $option = '<option value="' . $resultRow['precutmetalid'] . '">' . 
+                                                                                    $resultRow['precutitemlengthul'] .'</option>';
+                                                                                echo ($option);
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                    </div>
+                                            </div>
+                                            <div class="control-group form-group">
+                                                    <label class="control-label col-md-3"></label>
+                                                    <div class="controls col-md-4">
+                                                    <input type="text" class="form-control" id="price" name="price[]" 
+                                                            placeholder="Price" required>
+                                                    </div>
+                                            </div>
+<!--                                                     <div class="controls col-md-2">
+                                                        <button type="button" class="add-field btn btn-default" 
+                                                            id="addfield"><i class="fa fa-plus"></i></button>
+                                                        <button type="button" class="remove-field btn btn-default" 
+                                                            id="removefield"><i class="fa fa-minus"></i></button>
+                                                    </div> -->
+                                        
+
+                                            <div class="col-md-1 col-md-offset-3" style="margin: 0 0 0 143px"></div> 
+                                            <button type="button" class="pull-left remove-field btn btn-default removeButtonFab">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                            <!-- <button type="button" class="remove-field btn btn-default" 
+                                                id="removefield"><i class="fa fa-minus"></i></button> -->
+
+
+                                            <!-- <div class="control-group form-group">
+                                                <label class="control-label col-md-3">Length</label>
+                                            </div>
+                                            <div class="control-group form-group">
+                                                <label class="control-label col-md-3">Price</label>
+                                            </div>
+                                            <div class="control-group form-group">
+                                                <label class="control-label col-md-3"></label>
+                                            </div> -->
+                              
                                 </div>
                                 <hr>
-                                <div class="multi-field-wrapper">
-                                    <div class="multi-fields">
-                                        <div class="multi-field">
+                                <div class="control-group form-group">
                                             <br>
                                             <div class="control-group form-group">
                                                 <label class="control-label col-md-3">Machinist:</label>
@@ -175,13 +277,13 @@
                                                     <select class="form-control" id="machinist" name="machinist[]" required>
                                                         <option value="" disabled selected>Choose Machinist:</option>
                                                         <?php
-                                                            $sql = "SELECT * from employees where emptype = 'Machinist'";
+                                                            $sql = "SELECT * from employees where emptype = 'Machinist' order by emplastname";
                                                             $result = $conn->query($sql);
                                                             if ($result->num_rows > 0) {
                                                                 // output data of each row
                                                                 while($resultRow = $result->fetch_assoc()){
                                                                     $option = '<option value="' . $resultRow['employeeid'] . '">' . 
-                                                                        $resultRow['empfirstname'] . " " . $resultRow['emplastname'] . '</option>';
+                                                                        $resultRow['emplastname'] . " " . $resultRow['empfirstname'] . '</option>';
                                                                     echo ($option);
                                                                 }
                                                             }
@@ -197,13 +299,48 @@
                                                 </div> -->
                                             </div> 
                                             <div class="col-md-1 col-md-offset-3" style="margin: 0 0 0 143px"></div>
-                                            <button type="button" class="add-field btn btn-default" 
-                                                id="addfield"><i class="fa fa-plus"></i></button>
-                                            <button type="button" class="remove-field btn btn-default" 
-                                                id="removefield"><i class="fa fa-minus"></i></button>
-                                        </div>
-                                    </div>
+                                             <button type="button" class="pull-left add-field btn btn-default addButtonFabMach" >
+                                                <i class="fa fa-plus"></i>
+                                          <!--   <button type="button" class="remove-field btn btn-default" 
+                                                id="removefield"><i class="fa fa-minus"></i></button> -->
                                 </div>
+
+                                <div class="control-group form-group hide" id="optionTemplateFabMachinist">
+                                            <br>
+                                            <div class="control-group form-group">
+                                                <div class="control-label col-md-3"></div>
+                                                <div class="controls col-md-5">
+                                                    <select class="form-control" id="machinist" name="machinist[]" required>
+                                                        <option value="" disabled selected>Choose Machinist:</option>
+                                                        <?php
+                                                            $sql = "SELECT * from employees where emptype = 'Machinist' order by emplastname";
+                                                            $result = $conn->query($sql);
+                                                            if ($result->num_rows > 0) {
+                                                                // output data of each row
+                                                                while($resultRow = $result->fetch_assoc()){
+                                                                    $option = '<option value="' . $resultRow['employeeid'] . '">' . 
+                                                                        $resultRow['emplastname'] . " " . $resultRow['empfirstname'] . '</option>';
+                                                                    echo ($option);
+                                                                }
+                                                            }
+                                                        ?>
+
+                                                    </select> 
+                                                </div>
+<!--                                                  <div class="controls col-md-2">
+                                                    <button type="button" class="add-field btn btn-default" 
+                                                        id="addfield"><i class="fa fa-plus"></i></button>
+                                                    <button type="button" class="remove-field btn btn-default" 
+                                                        id="removefield"><i class="fa fa-minus"></i></button>
+                                                </div> -->
+                                            </div> 
+                                            <div class="col-md-1 col-md-offset-3" style="margin: 0 0 0 143px"></div>
+                                            <button type="button" class="pull-left remove-field btn btn-default removeButtonFabMach">
+                                            <i class="fa fa-minus"></i>
+                                          <!--   <button type="button" class="remove-field btn btn-default" 
+                                                id="removefield"><i class="fa fa-minus"></i></button> -->
+                                </div>
+
                                 <hr>
                                 <div class="form-group">
                                    <label class="control-label col-md-3">Date Ordered:</label>
@@ -227,7 +364,7 @@
                                             name="salesperson" required>
                                             <option value="" disabled selected>Select personnel</option>
                                             <?php
-                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' "; 
+                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' order by 2"; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
@@ -248,7 +385,7 @@
                                             name="supervisor" required>
                                             <option value="" disabled selected>Select supervisor</option>
                                             <?php
-                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' "; 
+                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' order by 2"; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row

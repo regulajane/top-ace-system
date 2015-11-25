@@ -55,34 +55,38 @@
 
 
         for($i=0 ;$i < count($_POST['item']); $i++) {
-               // Prepare
-            $sqldiamul = "SELECT precutitemdiamul FROM precutmetal where precutmetalid = '$metal[$i]';";
-            $result = $conn->query($sqldiamul);
-            $resultRow = $result->fetch_assoc();
-            $diameterul = $resultRow['precutitemdiamul'];
+            if ($_POST['item'][$i] != ''){
+                 // Prepare
+                $sqldiamul = "SELECT precutitemdiamul FROM precutmetal where precutmetalid = '$metal[$i]';";
+                $result = $conn->query($sqldiamul);
+                $resultRow = $result->fetch_assoc();
+                $diameterul = $resultRow['precutitemdiamul'];
 
-            $sqlmetalname = "SELECT itemname FROM inventoryfabrication join precutmetal using (itemid) where precutmetalid = '$metal[$i]';";
-            $result = $conn->query($sqlmetalname);
-            $resultRow = $result->fetch_assoc();
-            $metalname = $resultRow['itemname'];
+                $sqlmetalname = "SELECT * FROM inventoryfabrication where itemid = '$metal[$i]';";
+                $result = $conn->query($sqlmetalname);
+                $resultRow = $result->fetch_assoc();
+                $metalname = $resultRow['itemid'];
 
 
-            $sqldiamconverted = "SELECT precutitemdiamconverted FROM precutmetal where precutmetalid = '$metaldiameter[$i]';";
-            $result = $conn->query($sqldiamconverted);
-            $resultRow = $result->fetch_assoc();
-            $diamconverted = $resultRow['precutitemdiamconverted'];
+                $sqldiamconverted = "SELECT precutitemdiamconverted FROM precutmetal where precutmetalid = '$metaldiameter[$i]';";
+                $result = $conn->query($sqldiamconverted);
+                $resultRow = $result->fetch_assoc();
+                $diamconverted = $resultRow['precutitemdiamconverted'];
 
-            $sqllengthul = "SELECT precutitemlengthul FROM precutmetal where precutmetalid = '$metallengthul[$i]';";
-            $result = $conn->query($sqllengthul);
-            $resultRow = $result->fetch_assoc();
-            $lengthul = $resultRow['precutitemlengthul'];
+                $sqllengthul = "SELECT precutitemlengthul FROM precutmetal where precutmetalid = '$metallengthul[$i]';";
+                $result = $conn->query($sqllengthul);
+                $resultRow = $result->fetch_assoc();
+                $lengthul = $resultRow['precutitemlengthul'];
 
-            $sql2 = "INSERT INTO fabrications (fabricationdesc, fabricationmetal, fabricationmetaldiameter, fabricationmetaldiameterul, fabricationmetallength, fabricationmetallengthul, fabricationprice, joborderid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            $stmt2 = $conn->prepare($sql2); 
-        // Bind
-            $stmt2->bind_param("ssssssss", $item[$i], $metalname, $diamconverted, $diameterul, $metallength[$i], $lengthul, $price[$i], $latestjoborderid);
-        // Execute
-            $stmt2->execute();
+                $sql2 = "INSERT INTO fabrications (fabricationdesc, fabricationmetal, fabricationmetaldiameter, fabricationmetaldiameterul, fabricationmetallength, fabricationmetallengthul, fabricationprice, joborderid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                $stmt2 = $conn->prepare($sql2); 
+            // Bind
+                $stmt2->bind_param("ssssssss", $item[$i], $metalname, $diamconverted, $diameterul, $metallength[$i], $lengthul, $price[$i], $latestjoborderid);
+            // Execute
+                $stmt2->execute();
+               
+            }
+
         }
 
 

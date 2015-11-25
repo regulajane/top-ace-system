@@ -43,10 +43,10 @@
 
                                 <!-- Date brought -->
                                 <div class="form-group">
-                                    <label class="control-label col-xs-3">Date Started:</label>
+                                    <label class="control-label col-xs-3">Date Ordered:</label>
                                     <div class="col-xs-5">
-                                        <input type="date" class="form-control" id="dateStarted" 
-                                            name="dateBrought" readonly>
+                                        <input type="date" class="form-control" id="dateOrdered" 
+                                            name="dateOrdered" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
