@@ -93,9 +93,10 @@
                 </script>
                 <style>
                     #notificationsBody p {
-                        text-align: center;
-                        padding: 20px 0;
-                        background-color: #CAA0A0;
+                        text-align: left;
+                        padding: 10px 0 10px 10px;
+                        background-color: #d9edf7;
+                        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
                     }
                 </style>
             </nav>';
