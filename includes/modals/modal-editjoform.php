@@ -223,7 +223,7 @@ $(document).ready(function() {
                                     <label class="control-label col-md-4">Date Received:</label>
                                     <div class="col-md-5">
                                         <input type="date" class="form-control" id="dateBrought" 
-                                            name="dateBrought">
+                                            name="dateBrought" readonly>
                                     </div>
                                 </div>
 
