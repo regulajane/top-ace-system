@@ -4,7 +4,7 @@
     <div class="modal-dialog" style="width:755px;">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cancelbtn" onclick="reload()">
                     <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Job Order Form</h4>
             </div>

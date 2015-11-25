@@ -5,10 +5,12 @@
 ?>
 <!-- UPDATE JO Form Modal -->
 <div class="modal fade" id="updateJoModal"  role="dialog" 
-    aria-labelledby="myModalLabel" aria-hidden="true">
+    aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cancelbtn" onclick="reload()">
+                    <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Update Job Order</h4>
             </div>
             <div class="joUpdate modal-body">
@@ -103,10 +105,11 @@
             </div>
             <div class="modal-footer">
                 
-                <button type="submit" name="submit" class="btn btn-primary" form="joUpdateForm" 
-                    value="submit" id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Save Changes</button>
+                
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2" onclick="reload() ">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                <button type="submit" name="submit" class="btn btn-success" form="joUpdateForm" 
+                    value="submit" id="savebtn"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
             </div>
         </div>
     </div>

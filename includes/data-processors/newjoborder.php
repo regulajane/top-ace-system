@@ -162,9 +162,9 @@
                             $stmt7->bind_param("iisi", $ap, $qtyAI[$i],  $maxjoid, $aa) or mysql_error();
                             $stmt7->execute();
 
-            }
+                }
 
-        }
+            }
         }
 
         

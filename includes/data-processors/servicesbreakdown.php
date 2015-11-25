@@ -13,6 +13,7 @@
         $markup = $_POST['markup'];
         $discount = $_POST['discount'];
         $sbsupervisor = $_POST['sbsupervisor'];
+        $adjustments = $markup-$discount;
 
     	//-----------------------------SELECT JOB ORDER ID------------------------------------
     	$sqlmaxjoid = "SELECT joborderid from joborders order by joborderid desc limit 1";
@@ -25,6 +26,11 @@
       	$stmt4 = $conn->prepare($sqldp);     
         $stmt4->bind_param("i", $maxjoid) or mysql_error();
         $stmt4->execute();
+
+        //-----------------------------Insert adjustments------------------------------------
+        $sqladjustments = "UPDATE joborders SET adjustments = '$adjustments' where joborderid = '$maxjoid' ";
+        $stmtadjustments = $conn->prepare($sqladjustments);     
+        $stmtadjustments->execute();
 
     	//-----------------------------UPDATE Service Breakdown supervisor------------------------------------
         $sqlsbs = "UPDATE joborders SET sbsupervisor = '$sbsupervisor' where joborderid = ? ";

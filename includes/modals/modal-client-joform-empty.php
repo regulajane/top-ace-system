@@ -3,19 +3,23 @@
     header('Location: ../index.php?loggedout=true');}
 ?>
 
+
+
 <!-- JO Empty Form Modal -->
 <div class="modal fade" id="clientjoModal" tabindex="-1" role="dialog" 
-    aria-labelledby="myModalLabel" aria-hidden="true">
+    aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cancelbtn" onclick="reload()">
+                    <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">New Job Order</h4>
             </div>
             <div class="joEmpty modal-body">
                 <div class="well">
                     <div class="row">
                         <div class="col-md-12 bs-example">
-                            <form class="form-horizontal" method="post" action="includes/data-processors/newjoborder.php" id="joForm" novalidate>
+                            <form class="form-horizontal" method="post" action="includes/data-processors/newjoborder.php" id="joForm">
                                 <h4 class="modal-title" id="emptyformlabel" style="text-align:center">Pre-Inspection</h4>
                                 <hr>
 
@@ -102,7 +106,7 @@
                                         <select class="form-control" id="serviceid" name="serviceid[]" >
                                             <option value="" disabled selected>Select service</option>
                                                 <?php
-                                                    $sql = "SELECT * from services"; 
+                                                    $sql = "SELECT * from services where servicestatus = 'Offered'"; 
                                                     $result = $conn->query($sql);
                                                         if ($result->num_rows > 0) {
                                                             while($resultRow = $result->fetch_assoc()){
@@ -128,7 +132,7 @@
                                         <select class="form-control" id="serviceid" name="serviceid[]" >
                                             <option value="" disabled selected>Select service</option>
                                                 <?php
-                                                                        $sql = "SELECT * from services"; 
+                                                                        $sql = "SELECT * from services where servicestatus = 'Offered' "; 
                                                                         $result = $conn->query($sql);
                                                                         if ($result->num_rows > 0) {
                                                                             
@@ -159,7 +163,7 @@
                                         <select class="form-control" id="employeeid" name="employeeid[]" >
                                             <option value="" disabled selected>Select Machinist</option>
                                                                     <?php
-                                                                        $sql = "SELECT * from employees where emptype = 'Machinist' "; 
+                                                                        $sql = "SELECT * from employees where emptype = 'Machinist' AND empstatus = 'Active' "; 
                                                                         $result = $conn->query($sql);
                                                                         if ($result->num_rows > 0) {
                                                                             // output data of each row
@@ -183,7 +187,7 @@
                                         <select class="form-control" id="employeeid" name="employeeid[]" >
                                             <option value="" disabled selected>Select Machinist</option>
                                                                     <?php
-                                                                        $sql = "SELECT * from employees where emptype = 'Machinist' "; 
+                                                                        $sql = "SELECT * from employees where emptype = 'Machinist' AND empstatus = 'Active' "; 
                                                                         $result = $conn->query($sql);
                                                                         if ($result->num_rows > 0) {
                                                                             // output data of each row
@@ -290,8 +294,11 @@
                                 </div>
 
                                 <hr>
+                                <div class="text-center" style="color:red">Note: For Bearing, Oil Filter and Fuel Filter only.</div>
+                                <hr>
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Additional Items</label>
+
                                     <div class="controls col-md-6">
                                         <input type="text" class="form-control" id="additionalitems" name="additionalitems[]">                   
                                     </div>
@@ -315,6 +322,7 @@
                                             <i class="fa fa-minus"></i>
                                         </button>
                                 </div>
+
                                 <hr>
                                
 
@@ -361,6 +369,14 @@
                                         </select>  
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="col-md-8 col-md-offset-3">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="window.location.href='job-order.php'">
+                                        <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                                    <button type="submit" name="submit" class="btn btn-success" form="joForm" value="submit" >
+                                        <span class="glyphicon glyphicon-ok-sign"></span> Next</button> 
+                                    </div> 
+                                </div>
 
                             </form>
                         </div>
@@ -370,10 +386,8 @@
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary pull-left" 
                     onclick="clearForm()">Clear All</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="window.location.href='job-order.php'">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
-                <button type="submit" name="submit" class="btn btn-success" form="joForm" value="submit" >
-                    <span class="glyphicon glyphicon-ok-sign"></span> Next</button>
+           
+                
             </div>
         </div>
     </div>

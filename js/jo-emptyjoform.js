@@ -55,6 +55,13 @@
                                                 // The maximum number of options
                                                 var MAX_OPTIONS = 5;
 
+                                                $('.joEmpty #additionalitems').typeahead({
+                                                        name: 'additionalitems',
+                                                        remote:'includes/data-processors/searchjo.php?key=%QUERY',
+                                                        limit : 10
+                                                        
+                                                    });
+
 
                                                 $('#joForm')
                                                 // Add button click handler

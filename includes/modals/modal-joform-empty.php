@@ -9,11 +9,11 @@
 </script>
 <!-- JO Empty Form Modal -->
 <div class="modal fade" id="joModal" tabindex="-1" role="dialog" 
-    aria-labelledby="myModalLabel" aria-hidden="true">
+    aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header text-center">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cancelbtn">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cancelbtn" onclick="reload()">
                     <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">New Job Order</h4>
             </div>
@@ -107,7 +107,7 @@
                                         <select class="form-control" id="serviceid" name="serviceid[]" >
                                             <option value="" disabled selected>Select service</option>
                                                 <?php
-                                                    $sql = "SELECT * from services"; 
+                                                    $sql = "SELECT * from services where servicestatus = 'Offered'"; 
                                                     $result = $conn->query($sql);
                                                         if ($result->num_rows > 0) {
                                                             while($resultRow = $result->fetch_assoc()){
@@ -133,7 +133,7 @@
                                         <select class="form-control" id="serviceid" name="serviceid[]" >
                                             <option value="" disabled selected>Select service</option>
                                                 <?php
-                                                                        $sql = "SELECT * from services"; 
+                                                                        $sql = "SELECT * from services where servicestatus = 'Offered' "; 
                                                                         $result = $conn->query($sql);
                                                                         if ($result->num_rows > 0) {
                                                                             
@@ -164,7 +164,7 @@
                                         <select class="form-control" id="employeeid" name="employeeid[]" >
                                             <option value="" disabled selected>Select Machinist</option>
                                                                     <?php
-                                                                        $sql = "SELECT * from employees where emptype = 'Machinist' "; 
+                                                                        $sql = "SELECT * from employees where emptype = 'Machinist' AND empstatus = 'Active' "; 
                                                                         $result = $conn->query($sql);
                                                                         if ($result->num_rows > 0) {
                                                                             // output data of each row
@@ -188,7 +188,7 @@
                                         <select class="form-control" id="employeeid" name="employeeid[]" >
                                             <option value="" disabled selected>Select Machinist</option>
                                                                     <?php
-                                                                        $sql = "SELECT * from employees where emptype = 'Machinist' "; 
+                                                                        $sql = "SELECT * from employees where emptype = 'Machinist' AND empstatus = 'Active' "; 
                                                                         $result = $conn->query($sql);
                                                                         if ($result->num_rows > 0) {
                                                                             // output data of each row
