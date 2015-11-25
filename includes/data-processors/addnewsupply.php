@@ -11,6 +11,10 @@
         $quantity = $_POST["inventoryquantity"];
         $reorderlevel = $_POST["reorderlevel"];
 
+                if($inventSize == 'nosize'){
+                    $inventSize = null;
+                }
+
                 $sqlcheckmodel = "SELECT modelno from models where modelno = '$modelno'";
                 $s = $conn->query($sqlcheckmodel);
                 $ss = $s->fetch_assoc(); 
