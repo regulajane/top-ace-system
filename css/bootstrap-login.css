@@ -16,7 +16,7 @@ body
 }
 .wrap
 {   
-    background-color: rgba(189, 189, 205, 0.6);
+    background-color: rgba(189, 189, 205, 0.2);
     padding-top: 20px;
     padding-bottom: 30px;
     padding-left: 20px;
@@ -27,6 +27,7 @@ body
     box-shadow:0 1px 0 #cfcfcf;
     color:black;
 }
+
 p.form-title
 {
     font-family: 'Open Sans' , sans-serif;
@@ -72,6 +73,11 @@ form.login input[type="text"], form.login input[type="password"]
     color: #FFFFFF;
     outline: 0;
 }
+
+form.login input[placeholder="Username"]
+{
+    color: #FFF;
+}
 form.login input[type="submit"]
 {
     width: 100%;
@@ -93,5 +99,5 @@ form.login input[type="submit"]:hover
 }
 
 #loginfooter {
-    color: #808080 ;
+    color: #FFF ;
 }
