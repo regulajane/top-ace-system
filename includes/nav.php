@@ -97,6 +97,11 @@
                         padding: 10px 0 10px 10px;
                         background-color: #d9edf7;
                         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                        margin: 0px;
+                    }
+                    .hrNotif {
+                        margin: 0px;
+                        border-top: 2px solid #178ACC;
                     }
                 </style>
             </nav>';
@@ -121,10 +126,11 @@
                             while ($row = mysqli_fetch_row($getNotifs)) {
 
                                 echo "<script>
-                                       var text = 'NAME: $row[1], SIZE: $row[2], Model-No: $row[3] is $row[4]';
+                                       var text = 'NAME: $row[1] SIZE: $row[2] Model-No: $row[3] is $row[4]';
                                        var newNotif = document.createElement('p');
                                        var node = document.createTextNode(text);
                                        newNotif.appendChild(node);
+
                                        newNotif.setAttribute('class', 'newNotifp');
                                        newNotif.setAttribute('onclick', 'x()');
 
@@ -134,6 +140,10 @@
 
                                        var element = document.getElementById('notificationsBody');
                                        element.appendChild(newNotif);
+
+                                       var hr = document.createElement('hr');
+                                       hr.setAttribute('class', 'hrNotif');
+                                       element.appendChild(hr);
 
                                       </script>";
                             }
