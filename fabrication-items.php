@@ -38,6 +38,13 @@
 		                </ul>
 	        		</div>
 				</div>
+
+				<div id="test1" style="margin-top: 20px">
+					 <button type="button" id="editfab" class="btn btn-info" data-toggle="modal" title "Edit"
+						href="#editFab">
+		                <i class="fa fa-pencil-square-o fa-fw"></i> Edit
+	                </button>
+				</div>
 				
 				<table  id="fabricationTable" class="table table-condensed table-hover table-striped" style="margin-top: 20px">
 					<thead>
