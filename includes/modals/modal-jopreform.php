@@ -1,6 +1,6 @@
 <!-- JO Pre Form Modal --> 
 <div class="modal fade" id="joPreFormModal" tabindex="-1" role="dialog" 
-    aria-labelledby="myModalLabel" aria-hidden="true">
+    aria-labelledby="myModalLabel" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog" style="width:755px;">
         <div class="modal-content">
             <div class="modal-header text-center">
