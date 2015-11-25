@@ -30,6 +30,10 @@
                                     <i class="fa fa-user"></i> <span>' . $_SESSION["username"] . '</span>
                                     <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
+                                    <li><a href="system-users.php">Users</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="pwd.php">Change Password</a></li>
+                                    <li class="divider"></li>
                                     <li><a href="includes/logout.php">Logout</a></li>
                                 </ul>
                             </li>
@@ -198,6 +202,8 @@
                                     <i class="fa fa-user"></i> <span>' . $_SESSION["username"] . '</span>
                                     <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
+                                    <li><a href="pwd.php">Change Password</a></li>
+                                    <li class="divider"></li>
                                     <li><a href="includes/logout.php">Logout</a></li>
                                 </ul>
                             </li>

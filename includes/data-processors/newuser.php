@@ -4,22 +4,25 @@
     header('Location: ../../index.php?loggedout=true');}
 	if(isset($_POST["newuser"])=="New User") {
 		// Define Variables
-		$name = $_POST["newUserName"];
+		$userlastname = $_POST["userln"];
+		$userfirstname = $_POST["userfn"];
 		$username = $_POST["username"];
-		$password = $_POST["userpassword"];
-		$authlevel = $_POST["userlevel"];
+		$usermidinitial = $_POST["usermi"];
+		$usertype = $_POST["usertype"];
 
 		//-----------------------------INSERT INTO ADMIN------------------------------------
 		// Prepare
-		$sql = "INSERT INTO admin (name, username, password, authlevel) VALUES (?, ?, ?, ?)";			
+		$sql = "INSERT INTO users (username, userlastname, userfirstname, 
+					usermidinitial, userpassword, usertype) VALUES (?, ?, ?, ?, ?, ?)";			
 		$stmt = $conn->prepare($sql);
 		// Bind
-		$stmt->bind_param("ssss", $name, $username, $password, $authlevel);
+		$stmt->bind_param("ssssss", $username, $userlastname, $userfirstname, 
+					$usermidinitial, $username, $usertype);
 		// Execute 
 		$stmt->execute();
 	     
 		// Redirect
-		header('location:../../systemusers.php');           			   
+		header('location:../../system-users.php');           			   
 	}
 	$conn->close();
 ?>

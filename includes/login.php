@@ -9,6 +9,7 @@
             if($row["username"] == $_POST["username"] && $row["userpassword"] == $_POST["password"]) {
                 // set session variables
                 
+                $_SESSION["userid"] = $row["userid"];
                 $_SESSION["username"] = $row["username"];
                 $_SESSION["password"] =  $row["userpassword"];
                 $_SESSION["usertype"] =  $row["usertype"];
