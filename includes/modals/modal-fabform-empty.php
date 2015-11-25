@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-md-12 bs-example">
                             <form class="form-horizontal" method="post" action="includes/data-processors/newfaborder.php" 
-                                id="fabForm" novalidate>
+                                id="fabForm">
                                 <h4 class="modal-title text-center" id="emptyformlabel">Fabrication Form</h4>
                                 <hr>
                                 <div class="control-group form-group">
@@ -169,13 +169,13 @@
                                                 <label class="control-label col-md-3">Item Description:</label>
                                                     <div class="controls col-md-4">
                                                         <input type="text" class="form-control" id="item" name="item[]" 
-                                                            placeholder="Item name" required>
+                                                            placeholder="Item name">
                                                     </div>
                                             </div>
                                             <div class="control-group form-group">
                                                     <label class="control-label col-md-3"></label>
                                                     <div class="controls col-md-4">
-                                                        <select class="form-control" id="metal" name="metal[]" required>
+                                                        <select class="form-control" id="metal" name="metal[]">
                                                             <option value="" disabled selected>Select metal</option>
                                                             <?php
                                                                 $sql = "SELECT * from inventoryfabrication order by itemname";
@@ -192,7 +192,7 @@
                                                         </select> 
                                                     </div>
                                                     <div class="controls col-md-4">
-                                                        <select class="form-control" id="metaldiameter" name="metaldiameter[]" required>
+                                                        <select class="form-control" id="metaldiameter" name="metaldiameter[]">
                                                             <option value="" disabled selected>Select diameter size</option>
                                                             <?php
                                                                 $sql = "SELECT DISTINCT CONCAT(precutitemdiam, ' ', precutitemdiamul), precutmetalid, precutitemdiam, precutitemdiamul from precutmetal group by 1 order by 3, 4 desc;";
@@ -213,11 +213,11 @@
                                                     <label class="control-label col-md-3"></label>
                                                     <div class="controls col-md-4">
                                                     <input type="text" class="form-control" id="metallength" name="metallength[]" 
-                                                                placeholder="Input length" required>   
+                                                                placeholder="Input length">   
                                                         
                                                     </div>
                                                     <div class="controls col-md-4">
-                                                    <select class="form-control" id="metallengthul" name="metallengthul[]" required>
+                                                    <select class="form-control" id="metallengthul" name="metallengthul[]">
                                                                     <option value="" disabled selected>Unit of length</option>
                                                                     <?php
                                                                         $sql = "SELECT DISTINCT precutmetalid, precutitemlengthul from precutmetal where precutitemlengthul != '' group by 2";
@@ -238,7 +238,7 @@
                                                     <label class="control-label col-md-3"></label>
                                                     <div class="controls col-md-4">
                                                     <input type="text" class="form-control" id="price" name="price[]" 
-                                                            placeholder="Price" required>
+                                                            placeholder="Price">
                                                     </div>
                                             </div>
 <!--                                                     <div class="controls col-md-2">
@@ -310,7 +310,7 @@
                                             <div class="control-group form-group">
                                                 <div class="control-label col-md-3"></div>
                                                 <div class="controls col-md-5">
-                                                    <select class="form-control" id="machinist" name="machinist[]" required>
+                                                    <select class="form-control" id="machinist" name="machinist[]">
                                                         <option value="" disabled selected>Choose Machinist:</option>
                                                         <?php
                                                             $sql = "SELECT * from employees where emptype = 'Machinist' order by emplastname";
