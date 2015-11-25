@@ -113,6 +113,22 @@
                            $notifCount = $row[0];
                          }
 
+                    if($notifCount == 0){
+                            echo "<script> 
+                                    var text = 'No Notifications';
+                                    var node = document.createTextNode(text);
+                                    var noNotifP = document.createElement('p');
+                                    noNotifP.appendChild(node);
+
+                                    noNotifP.setAttribute('id', 'noNotifP');
+                                    var element = document.getElementById('notificationsBody');
+
+                                    element.appendChild(noNotifP);
+                                 </script>"
+                                 ;
+
+                        }
+
                     if($notifCount > 0){
                             //echo '<script>alert($row["notificationdetails"]);</script>';
                             echo "<script>
@@ -126,7 +142,7 @@
                             while ($row = mysqli_fetch_row($getNotifs)) {
 
                                 echo "<script>
-                                       var text = 'NAME: $row[1] SIZE: $row[2] Model-No: $row[3] is $row[4]';
+                                       var text = 'Item: $row[3] $row[1] $row[2] is $row[4]';
                                        var newNotif = document.createElement('p');
                                        var node = document.createTextNode(text);
                                        newNotif.appendChild(node);
@@ -147,6 +163,7 @@
 
                                       </script>";
                             }
+
                             //
 
 
