@@ -82,13 +82,13 @@
 						<th data-column-id="inventoryid" data-visible="false"  data-identifier="true">
 							Inventory ID
 						</th>
-						<th data-column-id="inventoryname">
+						<th data-column-id="inventoryname"  data-width="30%">
 							Name
 						</th>
 						<th data-column-id="inventorysize">
 							Size
 						</th>
-						<th data-column-id="inventoryprice">
+						<th data-column-id="inventoryprice" data-align="right" data-header-align="right">
 							Price
 						</th>
 						<th data-column-id="inventoryquantity">
