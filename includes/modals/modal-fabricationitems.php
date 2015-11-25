@@ -26,7 +26,7 @@
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelbtn2">
                     <span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
                 <button type="submit" name="ini" class="btn btn-success" form="importNewItemsForm" value="ini" 
-                    ><span class="glyphicon glyphicon-ok-sign"></span>Submit</button>
+                    ><span class="glyphicon glyphicon-ok-sign"></span> Submit</button>
             </div>
         </div>
     </div>
