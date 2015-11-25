@@ -165,7 +165,6 @@
                             <li><a href="job-order.php" class="btn-nav">Job Orders</a></li>
                             <li><a href="sales.php" class="btn-nav">Sales</a></li>
                             <li><a href="inventory.php" class="btn-nav">Inventory</a></li>
-                            <li><a href="services.php" class="btn-nav">Services</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="user" >
                                     <i class="fa fa-user"></i> <span>' . $_SESSION["username"] . '</span>
