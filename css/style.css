@@ -194,7 +194,7 @@ position:relative
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     overflow: visible;
     top: 50px;
-    margin-left: -460px;
+    margin-left: -520px;
     width: 560px;
     z-index: 0;
     display: none;
@@ -204,18 +204,21 @@ position:relative
 
 #notificationTitle {
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 5px 0 5px 10px;
     font-size: 13px;
-    background-color: #ffffff;
+    background-color: #e9eaed;
     position: fixed;
     z-index: 1000;
-    width: 560px;
+    width: inherit;
+    color: #2fa4e7;
 }
 
 #notificationsBody{
-    padding: 33px 0px 0px 0px !important;
+    margin: 25px 0px 0px 0px !important;
     max-height: 300px;
-    overflow: scroll;
+    min-height: 300px;
+    overflow-y: scroll;
+    background: #BFC2C3;
 }
 
 #notificationFooter {
