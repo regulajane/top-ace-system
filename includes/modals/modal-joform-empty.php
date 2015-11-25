@@ -27,8 +27,8 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Client Name:</label>
                                     <div class="controls col-md-4">
-                                        <select class="form-control" id="clientid" name="clientid" >
-                                            <option value="" disabled selected>Select client</option>
+                                        <select class="form-control" id="clientid" name="clientid" required>
+                                            <option value="" disabled selected >Select client</option>
                                             <?php
                                                 $sql = "SELECT * from clients ORDER BY cllastname ASC"; 
                                                 $result = $conn->query($sql);
@@ -53,14 +53,14 @@
                                     <label class="control-label col-md-3">Date Received:</label>
                                     <div class="col-md-4">
                                         <input type="date" class="form-control" id="dateBrought" 
-                                            name="dateBrought" >
+                                            name="dateBrought" required>
                                     </div>
                                 </div>
 
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Engine Model:</label>
                                     <div class="controls col-md-4">
-                                        <select class="form-control" id="modelid" name="modelid">
+                                        <select class="form-control" id="modelid" name="modelid" required>
                                             <option value="" disabled selected>Select model</option>
                                             <?php
                                                 $sql = "SELECT * FROM inventory join models using (modelid) where inventoryname = 'Engine Valve';"; 
@@ -82,7 +82,7 @@
                                     <label class="control-label col-md-3">Engine number:</label>
                                     <div class="controls col-md-4">
                                         <input type="text" class="form-control" id="engnumber" name="engnumber" 
-                                            placeholder=""  autocomplete="off">
+                                            placeholder=""  autocomplete="off" required>
                                     </div>
                                 </div>
 
@@ -90,22 +90,17 @@
                                     <label class="control-label col-md-3">Problems:</label>
                                     <div class="controls col-md-8">
                                         <textarea rows="5" cols="100" class="form-control" id="problem" name="problem"
-                                            maxlength="999" style="resize:none" placeholder="" 
-                                                ></textarea>
+                                            maxlength="999" style="resize:none" placeholder="" default="" required></textarea>
                                     </div>
                                 </div>
 
                                 <hr>
-                                
  
-                                
-                                
-                                  
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Services:</label>
                                     <div class="controls col-md-6">
-                                        <select class="form-control" id="serviceid" name="serviceid[]" >
-                                            <option value="" disabled selected>Select service</option>
+                                        <select class="form-control" id="serviceid" name="serviceid[]" required>
+                                            <option value="" disabled selected >Select service</option>
                                                 <?php
                                                     $sql = "SELECT * from services where servicestatus = 'Offered'"; 
                                                     $result = $conn->query($sql);
@@ -161,7 +156,7 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Machinist/s:</label>
                                     <div class="controls col-md-6">
-                                        <select class="form-control" id="employeeid" name="employeeid[]" >
+                                        <select class="form-control" id="employeeid" name="employeeid[]" required>
                                             <option value="" disabled selected>Select Machinist</option>
                                                                     <?php
                                                                         $sql = "SELECT * from employees where emptype = 'Machinist' AND empstatus = 'Active' "; 
@@ -214,7 +209,7 @@
 
                                     <div class="controls col-md-4">
 
-                                        <select class="form-control" id="itemid" name="itemid[]" >
+                                        <select class="form-control" id="itemid" name="itemid[]" required>
                                             <option value="" disabled selected>Select Item</option>
                                                                     <?php
                                                                         $sql = "SELECT distinct(inventoryname) from inventory join models using (modelid) where modelid = 1 "; 
@@ -236,7 +231,7 @@
 
                                     </div>
                                     <div class="controls col-md-2">
-                                        <input type="number" min="0" name="qty[]" id="qty" class="form-control" placeholder="Quantity" >
+                                        <input type="number" min="0" name="qty[]" id="qty" class="form-control" placeholder="Quantity" required>
                                     </div>
                                     <div class="controls col-md-2">
                                         <select class="form-control" id="itemsize" name="itemsize[]">
@@ -301,10 +296,10 @@
                                     <label class="control-label col-md-3">Additional Items</label>
 
                                     <div class="controls col-md-6">
-                                        <input type="text" class="form-control" id="additionalitems" name="additionalitems[]">                   
+                                        <input type="text" class="form-control" id="additionalitems" name="additionalitems[]" required>                   
                                     </div>
                                     <div class="controls col-md-2">
-                                        <input type="number" min="0" name="qtyAI[]" id="qtyAI" class="form-control" placeholder="Quantity" >
+                                        <input type="number" min="0" name="qtyAI[]" id="qtyAI" class="form-control" placeholder="Quantity" required >
                                     </div>
                                         <button type="button" class="pull-left add-field btn btn-default addButtonAI" >
                                             <i class="fa fa-plus"></i>
@@ -331,7 +326,7 @@
                                     <label class="control-label col-md-3">Received by:</label>
                                     <div class="controls col-md-4">
                                         <select class="form-control" id="salesperson" 
-                                            name="salesperson" >
+                                            name="salesperson" required>
                                             <option value="" disabled selected>Select personnel</option>
                                             <?php
                                                 $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' "; 
@@ -353,8 +348,8 @@
                                     <label class="control-label col-md-3">Confirmed by:</label>
                                     <div class="controls col-md-4">
                                         <select class="form-control" id="supervisor" 
-                                            name="supervisor" >
-                                            <option value="" disabled selected>Select supervisor</option>
+                                            name="supervisor" required>
+                                            <option value="" disabled >Select supervisor</option>
                                             <?php
                                                 $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' "; 
                                                 $result = $conn->query($sql);
