@@ -21,10 +21,11 @@
 				<table  id="notificationTable" class="table table-condensed table-hover table-striped">
 				<thead>
 					<tr>
-						<th data-column-id="inventoryname">Item Name</th>
+						<th data-column-id="inventoryname" data-identifier="true">Item Name</th>
 						<th data-column-id="modelno" >Model No</th>
 						<th data-column-id="inventorysize" >Size</th>
 						<th data-column-id="notificationdetails">Reason</th>
+						<th data-field="operate" data-formatter="operateFormatter" data-events="operateEvents">Option</th>
 					</tr>
 					</thead>  
 				</table>
