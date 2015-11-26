@@ -924,6 +924,7 @@ function jobOrder(){
                 var joDpay = joData[0].downpayment;
                 var joDateStarted = joData[0].datestarted;
                 var joDateFinished = joData[0].datefinished;
+                var joDateClaimed = joData[0].dateclaimed;
 
                 var joBal = joData[0].balance;
 
@@ -934,6 +935,7 @@ function jobOrder(){
                 $(".joUpdate #balance").val(joBal);
                 $(".joUpdate #datefinish").val(joDateFinished);
                 $(".joUpdate #datestart").val(joDateStarted);
+                $(".joUpdate #dateclaimed").val(joDateClaimed);
 
                     for (var i = 0; i < joData.length; i++) {
                             var br = document.createElement('br');

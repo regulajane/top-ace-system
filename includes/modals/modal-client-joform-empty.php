@@ -333,7 +333,7 @@
                                             name="salesperson" >
                                             <option value="" disabled selected>Select personnel</option>
                                             <?php
-                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' "; 
+                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel'  and empstatus = 'Active' "; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
@@ -355,7 +355,7 @@
                                             name="supervisor" >
                                             <option value="" disabled selected>Select supervisor</option>
                                             <?php
-                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' "; 
+                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager'  and empstatus = 'Active' "; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row

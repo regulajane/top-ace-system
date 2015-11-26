@@ -296,10 +296,10 @@
                                     <label class="control-label col-md-3">Additional Items</label>
 
                                     <div class="controls col-md-6">
-                                        <input type="text" class="form-control" id="additionalitems" name="additionalitems[]" required>                   
+                                        <input type="text" class="form-control" id="additionalitems" name="additionalitems[]">                   
                                     </div>
                                     <div class="controls col-md-2">
-                                        <input type="number" min="0" name="qtyAI[]" id="qtyAI" class="form-control" placeholder="Quantity" required >
+                                        <input type="number" min="0" name="qtyAI[]" id="qtyAI" class="form-control" placeholder="Quantity">
                                     </div>
                                         <button type="button" class="pull-left add-field btn btn-default addButtonAI" >
                                             <i class="fa fa-plus"></i>
@@ -329,7 +329,7 @@
                                             name="salesperson" required>
                                             <option value="" disabled selected>Select personnel</option>
                                             <?php
-                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' "; 
+                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel'  and empstatus = 'Active' "; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
@@ -349,9 +349,9 @@
                                     <div class="controls col-md-4">
                                         <select class="form-control" id="supervisor" 
                                             name="supervisor" required>
-                                            <option value="" disabled >Select supervisor</option>
+                                            <option value="" disabled selected>Select supervisor</option>
                                             <?php
-                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' "; 
+                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' and empstatus = 'Active' "; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row

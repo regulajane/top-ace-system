@@ -30,17 +30,17 @@
         }
 
         // check if the date started has value
-        // $sqldc= "SELECT dateclaimed from joborders where joborderid = '$receiptNo' ";
-        // $resultdc = $conn->query($sqldc);
-        // while($resultRowdc = $resultdc->fetch_assoc()){
-        //     $dc = $resultRowdc['dateclaimed'];
-        // }
+        $sqldc= "SELECT dateclaimed from joborders where joborderid = '$receiptNo' ";
+        $resultdc = $conn->query($sqldc);
+        while($resultRowdc = $resultdc->fetch_assoc()){
+            $dc = $resultRowdc['dateclaimed'];
+        }
 
-        // if(empty($dc)){
+        if(empty($dc)){
             $sqlupdatedc = "UPDATE joborders set dateclaimed = CURDATE() where joborderid = '$receiptNo' ";
             $stmtupdatedc = $conn->prepare($sqlupdatedc);
             $stmtupdatedc->execute();
-        // }
+        }
 
 
 

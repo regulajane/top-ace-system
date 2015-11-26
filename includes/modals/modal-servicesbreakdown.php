@@ -151,7 +151,7 @@
                                             name="sbsupervisor" required ng-show="displayCondition" ng-required="displayCondition">
                                             <option value="" disabled selected>Select supervisor</option>
                                             <?php
-                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' "; 
+                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager'  and empstatus = 'Active' "; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
