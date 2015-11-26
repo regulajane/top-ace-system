@@ -16,18 +16,11 @@ window.onload = function () {
         document.getElementById('saledate').valueAsDate = new Date();
     });
 
-    $('.sales #salemodel').typeahead({
-        name: 'salemodel',
-        remote:'includes/data-processors/searchmodel.php?key=%QUERY',
+    $('.sales #saleitem').typeahead({
+        name: 'saleitem',
+        remote:'includes/data-processors/searchitemsale.php?key=%QUERY',
         limit : 8
     });
-
-    $('.sales #salename').typeahead({
-        name: 'salename',
-        remote:'includes/data-processors/searchinv.php?key=%QUERY',
-        limit : 8
-    });
-
     $('#salesForm').bootstrapValidator({
         feedbackIcons: {
             message: 'This value is not valid',
@@ -43,17 +36,10 @@ window.onload = function () {
                     }
                 }
             },
-            salemodel: {
+            saleitem: {
                 validators: {
                     notEmpty: {
-                        message: 'Model no. is required'
-                    }
-                }
-            },
-            salename: {
-                validators: {
-                    notEmpty: {
-                        message: 'Name is required'
+                        message: 'Item is required'
                     }
                 }
             },
