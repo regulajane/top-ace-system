@@ -180,7 +180,7 @@ function fabOrder(){
                                         // diamoption.value = fabData5[iii].itemid;
                                         // diamoption.innerHTML = fabData5[iii].precutitemdiamconverted + " " + fabData5[iii].precutitemdiamul;
                                         // selectdsize.appendChild(diamoption);
-                                        diammetalarrayvalue[p] = fabData5[p].precutmetalid;
+                                        diammetalarrayvalue[p] = fabData5[p].precutitemdiamconverted;
                                         diammetalarrayinnerhtml[p] = fabData5[p].precutitemdiamconverted + " " + fabData5[p].precutitemdiamul;  
                                     }
 
@@ -218,10 +218,10 @@ function fabOrder(){
 
                                             for(var l = 0; l < diammetalarrayvalue.length; l++) {
                                                 var diamoption = document.createElement("option");
-                                                diamoption.value = diammetalarrayinnerhtml[l];
+                                                diamoption.value = diammetalarrayvalue[l];
                                                 diamoption.innerHTML = diammetalarrayinnerhtml[l];
                                                 selectdsize.appendChild(diamoption);
-                                                selectdsize.value = fabData[i].fabricationmetaldiameter + " " + fabData[i].fabricationmetaldiameterul;     
+                                                selectdsize.value = fabData[i].fabricationmetaldiameter;     
                                             }
 
 
@@ -447,6 +447,7 @@ function fabOrder(){
                 var fabjoDateStarted = fabData[0].datestarted;
                 var fabjoDateFinished = fabData[0].datefinished;
                 var fabjoBal = fabData[0].balance;
+                var fabjoDateClaimed = fabDate[0].dateclaimed;
 
                 $(".fabUpdate #receiptNo").val(fabJobOrderID);
                 $(".fabUpdate #client").val(fabClientLastname + ", " + fabClientFirstname);
@@ -454,6 +455,7 @@ function fabOrder(){
                 $(".fabUpdate #balancefab").val(fabjoBal);
                 $(".fabUpdate #datefinishfab").val(fabjoDateFinished);
                 $(".fabUpdate #datestartfab").val(fabjoDateStarted);
+                $(".fabUpdate #dateclaimedfab").val(fabjoDateClaimed);
                 // var div1 = document.createElement("div");
                 // div1.className = "multi-field-wrapper";
 

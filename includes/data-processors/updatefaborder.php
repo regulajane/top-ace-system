@@ -41,7 +41,7 @@
         while($resultRowdStarted = $resultdstarted->fetch_assoc()){
             $dstarted = $resultRowdStarted['datestarted'];
         }
-     
+  
         // update date started
         if($started == "Started" AND empty($dstarted) ){
             $sqldatestarted = "UPDATE joborders set datestarted = CURDATE(), jostatus = 'Ongoing' where joborderid = '$receiptNo' ";
@@ -61,6 +61,18 @@
 
             
             
+        }
+
+        $sqldclaimed= "SELECT dateclaimed from joborders where joborderid = '$receiptNo' ";
+        $resultdstarted = $conn->query($sqldclaimed);
+        while($resultRowdStarted = $resultdstarted->fetch_assoc()){
+            $dclaimed = $resultRowdStarted['dateclaimed'];
+        }
+
+        if(empty($dclaimed) ){
+            $sqldatestarted = "UPDATE joborders set dateclaimed = CURDATE() where joborderid = '$receiptNo' ";
+            $stmtstarted = $conn->prepare($sqldatestarted);
+            $stmtstarted->execute();
         }
 
         // count fabrication ordered where status is done

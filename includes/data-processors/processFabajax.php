@@ -21,6 +21,7 @@
                 cllastname,
                 datestarted,
                 datefinished,
+                dateclaimed,
                 clfirstname,
                 clmidinitial,
                 claddress,

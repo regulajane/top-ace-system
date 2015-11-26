@@ -31,7 +31,7 @@
         }   
 
         for($i=0 ;$i < count($_POST['item']); $i++) {
-            $sqldiamul = "SELECT distinct qresult.precutitemdiamconverted, qresult.precutitemdiamul, qresult.aa from (SELECT precutitemdiamconverted, precutitemdiamul, CONCAT(precutitemdiamconverted, ' ', precutitemdiamul) as aa FROM top_ace_db.precutmetal) as qresult where aa = '$metaldiameter';";
+            $sqldiamul = "SELECT distinct qresult.precutitemdiamconverted, qresult.precutitemdiamul from (SELECT precutitemdiamconverted, precutitemdiamul FROM top_ace_db.precutmetal) as qresult where precutitemdiamconverted = '$metaldiameter[$i]';";
             $result = $conn->query($sqldiamul);
             $resultRow = $result->fetch_assoc();
             $diameterul = $resultRow['precutitemdiamul'];
@@ -43,7 +43,7 @@
             $metalname = $resultRow['itemid'];
 
 
-            $sqldiamconverted = "SELECT distinct qresult.precutitemdiamconverted, qresult.precutitemdiamul, qresult.aa from (SELECT precutitemdiamconverted, precutitemdiamul, CONCAT(precutitemdiamconverted, ' ', precutitemdiamul) as aa FROM top_ace_db.precutmetal) as qresult where aa = '$metaldiameter';";
+            $sqldiamconverted = "SELECT distinct qresult.precutitemdiamconverted, qresult.precutitemdiamul from (SELECT precutitemdiamconverted, precutitemdiamul FROM top_ace_db.precutmetal) as qresult where precutitemdiamconverted = '$metaldiameter[$i]';";
             $result = $conn->query($sqldiamconverted);
             $resultRow = $result->fetch_assoc();
             $diamconverted = $resultRow['precutitemdiamconverted'];

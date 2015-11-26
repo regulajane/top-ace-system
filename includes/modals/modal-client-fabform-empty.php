@@ -98,7 +98,7 @@
                                                         <select class="form-control" id="metaldiameter" name="metaldiameter[]" required>
                                                             <option value="" disabled selected>Select diameter size</option>
                                                             <?php
-                                                                $sql = "SELECT DISTINCT CONCAT(precutitemdiam, ' ', precutitemdiamul), precutmetalid, precutitemdiam, precutitemdiamul from precutmetal group by 1 order by 3, 4 desc;";
+                                                                $sql = "SELECT * from precutmetal order by precutitemdiamconverted;";
                                                                 $result = $conn->query($sql);
                                                                 if ($result->num_rows > 0) {
                                                                     // output data of each row
@@ -203,7 +203,7 @@
                                                         <select class="form-control" id="metaldiameter" name="metaldiameter[]" required>
                                                             <option value="" disabled selected>Select diameter size</option>
                                                             <?php
-                                                                $sql = "SELECT DISTINCT CONCAT(precutitemdiam, ' ', precutitemdiamul), precutmetalid, precutitemdiam, precutitemdiamul from precutmetal group by 1 order by 3, 4 desc;";
+                                                                $sql = "SELECT * from precutmetal order by precutitemdiamconverted;";
                                                                 $result = $conn->query($sql);
                                                                 if ($result->num_rows > 0) {
                                                                     // output data of each row

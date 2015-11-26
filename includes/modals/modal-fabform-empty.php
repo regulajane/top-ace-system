@@ -3,7 +3,7 @@
     if(!isset($_SESSION["username"])){
     header('Location: ../index.php?loggedout=true');}
 ?>
-<script src="js/jo-emptyfabform.js">       
+<script src="js/jo-emptyfabform.js">      
 </script>
 <!-- JO Empty Form Modal -->
 <div class="modal fade" id="fabModal" tabindex="-1" role="dialog" 
@@ -86,7 +86,7 @@
                                                         <select class="form-control" id="metaldiameter" name="metaldiameter[]" required>
                                                             <option value="" disabled selected>Select diameter size</option>
                                                             <?php
-                                                                $sql = "SELECT DISTINCT CONCAT(precutitemdiam, ' ', precutitemdiamul), precutmetalid, precutitemdiam, precutitemdiamul from precutmetal group by 1 order by 3, 4 desc;";
+                                                                $sql = "SELECT * from precutmetal order by precutitemdiamconverted;";
                                                                 $result = $conn->query($sql);
                                                                 if ($result->num_rows > 0) {
                                                                     // output data of each row
@@ -192,7 +192,7 @@
                                                         <select class="form-control" id="metaldiameter" name="metaldiameter[]">
                                                             <option value="" disabled selected>Select diameter size</option>
                                                             <?php
-                                                                $sql = "SELECT DISTINCT CONCAT(precutitemdiam, ' ', precutitemdiamul), precutmetalid, precutitemdiam, precutitemdiamul from precutmetal group by 1 order by 3, 4 desc;";
+                                                                $sql = "SELECT * from precutmetal order by precutitemdiamconverted;";
                                                                 $result = $conn->query($sql);
                                                                 if ($result->num_rows > 0) {
                                                                     // output data of each row
