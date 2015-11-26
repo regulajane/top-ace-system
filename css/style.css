@@ -423,6 +423,24 @@ input[type="checkbox"]:checked:after {
     max-height: 250px;
 }
 
+
+/*Typeahead : JO*/
+.joEdit #additionalitems {
+    width: 390px;
+}
+.joEdit .tt-hint {
+    width: 390px;
+}
+.joEdit .tt-dropdown-menu {
+    width: 390px;
+    max-height: 250px;
+}
+
+.joEdit .tt-query {
+    width: 390px;
+}
+
+
 .navbar .btn-nav.active 
 {
     background-color: #317eac;

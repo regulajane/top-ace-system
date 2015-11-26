@@ -983,7 +983,7 @@ function jobOrder(){
                             if(selectedoption.value == "Pending"){
                                 selectstatus.appendChild(selectedoption);
                                 selectstatus.appendChild(optionstarted);
-                                selectstatus.appendChild(optiondone);
+                                // selectstatus.appendChild(optiondone);
                             }else 
                                 
                               

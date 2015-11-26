@@ -11,6 +11,7 @@
         $servicesstatus = $_POST['servicesstatus'];
         $servicesavailed = $_POST['servicesavailed'];
         $payment = $_POST['payment'];
+        $dateclaimed = $_POST['dateclaimed'];
         
         // echo $receiptNo;
         for($i=0 ;$i < count($_POST['servicesavailed']); $i++) {
@@ -27,6 +28,21 @@
             }
             
         }
+
+        // check if the date started has value
+        // $sqldc= "SELECT dateclaimed from joborders where joborderid = '$receiptNo' ";
+        // $resultdc = $conn->query($sqldc);
+        // while($resultRowdc = $resultdc->fetch_assoc()){
+        //     $dc = $resultRowdc['dateclaimed'];
+        // }
+
+        // if(empty($dc)){
+            $sqlupdatedc = "UPDATE joborders set dateclaimed = CURDATE() where joborderid = '$receiptNo' ";
+            $stmtupdatedc = $conn->prepare($sqlupdatedc);
+            $stmtupdatedc->execute();
+        // }
+
+
 
         // Check if any of the services is started
         $sqlpstarted = "SELECT servicesstatus from servicelogs where servicesstatus  = 'Started' and joborderid = '$receiptNo' ";

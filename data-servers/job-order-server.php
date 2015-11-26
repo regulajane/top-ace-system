@@ -73,7 +73,7 @@
                     
                   from joborders join clients using (clientid) 
                   where $where AND jotype != 'Fabrication'
-                  ORDER BY $order_by desc $limit";
+                  ORDER BY $order_by $limit";
     $stmt=$conn->prepare($sql);
     $stmt->execute();
     $results_array=$stmt->fetchAll(PDO::FETCH_ASSOC);

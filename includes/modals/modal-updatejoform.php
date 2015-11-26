@@ -95,6 +95,14 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Date Claimed</label>
+                                    <div class="col-md-4">
+                                        <input type="date" class="form-control" id="dateclaimed" 
+                                            name="dateclaimed">
+                                    </div>
+                                </div>
+
                                     
                                 </div>
                                     
