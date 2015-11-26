@@ -6,28 +6,56 @@
 
     // Define Variables
     $invoiceno = $_POST["saleci"];
-	$modelno = $_POST["salemodel"];
-	$itemname = $_POST["salename"];
-	$itemsize = $_POST["salesize"];
+	//$modelno = $_POST["salemodel"];
+	$itemnamefull = $_POST["saleitem"];
+	//$itemsize = $_POST["salesize"];
 	$noofitems = $_POST["saleqty"];
 	// $saleprice = $_POST["saleprice"];
 	$saledate = $_POST["saledate"];
 
+
+	
+
+
 	if(isset($_POST["savedata"])=="Save") {
 
-		$count="SELECT count(*) AS count from inventory JOIN models where 
-						modelno='$modelno'
-		 				&& inventoryname='$itemname' 
-		 				&& inventorysize='$itemsize'";
-		$rslt = $conn->query($count);
-    	$nRows = $rslt->fetch_assoc();
+			$split = explode(":", $itemnamefull);
 
-    	$sql="SELECT * from inventory JOIN models where 
-						modelno='$modelno'
-		 				&& inventoryname='$itemname' 
-		 				&& inventorysize='$itemsize'";
-		$result = $conn->query($sql);
-    	$noRows = $result->fetch_assoc();
+	$modelno  = $split[0];
+	$itemname = $split[1];
+	echo $split[2];
+ 		if($split[2] == 'No Size'){
+ 			echo 'dumaan';
+ 			$count="SELECT count(*) AS count from inventory JOIN models USING(modelid) where 
+						modelno LIKE '$modelno'
+		 				&& inventoryname LIKE '$itemname'
+		 				&& inventorysize is null";
+			$rslt = $conn->query($count);
+	    	$nRows = $rslt->fetch_assoc();
+
+	    	$sql="SELECT * from inventory JOIN models USING(modelid) where 
+							modelno LIKE '$modelno'
+			 				&& inventoryname LIKE '$itemname'
+			 				&& inventorysize is null";
+			$result = $conn->query($sql);
+	    	$noRows = $result->fetch_assoc();
+	    	$itemsize = null;
+ 		}else{
+ 			$itemsize = $split[2];
+ 			$count="SELECT count(*) AS count from inventory JOIN models USING(modelid) where 
+								modelno LIKE '$modelno'
+				 				&& inventoryname LIKE '$itemname'
+				 				&& inventorysize LIKE '$itemsize'";
+			$rslt = $conn->query($count);
+		    $nRows = $rslt->fetch_assoc();
+
+		    $sql="SELECT * from inventory JOIN models USING(modelid) where 
+								modelno LIKE '$modelno'
+				 				&& inventoryname LIKE '$itemname'
+				 				&& inventorysize LIKE '$itemsize'";
+			$result = $conn->query($sql);
+		    $noRows = $result->fetch_assoc();
+ 		}	
 
     	$price = $noRows['inventoryprice'];
     	$inventID = $noRows['inventoryid'];
