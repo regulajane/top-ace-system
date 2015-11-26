@@ -125,7 +125,11 @@
                         $stmtfinished = $conn->prepare($sqldatefinished);
                         $stmtfinished->execute();
 
-                        echo "<script>alert('ERROR: Inventory Quantity is lower than item qty')</script>";
+                        $sqlupdatep = "UPDATE joborders SET jostatus = 'Ongoing' where joborderid = '$receiptNo' ";
+                        $stmtupdatep = $conn->prepare($sqlupdatep);
+                        $stmtupdatep->execute();
+
+                        echo "<script>alert('ERROR: Inventory Quantity is lower than inputed item qunatity')</script>";
 
 
                         break;
