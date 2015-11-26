@@ -285,7 +285,7 @@
                                                     <select class="form-control" id="machinist" name="machinist[]" required>
                                                         <option value="" disabled selected>Choose Machinist:</option>
                                                         <?php
-                                                            $sql = "SELECT * from employees where emptype = 'Machinist' order by emplastname";
+                                                            $sql = "SELECT * from employees where emptype = 'Machinist' AND empstatus = 'Active' order by emplastname";
                                                             $result = $conn->query($sql);
                                                             if ($result->num_rows > 0) {
                                                                 // output data of each row
@@ -321,7 +321,7 @@
                                                     <select class="form-control" id="machinist" name="machinist[]" required>
                                                         <option value="" disabled selected>Choose Machinist:</option>
                                                         <?php
-                                                            $sql = "SELECT * from employees where emptype = 'Machinist' order by emplastname";
+                                                            $sql = "SELECT * from employees where emptype = 'Machinist' AND empstatus = 'Active' order by emplastname";
                                                             $result = $conn->query($sql);
                                                             if ($result->num_rows > 0) {
                                                                 // output data of each row
@@ -371,7 +371,7 @@
                                             name="salesperson" required>
                                             <option value="" disabled selected>Select personnel</option>
                                             <?php
-                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' order by 2"; 
+                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' AND empstatus = 'Active' order by 2"; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
@@ -392,7 +392,7 @@
                                             name="supervisor" required>
                                             <option value="" disabled selected>Select supervisor</option>
                                             <?php
-                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' "; 
+                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' AND empstatus = 'Active' order by 2"; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row

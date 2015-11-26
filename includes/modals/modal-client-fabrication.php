@@ -1,4 +1,5 @@
 
+
 <div class="modal fade" id="clientfabricationModal" tabindex="-1" role="dialog" 
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -67,7 +68,7 @@
                                         <label class="control-label col-md-4">Date:</label>
                                         <div class="col-md-7">
                                             <input type="date" class="form-control" placeholder="Date"
-                                                id="clientsince" name="clientsince" required/>
+                                                id="fabclientsince" name="fabclientsince" required/>
                                         </div>
                                     </div>
                                     <br>
@@ -90,7 +91,9 @@
         </div>
     </div>
 </div> <!-- /.newclientmodal -->
-
+<script>
+        document.getElementById('fabclientsince').valueAsDate = new Date();
+</script>
 
 <?php 
     include 'modal-client-fabform-empty.php';

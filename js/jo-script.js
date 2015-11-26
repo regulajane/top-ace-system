@@ -112,6 +112,16 @@ function fabOrder(){
         },
     });
 
+    $("#newjobfaborderbtn").on("click", function() {
+        document.getElementById('dateOrdered').valueAsDate = new Date();
+    });
+    $("fabModal").submit(function() {
+        $(this).submit(function() {
+            return false;
+        });
+        return true;
+    });
+
     $("#editfabbtn").on("click", function() {
         var selectedIDArray = $("#fabricationTable").bootgrid("getSelectedRows");
         var selectedID = parseInt(selectedIDArray) + 0;

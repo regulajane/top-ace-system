@@ -11,7 +11,7 @@
 	$clgender = $_POST["clientgender"];
 	$claddress = $_POST["clientadd"];
 	$clcelno = $_POST["clientcp"];
-	$clsince = $_POST["clientsince"];
+	$clsince = $_POST["fabclientsince"];
 
 	if(isset($_POST["savedata"])=="Save") {
 

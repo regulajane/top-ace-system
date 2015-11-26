@@ -104,3 +104,7 @@ $(document).ready(function() {
     });
 
 });
+
+function myFunction2(){
+        document.getElementById("hidebtn2").click();
+}

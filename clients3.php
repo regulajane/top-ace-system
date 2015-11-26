@@ -72,6 +72,7 @@
     <script>
         window.onload = function(){
             document.getElementById("addfaborderbtn").click();
+            document.getElementById('dateOrdered').valueAsDate = new Date();
             addOrder();
         }
     </script>

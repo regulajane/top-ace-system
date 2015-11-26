@@ -3,10 +3,7 @@
     if(!isset($_SESSION["username"])){
     header('Location: ../index.php?loggedout=true');}
 ?>
-<script src="js/jo-emptyfabform.js">
-    function myFunction2(){
-        document.getElementById("hidebtn2").click();
-    }
+<script src="js/jo-emptyfabform.js">       
 </script>
 <!-- JO Empty Form Modal -->
 <div class="modal fade" id="fabModal" tabindex="-1" role="dialog" 
@@ -277,7 +274,7 @@
                                                     <select class="form-control" id="machinist" name="machinist[]" required>
                                                         <option value="" disabled selected>Choose Machinist:</option>
                                                         <?php
-                                                            $sql = "SELECT * from employees where emptype = 'Machinist' order by emplastname";
+                                                            $sql = "SELECT * from employees where emptype = 'Machinist' AND empstatus = 'Active' order by emplastname";
                                                             $result = $conn->query($sql);
                                                             if ($result->num_rows > 0) {
                                                                 // output data of each row
@@ -313,7 +310,7 @@
                                                     <select class="form-control" id="machinist" name="machinist[]">
                                                         <option value="" disabled selected>Choose Machinist:</option>
                                                         <?php
-                                                            $sql = "SELECT * from employees where emptype = 'Machinist' order by emplastname";
+                                                            $sql = "SELECT * from employees where emptype = 'Machinist' AND empstatus = 'Active' order by emplastname";
                                                             $result = $conn->query($sql);
                                                             if ($result->num_rows > 0) {
                                                                 // output data of each row
@@ -364,7 +361,7 @@
                                             name="salesperson" required>
                                             <option value="" disabled selected>Select personnel</option>
                                             <?php
-                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' order by 2"; 
+                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS frontdesk from employees where emptype = 'Front Desk Personnel' AND empstatus = 'Active' order by 2"; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
@@ -385,7 +382,7 @@
                                             name="supervisor" required>
                                             <option value="" disabled selected>Select supervisor</option>
                                             <?php
-                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' order by 2"; 
+                                                $sql = "SELECT employeeid,concat(emplastname,', ',empfirstname) AS manager from employees where emptype = 'Manager' AND empstatus = 'Active' order by 2"; 
                                                 $result = $conn->query($sql);
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row

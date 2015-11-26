@@ -93,7 +93,7 @@
     
                         <!-- Fabrication Buttons -->
                         <div class="actionBtns">
-                            <button type="button" id="newjoborderbtn" class="btn btn-info" data-toggle="modal" 
+                            <button type="button" id="newjobfaborderbtn" class="btn btn-info" data-toggle="modal" 
                                 href="#fabModal"><i class="fa fa-plus fa-fw"></i> New Job Order </button>
                             <button type="button" id="editfabbtn" class="btn btn-info" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit </button>
