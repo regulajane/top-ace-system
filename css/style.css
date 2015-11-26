@@ -385,18 +385,15 @@ input[type="checkbox"]:checked:after {
 }
 
 /*Typeahead : Sales*/
-.sales #salename {
-    width: 228px;
-}
-.sales #salemodel {
-    width: 226px;
+.sales #saleitem {
+    width: 342px;
 }
 .sales .tt-hint {
-    width: 226px;
+    width: 342px;
 }
 .sales .tt-dropdown-menu {
-    width: 226px;
-    max-height: 250px;
+    width: 342px;
+    max-height: 200px;
 }
 
 /*Typeahead : Inv*/

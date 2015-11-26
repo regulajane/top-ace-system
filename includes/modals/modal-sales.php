@@ -16,28 +16,28 @@
                                 <div class="control-group col-md-20">
                                     <div class="form-group">
                                         <label class="control-label col-md-4">Cash Invoice No.:</label>
-                                        <div class="col-md-6">
+                                        <div class="col-md-8">
                                             <input type="text" class="form-control"  placeholder="Cash Invoice No."
                                                 id="saleci" name="saleci" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-4">Item:</label>
-                                        <div class="col-md-6">
+                                        <div class="col-md-8">
                                             <input type="text" class="typeahead form-control"  placeholder="Model No. - Name - Size"
                                                 id="saleitem" name="saleitem" autocomplete="off" size="50" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-4">Quantity:</label>
-                                        <div class="col-md-4">
+                                        <div class="col-md-5">
                                             <input type="number" class="form-control" placeholder="Quantity"
                                                 id="saleqty" name="saleqty"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-4">Date:</label>
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <input type="date" class="form-control" placeholder="Date"
                                                 id="saledate" name="saledate" required/>
                                         </div>

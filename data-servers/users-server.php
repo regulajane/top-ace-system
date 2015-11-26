@@ -2,12 +2,14 @@
   try {
     include '../includes/header.php';
 
+    $curUser = $_SESSION["userid"];
+
     if(!isset($_SESSION["username"])) {
       header('Location: ../index.php?loggedout=true');}
 
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $where ="1=1";
+    $where ="userid!=$curUser";
     $order_by="userlastname asc";
     $rows=25;
     $current=1;

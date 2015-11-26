@@ -30,12 +30,12 @@
                             Date</th>
                         <th data-column-id="invoiceno">
                             Invoice No</th>
-                        <th data-column-id="modelno">
-                            Model No</th>
+                        <!-- <th data-column-id="modelno">
+                            Model No</th> -->
                         <th data-column-id="itemname">
                             Name</th>   
-                        <th data-column-id="itemsize">
-                            Size</th>  
+                        <!-- <th data-column-id="itemsize">
+                            Size</th>  --> 
                         <th data-column-id="noofitems">
                             Quantity</th>
                         <th data-column-id="saleprice" data-align="right" data-header-align="right">
