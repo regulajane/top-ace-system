@@ -97,7 +97,7 @@
                             echo 
                                 '<div class="alert alert-success" role="alert">
                                 <strong>Success!</strong> Your password has been changed.
-                                <br /> <strong>Note:</strong> You are only allowed to change your password again the next time you login.
+                                
                                 </div>';
                         }
 

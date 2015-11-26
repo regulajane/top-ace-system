@@ -120,7 +120,7 @@
 
 
                                 <div class="control-group form-group">
-                                    <label class="control-label col-md-3">Markup:</label>
+                                    <label class="control-label col-md-3">Additional:</label>
                                     <div class="controls col-md-4">
                                         <input type="number" class="form-control" id="markup" name="markup" 
                                             placeholder="0.00" autocomplete="off">
