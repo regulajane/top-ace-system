@@ -2,7 +2,7 @@
     include '../header.php';
     if(!isset($_SESSION["username"])){
     header('Location: ../../index.php?loggedout=true');}
-
+    $started = '';
     
 
     
@@ -93,16 +93,99 @@
                     $invtyid = $resultRowinvty['inventoryid'];
                     $invtyqty = $resultRowinvty['itemquantity'];
 
-                    $sqlinvty = "UPDATE inventory SET inventoryquantity = (inventoryquantity - '$invtyqty' ) where inventoryid = '$invtyid'; ";
-                    $stmtinvty = $conn->prepare($sqlinvty);
-                    $stmtinvty->execute();
+                    $sqlqty = "SELECT inventoryquantity FROM inventory WHERE inventoryid = '" .$invtyid. "'";
+                    $result = $conn->query($sqlqty);
+                    $resultRow = $result->fetch_assoc();
+
+                    $inventQty = $resultRow['inventoryquantity'];
+
+                    $product = $inventQty-$invtyqty;
+
+                    //echo "<script>alert('$product')</script>";
+
+                    if($product < 0){
+
+                        $sqldatefinished = "UPDATE servicelogs set servicesstatus = 'Started' where joborderid = '$receiptNo' ";
+                        $stmtfinished = $conn->prepare($sqldatefinished);
+                        $stmtfinished->execute();
+
+                        echo "<script>alert('ERROR: Inventory Quantity is lower than item qty')</script>";
+
+
+                        break;
+
+                    }else{
+                        //echo "<script>alert('set job order to done')</script>";
+
+
+                        $sqlinvty = "UPDATE inventory SET inventoryquantity = (inventoryquantity - '$invtyqty' ) where inventoryid = '$invtyid'; ";
+                        $stmtinvty = $conn->prepare($sqlinvty);
+                        $stmtinvty->execute();
+
+                        $sqldatefinished = "UPDATE joborders set datefinished = CURDATE(), jostatus = 'Done' where joborderid = '$receiptNo' ";
+                        $stmtfinished = $conn->prepare($sqldatefinished);
+                        $stmtfinished->execute();
+
+                        $sqlqty = "SELECT * FROM inventory WHERE inventoryid = '" .$invtyid. "'";
+                        $result = $conn->query($sqlqty);
+                        $resultRow = $result->fetch_assoc();
+
+                        $cq = $resultRow['inventoryquantity'] - $invtyqty;
+                        $rr = $resultRow['reorderlevel'];
+                        $inventName = $resultRow['inventoryname'];
+                        $inventSize = $resultRow['inventorysize'];
+                        $imodelid = $resultRow['modelid'];
+
+                        if($inventSize = ''){
+                            $inventSize = null;
+                        }
+
+                        if($cq <= $rr) {
+                            //echo '<script>alert("HEHE");</script>'; 
+                            $nDetails = "below reorder level";
+                            $nDate = date("Y-m-d");
+                            $nTime = date("H:i:s");
+
+                            //check duplicates
+                            //echo "<script>alert('$inventName , $inventSize , $modelNo');</script>"; 
+                            $sqlcheckduplicates = "SELECT * from notification 
+                                            WHERE inventoryname LIKE '$inventName' AND inventorysize LIKE '$inventSize'";
+                            $qq = $conn->query($sqlcheckduplicates);
+                            $qqq = $qq->fetch_assoc();
+
+
+                            $modelNum = 0;
+
+                            $modelNum=$conn->real_escape_string($modelNum);
+
+                            $resultModelNum = $conn->query("SELECT modelno from models where modelid = '$imodelid'");
+
+                                  while ($row=mysqli_fetch_row($resultModelNum))
+                                      {
+                                          $modelNum = $row[0];
+                                      }
+
+                            if($qqq==null){
+                                echo "<script>alert('$inventName, $inventSize, $nDetails, $nDate, $nTime');</script>"; 
+                            $sqlnotif = "INSERT INTO notification (inventoryname, inventorysize, modelno, notificationdetails, ndate, time) 
+                                        VALUES (?, ?, ?, ?, ?, ?)";
+
+                            $stmtnotif = $conn->prepare($sqlnotif) or mysql_error();
+
+                            // Bind
+                            $stmtnotif->bind_param("ssssss", $inventName, $inventSize, $modelNum ,$nDetails, $nDate, $nTime) or mysql_error();
+                            // Execute
+
+                            $stmtnotif->execute() or mysql_error();
+                            }
+                        }
+                    }
                 }
+                    
             }
 
 
-            $sqldatefinished = "UPDATE joborders set datefinished = CURDATE(), jostatus = 'Done' where joborderid = '$receiptNo' ";
-            $stmtfinished = $conn->prepare($sqldatefinished);
-            $stmtfinished->execute();
+
    
         }
 
@@ -119,7 +202,9 @@
         $stmtpayment = $conn->prepare($sqlpayment);
         $stmtpayment->execute();
 
-        header('location:../../job-order.php');                        
+        echo '<script type="text/javascript">'; 
+        echo ' window.location = "../../job-order.php";'; 
+        echo '</script>';                        
     }
     $conn->close();
 ?>
