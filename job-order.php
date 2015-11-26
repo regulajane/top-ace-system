@@ -22,8 +22,8 @@
                         <i class="fa fa-bus"></i> Engine Reconditioning</a></li>
                     <li class="tab-nav"><a href="#vrTab" data-toggle="tab">
                         <i class="fa fa-bus"></i> Fabrication</a></li>
-                    <li class="tab-nav"><a href="#sTab" data-toggle="tab">
-                        <i class="fa fa-bus"></i> Engine Reconditioning with Fabrication</a></li>
+                    <!-- <li class="tab-nav"><a href="#sTab" data-toggle="tab">
+                        <i class="fa fa-bus"></i> Engine Reconditioning with Fabrication</a></li> -->
                 </ul>
         </div>
         </div>
