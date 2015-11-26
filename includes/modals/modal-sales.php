@@ -13,7 +13,7 @@
                         <div class="col-md-12">
                             <form class="form-horizontal" method="post" 
                                 action="includes/data-processors/sales.php" id="salesForm">
-                                <div class="control-group col-md-12">
+                                <div class="control-group col-md-20">
                                     <div class="form-group">
                                         <label class="control-label col-md-4">Cash Invoice No.:</label>
                                         <div class="col-md-6">
@@ -22,29 +22,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-4">Model No.:</label>
+                                        <label class="control-label col-md-4">Item:</label>
                                         <div class="col-md-6">
-                                            <input type="text" class="typeahead form-control"  placeholder="Model No."
-                                                id="salemodel" name="salemodel" autocomplete="off" size="15" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-4">Name:</label>
-                                        <div class="col-md-6">
-                                            <input type="text" class="typeahead form-control"  placeholder="Item"
-                                                id="salename" name="salename" autocomplete="off" size="15" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-4">Size:</label>
-                                        <div class="col-md-4">
-                                            <select class="form-control" id="salesize" name="salesize">
-                                            <option value="" disabled selected>Size</option>
-                                            <option value="0.25" >0.25</option>
-                                            <option value="0.50" >0.50</option>
-                                            <option value="0.75" >0.75</option>
-                                            <option value="STD " >STD</option>
-                                        </select>
+                                            <input type="text" class="typeahead form-control"  placeholder="Model No. - Name - Size"
+                                                id="saleitem" name="saleitem" autocomplete="off" size="50" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
