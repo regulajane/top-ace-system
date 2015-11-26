@@ -61,6 +61,7 @@
 					//echo '<script>alert("HEHE");</script>'; 
 					$nDetails = "below reorder level";
 					$nDate = date("Y-m-d");
+					$nTime = date("H:i:s");
 
 					//check duplicates
 					//echo "<script>alert('$inventName , $inventSize , $modelNo');</script>"; 
