@@ -12,7 +12,7 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $where =" 1=1 ";
-    $order_by="joborderid";
+    $order_by="joborderid desc";
     $rows=25;
     $current=1;
     $limit_l=($current * $rows) - ($rows);
