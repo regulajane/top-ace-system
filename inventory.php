@@ -34,11 +34,11 @@
 			                    <li><a data-toggle="modal"  href="#importNewItems">
 			                    	<i class="fa fa-list"></i> New Items (.excel)</a></li>
 			                    <li class="divider"></li>
-			                    <li><a data-toggle="modal"  href="#importNewItems">
+			                    <!-- <li><a data-toggle="modal"  href="#importNewItems">
 			                        <i class="fa fa-list"></i> Edit Price (.excel)</a></li>
 			                    <li class="divider"></li>
 								<li><a data-toggle="modal"  href="#importNewItems">
-			                        <i class="fa fa-list"></i> Edit Quantity (.excel)</a></li>
+			                        <i class="fa fa-list"></i> Edit Quantity (.excel)</a></li> -->
 			                </ul>
 	            		</div>
 
