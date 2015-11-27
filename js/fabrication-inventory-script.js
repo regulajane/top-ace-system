@@ -1,4 +1,4 @@
-window.onload = function () { fabOrder(); }
+window.onload = function () { fabOrder(); navbar();}
 function fabOrder(){
     document.getElementById("test1").style.visibility = 'hidden';
     // job order table
