@@ -447,7 +447,7 @@ function fabOrder(){
                 var fabjoDateStarted = fabData[0].datestarted;
                 var fabjoDateFinished = fabData[0].datefinished;
                 var fabjoBal = fabData[0].balance;
-                var fabjoDateClaimed = fabDate[0].dateclaimed;
+                var fabjoDateClaimed = fabData[0].dateclaimed;
 
                 $(".fabUpdate #receiptNo").val(fabJobOrderID);
                 $(".fabUpdate #client").val(fabClientLastname + ", " + fabClientFirstname);
