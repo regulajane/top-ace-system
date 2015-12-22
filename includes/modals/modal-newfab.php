@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h4 class="modal-title" id="myModalLabel">New Item</h4>
+                <h4 class="modal-title" id="myModalLabel">New Fabrication Item</h4>
             </div>
             <div class="newFab modal-body">
                 <div class="well">
@@ -30,7 +30,7 @@
                                  <div class="control-group form-group">
                                     <label class="control-label col-md-4">Length:</label>
                                         <div class="col-md-6">
-                                        <input type="number" class="typeahead form-control" id="itemsizelength" placeholder="Inventory Name"
+                                        <input type="number" class="typeahead form-control" id="itemsizelength" placeholder="Length"
                                            name="itemsizelength" size="20" autocomplete="off" required>             
                                     </div>
                                 </div>
