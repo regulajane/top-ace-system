@@ -68,7 +68,7 @@
 				</button>
 				<button type="button" id="procuresupplybtn" class="btn btn-info" data-toggle="modal"
 						title="Procure" href="#procSuppliesModal">
-					<span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span> Procure
+					<span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span> Subtract
 				</button>
 			</div>
 
