@@ -177,7 +177,7 @@
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Procure</h4>
+                <h4 class="modal-title" id="myModalLabel">Subtract</h4>
             </div>
             <div class="addProcSup modal-body">
                 <div class="well">
@@ -289,7 +289,7 @@
                                 </div>
 
                                 <div class="control-group form-group">
-                                    <label class="control-label col-md-4">Procure:</label>
+                                    <label class="control-label col-md-4">Subtract:</label>
                                     <div class="controls col-md-4">
                                         <input type="number" class="form-control" name="inventQtyProcured" id="inventQtyProcured"
                                             required placeholder="Quantity"/>
@@ -301,7 +301,7 @@
                                     <button type="button" class="btn btn-primary" data-dismiss="modal">
                                         <span class="glyphicon glyphicon-remove-sign"></span> Cancel </button>
                                     <button type="submit" name="outsupply" class="btn btn-success" form="supplyForm3" value="Procure Supply">
-                                        <span class="glyphicon glyphicon-ok-sign"></span> Procure </button>
+                                        <span class="glyphicon glyphicon-ok-sign"></span> Subtract </button>
                                     </div> 
                                 </div>
                             </form>
