@@ -468,6 +468,9 @@ input[type="checkbox"]:checked:after {
     left: 50%;
 }
 
+#salesTable-header > div > div {
+    margin-top: 50px;
+}
 /*#joForm > div:nth-child(20) > div > span{
     width: 100%;
 }
