@@ -16,9 +16,37 @@
     <div class="pagecontainer">
     <br>
     <div class="container" id="sales">   
+
+        <div class="actionBtns">
+            <label>Select Year</label>
+            <select id="saleYear" name="saleYear" style="border-radius: 4px;" required>
+                <option value="" disabled selected >Select Year</option>
+                    <?php
+                        $sql = "SELECT saledate from sales ORDER BY saledate"; 
+                        $result = $conn->query($sql);
+                        $counterYear = array("");
+                        if ($result->num_rows > 0) {
+                             // output data of each row
+                            while($resultRow = $result->fetch_assoc()){
+                                 $year = explode("-",$resultRow['saledate']);
+                                 
+                                 
+                                if(in_array( strval($year[0]), $counterYear) == false){     
+                                    $option = '<option value="' . $resultRow['saleYear'] . '">' . $year[0] . '</option>';
+                                    echo ($option);
+                                    array_push($counterYear, strval($year[0]));
+                                }
+                                
+                            }
+                        }
+
+                    ?>
+                </select>
+        </div>
+
         <!-- Graph -->
         <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-               
+
         <div class="actionBtns">
             <button type="button" id="newsalebtn" class="btn btn-info" data-toggle="modal" 
                 href="#salesModal"><i class="fa fa-plus fa-fw"></i> New Sale </button>
