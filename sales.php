@@ -8,17 +8,24 @@
             header('Location: index.php?loggedout=true');}
     ?>
     <script src="js/sales-script.js"></script>
+    <script type="text/javascript" src="js/graph/canvasjs.min.js"></script>
     <title>Sales</title>
 </head>
 <body>
     <?php include 'includes/nav.php'; ?>
     <div class="pagecontainer">
     <br>
-    <div class="container" id="sales">          
+    <div class="container" id="sales">   
+        <!-- Graph -->
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+               
         <div class="actionBtns">
             <button type="button" id="newsalebtn" class="btn btn-info" data-toggle="modal" 
                 href="#salesModal"><i class="fa fa-plus fa-fw"></i> New Sale </button>
         </div>
+
+        
+
         <!-- SalesTable -->
         <div>
             <table  id="salesTable" class="table table-condensed table-hover table-striped">
