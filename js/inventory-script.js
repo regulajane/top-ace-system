@@ -107,7 +107,7 @@ function supplies(){
                     }
                 }
             },
-            choice: {
+            textArea: {
                 validators: {
                     notEmpty: {
                         message: 'Reason is required'
