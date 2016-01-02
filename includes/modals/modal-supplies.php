@@ -231,15 +231,16 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-4">Reason:</label>
                                     <div class="controls col-md-8">
-                                        <div>
+<!--                                         <div>
                                             <label class="control-label"><input type="radio" name="choice" value="Sales" id="sales" onclick="deleteTextBox()" /> Sales</label>
                                             <div class="col-md-11" id ="salesreason"></div>
-                                        </div>
+                                        </div> -->
                                         <div>
-                                            <label class="control-label"><input type="radio" name="choice" onclick="showTextBox()" id="others" /> Others (Please Specify):</label>
-                                            <div class="col-md-11" id ="reasonOfP"></div>
+                                            <label class="control-label"></label>
+                                            <textarea id = "textArea" name = "textArea" class = "form-control"
+                                                rows = "3" maxlength = "300" placeholder = "Reason of Adjustment"> </textarea>
                                         </div> 
-                                        <script>
+                                       <!-- <script>
                                             function showTextBox(){
                                                 if(document.getElementById('saleci') != null) {
                                                     var res = document.getElementById("salesreason");
@@ -257,8 +258,24 @@
                                                             tb.setAttribute('class',"form-control");
                                                             tb.setAttribute('rows',"3");
                                                             tb.setAttribute('maxlength',"300");
-                                                            tb.setAttribute('placeholder',"...");
-                                                        r.appendChild(tb);   
+                                                            $('#supplyForm3').bootstrapValidator({
+                                                            feedbackIcons: {
+                                                                message: 'This value is not valid',
+                                                                valid: 'glyphicon glyphicon-ok',
+                                                                invalid: 'glyphicon glyphicon-remove',
+                                                                validating: 'glyphicon glyphicon-refresh'
+                                                            },
+                                                            fields: {
+                                                                textArea: {
+                                                                    validators: {
+                                                                        notEmpty: {
+                                                                            message: 'Reason is required'
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        });
+                                                            r.appendChild(tb);   
                                                     }
                                                 }
                                             }
@@ -284,7 +301,7 @@
                                                     }
                                                 }
                                             }
-                                        </script>
+                                        </script> -->
                                     </div>
                                 </div>
 
