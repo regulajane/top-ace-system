@@ -23,9 +23,7 @@
 
 	$modelno  = $split[0];
 	$itemname = $split[1];
-	echo $split[2];
  		if($split[2] == 'No Size'){
- 			echo 'dumaan';
  			$count="SELECT count(*) AS count from inventory JOIN models USING(modelid) where 
 						modelno LIKE '$modelno'
 		 				&& inventoryname LIKE '$itemname'
@@ -63,22 +61,6 @@
     	$total = $noofitems*$price;
 
 		if ($nRows['count'] > 0) {
-			// ---------------------------------------INSERT----------------------------------------------
-			// Prepare
-			$sql = "INSERT INTO sales (invoiceno, saledate, noofitems, saleprice, itemsize, itemname, total, modelno) 
-					VALUES (?, ?, ?, ?, ?, ?, ?, ?)";			
-			$stmt = $conn->prepare($sql);
-			// Bind
-			$stmt->bind_param("ssisssss", $invoiceno, $saledate, $noofitems, $price, $itemsize, $itemname, $total, $modelno);
-			// Execute 
-			$stmt->execute();
-
-			//outgoing
-			ini_set('date.timezone', 'Asia/Manila');
-			$otDate = date("Y-m-d"); 
-			$otTime = date("H:i:s");
-			$otQty = $noofitems;
-			$procuredBy = $_SESSION["username"];
 			
 			$sqlqty = "SELECT inventoryquantity, reorderlevel FROM inventory WHERE inventoryid = '" .$inventID. "'";
 			$result = $conn->query($sqlqty);
@@ -97,8 +79,25 @@
 			echo 'window.location.href = "../../sales.php";';
 			echo '</script>';
 
-		}  else {
-			if($cq <= $rr) {
+			}  else {
+				// ---------------------------------------INSERT----------------------------------------------
+				// Prepare
+				$sql = "INSERT INTO sales (invoiceno, saledate, noofitems, saleprice, itemsize, itemname, total, modelno) 
+						VALUES (?, ?, ?, ?, ?, ?, ?, ?)";			
+				$stmt = $conn->prepare($sql);
+				// Bind
+				$stmt->bind_param("ssisssss", $invoiceno, $saledate, $noofitems, $price, $itemsize, $itemname, $total, $modelno);
+				// Execute 
+				$stmt->execute();
+
+				//outgoing
+				ini_set('date.timezone', 'Asia/Manila');
+				$otDate = date("Y-m-d"); 
+				$otTime = date("H:i:s");
+				$otQty = $noofitems;
+				$procuredBy = $_SESSION["username"];
+				
+				if($cq <= $rr) {
 					//echo '<script>alert("HEHE");</script>'; 
 					$nDetails = "below reorder level";
 					$nDate = date("Y-m-d");
@@ -146,7 +145,6 @@
 				//echo '</script>';
 
 			}
-			//-----------------------------CREATE procureSupply TRIGGER------------------------------------
 			$sql = 	"UPDATE inventory
 					SET inventoryquantity = inventoryquantity - '$noofitems'
 					WHERE inventoryid = '$inventID'";
@@ -154,7 +152,7 @@
 			$stmt->execute();
 			
 			$reason = "Sales";
-			//-----------------------------INSERT INTO OUTGOINGSUPPLIES------------------------------------
+			
 			$sql2 = "INSERT INTO outgoingitems (isdate, time, quantity, enteredby, inventoryid, reason) 
 						VALUES (?, ?, ?, ?, ?, ?)";
 
