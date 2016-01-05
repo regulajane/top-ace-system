@@ -324,8 +324,13 @@ function fabOrder(){
                                             div3.appendChild(removebtn);
                                             div3.appendChild(document.createElement('br'));      
                                         }
-                                        addbtn.setAttribute("click", addOrderInEdit('fabrication'));        
-                                        $('#editFabModal').modal('show');
+                                        addbtn.setAttribute("click", addOrderInEdit('fabrication'));
+                                        if(fabData[0].jostatus == "Done" ){
+                                            alert("Cannot Edit a finished job order");
+                                        }else{
+                                             $('#editFabModal').modal('show');   
+                                        }
+                                       
                                     }
                                 });
                             }

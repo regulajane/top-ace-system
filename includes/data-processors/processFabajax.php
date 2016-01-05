@@ -34,6 +34,7 @@
                 emplastname,
                 empfirstname,
                 fabricationstatus,
+                jostatus,
                 balance from joborders join fabrications using (joborderid) join clients using (clientid) join joemployees using (joborderid) join employees using (employeeid) where joborderid = $num group by fabricationid;";
     $stmt=$conn->prepare($sql);
     $stmt->execute();
