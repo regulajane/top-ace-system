@@ -48,7 +48,7 @@
     //Query (Warning: Prone to SQL injection.)
     $sql="SELECT 
             saleid,
-            date_format(saledate,' %b. %m, %Y') as saledate,
+            saledate,
             invoiceno,
             itemname,
             saleprice,
