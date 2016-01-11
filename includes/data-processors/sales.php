@@ -13,6 +13,10 @@
 	// $saleprice = $_POST["saleprice"];
 	$saledate = $_POST["saledate"];
 
+	echo '<script type="text/javascript">'; 
+	echo 'alert("$itemnamefull");'; 
+	echo 'window.location.href = "../../sales.php";';
+	echo '</script>';
 
 	
 
@@ -71,7 +75,7 @@
 	 		
 
 			//time
-			$saledate = date("Y-m-d");
+			//$saledate = date("Y-m-d");
 
 			if ($noofitems > $resultRow['inventoryquantity']) { 
 			echo '<script type="text/javascript">'; 
