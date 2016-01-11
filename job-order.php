@@ -61,13 +61,13 @@
                                         Date Finished</th>
                                     <th data-column-id="clientname" data-visible="true">
                                         Client name</th>
-                                    <th data-column-id="joprice" data-visible="true">
+                                    <th data-column-id="joprice" data-visible="true" data-align="right" data-header-align="right">
                                         Grand Total</th>
-                                    <th data-column-id="downpayment" data-visible="true">
+                                    <th data-column-id="downpayment" data-visible="true" data-align="right" data-header-align="right">
                                         Downpayment</th>
-                                    <th data-column-id="balance" data-visible="true">
+                                    <th data-column-id="balance" data-visible="true" data-align="right" data-header-align="right">
                                         Balance</th>
-                                    <th data-column-id="jostatus" data-visible="true">
+                                    <th data-column-id="jostatus" data-visible="true" data-align="center" data-header-align="center">
                                         Status</th>
                                     <th data-column-id="preparedby" data-visible="false">
                                         Received by</th>
@@ -118,13 +118,13 @@
                                         Date Finished</th>
                                     <th data-column-id="clientname" data-visible="true">
                                         Client name</th>
-                                    <th data-column-id="joprice" data-visible="true">
+                                    <th data-column-id="joprice" data-visible="true" data-align="right" data-header-align="right">
                                         Grand Total</th>
-                                    <th data-column-id="downpayment" data-visible="true">
+                                    <th data-column-id="downpayment" data-visible="true" data-align="right" data-header-align="right">
                                         Downpayment</th>
-                                    <th data-column-id="balance" data-visible="true">
+                                    <th data-column-id="balance" data-visible="true" data-align="right" data-header-align="right">
                                         Balance</th>
-                                    <th data-column-id="jostatus" data-visible="true">
+                                    <th data-column-id="jostatus" data-visible="true" data-align="center" data-header-align="center">
                                         Status</th>
                                     <th data-column-id="preparedby" data-visible="false">
                                         Received by</th>

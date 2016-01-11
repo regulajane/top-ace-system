@@ -55,7 +55,7 @@
     //Query (Warning: Prone to SQL injection.)SELECT * from fabrications natural join client WHERE $where ORDER BY $order_by $limit
     
     $sql="SELECT  joborders.joborderid,
-                  date_format(datebrought,' %M. %d, %Y') as datebrought,
+                  joborders.datebrought,
                   joborders.datestarted,
                   joborders.datefinished,
                   joborders.dateclaimed,

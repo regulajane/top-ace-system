@@ -92,8 +92,8 @@
 
                                            
                                         ?>
-                                        <input type="text" class="form-control" id="ic" name="ic" 
-                                            value="<?php echo $totalitemprice; ?>" readonly>
+                                        <input type="text" class="form-control input-right" id="ic" name="ic" 
+                                            value="<?php echo $totalitemprice; ?>" readonly >
                                         
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@
 
                                            
                                         ?>
-                                        <input type="text" class="form-control" id="sac" name="sac" 
+                                        <input type="text" class="form-control input-right" id="sac" name="sac" 
                                             value="<?php echo $servicestotal; ?>" readonly>
                                         
                                     </div>
@@ -122,7 +122,7 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Additional:</label>
                                     <div class="controls col-md-4">
-                                        <input type="number" class="form-control" id="markup" name="markup" 
+                                        <input type="number" class="form-control input-right" id="markup" name="markup" 
                                             placeholder="0.00" autocomplete="off">
                                     </div>
                                 </div>
@@ -130,7 +130,7 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Discount:</label>
                                     <div class="controls col-md-4">
-                                        <input type="number" class="form-control" id="discount" name="discount" 
+                                        <input type="number" class="form-control input-right" id="discount" name="discount" 
                                             placeholder="0.00" autocomplete="off">
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@
                                 <div class="control-group form-group">
                                     <label class="control-label col-md-3">Downpayment:</label>
                                     <div class="controls col-md-4">
-                                        <input type="number" class="form-control" id="downpayment" name="downpayment" 
+                                        <input type="number" class="form-control input-right" id="downpayment" name="downpayment" 
                                             placeholder="500.00" autocomplete="off">
                                     </div>
                                 </div>
