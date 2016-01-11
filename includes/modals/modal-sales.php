@@ -18,7 +18,7 @@
                                         <label class="control-label col-md-4">Cash Invoice No.:</label>
                                         <div class="col-md-8">
                                             <input type="text" class="form-control"  placeholder="Cash Invoice No."
-                                                id="saleci" name="saleci" required>
+                                                id="saleci" name="saleci" required autocomplete="off">
                                         </div>
                                     </div>
 
@@ -27,12 +27,14 @@
                                         <div class="col-md-8">
                                             <input type="text" class="typeahead form-control"  placeholder="Model No. - Name - Size"
                                                 id="saleitem" name="saleitem" autocomplete="off" size="50" required>
+                                            <input value="0" id="totalNoOfItems" name="totalNoOfItems" size="50" hidden>
                                         </div>
                                         
 
                                             <script type="text/javascript">
+                                            var counter = 0;
                                                 function addItem(){
-                                                    
+                                                    counter++;
                                                     var hr = document.createElement("hr");
                                                     var div = document.createElement("div");
                                                         div.setAttribute('class',"col-md-8");
@@ -47,8 +49,8 @@
 
                                                     var  input = document.createElement("input");
                                                             input.setAttribute('type',"text");
-                                                            input.setAttribute('id',"asaleitem");
-                                                            input.setAttribute('name', "asaleitem");
+                                                            input.id = "saleitem"+counter;
+                                                            input.name = "saleitem"+counter;
                                                             input.setAttribute('class',"typeahead form-control");
                                                             input.setAttribute('size',"50");
                                                             input.setAttribute('placeholder',"Model No. - Name - Size");
@@ -59,18 +61,25 @@
 
                                                     var  input1 = document.createElement("input");
                                                             input1.setAttribute('type',"number");
-                                                            input1.setAttribute('id',"asaleqty");
-                                                            input1.setAttribute('name', "asaleqty");
+                                                            input1.id = "saleqty"+counter;
+                                                            input1.name = "saleqty"+counter;
                                                             input1.setAttribute('class',"form-control");
                                                             input1.setAttribute('min',"1");
                                                             input1.setAttribute('placeholder',"Quantity");
 
+                                                    var  chidden = document.getElementById("totalNoOfItems");
+                                                         chidden.value = counter;
                                                     //x.appendChild(br);
 
                                                     div.appendChild(label);
                                                     div.appendChild(input);
                                                     div.appendChild(label1);
                                                     div.appendChild(input1);
+                                                    if(counter == 0){
+                                                        }else{
+                                                            div.appendChild(chidden);
+                                                        }
+                                                    
                                                     
 
                                                     var w = document.createElement("button");
@@ -84,8 +93,8 @@
                                                     div.appendChild(hr);
                                                     x.appendChild(div);
 
-                                                    $('.sales #asaleitem').typeahead({
-                                                        name: 'asaleitem',
+                                                    $('.sales #saleitem'+counter).typeahead({
+                                                        name: 'saleitem',
                                                         remote:'includes/data-processors/searchitemsale.php?key=%QUERY',
                                                         limit : 8
                                                     });
