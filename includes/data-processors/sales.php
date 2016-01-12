@@ -169,9 +169,9 @@
 
 			//$ssssssss = (string)$_POST[$itemnamer];
 			$testItem = $_POST[$itemnamer];
-			echo '<script type="text/javascript">'; 
+			/*echo '<script type="text/javascript">'; 
 			echo "alert('$testItem');";
-			echo '</script>';
+			echo '</script>';*/
 			//if(in_array(strval($_POST[$itemnamer]), $counterItems) == false){
 			if($testItem = ''){
 			
