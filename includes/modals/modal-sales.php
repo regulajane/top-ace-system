@@ -27,7 +27,7 @@
                                         <div class="col-md-8">
                                             <input type="text" class="typeahead form-control"  placeholder="Model No. - Name - Size"
                                                 id="saleitem" name="saleitem" autocomplete="off" size="50" required>
-                                            <input value="0" id="totalNoOfItems" name="totalNoOfItems" size="50" hidden>
+                                            <input id="totalNoOfItems" name="totalNoOfItems" hidden>    
                                         </div>
                                         
 
@@ -68,17 +68,24 @@
                                                             input1.setAttribute('placeholder',"Quantity");
 
                                                     var  chidden = document.getElementById("totalNoOfItems");
-                                                         chidden.value = counter;
+                                                    //alert(chidden);
+                                                    /*if(chidden = ''){
+                                                        //alert(chidden);
+                                                        var  chidden = document.createElement("input");
+                                                             chidden.id = "totalNoOfItems";
+                                                             chidden.name = "totalNoOfItems";
+                                                             div.appendChild(chidden);  
+                                                             chidden.value = counter; 
+                                                    }else{*/
+                                                        chidden.value = counter;
+                                                    //}
                                                     //x.appendChild(br);
 
                                                     div.appendChild(label);
                                                     div.appendChild(input);
                                                     div.appendChild(label1);
                                                     div.appendChild(input1);
-                                                    if(counter == 0){
-                                                        }else{
-                                                            div.appendChild(chidden);
-                                                        }
+                                                    //div.appendChild(chidden);
                                                     
                                                     
 
@@ -87,7 +94,6 @@
                                                             w.innerHTML = "<i class='fa fa-minus'></i>";
                                                             w.onclick =  function removeItem(){
                                                                                     w.parentNode.innerHTML = "";
-                                                                                    //w.parentNode.parentNode.innerHTML = "";
                                                                                     }       
                                                     div.appendChild(w);
                                                     div.appendChild(hr);
