@@ -9,10 +9,10 @@
 		$inventName = $_POST["inventName"];
 		$inventSize = $_POST["inventSize"];
 		$inventPrice = $_POST["inventPrice"];
-		$quantity = $_POST["inventQtyAdded"];
+		$quantity = (int)$_POST["inventQtyAdded"];
 		$modelNo = $_POST["modelNum"];
-		$rl = $_POST["rl"];
-		$inventQty = $_POST["inventQty"];
+		$rl = (int)$_POST["rl"];
+		$inventQty = (int)$_POST["inventQty"];
 
 		//Ingoing
 		ini_set('date.timezone', 'Asia/Manila');
@@ -21,10 +21,10 @@
 		$isQty = $quantity;
 		$enteredBy = $_SESSION["username"];
 
+
 		//echo "<script>alert('$isDate $isTime $isQty $enteredBy $inventID')</script>";
 
-		$sqlchecknotif = "SELECT * from notification where inventoryname = '$inventName' 
-							AND inventorysize = '$inventSize' AND modelno = '$modelNo'";
+		$sqlchecknotif = "SELECT * from notification where inventoryname = '$inventName' AND modelno = '$modelNo'";
         $s = $conn->query($sqlchecknotif);
         $ss = $s->fetch_assoc(); 
 
@@ -32,8 +32,7 @@
 
         }else{
         	if(($inventQty+$quantity)>$rl){
-    			$sqlgetnotif = "DELETE from notification where inventoryname = '$inventName' 
-						AND inventorysize = '$inventSize' AND modelno = '$modelNo'";
+    			$sqlgetnotif = "DELETE from notification where inventoryname = '$inventName'  AND modelno = '$modelNo'";
 		        $s = $conn->prepare($sqlgetnotif);
 		        $s->execute();
         	}
