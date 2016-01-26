@@ -55,7 +55,7 @@
         $stmt->execute();
 
         //-----------------------------SELECT JOB ORDER ID------------------------------------
-        $sqlmaxjoid = "SELECT joborderid from joborders order by joborderid desc limit 1";
+        $sqlmaxjoid = "SELECT joborderid from joborders order by datebrought desc, joborderid desc limit 1";
         $r = $conn->query($sqlmaxjoid);
         $rr = $r->fetch_assoc(); 
         $maxjoid = $rr['joborderid'];

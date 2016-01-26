@@ -55,10 +55,10 @@
             // Execute
             $stmt1->execute();
 
-            $sqljoNum = "SELECT max(joborderid) as latestjoborder FROM joborders";
+            $sqljoNum = "SELECT joborderid from joborders order by datebrought desc, joborderid desc limit 1";
              $result = $conn->query($sqljoNum);
              $resultRow = $result->fetch_assoc();
-             $latestjoborderid = $resultRow['latestjoborder'];
+             $latestjoborderid = $resultRow['joborderid'];
 
             for($i=0 ;$i < count($_POST['item']); $i++) {
                 if ($_POST['item'][$i] != ''){

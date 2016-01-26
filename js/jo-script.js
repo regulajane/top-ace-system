@@ -899,8 +899,13 @@ function jobOrder(){
                             div3.appendChild(removebtn);
 
                         }
-                        addbtn.setAttribute("click", addServiceinEdit('joborder')); 
-                        $('#editJoModal').modal('show');
+                        addbtn.setAttribute("click", addServiceinEdit('joborder'));
+                        if(joData[0].jostatus == "Done" ){
+                                            alert("Cannot Edit a finished job order");
+                                        }else{
+                                            $('#editJoModal').modal('show');
+                                        }
+                        
                     }
                     
                 });

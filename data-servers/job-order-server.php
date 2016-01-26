@@ -12,7 +12,7 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $where =" 1=1 ";
-    $order_by="joborderid desc";
+    $order_by="datebrought desc, joborderid desc";
     $rows=25;
     $current=1;
     $limit_l=($current * $rows) - ($rows);
@@ -72,7 +72,7 @@
                   concat(cllastname,', ',clfirstname) as clientname  
                     
                   from joborders join clients using (clientid) 
-                  where $where AND jotype != 'Fabrication'
+                  where $where AND joborders.jotype = 'EngRecon'
                   ORDER BY $order_by $limit";
     $stmt=$conn->prepare($sql);
     $stmt->execute();
