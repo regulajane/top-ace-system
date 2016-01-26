@@ -31,8 +31,8 @@
     if (isset($_REQUEST['searchPhrase']) )
       {
         $search=trim($_REQUEST['searchPhrase']);
-        $where.= " AND ( joborderid LIKE '%".$search."%' OR cllastname LIKE '%".$search."%' OR clfirstname LIKE '%".$search."%' 
-          OR datebrought LIKE '%".$search."%' OR jostatus LIKE '%".$search."%' OR jotype LIKE '%".$search."%') "; 
+        $where.= " AND (joborderid LIKE '%".$search."%' OR cllastname LIKE '%".$search."%' OR clfirstname LIKE '%".$search."%' 
+          OR datebrought LIKE '%".$search."%' OR jostatus LIKE '%".$search."%') "; 
       }
 
     //Row Count
@@ -72,7 +72,7 @@
                   concat(cllastname,', ',clfirstname) as clientname  
                     
                   from joborders join clients using (clientid) 
-                  where $where AND joborders.jotype = 'EngRecon'
+                  where jotype = 'EngRecon' AND $where  
                   ORDER BY $order_by $limit";
     $stmt=$conn->prepare($sql);
     $stmt->execute();
@@ -80,7 +80,7 @@
 
     $json=json_encode( $results_array );
 
-    $nRows=$conn->query("SELECT count(*) from joborders")->fetchColumn();
+    $nRows=$conn->query("SELECT count(*) from joborders where jotype = 'EngRecon' ")->fetchColumn();
 
     header('Content-Type: application/json');
 
